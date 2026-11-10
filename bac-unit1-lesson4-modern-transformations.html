@@ -1,0 +1,4382 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>درس التحولات الكبرى في مصر (العصر الحديث) - البكالوريا المصرية - أ/ السيد صالح</title>
+    <!-- استدعاء خط احترافي -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;      
+            --primary-light: #2563eb; 
+            --secondary: #1e40af;    
+            --success: #10b981;      
+            --danger: #ef4444;       
+            --warning: #f59e0b;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #eef2ff;
+            background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        /* --- الهيدر الرئيسي --- */
+        .header-main {
+            background: linear-gradient(135deg, #0b1a3f, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #fde68a;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.4rem, 5.5vw, 2.6rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #fcd34d, #b45309);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #fffbeb; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* --- الأزرار --- */
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        /* --- الشاشة الرئيسية --- */
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(34, 197, 94, 0.25); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #fde68a, #fde68a);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #1e3a8a; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.4rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 1rem; color: #64748b; font-weight: 600;}
+
+        /* --- شاشة اللعب --- */
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #2563eb; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #1e40af;
+            line-height: 1.6;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        /* MCQ Style */
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1.1rem, 3.5vw, 1.4rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        /* True/False Style */
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        /* Bubbles Style */
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #0b1a3f, #1e3a8a);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #2563eb; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(224,231,255,0.9));
+            color: #1e3a8a;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.85rem, 2vw, 1.05rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        /* Shooting Style */
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23e0fbfc" width="100%" height="100%"/><circle fill="%23bae6fd" cx="20%" cy="30%" r="50"/><circle fill="%23bae6fd" cx="80%" cy="60%" r="70"/><circle fill="%23bae6fd" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #2563eb; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.15rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #fffbeb; }
+
+        /* Genius Challenge Style */
+        .genius-wrap {
+            background: linear-gradient(135deg, #0b1a3f, #1e3a8a, #b45309);
+            border-radius: 16px; padding: 20px; margin-top: 10px;
+            border: 4px solid #fcd34d; box-shadow: inset 0 0 25px rgba(0,0,0,0.4), 0 10px 20px rgba(21,128,61,0.35);
+        }
+        .genius-timer-track {
+            width: 100%; height: 14px; background: rgba(0,0,0,0.35);
+            border-radius: 10px; overflow: hidden; margin-bottom: 18px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .genius-timer-bar {
+            height: 100%; width: 100%;
+            background: linear-gradient(to right, #fcd34d, #2563eb, #ef4444);
+            border-radius: 10px;
+            transition: width 0.1s linear;
+        }
+        .genius-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 600px) { .genius-options { grid-template-columns: 1fr; } }
+        .genius-options .btn {
+            padding: 16px 10px; font-size: clamp(1rem, 3vw, 1.25rem);
+            background: linear-gradient(to bottom, #3b82f6, #b45309);
+            border-bottom: 3px solid #1e3a8a; border-radius: 14px; min-height: 70px;
+        }
+        .genius-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(74, 222, 128, 0.15); color: #fcd34d;
+            font-weight: 800; padding: 6px 16px; border-radius: 20px;
+            border: 1px solid rgba(253,224,71,0.4); margin-bottom: 12px; font-size: 0.95rem;
+        }
+
+        /* Result Share (WhatsApp) */
+        .share-box {
+            margin-top: 25px; background: #fffbeb; border: 2px solid #fde68a;
+            border-radius: 16px; padding: 20px; text-align: center;
+        }
+        .share-box h4 { color: #1e3a8a; font-size: 1.2rem; margin-bottom: 12px; font-weight: 800;}
+        .share-name-input {
+            width: 100%; max-width: 320px; padding: 12px 16px; border-radius: 12px;
+            border: 2px solid #fde047; font-size: 1.05rem; text-align: center;
+            font-family: 'Cairo', sans-serif; font-weight: 700; margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .share-name-input:focus { outline: none; border-color: #2563eb; }
+        .btn-share {
+            background: linear-gradient(to bottom, #25d366, #1da851);
+            border-bottom-color: #128c3e; display: inline-flex; gap: 10px;
+        }
+        .share-warning { color: var(--danger); font-weight: 700; font-size: 0.9rem; margin-top: 8px; display: none; }
+
+        /* Modal Overlay */
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        /* Summary Errors Scrolling */
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* الفوتر (Footer) */
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        /* WhatsApp */
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px;
+            background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100; transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        /* Confetti effect */
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+
+        /* Map Challenge Style */
+        .map-stage { text-align: center; margin-bottom: 18px; }
+        .map-wrap { position: relative; display: inline-block; max-width: 100%; border-radius: 14px; overflow: hidden;
+            border: 4px solid #2563eb; box-shadow: 0 10px 20px rgba(0,0,0,0.12); background: #fff; }
+        .map-wrap img { display: block; max-width: 100%; max-height: 58vh; width: auto; height: auto; margin: 0 auto; }
+        .map-mask { position: absolute; background: linear-gradient(135deg, #f59e0b, #ea580c); border: 2px solid #fff;
+            border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff;
+            font-weight: 900; font-size: clamp(0.9rem, 2.4vw, 1.4rem); box-shadow: 0 3px 8px rgba(0,0,0,0.35);
+            transition: opacity 0.5s ease; animation: maskPulse 1.6s ease-in-out infinite; }
+        .map-mask.revealed { opacity: 0; animation: none; }
+        @keyframes maskPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+        .map-stage.zoomed { overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
+        .map-stage.zoomed .map-wrap { max-width: none; }
+        .map-stage.zoomed .map-wrap img { max-width: none; max-height: none; width: min(1400px, 230vw); }
+        .map-wrap { cursor: zoom-in; }
+        .map-stage.zoomed .map-wrap { cursor: zoom-out; }
+        .map-hint { color: #b45309; font-weight: 700; font-size: 0.95rem; margin-top: 8px; }
+        .map-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 600px) { .map-options { grid-template-columns: 1fr; } }
+        .map-options .btn { padding: 14px 10px; font-size: clamp(1rem, 3vw, 1.2rem); min-height: 60px; }
+        .map-options .btn.ok { background: linear-gradient(to bottom, #10b981, #047857) !important; }
+        .map-options .btn.bad { background: linear-gradient(to bottom, #ef4444, #b91c1c) !important; }
+        .header-logo { width: 260px; height: 260px; border-radius: 30px; border: 4px solid var(--warning);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: contain; flex-shrink: 0; }
+        @media (max-width: 600px) { .header-logo { width: 170px; height: 170px; } }
+        .teacher-photo { width: 200px; height: 260px; border-radius: 30px; border: 4px solid var(--warning);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4); object-fit: cover; object-position: center top; flex-shrink: 0; background:#fff; }
+        .teacher-sub { color: #fde68a; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.2rem); margin: -8px 0 10px; }
+        @media (max-width: 600px) { .teacher-photo { width: 130px; height: 170px; } }
+
+        /* اختيار طريقة اللعب + المنافسة بين فريقين */
+        .mode-modal { background: white; border-radius: 24px; padding: 28px 22px; width: 460px; max-width: 92%;
+            text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.35); max-height: 92vh; overflow-y: auto; }
+        .mode-modal h2 { color: var(--primary); font-size: 1.5rem; font-weight: 900; margin-bottom: 4px; }
+        .mode-modal .mode-sub { color: #64748b; font-weight: 700; margin-bottom: 18px; }
+        .mode-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 480px) { .mode-choices { grid-template-columns: 1fr; } }
+        .mode-choice { border: 3px solid #fde68a; border-radius: 18px; padding: 18px 10px; cursor: pointer; background: #fffbeb;
+            transition: all .2s; font-weight: 800; color: var(--dark); }
+        .mode-choice:hover { transform: translateY(-3px); border-color: var(--primary-light); }
+        .mode-choice .mc-ico { font-size: 2.2rem; display: block; margin-bottom: 6px; }
+        .mode-choice small { display: block; color: #64748b; font-weight: 600; margin-top: 4px; font-size: .85rem; }
+        .team-setup { display: none; margin-top: 18px; text-align: right; }
+        .team-setup.show { display: block; }
+        .team-setup label { font-weight: 800; color: var(--primary); display: block; margin: 8px 0 4px; }
+        .team-setup input { width: 100%; padding: 11px 14px; border-radius: 12px; border: 2px solid #fde047; font-family: 'Cairo', sans-serif;
+            font-size: 1.05rem; font-weight: 700; text-align: center; }
+        .team-setup input:focus { outline: none; border-color: var(--primary-light); }
+        .mode-actions { display: flex; gap: 10px; margin-top: 16px; }
+        .mode-actions .btn { flex: 1; }
+        .mode-cancel { background: #e2e8f0 !important; color: var(--dark) !important; border-bottom-color: #cbd5e1 !important; }
+        .team-board { display: none; max-width: 900px; width: calc(100% - 40px); margin: -8px auto 16px; gap: 10px; }
+        .team-board.show { display: flex; }
+        .team-card { flex: 1; background: white; border-radius: 14px; padding: 8px 12px; display: flex; align-items: center;
+            justify-content: space-between; gap: 8px; border: 3px solid transparent; box-shadow: 0 4px 10px rgba(0,0,0,.06);
+            font-weight: 800; transition: all .25s; min-width: 0; }
+        .team-card .tname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .team-card .tscore { font-size: 1.4rem; font-weight: 900; min-width: 36px; text-align: center; border-radius: 10px; padding: 0 8px; color: white; }
+        .team-card.t0 .tscore { background: #2563eb; } .team-card.t1 .tscore { background: #ea580c; }
+        .team-card.active.t0 { border-color: #2563eb; transform: scale(1.03); background: #fffbeb; }
+        .team-card.active.t1 { border-color: #ea580c; transform: scale(1.03); background: #fff7ed; }
+        .team-card .turn-tag { font-size: .75rem; padding: 2px 8px; border-radius: 10px; background: #fef3c7; color: #92400e; display: none; }
+        .team-card.active .turn-tag { display: inline-block; }
+        .winner-box { border-radius: 20px; padding: 22px; margin: 18px 0; color: white; background: linear-gradient(135deg, #f59e0b, #ea580c); }
+        .winner-box h3 { font-size: 1.8rem; font-weight: 900; }
+        .final-scores { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+        .final-scores div { background: rgba(255,255,255,.2); border-radius: 14px; padding: 8px 18px; font-weight: 800; font-size: 1.15rem; }
+
+        /* ===== منافسة الفريقين: شاشة مقسومة ===== */
+        body.duel-on { overflow: hidden; }
+        .duel-screen { position: fixed; inset: 0; z-index: 500; display: flex; flex-direction: column;
+            background-color: #eef2ff; background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px); background-size: 25px 25px; }
+        .duel-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: white;
+            padding: 8px 14px; box-shadow: 0 4px 12px rgba(0,0,0,.06); font-weight: 800; flex-shrink: 0; }
+        .duel-top strong { color: var(--primary); font-size: clamp(.95rem, 2.6vw, 1.2rem); text-align: center; flex: 1;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .duel-top .back-btn { padding: 6px 14px; font-size: 1rem; }
+        .duel-top .duel-tag { background: #fef3c7; color: #92400e; border-radius: 20px; padding: 4px 12px; font-size: .85rem; white-space: nowrap; }
+        .duel-halves { flex: 1; display: flex; min-height: 0; }
+        .duel-half { flex: 1; min-width: 0; min-height: 0; overflow-y: auto; padding: 10px 12px 16px; display: flex;
+            flex-direction: column; gap: 10px; position: relative; transition: background .3s; }
+        .duel-half.t0 { background: rgba(13,148,136,.06); }
+        .duel-half.t1 { background: rgba(234,88,12,.06); }
+        .duel-half.flash-ok { background: rgba(16,185,129,.22); }
+        .duel-half.flash-bad { background: rgba(239,68,68,.20); }
+        .duel-divider { width: 6px; flex-shrink: 0; background: linear-gradient(to bottom, #2563eb, #f59e0b, #ea580c); position: relative; }
+        .duel-divider span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--dark); color: #fde68a;
+            font-weight: 900; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+            border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,.3); font-size: .95rem; z-index: 2; }
+        .dh-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: white; border-radius: 14px;
+            padding: 8px 12px; box-shadow: 0 4px 10px rgba(0,0,0,.06); border: 3px solid transparent; font-weight: 800; }
+        .t0 .dh-head { border-color: #2563eb; } .t1 .dh-head { border-color: #ea580c; }
+        .dh-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: clamp(.95rem, 2.4vw, 1.2rem); }
+        .t0 .dh-name { color: #b45309; } .t1 .dh-name { color: #c2410c; }
+        .dh-meta { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+        .dh-prog { background: #f1f5f9; color: #475569; border-radius: 10px; padding: 2px 8px; font-size: .85rem; }
+        .dh-score { color: white; border-radius: 10px; padding: 0 10px; font-size: 1.3rem; font-weight: 900; min-width: 38px; text-align: center; }
+        .t0 .dh-score { background: #2563eb; } .t1 .dh-score { background: #ea580c; }
+        .dh-timer { display: flex; align-items: center; gap: 8px; }
+        .dh-track { flex: 1; height: 12px; background: rgba(0,0,0,.12); border-radius: 10px; overflow: hidden; }
+        .dh-bar { height: 100%; width: 100%; border-radius: 10px; background: linear-gradient(to right, #10b981, #f59e0b); transition: width .1s linear; }
+        .dh-bar.low { background: linear-gradient(to right, #f97316, #ef4444); }
+        .dh-sec { font-weight: 900; min-width: 44px; text-align: center; background: var(--dark); color: white; border-radius: 10px; padding: 1px 6px; font-size: 1rem; }
+        .dh-sec.low { background: var(--danger); animation: maskPulse .8s ease-in-out infinite; }
+        .duel-half .question-box { margin-bottom: 0; padding: 14px 16px; font-size: clamp(1.05rem, 2.5vw, 1.45rem); line-height: 1.55; }
+        .t1 .question-box { border-right-color: #ea580c; }
+        .dh-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .dh-opts .btn { padding: 12px 10px; font-size: clamp(.95rem, 2.2vw, 1.2rem); min-height: 56px; text-align: center; line-height: 1.4; }
+        .t1 .dh-opts .btn { background: linear-gradient(to bottom, #f97316, #c2410c); border-bottom-color: #9a3412; }
+        .dh-opts .btn.ok { background: linear-gradient(to bottom, #10b981, #047857) !important; filter: none; }
+        .dh-opts .btn.bad { background: linear-gradient(to bottom, #ef4444, #b91c1c) !important; filter: none; }
+        .dh-opts.tf .btn { font-size: clamp(1.3rem, 3.4vw, 1.9rem); min-height: 80px; }
+        .dh-opts.tf .btn.tf-true { background: linear-gradient(to bottom, #10b981, #1e40af); border-bottom-color: #047857; }
+        .dh-opts.tf .btn.tf-false { background: linear-gradient(to bottom, #ef4444, #dc2626); border-bottom-color: #b91c1c; }
+        .dh-opts.locked .btn { pointer-events: none; }
+        .duel-half .map-stage { margin-bottom: 0; }
+        .duel-half .map-wrap img { max-height: 30vh; }
+        .duel-half .map-stage.zoomed .map-wrap img { width: min(1100px, 160vw); }
+        .duel-half .map-hint { font-size: .85rem; }
+        .dh-verdict { text-align: center; font-weight: 900; font-size: clamp(1rem, 2.6vw, 1.3rem); min-height: 1.6em; }
+        .dh-verdict.ok { color: var(--success); } .dh-verdict.bad { color: var(--danger); }
+        .dh-wait { margin: auto 0; background: white; border-radius: 18px; padding: 24px 16px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+        .dh-wait .big { font-size: 2.6rem; }
+        .dh-wait h3 { color: var(--primary); font-size: 1.35rem; font-weight: 900; margin: 6px 0; }
+        .dh-wait p { color: #64748b; font-weight: 700; }
+        .duel-result { position: absolute; inset: 0; z-index: 5; overflow-y: auto; padding: 16px;
+            background-color: #eef2ff; background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px); background-size: 25px 25px; }
+        .duel-result .res-card { max-width: 980px; margin: 0 auto; background: white; border-radius: 20px; padding: 24px 16px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,.1); }
+        .duel-result .final-scores div small { display: block; font-size: .85rem; opacity: .9; }
+        .res-reviews { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; text-align: right; }
+        .res-review { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 15px; padding: 12px; max-height: 320px; overflow-y: auto; }
+        .res-review h4 { text-align: center; margin-bottom: 10px; font-size: 1.1rem; }
+        .res-review.t0 h4 { color: #b45309; } .res-review.t1 h4 { color: #c2410c; }
+        .res-review ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+        .res-review li { background: white; padding: 10px; border-radius: 10px; border-right: 5px solid var(--danger); font-size: .95rem; }
+        .res-review li .rq { font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+        .res-review li .ra { color: var(--success); font-weight: 800; }
+        .res-review li .rs { color: #64748b; }
+        .res-review .perfect { color: var(--success); font-weight: 800; text-align: center; }
+        @media (max-width: 760px), (orientation: portrait) and (max-width: 1024px) {
+            .duel-halves { flex-direction: column; }
+            .duel-divider { width: auto; height: 6px; background: linear-gradient(to right, #2563eb, #f59e0b, #ea580c); }
+            .duel-divider span { width: 38px; height: 38px; font-size: .8rem; }
+            .duel-half { padding: 8px 10px 10px; gap: 8px; }
+            .duel-half .map-wrap img { max-height: 15vh; }
+            .duel-half .map-hint { display: none; }
+            .duel-half .question-box { padding: 10px 12px; font-size: clamp(.95rem, 4.2vw, 1.2rem); line-height: 1.45; }
+            .dh-opts .btn { min-height: 46px; padding: 8px 8px; }
+            .dh-opts.tf .btn { min-height: 60px; }
+        }
+        @media (max-width: 420px) { .dh-opts { gap: 7px; } .dh-opts .btn { min-height: 44px; padding: 7px 6px; font-size: .92rem; } }
+        @media (max-width: 640px) { .res-reviews { grid-template-columns: 1fr; } .duel-top .duel-tag { display: none; } }
+    </style>
+</head>
+<body>
+<style>
+#lock-screen { position: fixed; inset: 0; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 18px;
+  background: linear-gradient(135deg,#0b1a3f,#1e3a8a,#1e40af); }
+#lock-screen .lk { background: #fff; border-radius: 24px; padding: 26px 20px; width: 400px; max-width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,.45); border-top: 6px solid #f59e0b; }
+#lock-screen img { width: 120px; height: 120px; object-fit: contain; margin-bottom: 8px; }
+#lock-screen h2 { color: #1e3a8a; font-size: 1.3rem; font-weight: 900; margin-bottom: 4px; }
+#lock-screen .lt { color: #475569; font-weight: 700; font-size: .95rem; margin-bottom: 14px; line-height: 1.6; }
+#lock-screen input { width: 100%; font-size: 1.5rem; text-align: center; letter-spacing: 6px; padding: 12px; border: 2px solid #cbd5e1; border-radius: 14px; outline: none; direction: ltr; }
+#lock-screen input:focus { border-color: #2563eb; }
+#lock-screen button { margin-top: 12px; width: 100%; padding: 13px; font-size: 1.15rem; font-weight: 800; color: #fff; border: none; border-radius: 14px; cursor: pointer;
+  background: linear-gradient(to bottom,#2563eb,#1e3a8a); }
+#lock-screen .le { color: #dc2626; font-weight: 800; margin-top: 10px; min-height: 1.4em; }
+#lock-screen .lc { color: #64748b; font-size: .85rem; margin-top: 6px; }
+#lock-screen .lc a { color: #16a34a; font-weight: 800; text-decoration: none; }
+</style>
+<div id="lock-screen">
+  <div class="lk">
+    <img src="logo.png" alt="سلسلة الموسوعة">
+    <h2>🔒 هذا الدرس محمي بكلمة مرور</h2>
+    <div class="lt">التحولات الكبرى في مصر (العصر الحديث)<br>اكتب كلمة المرور التي أعطاها لك أ/ السيد صالح</div>
+    <input id="lock-pass" type="password" inputmode="numeric" autocomplete="off" placeholder="••••••">
+    <button type="button" onclick="tryUnlock()">دخول الدرس</button>
+    <div class="le" id="lock-err"></div>
+    <div class="lc">ليس معك كلمة المرور؟ <a href="https://wa.me/201001304451" target="_blank" rel="noopener">تواصل مع الأستاذ</a></div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'sayedsaleh_lock_bac-unit1-lesson4-modern-transformations', H = '8658996889425036', SALT = 'sayedsaleh|bac-unit1-lesson4-modern-transformations|';
+  function cyrb53(str, seed) { seed = seed || 0; var h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+    for (var i = 0, ch; i < str.length; i++) { ch = str.charCodeAt(i); h1 = Math.imul(h1 ^ ch, 2654435761); h2 = Math.imul(h2 ^ ch, 1597334677); }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    return String(4294967296 * (2097151 & h2) + (h1 >>> 0)); }
+  function open() { var el = document.getElementById('lock-screen'); if (el) el.remove(); document.body.style.overflow = ''; }
+  document.getElementById('lock-pass').addEventListener('keydown', function(e) { if (e.key === 'Enter') tryUnlock(); });
+  var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+  if (saved === H) { open(); } else { document.body.style.overflow = 'hidden'; }
+  window.tryUnlock = function() {
+    var inp = document.getElementById('lock-pass'), v = (inp.value || '').trim()
+      .replace(/[٠-٩]/g, function(d) { return '٠١٢٣٤٥٦٧٨٩'.indexOf(d); });
+    if (cyrb53(SALT + v) === H) { try { localStorage.setItem(KEY, H); } catch (e) {} open(); }
+    else { document.getElementById('lock-err').textContent = '❌ كلمة المرور غير صحيحة'; inp.value = ''; inp.focus(); }
+  };
+})();
+</script>
+
+
+    <!-- الهيدر مع اللوجو -->
+    <header class="header-main" id="main-header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <!-- اللوجو (على اليمين) -->
+                <img src="logo.png" alt="أ/ السيد صالح - سلسلة الموسوعة" class="header-logo">
+                
+                <!-- النصوص -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">
+                        درس 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fcd34d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        لعبة
+                    </h1>
+                    <h1 class="title-line2">مع أ/ السَّيِّد صَالِح</h1>
+                    <div class="teacher-sub">كبير معلمين • سلسلة الموسوعة</div>
+                    <h2>البَكَالُورْيَا المِصْرِيَّةُ - الصَّفُّ الثَّانِي - الوَحْدَةُ الأُولَى - الدَّرْسُ الرَّابِعُ: التَّحَوُّلَاتُ الكُبْرَى فِي مِصْرَ (العَصْرُ الحَدِيثُ)</h2>
+                    <p style="margin-top: 10px;">التَّارِيخُ الوَطَنِيُّ • أَسْئِلَةُ مُسْتَوَيَاتٍ عُلْيَا</p>
+                </div>
+                <img src="teacher.jpg" alt="أ/ السيد صالح" class="teacher-photo">
+            </div>
+        </div>
+        <!-- تموجات زخرفية -->
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#eef2ff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </header>
+
+    <!-- الشاشة الرئيسية -->
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid">
+            <!-- سيتم حقن البطاقات هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- شاشة اللعب -->
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 25</span>
+        </div>
+        <div class="team-board" id="team-board">
+            <div class="team-card t0" id="team-card-0"><span class="tname" id="team-name-0">الفريق الأول</span><span class="turn-tag">دوره الآن</span><span class="tscore" id="team-score-0">0</span></div>
+            <div class="team-card t1" id="team-card-1"><span class="tname" id="team-name-1">الفريق الثاني</span><span class="turn-tag">دوره الآن</span><span class="tscore" id="team-score-1">0</span></div>
+        </div>
+        <div class="game-container" id="game-container">
+            <!-- سيتم حقن الأسئلة هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- نافذة الملاحظات السريعة -->
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+
+
+    <!-- نافذة اختيار طريقة اللعب -->
+    <div class="overlay" id="mode-overlay">
+        <div class="mode-modal">
+            <h2 id="mode-game-title">اختر طريقة اللعب</h2>
+            <div class="mode-sub">في كل مرة تظهر ٢٠ سؤالًا مختلفة بشكل عشوائي</div>
+            <div class="mode-choices">
+                <div class="mode-choice" onclick="chooseSolo()"><span class="mc-ico">👤</span>لعب فردي<small>العب وحدك واعرف نتيجتك</small></div>
+                <div class="mode-choice" onclick="chooseTeams()"><span class="mc-ico">🏆</span>منافسة بين فريقين<small>شاشة مقسومة • ٣٠ ثانية للسؤال • ترتيب مختلف لكل فريق</small></div>
+            </div>
+            <div class="team-setup" id="team-setup">
+                <label for="team-a">اسم الفريق الأول</label>
+                <input id="team-a" type="text" maxlength="25" value="الفريق الأول">
+                <label for="team-b">اسم الفريق الثاني</label>
+                <input id="team-b" type="text" maxlength="25" value="الفريق الثاني">
+                <div class="mode-actions">
+                    <button class="btn" onclick="startTeams()">🚀 ابدأ المنافسة</button>
+                </div>
+            </div>
+            <div class="mode-actions"><button class="btn mode-cancel" onclick="closeModePicker()">إلغاء</button></div>
+        </div>
+    </div>
+
+
+    <!-- شاشة منافسة الفريقين (مقسومة) -->
+    <div id="duel-screen" class="duel-screen hidden">
+        <div class="duel-top">
+            <button class="btn back-btn" onclick="exitDuel()">رجوع</button>
+            <strong id="duel-title">منافسة بين فريقين</strong>
+            <span class="duel-tag">⏱️ ٣٠ ثانية لكل سؤال</span>
+        </div>
+        <div class="duel-halves">
+            <section class="duel-half t0" id="duel-half-0"></section>
+            <div class="duel-divider"><span>VS</span></div>
+            <section class="duel-half t1" id="duel-half-1"></section>
+        </div>
+        <div id="duel-result" class="duel-result hidden"></div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | دروس وألعاب تعليمية</p>
+        <p class="designer">أ/ السَّيِّد صَالِح - كبير معلمين - 01001304451</p>
+    </footer>
+
+    <!-- زر الواتساب -->
+    <a href="https://wa.me/201001304451" class="whatsapp-float" target="_blank" title="تواصل معنا">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/>
+        </svg>
+    </a>
+
+<script>
+    const LESSON_NAME = "التاريخ الوطني: التحولات الكبرى في مصر (العصر الحديث) - البكالوريا المصرية (الصف الثاني)";
+    const allGamesData = [
+    {
+        "id": "mcq_1",
+        "title": "اختيار من متعدد",
+        "type": "mcq",
+        "desc": "أسئلة اختيار من متعدد بمستويات عليا حول التحولات الكبرى في مصر (العصر الحديث)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"></polygon><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07\"></path></svg>",
+        "questions": [
+            {
+                "q": "يتمثل أثر افتتاح قناة السويس على السيادة المصرية في أنه:",
+                "options": [
+                    "عزز الاستقلال المالي لمصر",
+                    "قطع العلاقات مع أوروبا",
+                    "حوّل مصر لمركز صراع دولي",
+                    "أنهى التدخل البريطاني"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "يميز تيار الإصلاح الديني عن غيره من التيارات التي انتشرت في مصر في العصر الحديث:",
+                "options": [
+                    "التقليد المباشر للغرب",
+                    "الوسطية والاعتدال",
+                    "الانعزال عن العالم",
+                    "رفض الغرب كليًا"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "مثلت قناة السويس بالنسبة للاحتلال البريطاني عاملًا حاسمًا في:",
+                "options": [
+                    "ربط مستعمراتها اقتصاديًا وسياسيًا",
+                    "السيطرة على القارة الإفريقية",
+                    "إنعاش الخزينة المصرية ماليًا",
+                    "التحكم في جميع طرق التجارة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "جاءت الحملة الفرنسية على مصر في الفترة:",
+                "options": [
+                    "١٨٠٥ - ١٨٤٨م",
+                    "١٥١٧ - ١٧٩٨م",
+                    "١٨٨٢ - ١٩١٤م",
+                    "١٧٩٨ - ١٨٠١م"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "اكتشف المصريون بالحملة الفرنسية حجم الفجوة الحضارية مع أوروبا في مجالات:",
+                "options": [
+                    "الزراعة والري فقط",
+                    "الدين واللغة",
+                    "التجارة البحرية وحدها",
+                    "التنظيم العسكري والإدارة الحديثة والعلوم والتقنيات"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "كانت الحملة الفرنسية بمنزلة صدمة دفعت المصريين إلى:",
+                "options": [
+                    "الانعزال عن العالم",
+                    "الترحيب بالاحتلال الفرنسي",
+                    "إعادة التفكير في أسباب التقدم الأوروبي",
+                    "رفض كل ما هو أوروبي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "اتسمت المرحلة الانتقالية بعد خروج الحملة الفرنسية عام ١٨٠١م بـ:",
+                "options": [
+                    "الصراع بين المماليك والعثمانيين وتصاعد التنافس الأوروبي",
+                    "حكم الخديو إسماعيل",
+                    "الاستقرار السياسي الكامل",
+                    "الاحتلال البريطاني المباشر"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وصل محمد علي إلى حكم مصر عام ١٨٠٥م بدعم من:",
+                "options": [
+                    "المماليك",
+                    "الإنجليز والفرنسيين",
+                    "الجيش العثماني وحده",
+                    "العلماء والقوى الشعبية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أدى مشروع محمد علي إلى تحوّل مصر تدريجيًا من:",
+                "options": [
+                    "ولاية بيزنطية إلى خلافة",
+                    "مستعمرة فرنسية إلى ولاية عثمانية",
+                    "دولة مستقلة إلى ولاية تابعة",
+                    "ولاية عثمانية إلى كيان سياسي أكثر استقلالًا"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أحد الخطوات التي وصفها الجبرتي لمحمد علي: إدخال نظام جديد للجيش يعتمد على:",
+                "options": [
+                    "المرتزقة الأجانب",
+                    "التدريب والانضباط بدلًا من الجند التقليديين",
+                    "التطوع المؤقت",
+                    "المماليك وحدهم"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أصبح القضاء على مشروع محمد علي هدفًا للصراع الدولي خاصة بعد:",
+                "options": [
+                    "تنظيم الري",
+                    "إنشاء مصانع النسيج",
+                    "توسعاته في مناطق ذات أهمية للمصالح البريطانية وهزيمة السلطان في نزيب",
+                    "إرسال البعثات العلمية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "هزم محمد علي السلطان العثماني في معركة نزيب عام:",
+                "options": [
+                    "١٨٣٨م",
+                    "١٨٣٩م",
+                    "١٨٤٠م",
+                    "١٨٠٥م"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "امتدت توسعات محمد علي إلى مناطق ذات أهمية للمصالح البريطانية مثل:",
+                "options": [
+                    "الخليج العربي والسودان",
+                    "اليونان وإيطاليا",
+                    "المغرب والجزائر",
+                    "الهند والصين"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "لم يكن خلفاء محمد علي على نفس كفاءته الإصلاحية، ومنهم:",
+                "options": [
+                    "عباس وسعيد",
+                    "إبراهيم وعباس",
+                    "إسماعيل وتوفيق",
+                    "سعيد وفاروق"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "حصل إسماعيل على لقب «الخديو» عام:",
+                "options": [
+                    "١٨٦٩م",
+                    "١٨٧٦م",
+                    "١٨٦٧م",
+                    "١٨٨٢م"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "عدّل الفرمان العثماني في عهد إسماعيل نظام وراثة الحكم ليصبح في:",
+                "options": [
+                    "أكبر أفراد الأسرة سنًا",
+                    "من يختاره السلطان",
+                    "أكبر أبناء الحاكم",
+                    "من يختاره الشعب"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "تزامن تطور مكانة مصر في عهد إسماعيل مع تزايد النفوذ الأوروبي نتيجة:",
+                "options": [
+                    "هزيمة نزيب",
+                    "معاهدة بلطة ليمان وحدها",
+                    "الديون الخارجية وتكاليف التحديث وافتتاح قناة السويس",
+                    "الحملة الفرنسية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "افتُتحت قناة السويس عام:",
+                "options": [
+                    "١٨٧٦م",
+                    "١٨٨٢م",
+                    "١٨٦٧م",
+                    "١٨٦٩م"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "احتُلت مصر في الربع الأخير من القرن التاسع عشر عام:",
+                "options": [
+                    "١٨٤٠م",
+                    "١٨٨٢م",
+                    "١٩١٤م",
+                    "١٨٦٩م"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "يكشف التحول الاقتصادي في القرن التاسع عشر انتقال مصر من:",
+                "options": [
+                    "اقتصاد نقدي إلى المقايضة",
+                    "اقتصاد صناعي إلى زراعي",
+                    "اقتصاد الاكتفاء الذاتي إلى اقتصاد تصديري مرتبط بالسوق العالمية",
+                    "اقتصاد تصديري إلى اكتفاء ذاتي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "الاحتكار في عهد محمد علي يعني:",
+                "options": [
+                    "سيطرة الدولة على الإنتاج والتجارة لتنظيم الاقتصاد وزيادة الموارد",
+                    "سيطرة الأجانب على التجارة",
+                    "حرية التجارة الكاملة",
+                    "إلغاء الضرائب"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وفّر محمد علي للصناعة الوطنية:",
+                "options": [
+                    "فتح الأسواق للمنتجات الأوروبية",
+                    "الحماية الجمركية",
+                    "الإعفاء من الضرائب للأجانب",
+                    "الاعتماد على الاستيراد"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تراجع مشروع التصنيع المبكر بسبب معاهدة بلطة ليمان التي وُقّعت عام:",
+                "options": [
+                    "١٨٣٩م",
+                    "١٨٣٨م",
+                    "١٨٤٠م",
+                    "١٨٧٦م"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "وُقّعت معاهدة بلطة ليمان بين:",
+                "options": [
+                    "الدولة العثمانية وبريطانيا",
+                    "محمد علي وبريطانيا",
+                    "مصر وفرنسا",
+                    "الدولة العثمانية وفرنسا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "نصت معاهدة بلطة ليمان على:",
+                "options": [
+                    "طرد التجار البريطانيين",
+                    "إلغاء نظام الاحتكار وفتح الأسواق أمام المنتجات الأوروبية",
+                    "استقلال مصر عن الدولة العثمانية",
+                    "حماية الصناعة المصرية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "شهدت مصر في النصف الثاني من القرن التاسع عشر تصاعدًا كبيرًا في الديون الخارجية نتيجة:",
+                "options": [
+                    "مشروعات التحديث وزيادة الإنفاق الحكومي",
+                    "تراجع زراعة القطن",
+                    "معاهدة بلطة ليمان",
+                    "الحروب مع العثمانيين"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ترتب على تصاعد الديون الخارجية:",
+                "options": [
+                    "إلغاء الامتيازات الأجنبية",
+                    "إنشاء صندوق الدين وفرض المراقبة الثنائية وتشكيل وزارة مختلطة",
+                    "تأميم قناة السويس",
+                    "استقلال مصر المالي"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "اتخذت بريطانيا حجة لاحتلال مصر تتمثل في:",
+                "options": [
+                    "حماية العثمانيين",
+                    "نشر التعليم",
+                    "مساندة الثورة العرابية",
+                    "حماية مصالح الدائنين وتأمين طرق التجارة عبر قناة السويس"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "كل مما يلي من خصائص الاقتصاد المصري في أثناء الاحتلال البريطاني عدا:",
+                "options": [
+                    "الاعتماد على تصدير المواد الخام",
+                    "استيراد السلع المصنعة",
+                    "سيطرة رأس المال الأجنبي على البنوك",
+                    "حماية الصناعة الوطنية وتشجيعها"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ترتب على توجيه الإنتاج لتلبية احتياجات الأسواق العالمية أن أصبح الاقتصاد المصري:",
+                "options": [
+                    "تابعًا للرأسمالية الأوروبية",
+                    "مستقلًا تمامًا",
+                    "قائمًا على الاكتفاء الذاتي",
+                    "اقتصادًا صناعيًا متقدمًا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ضمت الطبقة الأولى في المجتمع المصري أواخر القرن التاسع عشر:",
+                "options": [
+                    "الحاكم ورجال الحاشية والرأسماليين وكبار الملاك",
+                    "الأطباء والمحامين والصحفيين",
+                    "الفلاحين والعمال الموسميين",
+                    "الحرفيين وصغار التجار"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "الطبقة التي شملت كبار التجار وأصحاب المصانع والمحامين والأطباء والصحفيين هي:",
+                "options": [
+                    "الطبقة الثالثة",
+                    "الطبقة الثانية",
+                    "الطبقة الدنيا",
+                    "الطبقة الأولى"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "الطبقة التي شكلت أغلب المجتمع المصري هي:",
+                "options": [
+                    "التجار الكبار",
+                    "كبار الملاك",
+                    "المثقفون",
+                    "الفلاحون والعمال الموسميون"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أصبح القطن يُعرف في القرن التاسع عشر بـ:",
+                "options": [
+                    "الذهب الأخضر",
+                    "الذهب الأبيض",
+                    "الفضة البيضاء",
+                    "الذهب الأسود"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "العلاقة السببية بين زراعة القطن وتكوين طبقة كبار الملاك أن:",
+                "options": [
+                    "تحول الأرض إلى سلعة تجارية زاد ثراء كبار الملاك",
+                    "لا علاقة بينهما",
+                    "القطن أفقر كبار الملاك",
+                    "القطن وزع الأرض بالتساوي"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من أسباب النمو السكاني المتسارع في القرن التاسع عشر:",
+                "options": [
+                    "الهجرة من أوروبا",
+                    "تحسن الأوضاع الصحية والاستقرار السياسي",
+                    "زيادة الحروب",
+                    "انتشار الأوبئة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "هاجر الفلاحون من الريف في القرن التاسع عشر إلى المدن الكبرى بسبب:",
+                "options": [
+                    "انتهاء زراعة القطن",
+                    "قرار حكومي بالتهجير",
+                    "ارتفاع أجورهم",
+                    "سوء أحوالهم"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من المدن التي استقبلت هجرة الفلاحين في القرن التاسع عشر:",
+                "options": [
+                    "دمياط ورشيد فقط",
+                    "القاهرة والإسكندرية ومدن القناة",
+                    "أسوان والأقصر",
+                    "سيوة والواحات"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "من المفكرين الذين دعوا إلى تعليم الفتيات في القرن التاسع عشر:",
+                "options": [
+                    "مصطفى كامل ومحمد فريد",
+                    "الأفغاني وعرابي",
+                    "المقريزي وابن إياس",
+                    "رفاعة الطهطاوي وقاسم أمين"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تُعد من أوائل الكاتبات اللاتي دافعن عن تعليم المرأة وحقوقها في القرن التاسع عشر:",
+                "options": [
+                    "إياح حتب",
+                    "عائشة التيمورية",
+                    "صفية زغلول",
+                    "هدى شعراوي"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ظل التحول في أوضاع المرأة في القرن التاسع عشر محدودًا لأنه:",
+                "options": [
+                    "اقتصر على المدن وبين النخبة المتعلمة",
+                    "شمل الريف فقط",
+                    "لم يحدث أي تحول",
+                    "رفضته النخبة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من أسباب ولادة التيارات الفكرية في القرن التاسع عشر:",
+                "options": [
+                    "الغزو المغولي",
+                    "الحملات الصليبية",
+                    "انتشار التعليم وعودة المبتعثين والاحتكاك بالحضارة الأوروبية",
+                    "انتشار اللغة القبطية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ظهر تيار الإصلاح الديني بقيادة:",
+                "options": [
+                    "جمال الدين الأفغاني وتلميذه محمد عبده",
+                    "أحمد لطفي السيد ورفاعة الطهطاوي",
+                    "مصطفى كامل ومحمد فريد",
+                    "قاسم أمين وعائشة التيمورية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "انطلق تيار الإصلاح الديني من فكرة أن النهضة تبدأ بـ:",
+                "options": [
+                    "رفض العلوم الحديثة",
+                    "إصلاح الفكر الديني وتحريره من الخرافات والجمود",
+                    "الانعزال عن العالم",
+                    "تقليد الغرب في كل شيء"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "موقف تيار الإصلاح الديني من الحضارة الغربية:",
+                "options": [
+                    "رفضها كليًا",
+                    "الاستفادة من علومها دون التخلي عن الهوية الإسلامية",
+                    "تجاهلها تمامًا",
+                    "تقليدها تقليدًا كاملًا"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "من أبرز رموز التيار الليبرالي:",
+                "options": [
+                    "مصطفى كامل",
+                    "جمال الدين الأفغاني",
+                    "محمد فريد",
+                    "أحمد لطفي السيد ورفاعة الطهطاوي"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ركز التيار الليبرالي على بناء الدولة الوطنية الحديثة القائمة على:",
+                "options": [
+                    "رفض الدستور",
+                    "إحياء الخلافة العثمانية",
+                    "الحريات الفردية والدستور والحياة النيابية على النمط الأوروبي",
+                    "الحكم الفردي المطلق"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ظهر تيار الحركة الوطنية المصرية كرد فعل مباشر على:",
+                "options": [
+                    "الحملة الفرنسية",
+                    "حكم محمد علي",
+                    "الاحتلال البريطاني",
+                    "الفتح العثماني"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "من أبرز رموز تيار الحركة الوطنية:",
+                "options": [
+                    "قاسم أمين وعائشة التيمورية",
+                    "لطفي السيد والطهطاوي",
+                    "مصطفى كامل ومحمد فريد",
+                    "محمد عبده والأفغاني"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "وُجّهت لمصر ضربة قاصمة أعادتها إلى داخل حدودها عام:",
+                "options": [
+                    "١٨٦٩م",
+                    "١٨٤٠م",
+                    "١٨٣٩م",
+                    "١٨٨٢م"
+                ],
+                "ans": 1
+            }
+        ]
+    },
+    {
+        "id": "bubbles_2",
+        "title": "الفقاعات المتساقطة",
+        "type": "bubbles",
+        "desc": "التقط الفقاعة ذات الإجابة الصحيحة في التحولات الكبرى في مصر (العصر الحديث)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path><path d=\"M22 12A10 10 0 0 0 12 2v10z\"></path></svg>",
+        "questions": [
+            {
+                "q": "بداية الحملة الفرنسية؟",
+                "options": [
+                    "١٨٠٥م",
+                    "١٨٠١م",
+                    "١٧٩٨م",
+                    "١٨٨٢م"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "خروج الحملة الفرنسية؟",
+                "options": [
+                    "١٨٠١م",
+                    "١٨٤٠م",
+                    "١٨٠٥م",
+                    "١٧٩٨م"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وصول محمد علي للحكم؟",
+                "options": [
+                    "١٨٤٠م",
+                    "١٨٠١م",
+                    "١٨١١م",
+                    "١٨٠٥م"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "داعمو محمد علي للحكم؟",
+                "options": [
+                    "الإنجليز",
+                    "العلماء والشعب",
+                    "الفرنسيون",
+                    "المماليك"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "مؤرخ وصف خطوات محمد علي؟",
+                "options": [
+                    "ابن خلدون",
+                    "الجبرتي",
+                    "المقريزي",
+                    "ابن إياس"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "معركة هزيمة السلطان العثماني؟",
+                "options": [
+                    "قادش",
+                    "التل الكبير",
+                    "نزيب",
+                    "أكتيوم"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "عام معركة نزيب؟",
+                "options": [
+                    "١٨٣٨م",
+                    "١٨٣٩م",
+                    "١٨٤٠م",
+                    "١٨٦٧م"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "عام الضربة القاصمة لمصر؟",
+                "options": [
+                    "١٨٣٩م",
+                    "١٨٤٠م",
+                    "١٨٨٢م",
+                    "١٨٠٥م"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "معاهدة أضرت بصناعة محمد علي؟",
+                "options": [
+                    "باريس",
+                    "فرساي",
+                    "لندن",
+                    "بلطة ليمان"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "عام معاهدة بلطة ليمان؟",
+                "options": [
+                    "١٨٤٠م",
+                    "١٨٦٩م",
+                    "١٨٣٩م",
+                    "١٨٣٨م"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما ألغته معاهدة بلطة ليمان؟",
+                "options": [
+                    "الضرائب",
+                    "الدستور",
+                    "الجيش",
+                    "الاحتكار"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "لقب حصل عليه إسماعيل ١٨٦٧م؟",
+                "options": [
+                    "الوالي",
+                    "الملك",
+                    "السلطان",
+                    "الخديو"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "عام لقب الخديو؟",
+                "options": [
+                    "١٨٦٧م",
+                    "١٨٦٩م",
+                    "١٨٧٦م",
+                    "١٨٠٥م"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "عام افتتاح قناة السويس؟",
+                "options": [
+                    "١٨٦٩م",
+                    "١٨٨٢م",
+                    "١٨٥٤م",
+                    "١٨٦٧م"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "عام الاحتلال البريطاني؟",
+                "options": [
+                    "١٨٦٩م",
+                    "١٨٨٢م",
+                    "١٩١٤م",
+                    "١٨٤٠م"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "صاحبة السيادة الفعلية بعد ١٨٨٢م؟",
+                "options": [
+                    "روسيا",
+                    "فرنسا",
+                    "بريطانيا",
+                    "الدولة العثمانية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "خليفتا محمد علي الأقل كفاءة؟",
+                "options": [
+                    "فاروق وفؤاد",
+                    "إسماعيل وتوفيق",
+                    "عباس وسعيد",
+                    "إبراهيم وفؤاد"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "الحكم بعد فرمان الوراثة لـ؟",
+                "options": [
+                    "اختيار الشعب",
+                    "أكبر الأسرة",
+                    "اختيار السلطان",
+                    "أكبر الأبناء"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "لقب القطن في القرن ١٩؟",
+                "options": [
+                    "الفضة",
+                    "الكنز الأخضر",
+                    "الذهب الأبيض",
+                    "الذهب الأسود"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "الطبقة الأكبر عددًا؟",
+                "options": [
+                    "الفلاحون",
+                    "التجار",
+                    "الحاشية",
+                    "كبار الملاك"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "طبقة الحرفيين وصغار التجار؟",
+                "options": [
+                    "الثالثة",
+                    "الثانية",
+                    "الدنيا",
+                    "الأولى"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "طبقة المحامين والأطباء والصحفيين؟",
+                "options": [
+                    "الثالثة",
+                    "الثانية",
+                    "الأولى",
+                    "الدنيا"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "طبقة كبار الملاك والحاشية؟",
+                "options": [
+                    "الثانية",
+                    "الدنيا",
+                    "الأولى",
+                    "الثالثة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "صفة الاقتصاد تحت الاحتلال؟",
+                "options": [
+                    "مكتفٍ",
+                    "صناعي",
+                    "مستقل",
+                    "تابع"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما صدرته مصر في عهد الاحتلال؟",
+                "options": [
+                    "السلع المصنعة",
+                    "الآلات",
+                    "الأسلحة",
+                    "المواد الخام"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما استوردته مصر في عهد الاحتلال؟",
+                "options": [
+                    "السلع المصنعة",
+                    "القمح",
+                    "القطن",
+                    "المواد الخام"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "مؤسسة نتجت عن أزمة الديون؟",
+                "options": [
+                    "الأزهر",
+                    "البنك الأهلي",
+                    "صندوق الدين",
+                    "مجلس الشورى"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "رقابة فُرضت بسبب الديون؟",
+                "options": [
+                    "الثلاثية",
+                    "الدولية",
+                    "العثمانية",
+                    "الثنائية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "وزارة ضمت مصريين وأجانب؟",
+                "options": [
+                    "العسكرية",
+                    "الشعبية",
+                    "المختلطة",
+                    "الوطنية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "رائدا تيار الإصلاح الديني؟",
+                "options": [
+                    "الأفغاني وعبده",
+                    "كامل وفريد",
+                    "لطفي والطهطاوي",
+                    "أمين والتيمورية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "رائدا التيار الليبرالي؟",
+                "options": [
+                    "عرابي والنديم",
+                    "كامل وفريد",
+                    "لطفي والطهطاوي",
+                    "الأفغاني وعبده"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "رمزا الحركة الوطنية؟",
+                "options": [
+                    "كامل وفريد",
+                    "أمين والتيمورية",
+                    "لطفي والطهطاوي",
+                    "الأفغاني وعبده"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما يميز الإصلاح الديني؟",
+                "options": [
+                    "الوسطية",
+                    "التقليد",
+                    "الرفض",
+                    "الانعزال"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تيار نادى بالحريات الفردية؟",
+                "options": [
+                    "الوطني",
+                    "الليبرالي",
+                    "المحافظ",
+                    "الديني"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تيار ظهر ردًا على الاحتلال؟",
+                "options": [
+                    "الليبرالي",
+                    "الوطني",
+                    "الديني",
+                    "الاشتراكي"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "كاتبة دافعت عن تعليم المرأة؟",
+                "options": [
+                    "هدى شعراوي",
+                    "عائشة التيمورية",
+                    "صفية زغلول",
+                    "نبوية موسى"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "داعيا تعليم الفتيات؟",
+                "options": [
+                    "كامل وفريد",
+                    "الأفغاني وعبده",
+                    "الطهطاوي وأمين",
+                    "عرابي والنديم"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "سبب هجرة الفلاحين للمدن؟",
+                "options": [
+                    "زيادة الأجور",
+                    "سوء الأحوال",
+                    "الحروب",
+                    "الفيضان"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "سبب النمو السكاني المتسارع؟",
+                "options": [
+                    "المجاعات",
+                    "الهجرة الوافدة",
+                    "الحروب",
+                    "تحسن الصحة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "مكان الأحياء الفقيرة؟",
+                "options": [
+                    "وسط الإسكندرية",
+                    "مدن القناة",
+                    "أطراف القاهرة",
+                    "الصعيد"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "طريق تقوده مصر لبريطانيا؟",
+                "options": [
+                    "الهند",
+                    "الصين",
+                    "أستراليا",
+                    "كندا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما تملكه مصر لبريطانيا حسب النص؟",
+                "options": [
+                    "المصانع",
+                    "خزائن الذهب",
+                    "مفاتيح الإمبراطورية",
+                    "الأسطول"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أثر قناة السويس على السيادة؟",
+                "options": [
+                    "قطع العلاقات",
+                    "صراع دولي",
+                    "استقلال مالي",
+                    "عزلة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما يعنيه تساوي الجميع في الحقوق؟",
+                "options": [
+                    "الامتيازات",
+                    "الاحتكار",
+                    "التبعية",
+                    "المواطنة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما كشفته الحملة الفرنسية؟",
+                "options": [
+                    "ثروة مصر",
+                    "قوة المماليك",
+                    "ضعف أوروبا",
+                    "الفجوة الحضارية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما أرسله محمد علي لأوروبا؟",
+                "options": [
+                    "القطن فقط",
+                    "البعثات",
+                    "السفراء فقط",
+                    "الجيوش"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "محور مشروع محمد علي الأول؟",
+                "options": [
+                    "القطن",
+                    "القناة",
+                    "الأوبرا",
+                    "الجيش"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "صناعة أنشأها محمد علي للجيش؟",
+                "options": [
+                    "السكر",
+                    "الورق",
+                    "السلاح",
+                    "الزجاج"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "منطقة توسع أضر بمصالح بريطانيا؟",
+                "options": [
+                    "الخليج العربي",
+                    "الأندلس",
+                    "اليونان",
+                    "المغرب"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما حمى به محمد علي صناعته؟",
+                "options": [
+                    "الامتيازات",
+                    "الديون",
+                    "الجمارك",
+                    "القروض"
+                ],
+                "ans": 2
+            }
+        ]
+    },
+    {
+        "id": "shooting_3",
+        "title": "التنشين والاصطياد",
+        "type": "shooting",
+        "desc": "صوّب نحو الكلمة الصحيحة لإكمال عبارات التحولات الكبرى في مصر (العصر الحديث)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle></svg>",
+        "questions": [
+            {
+                "q": "أكمل: «يمثل تاريخ مصر الحديث رحلة طويلة للبحث عن ...».",
+                "options": [
+                    "الثروة",
+                    "العزلة",
+                    "التبعية",
+                    "الاستقلال"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «جاءت الحملة الفرنسية ليكتشف المصريون حجم الفجوة ... بينهم وبين أوروبا».",
+                "options": [
+                    "الدينية",
+                    "الحضارية",
+                    "السكانية",
+                    "الجغرافية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «كانت الحملة الفرنسية بمنزلة ... كبيرة دفعت المصريين لإعادة التفكير».",
+                "options": [
+                    "هزيمة",
+                    "صدمة",
+                    "صفقة",
+                    "نعمة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «تمكن محمد علي من الوصول إلى الحكم عام ١٨٠٥م بدعم من العلماء والقوى ...».",
+                "options": [
+                    "الأجنبية",
+                    "العسكرية",
+                    "الشعبية",
+                    "العثمانية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «اهتم محمد علي بإرسال البعثات العلمية إلى ...».",
+                "options": [
+                    "إفريقيا",
+                    "آسيا",
+                    "أمريكا",
+                    "أوروبا"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «أنشأ محمد علي جيشًا ... حديثًا».",
+                "options": [
+                    "نظاميًا",
+                    "مؤقتًا",
+                    "مرتزقًا",
+                    "قبليًا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «أقام محمد علي إدارة ... قوية».",
+                "options": [
+                    "محلية",
+                    "مركزية",
+                    "ضعيفة",
+                    "أجنبية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «تحولت مصر من ولاية عثمانية إلى كيان سياسي أكثر ...».",
+                "options": [
+                    "ضعفًا",
+                    "استقلالًا",
+                    "تبعية",
+                    "عزلة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «أدخل محمد علي نظامًا للجيش يعتمد على التدريب و...».",
+                "options": [
+                    "التطوع",
+                    "الانضباط",
+                    "الوراثة",
+                    "الفوضى"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «أنشأ محمد علي ورشًا ومصانع للسلاح و... لخدمة الجيش والدولة».",
+                "options": [
+                    "السكر",
+                    "النسيج",
+                    "الزجاج",
+                    "الورق"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «هدد محمد علي التوازن الدولي بعد هزيمة السلطان العثماني في معركة ...».",
+                "options": [
+                    "قادش",
+                    "أكتيوم",
+                    "نزيب",
+                    "حطين"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «حصل إسماعيل عام ١٨٦٧م على لقب ...».",
+                "options": [
+                    "الخديو",
+                    "السلطان",
+                    "الملك",
+                    "الأمير"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «عدّل الفرمان العثماني نظام ... الحكم».",
+                "options": [
+                    "وراثة",
+                    "انتخاب",
+                    "تقسيم",
+                    "إلغاء"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «أدى افتتاح قناة السويس عام ١٨٦٩م إلى تدخل الدول ... بصورة متزايدة».",
+                "options": [
+                    "الأوروبية",
+                    "الآسيوية",
+                    "الإفريقية",
+                    "العربية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «بعد احتلال ١٨٨٢م أصبحت السيادة الفعلية في مصر ل...».",
+                "options": [
+                    "روسيا",
+                    "فرنسا",
+                    "تركيا",
+                    "بريطانيا"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «انتقلت مصر من اقتصاد الاكتفاء الذاتي إلى اقتصاد ... مرتبط بالسوق العالمية».",
+                "options": [
+                    "رعوي",
+                    "تصديري",
+                    "بدائي",
+                    "مغلق"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «مهّد التحول الاقتصادي لأزمة الديون و... الأوروبي».",
+                "options": [
+                    "الدعم",
+                    "التدخل",
+                    "الانسحاب",
+                    "التحالف"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «وفّر محمد علي للصناعة الحماية ... لدعم الصناعة الوطنية».",
+                "options": [
+                    "الدولية",
+                    "العسكرية",
+                    "الجمركية",
+                    "القضائية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «دعم الصناعة الوطنية وحمايتها ... على كل فرد».",
+                "options": [
+                    "عبء",
+                    "خيار",
+                    "ترف",
+                    "واجب"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «نصت معاهدة بلطة ليمان على إلغاء نظام ...».",
+                "options": [
+                    "الاحتكار",
+                    "الضرائب",
+                    "الوراثة",
+                    "الجيش"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «منحت معاهدة بلطة ليمان التجار ... امتيازات واسعة».",
+                "options": [
+                    "المصريين",
+                    "العثمانيين",
+                    "البريطانيين",
+                    "الفرنسيين"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «أدت معاهدة بلطة ليمان إلى ... الصناعة المحلية».",
+                "options": [
+                    "تراجع",
+                    "حماية",
+                    "توسع",
+                    "ازدهار"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «ترتب على الديون إنشاء صندوق ...».",
+                "options": [
+                    "التنمية",
+                    "الادخار",
+                    "الدين",
+                    "الزكاة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «فُرضت على مصر المراقبة ... الأوروبية».",
+                "options": [
+                    "الدينية",
+                    "الثنائية",
+                    "العسكرية",
+                    "الثلاثية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «تشكلت وزارة ... تضم وزراء مصريين وأجانب».",
+                "options": [
+                    "مؤقتة",
+                    "عسكرية",
+                    "مختلطة",
+                    "وطنية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «فقدت مصر جزءًا كبيرًا من استقلالها المالي و...».",
+                "options": [
+                    "الديني",
+                    "الجغرافي",
+                    "السياسي",
+                    "اللغوي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «اتخذت بريطانيا الديون ذريعة لاحتلال مصر بحجة حماية مصالح ...».",
+                "options": [
+                    "المماليك",
+                    "العثمانيين",
+                    "الدائنين",
+                    "الفلاحين"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «سيطر رأس المال الأجنبي على قطاعات حيوية مثل ... والخدمات الكبرى».",
+                "options": [
+                    "الحقول",
+                    "البنوك",
+                    "المساجد",
+                    "المدارس"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «أصبح الاقتصاد المصري تابعًا للرأسمالية ...».",
+                "options": [
+                    "العثمانية",
+                    "الأوروبية",
+                    "الآسيوية",
+                    "المصرية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «تحولت الأرض من مجرد وسيلة للعيش إلى ... يُتاجر فيها».",
+                "options": [
+                    "عبء",
+                    "مسكن",
+                    "سلعة",
+                    "وقف"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «أصبح القطن هو الذهب ...».",
+                "options": [
+                    "الأبيض",
+                    "الأخضر",
+                    "الأحمر",
+                    "الأسود"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «تكونت الأحياء الفقيرة على أطراف ...».",
+                "options": [
+                    "سيوة",
+                    "رشيد",
+                    "أسوان",
+                    "القاهرة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «ليس الأهم في أي طبقة تنتمي، وإنما الأهم أي شيء ... لبلدك».",
+                "options": [
+                    "تركته",
+                    "قدمته",
+                    "أخذته",
+                    "ورثته"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «شهدت مصر نموًا سكانيًا متسارعًا نتيجة تحسن الأوضاع ...».",
+                "options": [
+                    "العسكرية",
+                    "الدينية",
+                    "المناخية",
+                    "الصحية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «تغير التركيب ... للسكان وظهرت وظائف جديدة».",
+                "options": [
+                    "المهني",
+                    "الديني",
+                    "اللغوي",
+                    "العرقي"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «ظهرت دعوات إلى تعليم ... على يد الطهطاوي وقاسم أمين».",
+                "options": [
+                    "الجنود",
+                    "الأجانب",
+                    "التجار",
+                    "الفتيات"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «ظل تحول أوضاع المرأة محدودًا في المدن وبين النخبة ...».",
+                "options": [
+                    "الريفية",
+                    "الأجنبية",
+                    "العسكرية",
+                    "المتعلمة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «رفض المصريون استمرار ... بلدهم وحاولوا اللحاق بركب الحضارة».",
+                "options": [
+                    "تراجع",
+                    "استقلال",
+                    "تقدم",
+                    "ازدهار"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «دعا تيار الإصلاح الديني إلى إعمال العقل و...».",
+                "options": [
+                    "الخرافة",
+                    "التقليد",
+                    "الاجتهاد",
+                    "الجمود"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «دعا تيار الإصلاح الديني إلى مقاومة الاستبداد السياسي وإقامة العدل و...».",
+                "options": [
+                    "الوراثة",
+                    "التبعية",
+                    "الشورى",
+                    "الاحتكار"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «ليس المطلوب أن نرفض علوم الغرب، بل أن نأخذ منها ما ينفعنا ونحن متمسكون ب...».",
+                "options": [
+                    "حكامنا",
+                    "أموالنا",
+                    "أعدائنا",
+                    "ديننا"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «ركز التيار الليبرالي على الدستور والحياة النيابية على النمط ...».",
+                "options": [
+                    "المملوكي",
+                    "الأوروبي",
+                    "الآسيوي",
+                    "العثماني"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «من الحريات الفردية التي نادى بها التيار الليبرالي حرية التعبير والاعتقاد و... الشخصي».",
+                "options": [
+                    "الاختيار",
+                    "الانعزال",
+                    "التقليد",
+                    "الاحتكار"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «من شعارات الحركة الوطنية إنهاء الاحتلال ...».",
+                "options": [
+                    "العثماني",
+                    "الوطني",
+                    "الثقافي",
+                    "الأجنبي"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «من شعارات الحركة الوطنية بناء دولة مصرية ذات ...».",
+                "options": [
+                    "امتيازات",
+                    "سيادة",
+                    "تبعية",
+                    "ديون"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «المواطنة تعني أن الجميع متساوون في الحقوق و...».",
+                "options": [
+                    "الثروات",
+                    "الأملاك",
+                    "الألقاب",
+                    "الواجبات"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «كادت مصر تثبت وجودها كإمبراطورية مستقلة لكنها اصطدمت بالنفوذ ...».",
+                "options": [
+                    "العثماني",
+                    "الاستعماري",
+                    "المملوكي",
+                    "الشعبي"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «مصر هي أهم مستعمراتنا، هي الطريق إلى ...».",
+                "options": [
+                    "الهند",
+                    "أمريكا",
+                    "روسيا",
+                    "الصين"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «من يملك مصر يملك المفاتيح الحقيقية ل...».",
+                "options": [
+                    "التجارة",
+                    "الصحراء",
+                    "البحار",
+                    "الإمبراطورية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «تبلور حلم الشعب المصري في النصف الأول من القرن العشرين لتحقيق الحرية و...».",
+                "options": [
+                    "التبعية",
+                    "العزلة",
+                    "الاستقلال",
+                    "الاحتلال"
+                ],
+                "ans": 2
+            }
+        ]
+    },
+    {
+        "id": "true_false_4",
+        "title": "صح أم خطأ",
+        "type": "true_false",
+        "desc": "حدد صحة العبارات المتعلقة بـ التحولات الكبرى في مصر (العصر الحديث)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path><polyline points=\"22 4 12 14.01 9 11.01\"></polyline></svg>",
+        "questions": [
+            {
+                "q": "أدى افتتاح قناة السويس إلى تحويل مصر إلى مركز صراع دولي.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "يتميز تيار الإصلاح الديني بالتقليد المباشر للغرب.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "جاءت الحملة الفرنسية على مصر في الفترة من ١٧٩٨ إلى ١٨٠١م.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "كشفت الحملة الفرنسية تفوق المصريين على أوروبا في العلوم والتقنيات.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "دفعت صدمة الحملة الفرنسية المصريين إلى التفكير في أسباب التقدم الأوروبي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "وصل محمد علي إلى الحكم عام ١٨٠٥م بدعم من الإنجليز.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أنشأ محمد علي جيشًا نظاميًا حديثًا وأرسل البعثات العلمية إلى أوروبا.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أدى مشروع محمد علي إلى تحول مصر من ولاية عثمانية إلى كيان أكثر استقلالًا.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وصف المقريزي الخطوات التي قام بها محمد علي لبناء مصر.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "اعتمد جيش محمد علي على التدريب والانضباط بدلًا من الجند التقليديين.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أنشأ محمد علي ورشًا ومصانع للسلاح والنسيج لخدمة الجيش والدولة.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "امتدت توسعات محمد علي إلى الخليج العربي والسودان.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "هزم محمد علي السلطان العثماني في معركة نزيب عام ١٨٤٠م.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "كان عباس وسعيد على نفس كفاءة محمد علي الإصلاحية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "حصل إسماعيل على لقب الخديو عام ١٨٦٧م.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "عدّل الفرمان العثماني نظام الوراثة ليصبح الحكم في أكبر أبناء الحاكم.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "منح فرمان الوراثة مصر قدرًا أكبر من الاستقلال الإداري والسياسي في شئونها الداخلية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "افتُتحت قناة السويس عام ١٨٦٩م.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تراجع النفوذ الأوروبي في مصر في عهد الخديو إسماعيل.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "احتُلت مصر عام ١٨٨٢م وأصبحت السيادة الفعلية فيها لبريطانيا.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "انتقلت مصر في القرن التاسع عشر من اقتصاد تصديري إلى اقتصاد الاكتفاء الذاتي.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "وفّر محمد علي الحماية الجمركية لدعم الصناعة الوطنية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "وقّع محمد علي معاهدة بلطة ليمان مع بريطانيا عام ١٨٣٨م.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "نصت معاهدة بلطة ليمان على إلغاء الاحتكار وفتح الأسواق للمنتجات الأوروبية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أدت معاهدة بلطة ليمان إلى ازدهار الصناعة المحلية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "الاحتكار هو سيطرة الدولة على الإنتاج والتجارة لتنظيم الاقتصاد وزيادة الموارد.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تصاعدت الديون الخارجية نتيجة مشروعات التحديث وزيادة الإنفاق الحكومي.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ترتب على الديون إنشاء صندوق الدين وفرض المراقبة الثنائية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ضمت الوزارة المختلطة وزراء مصريين فقط.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "اتخذت بريطانيا حماية مصالح الدائنين ذريعة لاحتلال مصر.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "اعتمد الاقتصاد المصري في عهد الاحتلال على تصدير السلع المصنعة.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "سيطر رأس المال الأجنبي على البنوك والخدمات الكبرى في عهد الاحتلال.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وُجّه الإنتاج في عهد الاحتلال لتلبية احتياجات المجتمع المحلي أولًا.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أصبح الاقتصاد المصري تابعًا للرأسمالية الأوروبية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ضمت الطبقة الأولى الحاكم ورجال الحاشية والرأسماليين وكبار الملاك.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "شملت الطبقة الثانية الفلاحين والعمال الموسميين.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "شكّل الفلاحون والعمال الموسميون أغلب المجتمع المصري.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أصبح القطن يُعرف بالذهب الأبيض.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أدى تحول الأرض إلى سلعة إلى زيادة ثراء كبار الملاك وهجرة الفلاحين.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "هاجر الفلاحون إلى المدن بسبب تحسن أحوالهم في الريف.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "دعا رفاعة الطهطاوي وقاسم أمين إلى تعليم الفتيات.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "شمل التحول في أوضاع المرأة الريف والمدن بالتساوي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تُعد عائشة التيمورية من أوائل الكاتبات المدافعات عن تعليم المرأة.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "قاد تيار الإصلاح الديني جمال الدين الأفغاني وتلميذه محمد عبده.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "دعا تيار الإصلاح الديني إلى رفض علوم الغرب كليًا.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "من أبرز رموز التيار الليبرالي أحمد لطفي السيد ورفاعة الطهطاوي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ظهر تيار الحركة الوطنية ردًا مباشرًا على الحملة الفرنسية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من أبرز رموز الحركة الوطنية مصطفى كامل ومحمد فريد.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وُجّهت لمصر ضربة قاصمة عام ١٨٤٠م أعادتها إلى داخل حدودها.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "رأت بريطانيا أن مصر هي الطريق إلى الهند.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            }
+        ]
+    },
+    {
+        "id": "genius_5",
+        "title": "تحدي العباقرة",
+        "type": "genius",
+        "desc": "تحدٍّ سريع للعباقرة: حلّل وفسّر وقارن في التحولات الكبرى في مصر (العصر الحديث)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z\"></path></svg>",
+        "questions": [
+            {
+                "q": "إلى أي مدى تُعد الحملة الفرنسية نقطة تحول في تاريخ مصر الحديث؟",
+                "options": [
+                    "إلى حد كبير؛ كشفت الفجوة الحضارية ودفعت المصريين للتفكير في أسباب التقدم",
+                    "أدت مباشرة إلى الاحتلال البريطاني",
+                    "لم تُحدث أي أثر",
+                    "أنهت الحكم العثماني نهائيًا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "لماذا ركز محمد علي على الجيش أولًا في مشروعه الإصلاحي وفق رؤية الجبرتي؟",
+                "options": [
+                    "لأنه أهمل الزراعة والصناعة",
+                    "لغزو أوروبا",
+                    "لتقليد الجيش الفرنسي فقط",
+                    "لأن الجيش أداة تثبيت أركان الدولة وحماية مشروعه واستقلاله"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما الذي جعل القضاء على مشروع محمد علي هدفًا للصراع الدولي؟",
+                "options": [
+                    "ضعف جيشه",
+                    "تهديد توسعاته للمصالح البريطانية وللتوازن الدولي",
+                    "إهماله الصناعة",
+                    "تحالفه مع بريطانيا"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "قارن بين مشروع محمد علي ومشروع إسماعيل من حيث النتائج:",
+                "options": [
+                    "كلاهما انتهى بالاستقلال التام",
+                    "لا فرق بينهما",
+                    "محمد علي انتهى بالديون وإسماعيل بالاستقلال",
+                    "محمد علي اقترب من الاستقلال، وإسماعيل انتهى بالديون والتدخل الأوروبي"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "لماذا يُوصف عهد إسماعيل بأنه انتقال «من الاستقلالية إلى التبعية»؟",
+                "options": [
+                    "رغم مكاسبه الإدارية زادت الديون فتزايد التدخل الأوروبي حتى الاحتلال",
+                    "لأنه ألغى البعثات",
+                    "لأنه رفض لقب الخديو",
+                    "لأنه خاض حروبًا خاسرة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ماذا لو لم تتراكم الديون على مصر في عهد إسماعيل؟",
+                "options": [
+                    "لما افتُتحت القناة",
+                    "لزاد التدخل الأوروبي",
+                    "لتقلصت ذرائع التدخل الأوروبي وربما تأخر الاحتلال",
+                    "لاحتُلت مصر مبكرًا"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "«لم يكن تراجع الصناعة نتيجة عامل واحد». التحليل الأدق:",
+                "options": [
+                    "سببه الوحيد هزيمة نزيب",
+                    "سببه رفض المصريين للعمل",
+                    "تفاعل ضغوط خارجية كبلطة ليمان مع سياسات اقتصادية داخلية",
+                    "سببه نقص المواد الخام"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما العامل الأكثر تأثيرًا في أزمة الديون في عهد إسماعيل وفق تحليل متوازن؟",
+                "options": [
+                    "قلة الموارد الزراعية",
+                    "الحملة الفرنسية",
+                    "معركة نزيب",
+                    "السياسات المالية التوسعية التي فتحت الباب للتدخل الأوروبي"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "كيف استطاعت بريطانيا السيطرة على اقتصاد مصر؟",
+                "options": [
+                    "بدعم الصناعة الوطنية",
+                    "عبر بلطة ليمان ثم الديون والمراقبة ثم الاحتلال وتوجيه الإنتاج للتصدير",
+                    "بإلغاء الديون",
+                    "بالشراكة المتكافئة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "هل يُعد الاقتصاد التابع تقدمًا اقتصاديًا أم قيدًا على التنمية الوطنية؟",
+                "options": [
+                    "لا تأثير له",
+                    "تقدم؛ لأنه يزيد الصناعة المحلية",
+                    "قيد؛ لأنه يربط الإنتاج بحاجات الخارج ويُفقد الاستقلالية",
+                    "تقدم؛ لأنه يحقق الاكتفاء"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما العلاقة بين الاقتصاد التصديري والديون والاحتلال؟",
+                "options": [
+                    "الديون أنهت الاحتلال",
+                    "الاقتصاد التصديري منع الديون",
+                    "الارتباط بالسوق العالمية سهّل الاستدانة ثم التدخل ثم الاحتلال",
+                    "لا علاقة بينها"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "كيف أدت زراعة القطن إلى تفاوت اجتماعي؟",
+                "options": [
+                    "قضت على طبقة الملاك",
+                    "أثرت كبار الملاك وأفقرت الفلاحين فهاجروا إلى أطراف المدن",
+                    "وزعت الثروة بالتساوي",
+                    "أوقفت الهجرة إلى المدن"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أي العوامل كان الأهم في فقدان الاستقلال في العصر الحديث وفق رؤية متكاملة؟",
+                "options": [
+                    "الحملة الفرنسية وحدها",
+                    "التدخل الأوروبي وحده",
+                    "ضعف الإرادة وحده",
+                    "تفاعل التدخل الأوروبي مع السياسات الاقتصادية وضعف الإرادة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما أهمية مصر الإستراتيجية من وجهة النظر البريطانية وفق النص؟",
+                "options": [
+                    "الطريق إلى الهند والتحكم في قناة السويس",
+                    "ثروتها من الذهب",
+                    "مصدر للبترول",
+                    "قربها من أمريكا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "هل كان الاحتلال البريطاني نتيجة حتمية لأهمية مصر الإستراتيجية؟",
+                "options": [
+                    "لا؛ فقد تضافرت الأهمية مع الديون والضعف الداخلي",
+                    "نعم؛ لم يكن هناك أي عامل آخر",
+                    "لا؛ الاحتلال كان صدفة",
+                    "نعم؛ الموقع وحده سبب الاحتلال"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما الذي جعل إرادة المصريين قادرة على قلب الموازين رغم قرون التبعية؟",
+                "options": [
+                    "الاعتماد على الخارج",
+                    "الانعزال",
+                    "قبول الأمر الواقع",
+                    "الوعي الذي تشكل بالصدمة الحضارية والتعليم والتيارات الفكرية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما الفكرة الأساسية لعبارة «ليس المطلوب أن نرفض علوم الغرب...»؟",
+                "options": [
+                    "الرفض الكامل للغرب",
+                    "التوازن بين الانفتاح العلمي والتمسك بالهوية الدينية",
+                    "التقليد الكامل للغرب",
+                    "إهمال العلوم"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما وجه الاختلاف بين التيار الليبرالي وتيار الإصلاح الديني؟",
+                "options": [
+                    "كلاهما رفض الغرب",
+                    "الليبرالي ركز على الحريات والدستور، والديني على إصلاح الفكر الديني",
+                    "الديني ركز على الدستور والليبرالي على الشورى فقط",
+                    "لا فرق بينهما"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما وجه التشابه بين التيارات الفكرية الثلاثة؟",
+                "options": [
+                    "تأييد الاحتلال",
+                    "رفض التعليم",
+                    "السعي إلى نهضة مصر وبناء دولة حديثة قوية",
+                    "الدعوة للانعزال"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "لماذا ظهر تيار الحركة الوطنية تحديدًا بعد ١٨٨٢م؟",
+                "options": [
+                    "لأنه رد على الحملة الفرنسية",
+                    "لأنه رد فعل مباشر على الاحتلال البريطاني",
+                    "لإحياء الخلافة",
+                    "لدعم محمد علي"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما العلاقة بين عودة المبتعثين وظهور التيارات الفكرية؟",
+                "options": [
+                    "لا علاقة بينهما",
+                    "رفضوا الأفكار الأوروبية",
+                    "نقلوا أفكار الحضارة الأوروبية فأسهموا في ولادة تيارات جديدة",
+                    "منعوا ظهورها"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "لماذا ظل تحول أوضاع المرأة في القرن التاسع عشر محدودًا؟",
+                "options": [
+                    "لرفض المفكرين تعليم المرأة",
+                    "لأن الدولة منعت تعليمها",
+                    "لعدم وجود كاتبات",
+                    "لاقتصاره على المدن والنخبة المتعلمة واستمرار الظروف التقليدية في الريف"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "«التحولات الاقتصادية والاجتماعية أعادت تشكيل المجتمع المصري». أي الأدلة يؤكد ذلك؟",
+                "options": [
+                    "اختفاء المدن",
+                    "تراجع عدد السكان",
+                    "ظهور طبقات جديدة وهجرة الفلاحين وتغير التركيب المهني",
+                    "ثبات التركيب الطبقي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما العلاقة السببية بين الاستقرار السياسي والنمو السكاني في القرن التاسع عشر؟",
+                "options": [
+                    "لا علاقة بينهما",
+                    "الاستقرار مع تحسن الصحة أدى إلى نمو سكاني متسارع",
+                    "النمو السكاني سبب الاحتلال مباشرة",
+                    "الاستقرار قلل السكان"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما دلالة توقيع الدولة العثمانية لا مصر لمعاهدة بلطة ليمان رغم تأثيرها على مصر؟",
+                "options": [
+                    "أن مصر كانت لا تزال ولاية عثمانية تخضع لاتفاقيات الدولة العثمانية",
+                    "أن المعاهدة لم تُطبق على مصر",
+                    "أن بريطانيا كانت تحكم مصر",
+                    "أن مصر كانت مستقلة تمامًا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "كيف أثرت معاهدة بلطة ليمان على مشروع محمد علي الاقتصادي؟",
+                "options": [
+                    "ألغت الاحتكار وفتحت الأسواق فتراجعت الصناعة المحلية",
+                    "حمت الصناعة المصرية",
+                    "عززت الاحتكار",
+                    "طردت التجار البريطانيين"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما الصلة بين فقدان الاستقلال المالي وفقدان الاستقلال السياسي في أواخر القرن ١٩؟",
+                "options": [
+                    "الاستقلال السياسي سبق المالي",
+                    "الرقابة المالية والوزارة المختلطة مهدتا لاحتلال سلب السيادة",
+                    "فقدان المال عزز السيادة",
+                    "لا صلة بينهما"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "«أدت السياسة الاقتصادية للاحتلال إلى فقد الاقتصاد استقلاليته». الدليل الأقوى:",
+                "options": [
+                    "توجيه الإنتاج للأسواق العالمية وسيطرة رأس المال الأجنبي",
+                    "حماية الصناعة المحلية",
+                    "تحقيق الاكتفاء الذاتي",
+                    "إنشاء مصانع وطنية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما الذي يجمع بين مشروع محمد علي وتيار الحركة الوطنية؟",
+                "options": [
+                    "رفض التحديث",
+                    "السعي لبناء دولة مصرية قوية ذات سيادة",
+                    "دعم الاحتلال",
+                    "الدعوة للتبعية العثمانية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "لو عشت تحت الاحتلال وتولى الحكم أحد أبناء الوطن ليحقق العدل والنهضة، فما الذي يدفع الشعوب لدعم قادة التغيير؟",
+                "options": [
+                    "الرغبة في الاحتلال",
+                    "اللامبالاة",
+                    "الأمل في الاستقلال والعدالة وتحسين المستقبل رغم المخاطر",
+                    "الخوف من التغيير"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما أثر افتتاح قناة السويس على مكانة مصر الدولية؟",
+                "options": [
+                    "قلل أهميتها التجارية",
+                    "زاد أهميتها الإستراتيجية وجعلها مطمعًا للقوى الاستعمارية",
+                    "عزلها عن أوروبا",
+                    "أنهى الأطماع فيها"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أي أركان الدولة ارتبط بحفر قناة السويس ارتباطًا مباشرًا؟",
+                "options": [
+                    "الشعب فقط",
+                    "الحيز الجغرافي والسيادة",
+                    "السلطة القضائية",
+                    "الهوية الثقافية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "لماذا يُعد صعود محمد علي للحكم بدعم العلماء والقوى الشعبية أمرًا لافتًا؟",
+                "options": [
+                    "لأن المماليك اختاروه",
+                    "لأنه جاء بقرار بريطاني",
+                    "لأنه عكس دورًا مبكرًا للإرادة الشعبية في اختيار الحاكم",
+                    "لأنه ورث الحكم"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما المقصود بأن مصر «كادت تثبت وجودها كإمبراطورية مستقلة»؟",
+                "options": [
+                    "توسعها الإقليمي في عهد محمد علي قبل ضربة ١٨٤٠م",
+                    "استقلالها بعد ١٨٨٢م",
+                    "خلافتها للدولة العثمانية",
+                    "احتلالها لأوروبا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "كيف تعكس الأحياء الفقيرة على أطراف القاهرة التحولات الاقتصادية؟",
+                "options": [
+                    "نتيجة هجرة الفلاحين بعد تحول الأرض إلى سلعة واتساع التفاوت",
+                    "نتيجة ثراء الفلاحين",
+                    "لا علاقة لها بالاقتصاد",
+                    "نتيجة تراجع المدن"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما الذي يميز موقف تيار الإصلاح الديني من الاستبداد السياسي؟",
+                "options": [
+                    "الدعوة لمقاومته وإقامة العدل والشورى",
+                    "تأييده",
+                    "الدعوة للحكم الأجنبي",
+                    "تجاهله"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أي الشعارات التالية يعبر عن جوهر الحركة الوطنية؟",
+                "options": [
+                    "الاستقلال وإنهاء الاحتلال وبناء دولة ذات سيادة",
+                    "الوحدة مع الدولة العثمانية فقط",
+                    "الانعزال عن العالم",
+                    "تقليد أوروبا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما الدرس المستفاد من تجربة الديون في القرن التاسع عشر للدولة الحديثة؟",
+                "options": [
+                    "الاعتماد على الخارج يحمي الدولة",
+                    "الاقتراض بلا حدود يحقق التنمية",
+                    "الديون لا تؤثر في السيادة",
+                    "الاستقلال الاقتصادي شرط لحماية القرار السياسي"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "كيف ساهمت البعثات العلمية في مشروع محمد علي؟",
+                "options": [
+                    "نشر الاحتلال",
+                    "تقليل كفاءة الجيش",
+                    "إلغاء التعليم المحلي",
+                    "اكتساب الخبرات الحديثة من الخارج لبناء الدولة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما الفرق بين الاحتكار في عهد محمد علي والامتيازات الأجنبية بعد بلطة ليمان؟",
+                "options": [
+                    "كلاهما لصالح الأجانب",
+                    "الاحتكار سيطرة للدولة لصالح الاقتصاد الوطني والامتيازات لصالح الأجانب",
+                    "الاحتكار لصالح الأجانب",
+                    "لا فرق بينهما"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما الذي يفسر استمرار سيطرة بريطانيا على الاقتصاد المصري مدة طويلة؟",
+                "options": [
+                    "قلة موارد مصر",
+                    "رغبة المصريين في ذلك",
+                    "ربط الاقتصاد بتصدير الخام واستيراد المصنّع وسيطرة رأس المال الأجنبي",
+                    "دعمها للصناعة الوطنية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما الذي يعنيه أن الطبقة الثانية شملت المحامين والأطباء والصحفيين والمثقفين؟",
+                "options": [
+                    "اختفاء الطبقة الوسطى",
+                    "سيطرة الأجانب على المهن",
+                    "ظهور فئة متعلمة حديثة ستسهم في تشكيل الوعي الوطني",
+                    "تراجع التعليم"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما سبب تغير التركيب المهني للسكان في القرن التاسع عشر؟",
+                "options": [
+                    "ظهور وظائف جديدة مرتبطة بالدولة الحديثة",
+                    "عودة النظام المملوكي",
+                    "تراجع المدن",
+                    "انتهاء الزراعة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما وجه الربط بين الحملة الفرنسية وتيارات الفكر في القرن التاسع عشر؟",
+                "options": [
+                    "لا علاقة بينهما",
+                    "الحملة منعت ظهور التيارات",
+                    "التيارات سبقت الحملة",
+                    "كلاهما مرتبط بالاحتكاك بالحضارة الأوروبية وإدراك الفجوة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما أهم ما يميز التيار الليبرالي من حيث نظام الحكم؟",
+                "options": [
+                    "الخلافة",
+                    "الحكم المطلق",
+                    "الدستور والحياة النيابية",
+                    "حكم العسكر"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "في ضوء الدرس، لماذا تسمح المواطنة بتماسك المجتمع؟",
+                "options": [
+                    "لأنها تلغي الواجبات",
+                    "لأنها تمنح امتيازات لفئة",
+                    "لأنها تساوي بين الجميع في الحقوق والواجبات",
+                    "لأنها تقسم المجتمع لطبقات"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما الذي يجعل الوعي المصري في القرن ١٩ نتاجًا لتحولات متعددة؟",
+                "options": [
+                    "نتاج الصدفة",
+                    "تداخل التحولات السياسية والاقتصادية والاجتماعية والفكرية",
+                    "نتاج الاحتلال فقط",
+                    "نتاج عامل سياسي فقط"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أي العبارات يصف بدقة مكانة مصر الإقليمية في القرن ١٩؟",
+                "options": [
+                    "إمبراطورية عالمية مستقرة",
+                    "ولاية هامشية بلا دور",
+                    "مستعمرة منذ بداية القرن",
+                    "قوة إقليمية صاعدة اصطدمت بالنفوذ الاستعماري ثم استمرت النهضة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما أثر فرمان الوراثة على مكانة مصر داخل الدولة العثمانية؟",
+                "options": [
+                    "أنهى العلاقة بالعثمانيين",
+                    "منحها استقلالًا إداريًا وسياسيًا أكبر في شئونها الداخلية",
+                    "ألغى الحكم الوراثي",
+                    "أعادها ولاية تابعة بالكامل"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "لماذا تُعد معركة نزيب ١٨٣٩م منعطفًا في مشروع محمد علي؟",
+                "options": [
+                    "لأن انتصاره فيها هدد التوازن الدولي فتكتلت القوى ضده",
+                    "لأنه هُزم فيها",
+                    "لأنها أنهت الحملة الفرنسية",
+                    "لأنها جاءت بعد الاحتلال"
+                ],
+                "ans": 0
+            }
+        ]
+    },
+    {
+        "id": "map_6",
+        "title": "تحدي الخرائط والصور",
+        "type": "map",
+        "desc": "اكتشف المخفي على خرائط وصور الكتاب في التحولات الكبرى في مصر (العصر الحديث)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6\"></polygon><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"18\"></line><line x1=\"16\" y1=\"6\" x2=\"16\" y2=\"22\"></line></svg>",
+        "questions": [
+            {
+                "q": "الصورة لمؤسس الدولة الحديثة في مصر الذي وصل للحكم عام ١٨٠٥م، وهو:",
+                "options": [
+                    "سعيد",
+                    "عباس",
+                    "الخديو إسماعيل",
+                    "محمد علي"
+                ],
+                "ans": 3,
+                "img": "images/l4_mali.jpg",
+                "masks": []
+            },
+            {
+                "q": "اعتمد صاحب الصورة في الوصول إلى الحكم على دعم:",
+                "options": [
+                    "الفرنسيين",
+                    "الإنجليز",
+                    "العلماء والقوى الشعبية",
+                    "المماليك"
+                ],
+                "ans": 2,
+                "img": "images/l4_mali.jpg",
+                "masks": []
+            },
+            {
+                "q": "من أبرز مرتكزات مشروع صاحب الصورة:",
+                "options": [
+                    "الاقتراض من أوروبا",
+                    "جيش نظامي حديث وإدارة مركزية وبعثات علمية",
+                    "إلغاء الحماية الجمركية",
+                    "حفر قناة السويس"
+                ],
+                "ans": 1,
+                "img": "images/l4_mali.jpg",
+                "masks": []
+            },
+            {
+                "q": "الصورة لحاكم حصل على لقب «الخديو» عام ١٨٦٧م، وهو:",
+                "options": [
+                    "سعيد",
+                    "إسماعيل",
+                    "محمد علي",
+                    "توفيق"
+                ],
+                "ans": 1,
+                "img": "images/l4_ismail.jpg",
+                "masks": []
+            },
+            {
+                "q": "شهد عهد صاحب الصورة افتتاح قناة السويس عام:",
+                "options": [
+                    "١٨٦٧م",
+                    "١٨٨٢م",
+                    "١٨٥٤م",
+                    "١٨٦٩م"
+                ],
+                "ans": 3,
+                "img": "images/l4_ismail.jpg",
+                "masks": []
+            },
+            {
+                "q": "تزامن تطور مكانة مصر في عهد صاحب الصورة مع:",
+                "options": [
+                    "استقلال مصر التام",
+                    "الحملة الفرنسية",
+                    "تزايد النفوذ الأوروبي بسبب الديون",
+                    "انتهاء النفوذ الأوروبي"
+                ],
+                "ans": 2,
+                "img": "images/l4_ismail.jpg",
+                "masks": []
+            },
+            {
+                "q": "الصورة تخيلية تعبر عن التدخل في شئون مصر المالية، ومن نتائج هذا التدخل:",
+                "options": [
+                    "تأسيس الأزهر",
+                    "إلغاء الديون",
+                    "معركة نزيب",
+                    "إنشاء صندوق الدين وفرض المراقبة الثنائية"
+                ],
+                "ans": 3,
+                "img": "images/l4_debt.jpg",
+                "masks": []
+            },
+            {
+                "q": "أدى الوضع الذي تعبر عنه الصورة إلى:",
+                "options": [
+                    "فقدان مصر جزءًا كبيرًا من استقلالها المالي والسياسي",
+                    "طرد الأجانب",
+                    "ازدهار الصناعة الوطنية",
+                    "تحقيق الاكتفاء الذاتي"
+                ],
+                "ans": 0,
+                "img": "images/l4_debt.jpg",
+                "masks": []
+            },
+            {
+                "q": "اتخذت بريطانيا الوضع الذي تعبر عنه الصورة ذريعة لـ:",
+                "options": [
+                    "الانسحاب من مصر",
+                    "احتلال مصر عام ١٨٨٢م",
+                    "إلغاء قناة السويس",
+                    "دعم محمد علي"
+                ],
+                "ans": 1,
+                "img": "images/l4_debt.jpg",
+                "masks": []
+            },
+            {
+                "q": "الخريطة لقناة السويس، ومثلت القناة للاحتلال البريطاني عاملًا حاسمًا في:",
+                "options": [
+                    "التحكم في جميع طرق التجارة",
+                    "ربط مستعمراتها اقتصاديًا وسياسيًا",
+                    "السيطرة على إفريقيا",
+                    "إنعاش الخزينة المصرية"
+                ],
+                "ans": 1,
+                "img": "images/l4_canal.jpg",
+                "masks": []
+            },
+            {
+                "q": "تصل القناة الظاهرة في الخريطة بين:",
+                "options": [
+                    "بحيرة ناصر والبحر الأحمر",
+                    "النيل والبحر الأحمر",
+                    "البحر المتوسط والأطلسي",
+                    "البحر المتوسط وخليج السويس (البحر الأحمر)"
+                ],
+                "ans": 3,
+                "img": "images/l4_canal.jpg",
+                "masks": []
+            },
+            {
+                "q": "المدينة الواقعة على البحر المتوسط عند مدخل القناة في الخريطة هي:",
+                "options": [
+                    "الإسماعيلية",
+                    "السويس",
+                    "بورسعيد",
+                    "الإسكندرية"
+                ],
+                "ans": 2,
+                "img": "images/l4_canal.jpg",
+                "masks": [
+                    [
+                        21,
+                        4,
+                        25,
+                        4.5
+                    ]
+                ]
+            },
+            {
+                "q": "البحيرة الكبيرة الواقعة في منتصف مسار القناة في الخريطة هي:",
+                "options": [
+                    "البحيرة المرة الكبرى",
+                    "بحيرة المنزلة",
+                    "بحيرة ناصر",
+                    "بحيرة قارون"
+                ],
+                "ans": 0,
+                "img": "images/l4_canal.jpg",
+                "masks": [
+                    [
+                        44,
+                        59.6,
+                        34,
+                        4.2
+                    ]
+                ]
+            },
+            {
+                "q": "أثر افتتاح القناة الظاهرة في الخريطة على السيادة المصرية أنه:",
+                "options": [
+                    "عزز الاستقلال المالي",
+                    "أنهى التدخل البريطاني",
+                    "حوّل مصر لمركز صراع دولي",
+                    "قطع العلاقات مع أوروبا"
+                ],
+                "ans": 2,
+                "img": "images/l4_canal.jpg",
+                "masks": []
+            },
+            {
+                "q": "العبارة البريطانية «من يملك مصر يملك مفاتيح الإمبراطورية» ترتبط بالمجرى الظاهر في الخريطة لأنه:",
+                "options": [
+                    "الطريق إلى الهند",
+                    "مصدر البترول",
+                    "طريق إلى أمريكا",
+                    "مصدر الذهب"
+                ],
+                "ans": 0,
+                "img": "images/l4_canal.jpg",
+                "masks": []
+            },
+            {
+                "q": "أصبح القضاء على مشروع صاحب الصورة هدفًا للصراع الدولي بعد انتصاره في معركة:",
+                "options": [
+                    "التل الكبير",
+                    "نزيب ١٨٣٩م",
+                    "حطين",
+                    "أكتيوم"
+                ],
+                "ans": 1,
+                "img": "images/l4_mali.jpg",
+                "masks": []
+            },
+            {
+                "q": "خلفاء محمد علي قبل صاحب الصورة الذين لم يكونوا على نفس كفاءته:",
+                "options": [
+                    "عباس وسعيد",
+                    "توفيق وعباس حلمي",
+                    "إبراهيم وتوفيق",
+                    "فؤاد وفاروق"
+                ],
+                "ans": 0,
+                "img": "images/l4_ismail.jpg",
+                "masks": []
+            },
+            {
+                "q": "تشكلت في ظل الوضع الذي تعبر عنه الصورة وزارة:",
+                "options": [
+                    "عسكرية",
+                    "وطنية خالصة",
+                    "مختلطة من وزراء مصريين وأجانب",
+                    "عثمانية"
+                ],
+                "ans": 2,
+                "img": "images/l4_debt.jpg",
+                "masks": []
+            },
+            {
+                "q": "تراجع مشروع صاحب الصورة الصناعي بسبب معاهدة:",
+                "options": [
+                    "بلطة ليمان ١٨٣٨م",
+                    "باريس",
+                    "فرساي",
+                    "لندن ١٨٤٠م"
+                ],
+                "ans": 0,
+                "img": "images/l4_mali.jpg",
+                "masks": []
+            },
+            {
+                "q": "يُعد التحكم في المجرى الظاهر بالخريطة مثالًا على ممارسة الدولة لركن:",
+                "options": [
+                    "التجانس الثقافي",
+                    "الشعب",
+                    "الهوية الدينية",
+                    "السيادة على حيزها الجغرافي"
+                ],
+                "ans": 3,
+                "img": "images/l4_canal.jpg",
+                "masks": []
+            }
+        ]
+    }
+];
+
+    // --- محرك الصوت للمؤثرات التفاعلية ---
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new AudioContext();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.1, 0.1); 
+        setTimeout(() => playTone(659.25, 'sine', 0.1, 0.1), 100); 
+        setTimeout(() => playTone(783.99, 'sine', 0.2, 0.15), 200); 
+        setTimeout(() => playTone(1046.50, 'sine', 0.4, 0.2), 300); 
+        triggerConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(300, 'sawtooth', 0.15, 0.1);
+        setTimeout(() => playTone(200, 'sawtooth', 0.25, 0.15), 150);
+        
+        const qBox = document.querySelector('.question-box');
+        if(qBox) {
+            qBox.classList.remove('shake');
+            void qBox.offsetWidth; 
+            qBox.classList.add('shake');
+        }
+    }
+
+    // --- مؤثرات بصرية ---
+    function triggerConfetti() {
+        const colors = ['#f72585', '#4cc9f0', '#fee440', '#00f5d4', '#8b5cf6'];
+        for(let i=0; i<40; i++) {
+            let conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        if (teamMode) { onTeamAnswer(isCorrect); }
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، بطل!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        if (teamMode) { teamFeedbackText(isCorrect, title); } else { title.style.fontSize = ''; }
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300); // وقت الانتقال للسؤال التالي
+    }
+
+    // --- متغيرات محرك اللعبة ---
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let geniusTimerInterval = null;
+    let wrongAnswers = []; // مصفوفة لتخزين الأخطاء
+
+    // --- التهيئة ---
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <div class="icon-container">${game.icon}</div>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        document.getElementById('team-board').classList.remove('show'); teamMode = false;
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+        updateTeamBoard();
+    }
+
+    function gameComplete() {
+        if (teamMode) { teamGameComplete(); return; }
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <div class="share-box">
+                    <h4>📲 أرسل نتيجتك إلى أ/ السيد صالح</h4>
+                    <input type="text" id="student-name-input" class="share-name-input" placeholder="اكتب اسمك هنا أولًا">
+                    <div id="share-warning" class="share-warning">من فضلك اكتب اسمك أولًا قبل الإرسال ✋</div>
+                    <div>
+                        <button class="btn btn-share" onclick="sendResultToTeacher(${score}, ${currentQuestions.length})">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/></svg>
+                            إرسال النتيجة عبر واتساب
+                        </button>
+                    </div>
+                </div>
+                <button class="btn back-btn" style="font-size:1.1rem; padding:15px 30px; margin-top: 18px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button>
+            </div>
+        `;
+    }
+
+    function sendResultToTeacher(score, total) {
+        const nameInput = document.getElementById('student-name-input');
+        const warning = document.getElementById('share-warning');
+        const name = nameInput.value.trim();
+        if (!name) {
+            warning.style.display = 'block';
+            nameInput.classList.add('shake');
+            nameInput.focus();
+            setTimeout(() => nameInput.classList.remove('shake'), 500);
+            return;
+        }
+        warning.style.display = 'none';
+        const gameTitle = currentGame ? currentGame.title : '';
+        const message =
+            `📚 نتيجة طالب - ${LESSON_NAME}\n` +
+            `👤 اسم الطالب: ${name}\n` +
+            `🎮 اللعبة: ${gameTitle}\n` +
+            `✅ النتيجة: ${score} من ${total}\n` +
+            `⭐ نسبة النجاح: ${Math.round((score/total)*100)}%`;
+        const url = `https://wa.me/201001304451?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    function beginGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = shuffleArray([...gameData.questions]).slice(0, QUESTIONS_PER_ROUND);
+        qIndex = 0;
+        wrongAnswers = []; // تصفير قائمة الأخطاء
+        
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        
+        renderNextState();
+    }
+
+    function renderNextState() {
+        if (qIndex >= currentQuestions.length) {
+            gameComplete();
+            return;
+        }
+
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+
+        if (currentGame.type === 'mcq') {
+            renderMCQ(gc);
+        } else if (currentGame.type === 'bubbles') {
+            renderBubbles(gc);
+        } else if (currentGame.type === 'shooting') {
+            renderShooting(gc);
+        } else if (currentGame.type === 'true_false') {
+            renderTrueFalse(gc);
+        } else if (currentGame.type === 'genius') {
+            renderGenius(gc);
+        } else if (currentGame.type === 'map') {
+            renderMap(gc);
+        }
+    }
+
+    // --- أنماط الألعاب ---
+
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        // ترتيب ثابت (صح يميناً وخطأ يساراً)
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #1e40af)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 5. تحدي العباقرة (سؤال بعدّاد زمني)
+    function renderGenius(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const wrap = document.createElement('div');
+        wrap.className = 'genius-wrap';
+
+        const badge = document.createElement('div');
+        badge.className = 'genius-badge';
+        badge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z"></path></svg> تحدي العباقرة`;
+
+        const timerTrack = document.createElement('div');
+        timerTrack.className = 'genius-timer-track';
+        const timerBar = document.createElement('div');
+        timerBar.className = 'genius-timer-bar';
+        timerTrack.appendChild(timerBar);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.style.background = 'rgba(255,255,255,0.95)';
+        qBox.innerText = qData.q;
+
+        const optContainer = document.createElement('div');
+        optContainer.className = 'genius-options';
+
+        let isAnswered = false;
+        const TOTAL_TIME = 12000; // 12 ثانية لكل سؤال
+        let startTime = Date.now();
+
+        function finishQuestion(isCorrect, selectedText) {
+            if (isAnswered) return;
+            isAnswered = true;
+            clearInterval(geniusTimerInterval);
+            if (!isCorrect) {
+                wrongAnswers.push({ question: qData.q, correct: correctText, selected: selectedText || "انتهى الوقت!" });
+            }
+            showFeedback(isCorrect, () => { qIndex++; renderNextState(); });
+        }
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    finishQuestion(true, opt);
+                } else {
+                    btn.classList.add('btn-wrong');
+                    finishQuestion(false, opt);
+                }
+            };
+            optContainer.appendChild(btn);
+        });
+
+        wrap.appendChild(badge);
+        wrap.appendChild(timerTrack);
+        container.appendChild(wrap);
+        container.appendChild(qBox);
+        container.appendChild(optContainer);
+
+        geniusTimerInterval = setInterval(() => {
+            if (isAnswered) { clearInterval(geniusTimerInterval); return; }
+            const elapsed = Date.now() - startTime;
+            const pct = Math.max(0, 100 - (elapsed / TOTAL_TIME) * 100);
+            timerBar.style.width = pct + '%';
+            if (elapsed >= TOTAL_TIME) {
+                clearInterval(geniusTimerInterval);
+                finishQuestion(false, null);
+            }
+        }, 80);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            let speed = 0.95 + Math.random() * 0.65; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval); clearInterval(geniusTimerInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 30);
+    }
+
+    // 4. التنشين
+    function renderShooting(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 2.5 + 1.5) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+
+            animInterval = setInterval(() => {
+                if (isAnswered) return;
+                pos += speed;
+                if (pos > window.innerWidth + 50) pos = -250;
+                if (pos < -250) pos = window.innerWidth + 50;
+                bird.style.left = pos + 'px';
+            }, 20);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.style.display = 'flex';
+        hint.style.alignItems = 'center';
+        hint.style.justifyContent = 'center';
+        hint.style.gap = '8px';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> اضغط على الإجابة الصحيحة وهي تتحرك لاصطيادها!`;
+        container.appendChild(hint);
+    }
+
+
+    // 6. تحدي الخرائط والصور
+    function renderMap(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+
+        const stage = document.createElement('div');
+        stage.className = 'map-stage';
+        const wrap = document.createElement('div');
+        wrap.className = 'map-wrap';
+        const img = document.createElement('img');
+        img.src = qData.img;
+        img.alt = 'خريطة أو صورة من الكتاب المدرسي';
+        wrap.appendChild(img);
+        const masks = [];
+        (qData.masks || []).forEach(m => {
+            const d = document.createElement('div');
+            d.className = 'map-mask';
+            d.style.left = m[0] + '%'; d.style.top = m[1] + '%';
+            d.style.width = m[2] + '%'; d.style.height = m[3] + '%';
+            d.textContent = '؟';
+            wrap.appendChild(d); masks.push(d);
+        });
+        stage.appendChild(wrap);
+        wrap.onclick = () => stage.classList.toggle('zoomed');
+        const hint = document.createElement('div');
+        hint.className = 'map-hint';
+        hint.textContent = (masks.length ? '💡 الإجابة مخفية تحت المربع البرتقالي (؟) • ' : '💡 ') + 'اضغط على الصورة لتكبيرها';
+        stage.appendChild(hint);
+
+        const optContainer = document.createElement('div');
+        optContainer.className = 'map-options';
+        let isAnswered = false;
+        const btns = [];
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                const ok = opt === correctText;
+                masks.forEach(d => d.classList.add('revealed'));
+                btns.forEach(b => { if (b.innerText === correctText) b.classList.add('ok'); });
+                if (!ok) {
+                    btn.classList.add('bad');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                }
+                setTimeout(() => showFeedback(ok, () => { qIndex++; renderNextState(); }), 1100);
+            };
+            btns.push(btn);
+            optContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(stage);
+        container.appendChild(optContainer);
+    }
+
+
+    // --- طريقة اللعب: فردي أو منافسة بين فريقين ---
+    const QUESTIONS_PER_ROUND = 20;
+    let teamMode = false;
+    let teamNames = ['الفريق الأول', 'الفريق الثاني'];
+    let teamScores = [0, 0];
+    let pendingGame = null;
+
+    function startGame(gameData) {
+        initAudio();
+        pendingGame = gameData;
+        document.getElementById('mode-game-title').textContent = gameData.title;
+        document.getElementById('team-setup').classList.remove('show');
+        document.getElementById('mode-overlay').classList.add('active');
+    }
+    function closeModePicker() { document.getElementById('mode-overlay').classList.remove('active'); }
+    function chooseSolo() {
+        teamMode = false; closeModePicker();
+        document.getElementById('team-board').classList.remove('show');
+        beginGame(pendingGame);
+    }
+    function chooseTeams() {
+        document.getElementById('team-setup').classList.add('show');
+        setTimeout(() => document.getElementById('team-a').select(), 50);
+    }
+    function startTeams() {
+        const a = document.getElementById('team-a').value.trim() || 'الفريق الأول';
+        const b = document.getElementById('team-b').value.trim() || 'الفريق الثاني';
+        teamNames = [a, b === a ? b + ' (٢)' : b];
+        teamScores = [0, 0];
+        teamMode = true; closeModePicker();
+        document.getElementById('team-name-0').textContent = teamNames[0];
+        document.getElementById('team-name-1').textContent = teamNames[1];
+        document.getElementById('team-board').classList.remove('show');
+        beginDuel(pendingGame);
+    }
+    function currentTeam() { return qIndex % 2; }
+    function updateTeamBoard() {
+        if (!teamMode) return;
+        for (let i = 0; i < 2; i++) {
+            document.getElementById('team-score-' + i).textContent = teamScores[i];
+            document.getElementById('team-card-' + i).classList.toggle('active', i === currentTeam() && qIndex < currentQuestions.length);
+        }
+    }
+    function onTeamAnswer(isCorrect) {
+        if (isCorrect) teamScores[currentTeam()]++;
+        updateTeamBoard();
+    }
+    function teamFeedbackText(isCorrect, titleEl) {
+        const t = teamNames[currentTeam()];
+        titleEl.textContent = isCorrect ? ('نقطة لـ ' + t + '! 🎉') : ('إجابة خاطئة يا ' + t);
+        titleEl.style.fontSize = '2rem';
+    }
+    function teamGameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect(); setTimeout(playCorrect, 300);
+        document.getElementById('team-card-0').classList.remove('active');
+        document.getElementById('team-card-1').classList.remove('active');
+        let banner;
+        if (teamScores[0] === teamScores[1]) banner = '🤝 تعادل! أداء رائع من الفريقين';
+        else banner = '🏆 الفائز: ' + (teamScores[0] > teamScores[1] ? teamNames[0] : teamNames[1]);
+        let wrongHTML = '';
+        if (wrongAnswers.length > 0) {
+            wrongHTML = '<div style="margin-top: 18px; text-align: right; background: #f8fafc; padding: 16px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 300px; overflow-y: auto;" class="errors-list"><h3 style="color: var(--danger); margin-bottom: 12px; text-align: center; font-size: 1.25rem;">مراجعة الأسئلة التي تمت الإجابة عنها خطأ 📝</h3><ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">';
+            wrongAnswers.forEach((item, i) => {
+                wrongHTML += '<li style="background: white; padding: 12px; border-radius: 10px; border-right: 5px solid var(--danger);"><div style="font-weight: bold; color: var(--primary); margin-bottom: 6px;">' + (i + 1) + '. ' + item.question + '</div><div style="color: var(--success); font-weight: bold;">الإجابة الصحيحة: ' + item.correct + '</div></li>';
+            });
+            wrongHTML += '</ul></div>';
+        }
+        gc.innerHTML = '<div style="text-align:center; padding: 30px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">'
+            + '<h2 style="color: var(--primary); font-size: 2rem; font-weight: 900;">انتهت المنافسة!</h2>'
+            + '<div class="winner-box"><h3>' + banner + '</h3><div class="final-scores"><div>' + teamNames[0] + ': ' + teamScores[0] + '</div><div>' + teamNames[1] + ': ' + teamScores[1] + '</div></div></div>'
+            + wrongHTML
+            + '<div class="share-box"><h4>📲 أرسل نتيجة المنافسة إلى أ/ السيد صالح</h4><button class="btn btn-share" onclick="sendTeamResult()">إرسال النتيجة عبر واتساب</button></div>'
+            + '<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: 18px;">'
+            + '<button class="btn" style="padding:14px 26px;" onclick="startTeamsAgain()">🔄 منافسة جديدة بأسئلة مختلفة</button>'
+            + '<button class="btn back-btn" style="padding:14px 26px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button></div></div>';
+        triggerConfetti();
+    }
+    function startTeamsAgain() { teamScores = [0, 0]; beginDuel(pendingGame); }
+    function sendTeamResult() {
+        const gameTitle = currentGame ? currentGame.title : '';
+        let res = teamScores[0] === teamScores[1] ? 'تعادل' : ('الفائز: ' + (teamScores[0] > teamScores[1] ? teamNames[0] : teamNames[1]));
+        const message = '🏆 نتيجة منافسة - ' + LESSON_NAME + '\n🎮 اللعبة: ' + gameTitle + '\n'
+            + '🔵 ' + teamNames[0] + ': ' + teamScores[0] + '\n🟠 ' + teamNames[1] + ': ' + teamScores[1] + '\n✅ ' + res;
+        window.open('https://wa.me/201001304451?text=' + encodeURIComponent(message), '_blank');
+    }
+
+
+    // ===== منافسة الفريقين: شاشة مقسومة، نفس الأسئلة بترتيب مختلف لكل فريق، ٣٠ ثانية لكل سؤال =====
+    const DUEL_TIME = 30000;
+    let duel = null;
+    function duelEsc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function duelOrder(pool, other) {
+        // ترتيب مختلف: لا يتطابق أي سؤال في نفس الموضع مع ترتيب الفريق الآخر
+        let best = shuffleArray([...pool]);
+        for (let tries = 0; tries < 200; tries++) {
+            if (!other || best.every((q, i) => q !== other[i])) return best;
+            best = shuffleArray([...pool]);
+        }
+        return best;
+    }
+    function duelTone(ok) {
+        initAudio();
+        if (ok) { playTone(659.25, 'sine', 0.1, 0.1); setTimeout(() => playTone(987.77, 'sine', 0.22, 0.13), 100); }
+        else { playTone(260, 'sawtooth', 0.2, 0.08); }
+    }
+    function beginDuel(gameData) {
+        initAudio();
+        stopDuelTimers();
+        currentGame = gameData;
+        const pool = shuffleArray([...gameData.questions]).slice(0, QUESTIONS_PER_ROUND);
+        const orderA = duelOrder(pool, null);
+        const orderB = duelOrder(pool, orderA);
+        duel = { teams: [orderA, orderB].map(order => ({ order, idx: 0, score: 0, time: 0, wrong: [], timer: null, done: false })), finished: false };
+        document.getElementById('duel-title').textContent = gameData.title;
+        document.getElementById('duel-result').classList.add('hidden');
+        document.getElementById('duel-screen').classList.remove('hidden');
+        document.body.classList.add('duel-on');
+        renderDuelQ(0); renderDuelQ(1);
+    }
+    function stopDuelTimers() { if (duel) duel.teams.forEach(t => clearInterval(t.timer)); }
+    function exitDuel() {
+        stopDuelTimers(); duel = null;
+        document.getElementById('duel-screen').classList.add('hidden');
+        document.body.classList.remove('duel-on');
+        returnToMenu();
+    }
+    function renderDuelQ(ti) {
+        if (!duel) return;
+        const T = duel.teams[ti];
+        const half = document.getElementById('duel-half-' + ti);
+        half.classList.remove('flash-ok', 'flash-bad');
+        half.innerHTML = '';
+        half.scrollTop = 0;
+        const total = T.order.length;
+        const head = document.createElement('div');
+        head.className = 'dh-head';
+        head.innerHTML = '<span class="dh-name">' + duelEsc(teamNames[ti]) + '</span><span class="dh-meta"><span class="dh-prog">'
+            + (Math.min(T.idx + 1, total)) + ' / ' + total + '</span><span class="dh-score">' + T.score + '</span></span>';
+        half.appendChild(head);
+        if (T.idx >= total) { duelTeamDone(ti, half); return; }
+
+        const qData = T.order[T.idx];
+        const correctText = qData.options[qData.ans];
+
+        const timer = document.createElement('div');
+        timer.className = 'dh-timer';
+        timer.innerHTML = '<div class="dh-track"><div class="dh-bar"></div></div><span class="dh-sec">30</span>';
+        half.appendChild(timer);
+        const bar = timer.querySelector('.dh-bar'), sec = timer.querySelector('.dh-sec');
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.textContent = qData.q;
+        half.appendChild(qBox);
+
+        const masks = [];
+        if (currentGame.type === 'map' && qData.img) {
+            const stage = document.createElement('div');
+            stage.className = 'map-stage';
+            const wrap = document.createElement('div');
+            wrap.className = 'map-wrap';
+            const img = document.createElement('img');
+            img.src = qData.img; img.alt = 'خريطة أو صورة من الكتاب المدرسي';
+            wrap.appendChild(img);
+            (qData.masks || []).forEach(m => {
+                const d = document.createElement('div');
+                d.className = 'map-mask';
+                d.style.left = m[0] + '%'; d.style.top = m[1] + '%'; d.style.width = m[2] + '%'; d.style.height = m[3] + '%';
+                d.textContent = '؟'; wrap.appendChild(d); masks.push(d);
+            });
+            wrap.onclick = () => stage.classList.toggle('zoomed');
+            stage.appendChild(wrap);
+            const hint = document.createElement('div');
+            hint.className = 'map-hint';
+            hint.textContent = '💡 اضغط على الصورة لتكبيرها';
+            stage.appendChild(hint);
+            half.appendChild(stage);
+        }
+
+        const opts = document.createElement('div');
+        opts.className = 'dh-opts';
+        const isTF = currentGame.type === 'true_false';
+        const list = isTF ? ['صح', 'خطأ'] : shuffleArray([...qData.options]);
+        if (isTF) opts.classList.add('tf');
+        const btns = [];
+        const verdict = document.createElement('div');
+        verdict.className = 'dh-verdict';
+        let answered = false;
+        const start = Date.now();
+
+        function finish(selected, btn) {
+            if (answered || !duel) return;
+            answered = true;
+            clearInterval(T.timer);
+            T.time += Math.min(Date.now() - start, DUEL_TIME);
+            const ok = selected === correctText;
+            opts.classList.add('locked');
+            masks.forEach(d => d.classList.add('revealed'));
+            btns.forEach(b => { if (b.dataset.v === correctText) b.classList.add('ok'); });
+            if (ok) { T.score++; }
+            else {
+                if (btn) btn.classList.add('bad');
+                T.wrong.push({ question: qData.q, correct: correctText, selected: selected || 'انتهى الوقت!' });
+            }
+            head.querySelector('.dh-score').textContent = T.score;
+            half.classList.add(ok ? 'flash-ok' : 'flash-bad');
+            verdict.className = 'dh-verdict ' + (ok ? 'ok' : 'bad');
+            verdict.textContent = ok ? '✅ إجابة صحيحة! +1' : (selected ? '❌ إجابة خاطئة' : '⏰ انتهى الوقت!');
+            duelTone(ok);
+            if (!ok) { qBox.classList.remove('shake'); void qBox.offsetWidth; qBox.classList.add('shake'); }
+            setTimeout(() => { if (!duel || duel.teams[ti] !== T) return; T.idx++; renderDuelQ(ti); }, masks.length ? 1700 : 1200);
+        }
+
+        list.forEach(opt => {
+            const b = document.createElement('button');
+            b.className = 'btn';
+            if (isTF) b.classList.add(opt === 'صح' ? 'tf-true' : 'tf-false');
+            b.textContent = opt; b.dataset.v = opt;
+            b.onclick = () => finish(opt, b);
+            btns.push(b); opts.appendChild(b);
+        });
+        half.appendChild(opts);
+        half.appendChild(verdict);
+
+        clearInterval(T.timer);
+        T.timer = setInterval(() => {
+            if (answered) { clearInterval(T.timer); return; }
+            const left = Math.max(0, DUEL_TIME - (Date.now() - start));
+            bar.style.width = (left / DUEL_TIME * 100) + '%';
+            const s = Math.ceil(left / 1000);
+            sec.textContent = s;
+            const low = s <= 5;
+            bar.classList.toggle('low', low); sec.classList.toggle('low', low);
+            if (left <= 0) finish(null, null);
+        }, 100);
+    }
+    function duelTeamDone(ti, half) {
+        const T = duel.teams[ti];
+        T.done = true;
+        const box = document.createElement('div');
+        box.className = 'dh-wait';
+        box.innerHTML = '<div class="big">🏁</div><h3>أنهى ' + duelEsc(teamNames[ti]) + ' الأسئلة!</h3><p>النتيجة: ' + T.score + ' من ' + T.order.length + '</p>'
+            + '<p style="margin-top:6px;">⏳ في انتظار الفريق الآخر...</p>';
+        half.appendChild(box);
+        if (duel.teams.every(t => t.done) && !duel.finished) { duel.finished = true; setTimeout(showDuelResult, 700); }
+    }
+    function duelFmt(ms) { return (ms / 1000).toFixed(1) + ' ث'; }
+    function duelWinner() {
+        const [a, b] = duel.teams;
+        if (a.score !== b.score) return a.score > b.score ? 0 : 1;
+        if (Math.abs(a.time - b.time) >= 500) return a.time < b.time ? 0 : 1;
+        return -1;
+    }
+    function showDuelResult() {
+        if (!duel) return;
+        teamScores = [duel.teams[0].score, duel.teams[1].score];
+        const w = duelWinner();
+        const total = duel.teams[0].order.length;
+        let banner;
+        if (w === -1) banner = '🤝 تعادل! أداء رائع من الفريقين';
+        else banner = '🏆 الفائز: ' + duelEsc(teamNames[w]) + (teamScores[0] === teamScores[1] ? ' (الأسرع في الإجابة)' : '');
+        let reviews = '';
+        duel.teams.forEach((T, i) => {
+            reviews += '<div class="res-review t' + i + '"><h4>' + duelEsc(teamNames[i]) + ' — الأخطاء (' + T.wrong.length + ')</h4>';
+            if (!T.wrong.length) reviews += '<p class="perfect">أداء مثالي! لا توجد أخطاء 🌟</p>';
+            else {
+                reviews += '<ul>';
+                T.wrong.forEach((it, k) => {
+                    reviews += '<li><div class="rq">' + (k + 1) + '. ' + duelEsc(it.question) + '</div><div class="rs">إجابتهم: ' + duelEsc(it.selected) + '</div><div class="ra">الإجابة الصحيحة: ' + duelEsc(it.correct) + '</div></li>';
+                });
+                reviews += '</ul>';
+            }
+            reviews += '</div>';
+        });
+        const res = document.getElementById('duel-result');
+        res.innerHTML = '<div class="res-card">'
+            + '<h2 style="color: var(--primary); font-size: 2rem; font-weight: 900;">انتهت المنافسة!</h2>'
+            + '<div class="winner-box"><h3>' + banner + '</h3><div class="final-scores">'
+            + '<div>' + duelEsc(teamNames[0]) + ': ' + teamScores[0] + ' / ' + total + '<small>⏱️ ' + duelFmt(duel.teams[0].time) + '</small></div>'
+            + '<div>' + duelEsc(teamNames[1]) + ': ' + teamScores[1] + ' / ' + total + '<small>⏱️ ' + duelFmt(duel.teams[1].time) + '</small></div>'
+            + '</div></div>'
+            + '<div class="res-reviews">' + reviews + '</div>'
+            + '<div class="share-box"><h4>📲 أرسل نتيجة المنافسة إلى أ/ السيد صالح</h4><button class="btn btn-share" onclick="sendDuelResult()">إرسال النتيجة عبر واتساب</button></div>'
+            + '<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: 18px;">'
+            + '<button class="btn" style="padding:14px 26px;" onclick="beginDuel(pendingGame)">🔄 منافسة جديدة بأسئلة مختلفة</button>'
+            + '<button class="btn back-btn" style="padding:14px 26px;" onclick="exitDuel()">العودة للقائمة الرئيسية</button></div></div>';
+        res.classList.remove('hidden');
+        res.scrollTop = 0;
+        playCorrect(); setTimeout(playCorrect, 300);
+    }
+    function sendDuelResult() {
+        if (!duel) return;
+        const w = duelWinner();
+        const gameTitle = currentGame ? currentGame.title : '';
+        const total = duel.teams[0].order.length;
+        const res = w === -1 ? 'تعادل' : ('الفائز: ' + teamNames[w]);
+        const message = '🏆 نتيجة منافسة - ' + LESSON_NAME + '\n🎮 اللعبة: ' + gameTitle + '\n'
+            + '🔵 ' + teamNames[0] + ': ' + duel.teams[0].score + ' من ' + total + ' (⏱️ ' + duelFmt(duel.teams[0].time) + ')\n'
+            + '🟠 ' + teamNames[1] + ': ' + duel.teams[1].score + ' من ' + total + ' (⏱️ ' + duelFmt(duel.teams[1].time) + ')\n✅ ' + res;
+        window.open('https://wa.me/201001304451?text=' + encodeURIComponent(message), '_blank');
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>

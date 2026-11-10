@@ -1,0 +1,4288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>درس عصر الدولة الوسطى (عصر الرخاء الاقتصادي) - الصف الأول الإعدادي</title>
+    <!-- استدعاء خط احترافي -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;      
+            --primary-light: #2563eb; 
+            --secondary: #1e40af;    
+            --success: #10b981;      
+            --danger: #ef4444;       
+            --warning: #f59e0b;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #eef2ff;
+            background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        /* --- الهيدر الرئيسي --- */
+        .header-main {
+            background: linear-gradient(135deg, #0b1a3f, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #fde68a;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.4rem, 5.5vw, 2.6rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #fcd34d, #b45309);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #fffbeb; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* --- الأزرار --- */
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        /* --- الشاشة الرئيسية --- */
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(34, 197, 94, 0.25); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #fde68a, #fde68a);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #1e3a8a; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.4rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 1rem; color: #64748b; font-weight: 600;}
+
+        /* --- شاشة اللعب --- */
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #2563eb; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #1e40af;
+            line-height: 1.6;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        /* MCQ Style */
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1.1rem, 3.5vw, 1.4rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        /* True/False Style */
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        /* Bubbles Style */
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #0b1a3f, #1e3a8a);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #2563eb; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(224,231,255,0.9));
+            color: #1e3a8a;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.85rem, 2vw, 1.05rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        /* Shooting Style */
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23e0fbfc" width="100%" height="100%"/><circle fill="%23bae6fd" cx="20%" cy="30%" r="50"/><circle fill="%23bae6fd" cx="80%" cy="60%" r="70"/><circle fill="%23bae6fd" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #2563eb; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.15rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #fffbeb; }
+
+        /* Genius Challenge Style */
+        .genius-wrap {
+            background: linear-gradient(135deg, #0b1a3f, #1e3a8a, #b45309);
+            border-radius: 16px; padding: 20px; margin-top: 10px;
+            border: 4px solid #fcd34d; box-shadow: inset 0 0 25px rgba(0,0,0,0.4), 0 10px 20px rgba(21,128,61,0.35);
+        }
+        .genius-timer-track {
+            width: 100%; height: 14px; background: rgba(0,0,0,0.35);
+            border-radius: 10px; overflow: hidden; margin-bottom: 18px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .genius-timer-bar {
+            height: 100%; width: 100%;
+            background: linear-gradient(to right, #fcd34d, #2563eb, #ef4444);
+            border-radius: 10px;
+            transition: width 0.1s linear;
+        }
+        .genius-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 600px) { .genius-options { grid-template-columns: 1fr; } }
+        .genius-options .btn {
+            padding: 16px 10px; font-size: clamp(1rem, 3vw, 1.25rem);
+            background: linear-gradient(to bottom, #3b82f6, #b45309);
+            border-bottom: 3px solid #1e3a8a; border-radius: 14px; min-height: 70px;
+        }
+        .genius-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(74, 222, 128, 0.15); color: #fcd34d;
+            font-weight: 800; padding: 6px 16px; border-radius: 20px;
+            border: 1px solid rgba(253,224,71,0.4); margin-bottom: 12px; font-size: 0.95rem;
+        }
+
+        /* Result Share (WhatsApp) */
+        .share-box {
+            margin-top: 25px; background: #fffbeb; border: 2px solid #fde68a;
+            border-radius: 16px; padding: 20px; text-align: center;
+        }
+        .share-box h4 { color: #1e3a8a; font-size: 1.2rem; margin-bottom: 12px; font-weight: 800;}
+        .share-name-input {
+            width: 100%; max-width: 320px; padding: 12px 16px; border-radius: 12px;
+            border: 2px solid #fde047; font-size: 1.05rem; text-align: center;
+            font-family: 'Cairo', sans-serif; font-weight: 700; margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .share-name-input:focus { outline: none; border-color: #2563eb; }
+        .btn-share {
+            background: linear-gradient(to bottom, #25d366, #1da851);
+            border-bottom-color: #128c3e; display: inline-flex; gap: 10px;
+        }
+        .share-warning { color: var(--danger); font-weight: 700; font-size: 0.9rem; margin-top: 8px; display: none; }
+
+        /* Modal Overlay */
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        /* Summary Errors Scrolling */
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* الفوتر (Footer) */
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        /* WhatsApp */
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px;
+            background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100; transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        /* Confetti effect */
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+
+        /* Map Challenge Style */
+        .map-stage { text-align: center; margin-bottom: 18px; }
+        .map-wrap { position: relative; display: inline-block; max-width: 100%; border-radius: 14px; overflow: hidden;
+            border: 4px solid #2563eb; box-shadow: 0 10px 20px rgba(0,0,0,0.12); background: #fff; }
+        .map-wrap img { display: block; max-width: 100%; max-height: 58vh; width: auto; height: auto; margin: 0 auto; }
+        .map-mask { position: absolute; background: linear-gradient(135deg, #f59e0b, #ea580c); border: 2px solid #fff;
+            border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff;
+            font-weight: 900; font-size: clamp(0.9rem, 2.4vw, 1.4rem); box-shadow: 0 3px 8px rgba(0,0,0,0.35);
+            transition: opacity 0.5s ease; animation: maskPulse 1.6s ease-in-out infinite; }
+        .map-mask.revealed { opacity: 0; animation: none; }
+        @keyframes maskPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+        .map-stage.zoomed { overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
+        .map-stage.zoomed .map-wrap { max-width: none; }
+        .map-stage.zoomed .map-wrap img { max-width: none; max-height: none; width: min(1400px, 230vw); }
+        .map-wrap { cursor: zoom-in; }
+        .map-stage.zoomed .map-wrap { cursor: zoom-out; }
+        .map-hint { color: #b45309; font-weight: 700; font-size: 0.95rem; margin-top: 8px; }
+        .map-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 600px) { .map-options { grid-template-columns: 1fr; } }
+        .map-options .btn { padding: 14px 10px; font-size: clamp(1rem, 3vw, 1.2rem); min-height: 60px; }
+        .map-options .btn.ok { background: linear-gradient(to bottom, #10b981, #047857) !important; }
+        .map-options .btn.bad { background: linear-gradient(to bottom, #ef4444, #b91c1c) !important; }
+        .header-logo { width: 260px; height: 260px; border-radius: 30px; border: 4px solid var(--warning);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: contain; flex-shrink: 0; }
+        @media (max-width: 600px) { .header-logo { width: 170px; height: 170px; } }
+        .teacher-photo { width: 200px; height: 260px; border-radius: 30px; border: 4px solid var(--warning);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4); object-fit: cover; object-position: center top; flex-shrink: 0; background:#fff; }
+        .teacher-sub { color: #fde68a; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.2rem); margin: -8px 0 10px; }
+        @media (max-width: 600px) { .teacher-photo { width: 130px; height: 170px; } }
+
+        /* اختيار طريقة اللعب + المنافسة بين فريقين */
+        .mode-modal { background: white; border-radius: 24px; padding: 28px 22px; width: 460px; max-width: 92%;
+            text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.35); max-height: 92vh; overflow-y: auto; }
+        .mode-modal h2 { color: var(--primary); font-size: 1.5rem; font-weight: 900; margin-bottom: 4px; }
+        .mode-modal .mode-sub { color: #64748b; font-weight: 700; margin-bottom: 18px; }
+        .mode-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 480px) { .mode-choices { grid-template-columns: 1fr; } }
+        .mode-choice { border: 3px solid #fde68a; border-radius: 18px; padding: 18px 10px; cursor: pointer; background: #fffbeb;
+            transition: all .2s; font-weight: 800; color: var(--dark); }
+        .mode-choice:hover { transform: translateY(-3px); border-color: var(--primary-light); }
+        .mode-choice .mc-ico { font-size: 2.2rem; display: block; margin-bottom: 6px; }
+        .mode-choice small { display: block; color: #64748b; font-weight: 600; margin-top: 4px; font-size: .85rem; }
+        .team-setup { display: none; margin-top: 18px; text-align: right; }
+        .team-setup.show { display: block; }
+        .team-setup label { font-weight: 800; color: var(--primary); display: block; margin: 8px 0 4px; }
+        .team-setup input { width: 100%; padding: 11px 14px; border-radius: 12px; border: 2px solid #fde047; font-family: 'Cairo', sans-serif;
+            font-size: 1.05rem; font-weight: 700; text-align: center; }
+        .team-setup input:focus { outline: none; border-color: var(--primary-light); }
+        .mode-actions { display: flex; gap: 10px; margin-top: 16px; }
+        .mode-actions .btn { flex: 1; }
+        .mode-cancel { background: #e2e8f0 !important; color: var(--dark) !important; border-bottom-color: #cbd5e1 !important; }
+        .team-board { display: none; max-width: 900px; width: calc(100% - 40px); margin: -8px auto 16px; gap: 10px; }
+        .team-board.show { display: flex; }
+        .team-card { flex: 1; background: white; border-radius: 14px; padding: 8px 12px; display: flex; align-items: center;
+            justify-content: space-between; gap: 8px; border: 3px solid transparent; box-shadow: 0 4px 10px rgba(0,0,0,.06);
+            font-weight: 800; transition: all .25s; min-width: 0; }
+        .team-card .tname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .team-card .tscore { font-size: 1.4rem; font-weight: 900; min-width: 36px; text-align: center; border-radius: 10px; padding: 0 8px; color: white; }
+        .team-card.t0 .tscore { background: #2563eb; } .team-card.t1 .tscore { background: #ea580c; }
+        .team-card.active.t0 { border-color: #2563eb; transform: scale(1.03); background: #fffbeb; }
+        .team-card.active.t1 { border-color: #ea580c; transform: scale(1.03); background: #fff7ed; }
+        .team-card .turn-tag { font-size: .75rem; padding: 2px 8px; border-radius: 10px; background: #fef3c7; color: #92400e; display: none; }
+        .team-card.active .turn-tag { display: inline-block; }
+        .winner-box { border-radius: 20px; padding: 22px; margin: 18px 0; color: white; background: linear-gradient(135deg, #f59e0b, #ea580c); }
+        .winner-box h3 { font-size: 1.8rem; font-weight: 900; }
+        .final-scores { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+        .final-scores div { background: rgba(255,255,255,.2); border-radius: 14px; padding: 8px 18px; font-weight: 800; font-size: 1.15rem; }
+
+        /* ===== منافسة الفريقين: شاشة مقسومة ===== */
+        body.duel-on { overflow: hidden; }
+        .duel-screen { position: fixed; inset: 0; z-index: 500; display: flex; flex-direction: column;
+            background-color: #eef2ff; background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px); background-size: 25px 25px; }
+        .duel-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: white;
+            padding: 8px 14px; box-shadow: 0 4px 12px rgba(0,0,0,.06); font-weight: 800; flex-shrink: 0; }
+        .duel-top strong { color: var(--primary); font-size: clamp(.95rem, 2.6vw, 1.2rem); text-align: center; flex: 1;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .duel-top .back-btn { padding: 6px 14px; font-size: 1rem; }
+        .duel-top .duel-tag { background: #fef3c7; color: #92400e; border-radius: 20px; padding: 4px 12px; font-size: .85rem; white-space: nowrap; }
+        .duel-halves { flex: 1; display: flex; min-height: 0; }
+        .duel-half { flex: 1; min-width: 0; min-height: 0; overflow-y: auto; padding: 10px 12px 16px; display: flex;
+            flex-direction: column; gap: 10px; position: relative; transition: background .3s; }
+        .duel-half.t0 { background: rgba(13,148,136,.06); }
+        .duel-half.t1 { background: rgba(234,88,12,.06); }
+        .duel-half.flash-ok { background: rgba(16,185,129,.22); }
+        .duel-half.flash-bad { background: rgba(239,68,68,.20); }
+        .duel-divider { width: 6px; flex-shrink: 0; background: linear-gradient(to bottom, #2563eb, #f59e0b, #ea580c); position: relative; }
+        .duel-divider span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--dark); color: #fde68a;
+            font-weight: 900; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+            border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,.3); font-size: .95rem; z-index: 2; }
+        .dh-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: white; border-radius: 14px;
+            padding: 8px 12px; box-shadow: 0 4px 10px rgba(0,0,0,.06); border: 3px solid transparent; font-weight: 800; }
+        .t0 .dh-head { border-color: #2563eb; } .t1 .dh-head { border-color: #ea580c; }
+        .dh-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: clamp(.95rem, 2.4vw, 1.2rem); }
+        .t0 .dh-name { color: #b45309; } .t1 .dh-name { color: #c2410c; }
+        .dh-meta { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+        .dh-prog { background: #f1f5f9; color: #475569; border-radius: 10px; padding: 2px 8px; font-size: .85rem; }
+        .dh-score { color: white; border-radius: 10px; padding: 0 10px; font-size: 1.3rem; font-weight: 900; min-width: 38px; text-align: center; }
+        .t0 .dh-score { background: #2563eb; } .t1 .dh-score { background: #ea580c; }
+        .dh-timer { display: flex; align-items: center; gap: 8px; }
+        .dh-track { flex: 1; height: 12px; background: rgba(0,0,0,.12); border-radius: 10px; overflow: hidden; }
+        .dh-bar { height: 100%; width: 100%; border-radius: 10px; background: linear-gradient(to right, #10b981, #f59e0b); transition: width .1s linear; }
+        .dh-bar.low { background: linear-gradient(to right, #f97316, #ef4444); }
+        .dh-sec { font-weight: 900; min-width: 44px; text-align: center; background: var(--dark); color: white; border-radius: 10px; padding: 1px 6px; font-size: 1rem; }
+        .dh-sec.low { background: var(--danger); animation: maskPulse .8s ease-in-out infinite; }
+        .duel-half .question-box { margin-bottom: 0; padding: 14px 16px; font-size: clamp(1.05rem, 2.5vw, 1.45rem); line-height: 1.55; }
+        .t1 .question-box { border-right-color: #ea580c; }
+        .dh-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .dh-opts .btn { padding: 12px 10px; font-size: clamp(.95rem, 2.2vw, 1.2rem); min-height: 56px; text-align: center; line-height: 1.4; }
+        .t1 .dh-opts .btn { background: linear-gradient(to bottom, #f97316, #c2410c); border-bottom-color: #9a3412; }
+        .dh-opts .btn.ok { background: linear-gradient(to bottom, #10b981, #047857) !important; filter: none; }
+        .dh-opts .btn.bad { background: linear-gradient(to bottom, #ef4444, #b91c1c) !important; filter: none; }
+        .dh-opts.tf .btn { font-size: clamp(1.3rem, 3.4vw, 1.9rem); min-height: 80px; }
+        .dh-opts.tf .btn.tf-true { background: linear-gradient(to bottom, #10b981, #1e40af); border-bottom-color: #047857; }
+        .dh-opts.tf .btn.tf-false { background: linear-gradient(to bottom, #ef4444, #dc2626); border-bottom-color: #b91c1c; }
+        .dh-opts.locked .btn { pointer-events: none; }
+        .duel-half .map-stage { margin-bottom: 0; }
+        .duel-half .map-wrap img { max-height: 30vh; }
+        .duel-half .map-stage.zoomed .map-wrap img { width: min(1100px, 160vw); }
+        .duel-half .map-hint { font-size: .85rem; }
+        .dh-verdict { text-align: center; font-weight: 900; font-size: clamp(1rem, 2.6vw, 1.3rem); min-height: 1.6em; }
+        .dh-verdict.ok { color: var(--success); } .dh-verdict.bad { color: var(--danger); }
+        .dh-wait { margin: auto 0; background: white; border-radius: 18px; padding: 24px 16px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+        .dh-wait .big { font-size: 2.6rem; }
+        .dh-wait h3 { color: var(--primary); font-size: 1.35rem; font-weight: 900; margin: 6px 0; }
+        .dh-wait p { color: #64748b; font-weight: 700; }
+        .duel-result { position: absolute; inset: 0; z-index: 5; overflow-y: auto; padding: 16px;
+            background-color: #eef2ff; background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px); background-size: 25px 25px; }
+        .duel-result .res-card { max-width: 980px; margin: 0 auto; background: white; border-radius: 20px; padding: 24px 16px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,.1); }
+        .duel-result .final-scores div small { display: block; font-size: .85rem; opacity: .9; }
+        .res-reviews { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; text-align: right; }
+        .res-review { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 15px; padding: 12px; max-height: 320px; overflow-y: auto; }
+        .res-review h4 { text-align: center; margin-bottom: 10px; font-size: 1.1rem; }
+        .res-review.t0 h4 { color: #b45309; } .res-review.t1 h4 { color: #c2410c; }
+        .res-review ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+        .res-review li { background: white; padding: 10px; border-radius: 10px; border-right: 5px solid var(--danger); font-size: .95rem; }
+        .res-review li .rq { font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+        .res-review li .ra { color: var(--success); font-weight: 800; }
+        .res-review li .rs { color: #64748b; }
+        .res-review .perfect { color: var(--success); font-weight: 800; text-align: center; }
+        @media (max-width: 760px), (orientation: portrait) and (max-width: 1024px) {
+            .duel-halves { flex-direction: column; }
+            .duel-divider { width: auto; height: 6px; background: linear-gradient(to right, #2563eb, #f59e0b, #ea580c); }
+            .duel-divider span { width: 38px; height: 38px; font-size: .8rem; }
+            .duel-half { padding: 8px 10px 10px; gap: 8px; }
+            .duel-half .map-wrap img { max-height: 15vh; }
+            .duel-half .map-hint { display: none; }
+            .duel-half .question-box { padding: 10px 12px; font-size: clamp(.95rem, 4.2vw, 1.2rem); line-height: 1.45; }
+            .dh-opts .btn { min-height: 46px; padding: 8px 8px; }
+            .dh-opts.tf .btn { min-height: 60px; }
+        }
+        @media (max-width: 420px) { .dh-opts { gap: 7px; } .dh-opts .btn { min-height: 44px; padding: 7px 6px; font-size: .92rem; } }
+        @media (max-width: 640px) { .res-reviews { grid-template-columns: 1fr; } .duel-top .duel-tag { display: none; } }
+    </style>
+</head>
+<body>
+<style>
+#lock-screen { position: fixed; inset: 0; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 18px;
+  background: linear-gradient(135deg,#0b1a3f,#1e3a8a,#1e40af); }
+#lock-screen .lk { background: #fff; border-radius: 24px; padding: 26px 20px; width: 400px; max-width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,.45); border-top: 6px solid #f59e0b; }
+#lock-screen img { width: 120px; height: 120px; object-fit: contain; margin-bottom: 8px; }
+#lock-screen h2 { color: #1e3a8a; font-size: 1.3rem; font-weight: 900; margin-bottom: 4px; }
+#lock-screen .lt { color: #475569; font-weight: 700; font-size: .95rem; margin-bottom: 14px; line-height: 1.6; }
+#lock-screen input { width: 100%; font-size: 1.5rem; text-align: center; letter-spacing: 6px; padding: 12px; border: 2px solid #cbd5e1; border-radius: 14px; outline: none; direction: ltr; }
+#lock-screen input:focus { border-color: #2563eb; }
+#lock-screen button { margin-top: 12px; width: 100%; padding: 13px; font-size: 1.15rem; font-weight: 800; color: #fff; border: none; border-radius: 14px; cursor: pointer;
+  background: linear-gradient(to bottom,#2563eb,#1e3a8a); }
+#lock-screen .le { color: #dc2626; font-weight: 800; margin-top: 10px; min-height: 1.4em; }
+#lock-screen .lc { color: #64748b; font-size: .85rem; margin-top: 6px; }
+#lock-screen .lc a { color: #16a34a; font-weight: 800; text-decoration: none; }
+</style>
+<div id="lock-screen">
+  <div class="lk">
+    <img src="logo.png" alt="سلسلة الموسوعة">
+    <h2>🔒 هذا الدرس محمي بكلمة مرور</h2>
+    <div class="lt">عصر الدولة الوسطى (عصر الرخاء الاقتصادي) - الصف الأول الإعدادي<br>اكتب كلمة المرور التي أعطاها لك أ/ السيد صالح</div>
+    <input id="lock-pass" type="password" inputmode="numeric" autocomplete="off" placeholder="••••••">
+    <button type="button" onclick="tryUnlock()">دخول الدرس</button>
+    <div class="le" id="lock-err"></div>
+    <div class="lc">ليس معك كلمة المرور؟ <a href="https://wa.me/201001304451" target="_blank" rel="noopener">تواصل مع الأستاذ</a></div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'sayedsaleh_lock_prep1-unit2-lesson2-middle-kingdom', H = '2686989052398845', SALT = 'sayedsaleh|prep1-unit2-lesson2-middle-kingdom|';
+  function cyrb53(str, seed) { seed = seed || 0; var h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+    for (var i = 0, ch; i < str.length; i++) { ch = str.charCodeAt(i); h1 = Math.imul(h1 ^ ch, 2654435761); h2 = Math.imul(h2 ^ ch, 1597334677); }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    return String(4294967296 * (2097151 & h2) + (h1 >>> 0)); }
+  function open() { var el = document.getElementById('lock-screen'); if (el) el.remove(); document.body.style.overflow = ''; }
+  document.getElementById('lock-pass').addEventListener('keydown', function(e) { if (e.key === 'Enter') tryUnlock(); });
+  var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+  if (saved === H) { open(); } else { document.body.style.overflow = 'hidden'; }
+  window.tryUnlock = function() {
+    var inp = document.getElementById('lock-pass'), v = (inp.value || '').trim()
+      .replace(/[٠-٩]/g, function(d) { return '٠١٢٣٤٥٦٧٨٩'.indexOf(d); });
+    if (cyrb53(SALT + v) === H) { try { localStorage.setItem(KEY, H); } catch (e) {} open(); }
+    else { document.getElementById('lock-err').textContent = '❌ كلمة المرور غير صحيحة'; inp.value = ''; inp.focus(); }
+  };
+})();
+</script>
+
+
+    <!-- الهيدر مع اللوجو -->
+    <header class="header-main" id="main-header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <!-- اللوجو (على اليمين) -->
+                <img src="logo.png" alt="أ/ السيد صالح - سلسلة الموسوعة" class="header-logo">
+                
+                <!-- النصوص -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">
+                        درس 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fcd34d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        لعبة
+                    </h1>
+                    <h1 class="title-line2">مع أ/ السَّيِّد صَالِح</h1>
+                    <div class="teacher-sub">كبير معلمين • سلسلة الموسوعة</div>
+                    <h2>الصَّفُّ الأَوَّلُ الإِعْدَادِيُّ - الْوَحْدَةُ الثَّانِيَةُ - الدَّرْسُ الثَّانِي: عَصْرُ الدَّوْلَةِ الوُسْطَى (عَصْرُ الرَّخَاءِ الاقْتِصَادِيِّ)</h2>
+                    <p style="margin-top: 10px;">الدِّرَاسَاتُ الاجْتِمَاعِيَّةُ</p>
+                </div>
+                <img src="teacher.jpg" alt="أ/ السيد صالح" class="teacher-photo">
+            </div>
+        </div>
+        <!-- تموجات زخرفية -->
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#eef2ff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </header>
+
+    <!-- الشاشة الرئيسية -->
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid">
+            <!-- سيتم حقن البطاقات هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- شاشة اللعب -->
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 25</span>
+        </div>
+        <div class="team-board" id="team-board">
+            <div class="team-card t0" id="team-card-0"><span class="tname" id="team-name-0">الفريق الأول</span><span class="turn-tag">دوره الآن</span><span class="tscore" id="team-score-0">0</span></div>
+            <div class="team-card t1" id="team-card-1"><span class="tname" id="team-name-1">الفريق الثاني</span><span class="turn-tag">دوره الآن</span><span class="tscore" id="team-score-1">0</span></div>
+        </div>
+        <div class="game-container" id="game-container">
+            <!-- سيتم حقن الأسئلة هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- نافذة الملاحظات السريعة -->
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+
+
+    <!-- نافذة اختيار طريقة اللعب -->
+    <div class="overlay" id="mode-overlay">
+        <div class="mode-modal">
+            <h2 id="mode-game-title">اختر طريقة اللعب</h2>
+            <div class="mode-sub">في كل مرة تظهر ٢٠ سؤالًا مختلفة بشكل عشوائي</div>
+            <div class="mode-choices">
+                <div class="mode-choice" onclick="chooseSolo()"><span class="mc-ico">👤</span>لعب فردي<small>العب وحدك واعرف نتيجتك</small></div>
+                <div class="mode-choice" onclick="chooseTeams()"><span class="mc-ico">🏆</span>منافسة بين فريقين<small>شاشة مقسومة • ٣٠ ثانية للسؤال • ترتيب مختلف لكل فريق</small></div>
+            </div>
+            <div class="team-setup" id="team-setup">
+                <label for="team-a">اسم الفريق الأول</label>
+                <input id="team-a" type="text" maxlength="25" value="الفريق الأول">
+                <label for="team-b">اسم الفريق الثاني</label>
+                <input id="team-b" type="text" maxlength="25" value="الفريق الثاني">
+                <div class="mode-actions">
+                    <button class="btn" onclick="startTeams()">🚀 ابدأ المنافسة</button>
+                </div>
+            </div>
+            <div class="mode-actions"><button class="btn mode-cancel" onclick="closeModePicker()">إلغاء</button></div>
+        </div>
+    </div>
+
+
+    <!-- شاشة منافسة الفريقين (مقسومة) -->
+    <div id="duel-screen" class="duel-screen hidden">
+        <div class="duel-top">
+            <button class="btn back-btn" onclick="exitDuel()">رجوع</button>
+            <strong id="duel-title">منافسة بين فريقين</strong>
+            <span class="duel-tag">⏱️ ٣٠ ثانية لكل سؤال</span>
+        </div>
+        <div class="duel-halves">
+            <section class="duel-half t0" id="duel-half-0"></section>
+            <div class="duel-divider"><span>VS</span></div>
+            <section class="duel-half t1" id="duel-half-1"></section>
+        </div>
+        <div id="duel-result" class="duel-result hidden"></div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | دروس وألعاب تعليمية</p>
+        <p class="designer">أ/ السَّيِّد صَالِح - كبير معلمين - 01001304451</p>
+    </footer>
+
+    <!-- زر الواتساب -->
+    <a href="https://wa.me/201001304451" class="whatsapp-float" target="_blank" title="تواصل معنا">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/>
+        </svg>
+    </a>
+
+<script>
+    const LESSON_NAME = "الدراسات الاجتماعية: عصر الدولة الوسطى (عصر الرخاء الاقتصادي) - الصف الأول الإعدادي";
+    const allGamesData = [
+    {
+        "id": "mcq_1",
+        "title": "اختيار من متعدد",
+        "type": "mcq",
+        "desc": "أسئلة اختيار من متعدد حول عصر الدولة الوسطى (عصر الرخاء الاقتصادي)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"></polygon><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07\"></path></svg>",
+        "questions": [
+            {
+                "q": "ظهرت الأسرة الحادية عشرة التي وحدت البلاد بعد الاضمحلال الأول في:",
+                "options": [
+                    "من - نفر",
+                    "إثيت تاوي",
+                    "طيبة",
+                    "أواريس"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "من خصائص عصر الدولة الوسطى:",
+                "options": [
+                    "توقف النشاط التجاري",
+                    "الاهتمام بالمشروعات الزراعية وإقامة السدود",
+                    "بناء الهرم الأكبر",
+                    "سيطرة الهكسوس على البلاد"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "زاد النشاط التجاري في الدولة الوسطى مع فينيقيا و:",
+                "options": [
+                    "بلاد الإغريق",
+                    "روما",
+                    "الهند",
+                    "بلاد بونت"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تُعد فترة حكم الملك ... بداية لمجد الأسرة الحادية عشرة:",
+                "options": [
+                    "سنوسرت الثالث",
+                    "منتوحتب الثاني",
+                    "أحمس الأول",
+                    "أمنمحات الأول"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "انتصر منتوحتب الثاني على ملوك الوجه البحري في:",
+                "options": [
+                    "أهناسيا",
+                    "أواريس",
+                    "سقارة",
+                    "طيبة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "مؤسس الأسرة الثانية عشرة:",
+                "options": [
+                    "منتوحتب الثاني",
+                    "أمنمحات الأول",
+                    "أمنمحات الثالث",
+                    "سنوسرت الثالث"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "نقل أمنمحات الأول العاصمة من طيبة إلى:",
+                "options": [
+                    "إثيت تاوي",
+                    "أواريس",
+                    "من - نفر",
+                    "هوارة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "معنى «إثيت تاوي»:",
+                "options": [
+                    "بيت الإله",
+                    "مدينة الشمس",
+                    "مدينة الجدار الأبيض",
+                    "القابضة على الأرضين"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تقع إثيت تاوي حاليًا في قرية:",
+                "options": [
+                    "اللشت بمحافظة الجيزة",
+                    "سقارة",
+                    "هوارة بالفيوم",
+                    "دهشور"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وصلت حدود مصر الجنوبية في عهد أمنمحات الأول إلى:",
+                "options": [
+                    "الجندل الرابع",
+                    "البحر المتوسط",
+                    "الجندل الثاني",
+                    "الجندل الأول"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "بنى سنوسرت الثالث حصني «سمنة وقمنة» عند:",
+                "options": [
+                    "شرق الدلتا",
+                    "الجندل الثاني",
+                    "سيناء",
+                    "الجندل الأول"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "قناة حفرها سنوسرت الثالث لتربط البحر الأحمر بالمتوسط عن طريق النيل:",
+                "options": [
+                    "قناة السويس",
+                    "بحر يوسف",
+                    "قناة بنما",
+                    "قناة سيزوستريس"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أرسل أمنمحات الثالث نحو ... بعثة لاستخراج المعادن من سيناء:",
+                "options": [
+                    "مائة",
+                    "عشر",
+                    "أربعين",
+                    "أربع وعشرين"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أقام أمنمحات الثالث سد اللاهون عند مدخل بحيرة:",
+                "options": [
+                    "موريس (قارون حاليًا)",
+                    "المنزلة",
+                    "مريوط",
+                    "ناصر"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أقام أمنمحات الثالث مقاييس لمراقبة منسوب النيل عند:",
+                "options": [
+                    "الدلتا",
+                    "الجندل الثاني",
+                    "أسوان",
+                    "الجندل الأول"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "آخر حكام الأسرة الثانية عشرة:",
+                "options": [
+                    "سنوسرت الثالث",
+                    "أمنمحات الثالث",
+                    "الملكة سبك نفرو",
+                    "الملكة إياح حتب"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "الهكسوس قبائل جاءت من:",
+                "options": [
+                    "جنوب أوروبا",
+                    "غرب إفريقيا",
+                    "وسط آسيا",
+                    "بلاد بونت"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "اتخذ الهكسوس عاصمة لهم في شرق الدلتا هي:",
+                "options": [
+                    "إثيت تاوي",
+                    "أواريس",
+                    "طيبة",
+                    "من - نفر"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "بدأ النضال الحقيقي لتحرير البلاد من الهكسوس الملك:",
+                "options": [
+                    "كامس",
+                    "منتوحتب الثاني",
+                    "أحمس الأول",
+                    "سقنن رع الثاني"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "الملك الذي طرد الهكسوس وأسس الدولة الحديثة:",
+                "options": [
+                    "أحمس الأول",
+                    "سنوسرت الثالث",
+                    "كامس",
+                    "سقنن رع"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "مؤسس الأسرة الثانية عشرة الذي نقل العاصمة إلى إثيت تاوي:",
+                "options": [
+                    "أحمس",
+                    "سنوسرت الثالث",
+                    "منتوحتب الثاني",
+                    "أمنمحات الأول"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "بنى حصني سمنة وقمنة الملك:",
+                "options": [
+                    "كامس",
+                    "سنوسرت الثالث",
+                    "أمنمحات الأول",
+                    "أمنمحات الثالث"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "صاحب سد اللاهون:",
+                "options": [
+                    "أمنمحات الأول",
+                    "سنوسرت الثالث",
+                    "أمنمحات الثالث",
+                    "منتوحتب"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "بحيرة موريس هي حاليًا بحيرة:",
+                "options": [
+                    "قارون",
+                    "ناصر",
+                    "البرلس",
+                    "مريوط"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "يقع هرم أمنمحات الثالث في منطقة:",
+                "options": [
+                    "هوارة",
+                    "الجيزة",
+                    "سقارة",
+                    "أبي صير"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أنشأت سبك نفرو هرمها بالقرب من:",
+                "options": [
+                    "دهشور",
+                    "هوارة",
+                    "الجيزة",
+                    "طيبة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "الإله سبك رمز:",
+                "options": [
+                    "القوة",
+                    "الخصوبة",
+                    "الحكمة",
+                    "الجمال"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "عصر الأسرة السابعة عشرة يسمى عصر:",
+                "options": [
+                    "الإمبراطورية",
+                    "بناة الأهرام",
+                    "الرخاء",
+                    "الانتفاضة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "زوجة الملك سقنن رع الثاني:",
+                "options": [
+                    "سبك نفرو",
+                    "إياح حتب",
+                    "نفرتيتي",
+                    "حتشبسوت"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "قام بحملة مفاجئة على أرض كوش لقطع الإمدادات عن الهكسوس:",
+                "options": [
+                    "منتوحتب",
+                    "أحمس",
+                    "كامس",
+                    "سقنن رع"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "فرّ الهكسوس بعد هزيمتهم إلى:",
+                "options": [
+                    "فلسطين",
+                    "كوش",
+                    "ليبيا",
+                    "فينيقيا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "حاصر أحمس الأول مدينة ... حتى دخلها:",
+                "options": [
+                    "أواريس",
+                    "من نفر",
+                    "طيبة",
+                    "إثيت تاوي"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "استولى الهكسوس بالقوة على مدينة:",
+                "options": [
+                    "أسوان",
+                    "من - نفر",
+                    "طيبة",
+                    "أبيدوس"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "اكتفى الهكسوس من الوجه القبلي بـ:",
+                "options": [
+                    "تدميره",
+                    "قبول دفع الضرائب",
+                    "تجاهله",
+                    "احتلاله كاملًا"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أرسل منتوحتب الثاني بعثة تجارية إلى بلاد بونت عبر:",
+                "options": [
+                    "سيناء",
+                    "الصحراء",
+                    "نهر النيل جنوبًا فقط",
+                    "البحر المتوسط"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "اختار أمنمحات الأول إثيت تاوي لتكون:",
+                "options": [
+                    "في سيناء",
+                    "في الصعيد الأقصى",
+                    "قرب البحر",
+                    "في موقع متوسط بين الوجهين"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أخضع أمنمحات الأول حكام الأقاليم بـ:",
+                "options": [
+                    "قتلهم",
+                    "منحهم الألقاب الرفيعة وتقريبهم منه",
+                    "سجنهم",
+                    "نفيهم"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "بنى أمنمحات الأول الحصون على الحدود الغربية للحماية من:",
+                "options": [
+                    "الغارات الليبية",
+                    "الهكسوس",
+                    "الفينيقيين",
+                    "النوبيين"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أدى حفر قناة سيزوستريس إلى:",
+                "options": [
+                    "الحروب",
+                    "الجفاف",
+                    "توقف التجارة",
+                    "زيادة حركة التجارة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "امتاز عهد أمنمحات الثالث بـ:",
+                "options": [
+                    "الفوضى",
+                    "السلام والتنمية الاقتصادية",
+                    "الاحتلال",
+                    "الحروب"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "حمى سد اللاهون البلاد من:",
+                "options": [
+                    "المجاعة",
+                    "الأوبئة",
+                    "الزلازل",
+                    "الغزو"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أقام ملوك الدولة الوسطى السدود لتخزين مياه:",
+                "options": [
+                    "الأمطار",
+                    "البحر",
+                    "الآبار",
+                    "الفيضان"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "بنى ملوك الدولة الوسطى الحصون لتأمين الحدود:",
+                "options": [
+                    "البحرية",
+                    "الغربية فقط",
+                    "الشرقية والجنوبية",
+                    "الشمالية فقط"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "تولت إياح حتب نيابة عن ابنيها:",
+                "options": [
+                    "شئون الحكم",
+                    "قيادة الأسطول",
+                    "التجارة",
+                    "بناء الأهرام"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تبادلت مصر مع حضارة كوش:",
+                "options": [
+                    "القمح فقط",
+                    "الحلي والمجوهرات والعطور والعاج",
+                    "الأسلحة الحديثة",
+                    "الخيول"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "من أسباب سيطرة الهكسوس على مصر:",
+                "options": [
+                    "ضعف الملوك وصراعات حكام الأقاليم",
+                    "وحدة البلاد",
+                    "قوة الجيش",
+                    "الرخاء"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من أعمال الهكسوس في مصر:",
+                "options": [
+                    "بناء الأهرام",
+                    "إنشاء المدارس",
+                    "تدمير المعابد وسلب الممتلكات وفرض الضرائب",
+                    "حفر القنوات"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "كتب سنوسرت الثالث أنه بريء من ابن:",
+                "options": [
+                    "لا يبني الأهرام",
+                    "لا يعبد رع",
+                    "لا يحافظ على الحدود",
+                    "لا يتاجر"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أقام المصريون محطات تجارية على النيل جنوبًا بهدف:",
+                "options": [
+                    "الصيد",
+                    "العبادة",
+                    "الحرب",
+                    "تخزين وتوزيع السلع"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "عدد بعثات أمنمحات الثالث لاستخراج المعادن من سيناء:",
+                "options": [
+                    "مائة",
+                    "أربع وعشرون",
+                    "عشر",
+                    "خمس"
+                ],
+                "ans": 1
+            }
+        ]
+    },
+    {
+        "id": "bubbles_2",
+        "title": "الفقاعات المتساقطة",
+        "type": "bubbles",
+        "desc": "التقط الفقاعة ذات الإجابة الصحيحة عن عصر الدولة الوسطى (عصر الرخاء الاقتصادي)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path><path d=\"M22 12A10 10 0 0 0 12 2v10z\"></path></svg>",
+        "questions": [
+            {
+                "q": "مدينة الأسرة الحادية عشرة؟",
+                "options": [
+                    "أواريس",
+                    "طيبة",
+                    "سقارة",
+                    "اللشت"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "بداية مجد الأسرة ١١؟",
+                "options": [
+                    "أحمس",
+                    "منتوحتب الثاني",
+                    "كامس",
+                    "خوفو"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "مؤسس الأسرة ١٢؟",
+                "options": [
+                    "أمنمحات الأول",
+                    "سنوسرت",
+                    "سقنن رع",
+                    "منتوحتب"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "عاصمة أمنمحات الأول؟",
+                "options": [
+                    "إثيت تاوي",
+                    "أواريس",
+                    "طيبة",
+                    "أون"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "اسم إثيت تاوي حاليًا؟",
+                "options": [
+                    "اللشت",
+                    "هوارة",
+                    "سقارة",
+                    "دهشور"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "صاحب حصني سمنة وقمنة؟",
+                "options": [
+                    "سنوسرت الثالث",
+                    "أمنمحات الثالث",
+                    "كامس",
+                    "أحمس"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "قناة حفرها سنوسرت الثالث؟",
+                "options": [
+                    "سيزوستريس",
+                    "اللاهون",
+                    "السويس",
+                    "يوسف"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "صاحب سد اللاهون؟",
+                "options": [
+                    "أمنمحات الثالث",
+                    "أمنمحات الأول",
+                    "منتوحتب",
+                    "سنوسرت"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "بحيرة قارون قديمًا؟",
+                "options": [
+                    "موريس",
+                    "تانا",
+                    "ناصر",
+                    "مريوط"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أول حاكمة باسم الإله سبك؟",
+                "options": [
+                    "سبك نفرو",
+                    "حتشبسوت",
+                    "نفرتيتي",
+                    "إياح حتب"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "الإله سبك رمز؟",
+                "options": [
+                    "الخصوبة",
+                    "الحكمة",
+                    "الحب",
+                    "القوة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "منطقة هرم أمنمحات الثالث؟",
+                "options": [
+                    "الجيزة",
+                    "سقارة",
+                    "هوارة",
+                    "أبي صير"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "قبائل غزت مصر من آسيا؟",
+                "options": [
+                    "النوبيون",
+                    "الهكسوس",
+                    "الحيثيون",
+                    "الليبيون"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "عاصمة الهكسوس؟",
+                "options": [
+                    "من - نفر",
+                    "طيبة",
+                    "اللشت",
+                    "أواريس"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "عصر الانتفاضة؟",
+                "options": [
+                    "الأسرة ٦",
+                    "الأسرة ١١",
+                    "الأسرة ١٢",
+                    "الأسرة ١٧"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "زوجة سقنن رع؟",
+                "options": [
+                    "إياح حتب",
+                    "حتشبسوت",
+                    "سبك نفرو",
+                    "نفرتاري"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "هاجم كوش لقطع الإمدادات؟",
+                "options": [
+                    "أحمس",
+                    "سقنن رع",
+                    "أمنمحات",
+                    "كامس"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "حرر مصر تمامًا من الهكسوس؟",
+                "options": [
+                    "سقنن رع",
+                    "كامس",
+                    "تحتمس",
+                    "أحمس الأول"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "فرّ إليها الهكسوس؟",
+                "options": [
+                    "فلسطين",
+                    "ليبيا",
+                    "النوبة",
+                    "فينيقيا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "حضارة إفريقية تاجرت معها الدولة الوسطى؟",
+                "options": [
+                    "المايا",
+                    "كوش",
+                    "قرطاج",
+                    "أكسوم"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "معركة منتوحتب ضد الوجه البحري؟",
+                "options": [
+                    "قادش",
+                    "أواريس",
+                    "أهناسيا",
+                    "مجدو"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "آخر حكام الأسرة ١٢؟",
+                "options": [
+                    "سنوسرت",
+                    "سبك نفرو",
+                    "أمنمحات الثالث",
+                    "كامس"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "والد سبك نفرو؟",
+                "options": [
+                    "أمنمحات الثالث",
+                    "منتوحتب",
+                    "سنوسرت الثالث",
+                    "أحمس"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "موقع هرم سبك نفرو؟",
+                "options": [
+                    "هوارة",
+                    "سقارة",
+                    "الجيزة",
+                    "دهشور"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "موطن الهكسوس؟",
+                "options": [
+                    "وسط آسيا",
+                    "أوروبا",
+                    "غرب إفريقيا",
+                    "الجزيرة العربية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "بداية النضال ضد الهكسوس؟",
+                "options": [
+                    "كامس",
+                    "منتوحتب",
+                    "سقنن رع الثاني",
+                    "أحمس"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "مؤسس الدولة الحديثة؟",
+                "options": [
+                    "أحمس الأول",
+                    "تحتمس",
+                    "كامس",
+                    "سقنن رع"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "حدود مصر الجنوبية زمن أمنمحات الأول؟",
+                "options": [
+                    "أسوان",
+                    "الجندل الثاني",
+                    "الجندل الأول",
+                    "الجندل الرابع"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "موقع حصني سمنة وقمنة؟",
+                "options": [
+                    "الجندل الأول",
+                    "الجندل الثاني",
+                    "الدلتا",
+                    "سيناء"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "موقع مقاييس منسوب النيل لأمنمحات الثالث؟",
+                "options": [
+                    "الفيوم",
+                    "أسوان",
+                    "الجندل الثاني",
+                    "الدلتا"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "دولة بعثات تجارية بالدولة الوسطى؟",
+                "options": [
+                    "روما",
+                    "الهند",
+                    "بونت",
+                    "الصين"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "غارات صدتها حصون الغرب؟",
+                "options": [
+                    "النوبية",
+                    "الآسيوية",
+                    "الليبية",
+                    "الرومانية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "معنى إثيت تاوي؟",
+                "options": [
+                    "القابضة على الأرضين",
+                    "البلد الطيب",
+                    "مدينة الشمس",
+                    "بيت الإله"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "محافظة اللشت؟",
+                "options": [
+                    "الجيزة",
+                    "بني سويف",
+                    "المنيا",
+                    "الفيوم"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "بحران ربطتهما قناة سيزوستريس؟",
+                "options": [
+                    "الأحمر والميت",
+                    "المتوسط والأسود",
+                    "الأحمر والمتوسط",
+                    "الأحمر والعربي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "سبب إقامة سد اللاهون؟",
+                "options": [
+                    "الحرب",
+                    "تخزين مياه الفيضان",
+                    "الصيد",
+                    "الملاحة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "سمة عهد أمنمحات الثالث؟",
+                "options": [
+                    "الحرب",
+                    "السلام والتنمية",
+                    "الفوضى",
+                    "الاحتلال"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "معادن من سيناء؟",
+                "options": [
+                    "الفحم",
+                    "الفيروز والنحاس",
+                    "الذهب الأبيض",
+                    "البترول"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما اكتفى به الهكسوس من الصعيد؟",
+                "options": [
+                    "الهجرة",
+                    "الضرائب",
+                    "الاحتلال",
+                    "التدمير"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "مدينة استولى عليها الهكسوس بالقوة؟",
+                "options": [
+                    "من - نفر",
+                    "طيبة",
+                    "إدفو",
+                    "أسوان"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "مدينة الأمراء الوطنيين ضد الهكسوس؟",
+                "options": [
+                    "أواريس",
+                    "من نفر",
+                    "طيبة",
+                    "إثيت تاوي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "دولة تعقب فيها أحمس الهكسوس؟",
+                "options": [
+                    "سوريا البعيدة",
+                    "فلسطين",
+                    "ليبيا",
+                    "كوش"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "نتيجة طرد الهكسوس؟",
+                "options": [
+                    "تأسيس الدولة الحديثة",
+                    "الانقسام",
+                    "الاحتلال",
+                    "الاضمحلال"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "سمة عصر الدولة الوسطى؟",
+                "options": [
+                    "الإمبراطورية",
+                    "الاضمحلال",
+                    "بناء الأهرام",
+                    "الرخاء الاقتصادي"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "لقب منتوحتب الثاني؟",
+                "options": [
+                    "طارد الهكسوس",
+                    "موحد البلاد من جديد",
+                    "الملك المحسن",
+                    "بناء الأهرام"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "قائدة نابت عن ابنيها؟",
+                "options": [
+                    "تي",
+                    "حتشبسوت",
+                    "سبك نفرو",
+                    "إياح حتب"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "سلع تبادلتها مصر مع كوش؟",
+                "options": [
+                    "الخيول",
+                    "العاج والعطور",
+                    "الحديد",
+                    "القمح والشعير"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "هدف كتابة سنوسرت على حدوده؟",
+                "options": [
+                    "العبادة",
+                    "التجارة",
+                    "حث أبنائه على حماية الحدود",
+                    "الزراعة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "مدخل بحيرة سد اللاهون؟",
+                "options": [
+                    "التمساح",
+                    "ناصر",
+                    "موريس",
+                    "قارون الحديثة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "مكان مملكة الأسرة ١٧؟",
+                "options": [
+                    "من نفر",
+                    "الفيوم",
+                    "أواريس",
+                    "طيبة"
+                ],
+                "ans": 3
+            }
+        ]
+    },
+    {
+        "id": "shooting_3",
+        "title": "التنشين والاصطياد",
+        "type": "shooting",
+        "desc": "صوّب نحو الكلمة الصحيحة لإكمال عبارات عصر الدولة الوسطى (عصر الرخاء الاقتصادي)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle></svg>",
+        "questions": [
+            {
+                "q": "أكمل: «من خصائص الدولة الوسطى توسيع حدود مصر ...».",
+                "options": [
+                    "الشرقية فقط",
+                    "الشمالية",
+                    "الغربية",
+                    "الجنوبية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «بنى ملوك الدولة الوسطى الحصون لتأمين الحدود الشرقية و...».",
+                "options": [
+                    "الجنوبية",
+                    "الغربية",
+                    "الشمالية",
+                    "البحرية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «أقام ملوك الدولة الوسطى السدود لتخزين مياه ... للاستفادة منها وقت الجفاف».",
+                "options": [
+                    "الآبار",
+                    "الأمطار",
+                    "الفيضان",
+                    "البحر"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «منتوحتب الثاني أول حاكم في طيبة بعد عصر الدولة ... يسيطر على الوجهين».",
+                "options": [
+                    "الوسطى",
+                    "القديمة",
+                    "العتيقة",
+                    "الحديثة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «نجح منتوحتب الثاني في أن يحد من نفوذ حكام ...».",
+                "options": [
+                    "الهكسوس",
+                    "النوبة",
+                    "الكهنة",
+                    "الأقاليم"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «أرسل منتوحتب الثاني بعثة تجارية إلى بلاد بونت عبر ...».",
+                "options": [
+                    "نهر النيل",
+                    "الصحراء",
+                    "سيناء",
+                    "البحر المتوسط"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «اختار أمنمحات الأول إثيت تاوي لتكون في موقع متوسط بين الوجهين البحري و...».",
+                "options": [
+                    "الجنوبي",
+                    "الغربي",
+                    "الشرقي",
+                    "القبلي"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «أخضع أمنمحات الأول حكام الأقاليم بمنحهم الألقاب ... وتقريبهم منه».",
+                "options": [
+                    "الرفيعة",
+                    "العسكرية",
+                    "الدينية",
+                    "التجارية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «أقام أمنمحات الأول سلسلة حصون على الحدود ... للدلتا».",
+                "options": [
+                    "الشرقية",
+                    "الشمالية",
+                    "الجنوبية",
+                    "الغربية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «بنى أمنمحات الأول الحصون لحماية مصر من الغارات ...».",
+                "options": [
+                    "الليبية",
+                    "الآسيوية",
+                    "الفينيقية",
+                    "النوبية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «كتب سنوسرت الثالث أنه بريء من ابن لا يحافظ على تلك ...».",
+                "options": [
+                    "المعابد",
+                    "القنوات",
+                    "الأهرامات",
+                    "الحدود"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «أدى حفر قناة سيزوستريس إلى زيادة حركة ... بين مصر وجيرانها».",
+                "options": [
+                    "الزراعة",
+                    "الحروب",
+                    "التجارة",
+                    "الهجرة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «امتاز عهد أمنمحات الثالث بالسلام والتنمية ...».",
+                "options": [
+                    "الاقتصادية",
+                    "العسكرية",
+                    "الفنية",
+                    "الدينية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «حمى سد اللاهون البلاد من ... عند انخفاض منسوب النيل».",
+                "options": [
+                    "الفيضان",
+                    "الأوبئة",
+                    "الغزو",
+                    "المجاعة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «أنشأت سبك نفرو هرمًا خاصًا بها بالقرب من منطقة ...».",
+                "options": [
+                    "دهشور",
+                    "اللشت",
+                    "سقارة",
+                    "الجيزة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «استولى الهكسوس بالقوة على مدينة ...».",
+                "options": [
+                    "طيبة",
+                    "من - نفر",
+                    "أسوان",
+                    "إثيت تاوي"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «اكتفى الهكسوس من الوجه القبلي بقبول دفع ...».",
+                "options": [
+                    "الأخشاب",
+                    "الضرائب",
+                    "الجنود",
+                    "المعادن"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «حاصر أحمس الأول مدينة ... حتى دخلها».",
+                "options": [
+                    "طيبة",
+                    "أواريس",
+                    "فلسطين",
+                    "من - نفر"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «تولت إياح حتب نيابة عن ابنيها شئون ...».",
+                "options": [
+                    "التجارة",
+                    "الجيش",
+                    "المعابد",
+                    "الحكم"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «أقام المصريون مراكز ومحطات تجارية على طول نهر النيل ...».",
+                "options": [
+                    "جنوبًا",
+                    "شمالًا",
+                    "شرقًا",
+                    "غربًا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «ظهرت الأسرة الحادية عشرة التي وحدت البلاد في مدينة ...».",
+                "options": [
+                    "من نفر",
+                    "طيبة",
+                    "أبيدوس",
+                    "أواريس"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «زاد النشاط التجاري في الدولة الوسطى مع فينيقيا وبلاد ...».",
+                "options": [
+                    "الروم",
+                    "الهند",
+                    "فارس",
+                    "بونت"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «انتصر منتوحتب الثاني على ملوك الوجه البحري في ...».",
+                "options": [
+                    "أهناسيا",
+                    "مجدو",
+                    "أواريس",
+                    "قادش"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «مؤسس الأسرة الثانية عشرة الملك ...».",
+                "options": [
+                    "أمنمحات الأول",
+                    "أحمس",
+                    "منتوحتب",
+                    "سنوسرت الأول"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «نقل أمنمحات الأول العاصمة من طيبة إلى ...».",
+                "options": [
+                    "إثيت تاوي",
+                    "أبيدوس",
+                    "من نفر",
+                    "أواريس"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «تقع إثيت تاوي حاليًا في قرية ... بالجيزة».",
+                "options": [
+                    "ميت رهينة",
+                    "الحوامدية",
+                    "البدرشين",
+                    "اللشت"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «وصلت حدود مصر في عهد أمنمحات الأول إلى الجندل ...».",
+                "options": [
+                    "الرابع",
+                    "الأول",
+                    "الثاني",
+                    "الثالث"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «بنى سنوسرت الثالث حصني سمنة و...».",
+                "options": [
+                    "بوهين",
+                    "قمنة",
+                    "أواريس",
+                    "إلفنتين"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «حفر سنوسرت الثالث قناة ...».",
+                "options": [
+                    "المحمودية",
+                    "يوسف",
+                    "السويس",
+                    "سيزوستريس"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «أقام أمنمحات الثالث سد ... عند مدخل بحيرة موريس».",
+                "options": [
+                    "اللاهون",
+                    "الأولياء",
+                    "سنار",
+                    "أسوان"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «بحيرة موريس هي بحيرة ... حاليًا».",
+                "options": [
+                    "قارون",
+                    "ناصر",
+                    "المنزلة",
+                    "مريوط"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «آخر حكام الأسرة الثانية عشرة الملكة ...».",
+                "options": [
+                    "نفرتاري",
+                    "حتشبسوت",
+                    "سبك نفرو",
+                    "إياح حتب"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «الهكسوس قبائل جاءت من وسط ...».",
+                "options": [
+                    "الجزيرة",
+                    "آسيا",
+                    "إفريقيا",
+                    "أوروبا"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «اتخذ الهكسوس عاصمة لهم في شرق الدلتا هي ...».",
+                "options": [
+                    "طيبة",
+                    "أواريس",
+                    "تانيس",
+                    "منف"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «بدأ النضال الحقيقي لتحرير البلاد الملك سقنن رع ...».",
+                "options": [
+                    "الرابع",
+                    "الثالث",
+                    "الثاني",
+                    "الأول"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «طرد الملك ... الأول الهكسوس وأسس الدولة الحديثة».",
+                "options": [
+                    "أمنحتب",
+                    "أحمس",
+                    "كامس",
+                    "تحتمس"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «قام الملك كامس بحملة مفاجئة على أرض ...».",
+                "options": [
+                    "كوش",
+                    "ليبيا",
+                    "فينيقيا",
+                    "بونت"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «فر الهكسوس بعد هزيمتهم إلى ...».",
+                "options": [
+                    "اليونان",
+                    "كوش",
+                    "فلسطين",
+                    "ليبيا"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «تُعرف الأسرة السابعة عشرة بعصر ...».",
+                "options": [
+                    "الأهرام",
+                    "الانتفاضة",
+                    "الرخاء",
+                    "الاضمحلال"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «زوجة سقنن رع الثاني الملكة ...».",
+                "options": [
+                    "إياح حتب",
+                    "تي",
+                    "سبك نفرو",
+                    "حتشبسوت"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «يقع هرم أمنمحات الثالث في منطقة ...».",
+                "options": [
+                    "الجيزة",
+                    "هوارة",
+                    "دهشور",
+                    "سقارة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «الإله سبك رمز ... عند المصريين».",
+                "options": [
+                    "الموت",
+                    "القوة",
+                    "الحكمة",
+                    "الحب"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «أرسل أمنمحات الثالث ... بعثة لاستخراج المعادن من سيناء».",
+                "options": [
+                    "أربعًا وعشرين",
+                    "عشرًا",
+                    "ثلاثًا",
+                    "مائة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «أقام أمنمحات الثالث مقاييس لمراقبة منسوب ...».",
+                "options": [
+                    "الأمطار",
+                    "البحر",
+                    "النيل",
+                    "البحيرة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «معنى إثيت تاوي القابضة على ...».",
+                "options": [
+                    "الجبلين",
+                    "السماء",
+                    "الأرضين",
+                    "البحرين"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «يُسمى عصر الدولة الوسطى عصر الرخاء ...».",
+                "options": [
+                    "الاقتصادي",
+                    "الديني",
+                    "الحربي",
+                    "الفني"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «تبادلت مصر مع كوش الحلي والعطور و...».",
+                "options": [
+                    "العاج",
+                    "القمح",
+                    "الخيول",
+                    "الخشب"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «قُتل الملك سقنن رع الثاني في ساحة ...».",
+                "options": [
+                    "السوق",
+                    "المعركة",
+                    "المعبد",
+                    "القصر"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «تعقب أحمس الأول الهكسوس في فلسطين ليقضي على ... تمامًا».",
+                "options": [
+                    "تجارتهم",
+                    "خطرهم",
+                    "لغتهم",
+                    "معابدهم"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «من أعمال الهكسوس تدمير ... وسلب الممتلكات».",
+                "options": [
+                    "الحقول",
+                    "السفن",
+                    "المعابد",
+                    "القنوات"
+                ],
+                "ans": 2
+            }
+        ]
+    },
+    {
+        "id": "true_false_4",
+        "title": "صح أم خطأ",
+        "type": "true_false",
+        "desc": "حدد صحة العبارات المتعلقة بـ عصر الدولة الوسطى (عصر الرخاء الاقتصادي)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path><polyline points=\"22 4 12 14.01 9 11.01\"></polyline></svg>",
+        "questions": [
+            {
+                "q": "ظهرت أسرة حاكمة قوية في طيبة استطاعت توحيد البلاد بعد الاضمحلال الأول.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من خصائص الدولة الوسطى ضعف السلطة المركزية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تُعد فترة حكم منتوحتب الثاني بداية لمجد الأسرة الحادية عشرة.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "نقل منتوحتب الثاني العاصمة إلى إثيت تاوي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أمنمحات الأول مؤسس الأسرة الثانية عشرة.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "معنى إثيت تاوي «القابضة على الأرضين».",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "طرد أمنمحات الأول القبائل الآسيوية التي دخلت مصر عن طريق الشرق.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "بنى سنوسرت الثالث حصني سمنة وقمنة عند الجندل الأول.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ربطت قناة سيزوستريس البحر الأحمر بالبحر المتوسط عن طريق نهر النيل.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أقام سنوسرت الثالث سد اللاهون.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "بحيرة موريس هي بحيرة قارون حاليًا.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "الملكة سبك نفرو ابنة الملك أمنمحات الثالث.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "الإله سبك رمز الحكمة عند المصريين.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أدى ضعف الملوك وصراعات حكام الأقاليم إلى وقوع مصر تحت سيطرة الهكسوس.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "الهكسوس قبائل جاءت من غرب إفريقيا.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "حكم الهكسوس الوجه القبلي وتركوا الوجه البحري لأمراء وطنيين.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "قُتل الملك سقنن رع الثاني في ساحة المعركة ضد الهكسوس.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "قام الملك كامس بحملة مفاجئة على أرض كوش.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "قُتل الملك أحمس الأول في حرب التحرير.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تبادلت مصر مع حضارة كوش الحلي والمجوهرات والعطور والعاج.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ظهرت الأسرة الحادية عشرة في مدينة طيبة.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "انتصر منتوحتب الثاني على ملوك الوجه البحري في أهناسيا.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "نقل أمنمحات الأول العاصمة من طيبة إلى إثيت تاوي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تقع إثيت تاوي حاليًا في قرية اللشت بالجيزة.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تقع إثيت تاوي حاليًا في محافظة الأقصر.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أخضع أمنمحات الأول حكام الأقاليم بمنحهم الألقاب الرفيعة.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "بنى أمنمحات الأول حصونًا على الحدود الغربية للدلتا.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "بنى سنوسرت الثالث حصني سمنة وقمنة عند الجندل الثاني.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "حفر أمنمحات الثالث قناة سيزوستريس.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أدى حفر قناة سيزوستريس إلى زيادة التجارة.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أقام أمنمحات الثالث سد اللاهون.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "حمى سد اللاهون البلاد من المجاعة.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أرسل أمنمحات الثالث ٢٤ بعثة لاستخراج المعادن من سيناء.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "يقع هرم أمنمحات الثالث في هوارة.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أنشأت سبك نفرو هرمها بالقرب من دهشور.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "الإله سبك رمز القوة عند المصريين.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "الهكسوس قبائل جاءت من وسط آسيا.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "اتخذ الهكسوس طيبة عاصمة لهم.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "اتخذ الهكسوس أواريس عاصمة لهم.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "استولى الهكسوس على مدينة من - نفر بالقوة.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "اكتفى الهكسوس من الوجه القبلي بدفع الضرائب.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تُعرف الأسرة السابعة عشرة بعصر الانتفاضة.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تولت إياح حتب شئون الحكم نيابة عن ابنيها.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "قام كامس بحملة على كوش لقطع الإمدادات عن الهكسوس.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "حاصر أحمس الأول مدينة أواريس حتى دخلها.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "فر الهكسوس إلى ليبيا.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أسس أحمس الأول الدولة الحديثة.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من خصائص الدولة الوسطى الاهتمام بالمشروعات الزراعية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "زاد النشاط التجاري في الدولة الوسطى مع بلاد بونت.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "امتاز عهد أمنمحات الثالث بالحروب والفوضى.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            }
+        ]
+    },
+    {
+        "id": "genius_5",
+        "title": "تحدي العباقرة",
+        "type": "genius",
+        "desc": "تحدٍّ سريع للعباقرة: فكّر وفسّر وقارن في عصر الدولة الوسطى (عصر الرخاء الاقتصادي)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z\"></path></svg>",
+        "questions": [
+            {
+                "q": "بم تفسر تسمية عصر الدولة الوسطى بعصر الرخاء الاقتصادي؟",
+                "options": [
+                    "لسيطرة الهكسوس",
+                    "للاهتمام بالزراعة والتعدين والتجارة واستقرار الحكم",
+                    "لكثرة الحروب",
+                    "لبناء الأهرامات الضخمة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "بم تفسر نقل أمنمحات الأول العاصمة إلى إثيت تاوي؟",
+                "options": [
+                    "لتكون في موقع متوسط بين الوجهين ليسيطر على كل أنحاء البلاد",
+                    "للهروب من الهكسوس",
+                    "لقربها من البحر المتوسط",
+                    "للقرب من بلاد بونت"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "بم تفسر بناء أمنمحات الأول حصونًا على حدود الدلتا الغربية؟",
+                "options": [
+                    "لحماية مصر من الغارات الليبية",
+                    "لحماية مصر من الهكسوس",
+                    "لمراقبة النيل",
+                    "لتخزين الحبوب"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما نتيجة حفر قناة سيزوستريس؟",
+                "options": [
+                    "قطع الاتصال بالبحر الأحمر",
+                    "غزو الهكسوس",
+                    "زيادة الفيضانات",
+                    "زيادة حركة التجارة بين مصر وجيرانها"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "بم تفسر إقامة سد اللاهون؟",
+                "options": [
+                    "لتوليد الكهرباء",
+                    "لربط البحرين",
+                    "لصد الهكسوس",
+                    "لتخزين مياه الفيضان وحماية البلاد من المجاعة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "الفرق بين قناة سيزوستريس قديمًا وقناة السويس حاليًا:",
+                "options": [
+                    "لا فرق بينهما",
+                    "السويس حفرها سنوسرت الثالث",
+                    "سيزوستريس تربط النيل بالبحر الأحمر فقط",
+                    "سيزوستريس ربطت البحرين عن طريق النيل، والسويس تربطهما مباشرة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما أسباب وقوع مصر تحت سيطرة الهكسوس؟",
+                "options": [
+                    "ازدهار الزراعة",
+                    "ضعف الملوك وزيادة الصراعات بين حكام الأقاليم على السلطة",
+                    "حفر قناة سيزوستريس",
+                    "قوة الجيش المصري"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما الأعمال التي قام بها الهكسوس في مصر؟",
+                "options": [
+                    "حفر القنوات",
+                    "تدمير المعابد وسلب الممتلكات وفرض الضرائب",
+                    "بناء الأهرامات",
+                    "تنمية الزراعة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "دلل على دور المرأة المصرية في الدولة الوسطى وطرد الهكسوس:",
+                "options": [
+                    "تولي سبك نفرو الحكم ودور إياح حتب في تشجيع ابنيها على الكفاح",
+                    "بناء الهرم الأكبر",
+                    "حفر قناة سيزوستريس",
+                    "إرسال بعثة لبونت"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "لماذا قام كامس بحملة مفاجئة على أرض كوش؟",
+                "options": [
+                    "للتجارة مع كوش",
+                    "لبناء حصون في كوش",
+                    "لنشر التحنيط",
+                    "لتأمين الحدود الجنوبية وقطع الإمدادات عن الهكسوس"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "لماذا تعقب أحمس الأول الهكسوس في فلسطين؟",
+                "options": [
+                    "ليقضي على خطرهم تمامًا",
+                    "لفتح فلسطين للتجارة",
+                    "لنقل العاصمة إليها",
+                    "لإحضار الأخشاب"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما نتيجة طرد أحمس الأول للهكسوس؟",
+                "options": [
+                    "تأسيس الدولة الوسطى",
+                    "إعادة تنظيم البلاد وتأسيس الدولة الحديثة",
+                    "عصر الاضمحلال الثاني",
+                    "سقوط طيبة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما سبب تسمية عصر الأسرة السابعة عشرة بعصر الانتفاضة؟",
+                "options": [
+                    "لحفر قناة سيزوستريس",
+                    "لبناء الأهرامات",
+                    "تنظيم الملوك لمملكتهم في طيبة وبث روح المقاومة ضد الهكسوس",
+                    "لازدهار التجارة مع بونت"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما أثر البعثات المصرية لاستخراج المعادن في إفريقيا؟",
+                "options": [
+                    "انتشار الحروب",
+                    "قطع العلاقات",
+                    "تبادل الثقافات بين مصر والحضارات الإفريقية",
+                    "لا أثر لها"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "لماذا أقام المصريون مراكز ومحطات تجارية جنوبًا على النيل؟",
+                "options": [
+                    "لبناء الأهرامات",
+                    "لصد الهكسوس",
+                    "لتخزين وتوزيع السلع المستوردة والمصدرة",
+                    "لمراقبة الفيضان"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "من أكون؟ «أول حاكمة يتم تسميتها على اسم الإله سبك»",
+                "options": [
+                    "إياح حتب",
+                    "حتشبسوت",
+                    "نفرتيتي",
+                    "سبك نفرو"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من أكون؟ «أعدت السلطة المركزية وانتصرت على ملوك أهناسيا»",
+                "options": [
+                    "أمنمحات الأول",
+                    "سنوسرت الثالث",
+                    "أحمس الأول",
+                    "منتوحتب الثاني"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "صوّب الخطأ: «اتخذ الهكسوس مدينة طيبة عاصمة لهم».",
+                "options": [
+                    "أون",
+                    "من - نفر",
+                    "إثيت تاوي",
+                    "أواريس"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "صوّب الخطأ: «أقام سنوسرت الثالث سد اللاهون عند بحيرة موريس».",
+                "options": [
+                    "منتوحتب الثاني",
+                    "أحمس الأول",
+                    "أمنمحات الثالث",
+                    "أمنمحات الأول"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "صوّب الخطأ: «وصلت حدود مصر الجنوبية في عهد أمنمحات الأول إلى الجندل الأول».",
+                "options": [
+                    "الثاني",
+                    "الرابع",
+                    "السادس",
+                    "الثالث"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من أكون؟ «مؤسس الأسرة ١٢ ونقلت العاصمة إلى إثيت تاوي»",
+                "options": [
+                    "سنوسرت الثالث",
+                    "منتوحتب",
+                    "أمنمحات الثالث",
+                    "أمنمحات الأول"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من أكون؟ «بنيت حصني سمنة وقمنة وحفرت قناة سيزوستريس»",
+                "options": [
+                    "أحمس",
+                    "أمنمحات الأول",
+                    "كامس",
+                    "سنوسرت الثالث"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من أكون؟ «أقمت سد اللاهون وأرسلت ٢٤ بعثة لسيناء»",
+                "options": [
+                    "أمنمحات الثالث",
+                    "منتوحتب",
+                    "خوفو",
+                    "سنوسرت الثالث"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من أكون؟ «ملك قُتل في المعركة ضد الهكسوس»",
+                "options": [
+                    "سقنن رع الثاني",
+                    "منتوحتب",
+                    "أحمس",
+                    "كامس"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من أكون؟ «طردت الهكسوس وأسست الدولة الحديثة»",
+                "options": [
+                    "سقنن رع",
+                    "تحتمس الثالث",
+                    "أحمس الأول",
+                    "كامس"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "من أكون؟ «ملكة نابت عن ابنيها في الحكم أثناء حرب الهكسوس»",
+                "options": [
+                    "إياح حتب",
+                    "نفرتيتي",
+                    "سبك نفرو",
+                    "حتشبسوت"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من أكون؟ «عاصمة الهكسوس في شرق الدلتا»",
+                "options": [
+                    "أواريس",
+                    "طيبة",
+                    "من نفر",
+                    "إثيت تاوي"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "صوّب الخطأ: «بنى أمنمحات الأول حصني سمنة وقمنة».",
+                "options": [
+                    "سنوسرت الثالث",
+                    "كامس",
+                    "منتوحتب",
+                    "أمنمحات الثالث"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "صوّب الخطأ: «الهكسوس قبائل جاءت من غرب إفريقيا».",
+                "options": [
+                    "وسط آسيا",
+                    "الجزيرة العربية",
+                    "شمال إفريقيا",
+                    "أوروبا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "صوّب الخطأ: «فر الهكسوس بعد هزيمتهم إلى ليبيا».",
+                "options": [
+                    "كوش",
+                    "فينيقيا",
+                    "اليونان",
+                    "فلسطين"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "صوّب الخطأ: «الإله سبك رمز الحكمة».",
+                "options": [
+                    "الموت",
+                    "الخصوبة",
+                    "الحب",
+                    "القوة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "صوّب الخطأ: «نقل منتوحتب الثاني العاصمة إلى إثيت تاوي».",
+                "options": [
+                    "أمنمحات الأول",
+                    "كامس",
+                    "سنوسرت الثالث",
+                    "أحمس"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "رتب ملوك الكفاح ضد الهكسوس:",
+                "options": [
+                    "كامس ثم سقنن رع",
+                    "أحمس أولًا",
+                    "أحمس ثم كامس",
+                    "سقنن رع الثاني ثم كامس ثم أحمس الأول"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "رتب ملوك الدولة الوسطى زمنيًا:",
+                "options": [
+                    "منتوحتب أخيرًا",
+                    "سنوسرت أولًا",
+                    "أمنمحات الثالث أولًا",
+                    "منتوحتب الثاني ثم أمنمحات الأول ثم سنوسرت الثالث ثم أمنمحات الثالث"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "قارن بين قناة سيزوستريس وسد اللاهون:",
+                "options": [
+                    "القناة لسنوسرت الثالث للتجارة، والسد لأمنمحات الثالث لتخزين المياه",
+                    "كلاهما لأمنمحات",
+                    "كلاهما للتجارة",
+                    "السد للتجارة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "قارن بين دور سقنن رع ودور أحمس:",
+                "options": [
+                    "أحمس بدأ النضال",
+                    "سقنن رع بدأ النضال واستشهد، وأحمس أتم التحرير وأسس الدولة الحديثة",
+                    "كلاهما استشهد",
+                    "سقنن رع أسس الدولة الحديثة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "استبعد الغريب من ملوك الدولة الوسطى: (منتوحتب - أمنمحات - سنوسرت - خوفو)",
+                "options": [
+                    "منتوحتب",
+                    "سنوسرت",
+                    "أمنمحات",
+                    "خوفو"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "استبعد الغريب من أعمال أمنمحات الثالث: (سد اللاهون - مقاييس النيل - بعثات سيناء - حصني سمنة وقمنة)",
+                "options": [
+                    "بعثات سيناء",
+                    "حصني سمنة وقمنة",
+                    "مقاييس النيل",
+                    "سد اللاهون"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "استبعد الغريب من أبطال طرد الهكسوس: (سقنن رع - كامس - أحمس - أوناس)",
+                "options": [
+                    "أحمس",
+                    "أوناس",
+                    "كامس",
+                    "سقنن رع"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما القيمة المستفادة من كفاح المصريين ضد الهكسوس؟",
+                "options": [
+                    "الخضوع",
+                    "حب الوطن والتضحية من أجل تحريره",
+                    "الاستسلام",
+                    "العزلة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما مظاهر اهتمام الدولة الوسطى بالزراعة؟",
+                "options": [
+                    "بناء الأهرام",
+                    "حفر المناجم",
+                    "بناء الحصون فقط",
+                    "إقامة السدود كسد اللاهون ومقاييس النيل واستصلاح الفيوم"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "لماذا أقام أمنمحات الثالث مقاييس لمنسوب النيل؟",
+                "options": [
+                    "للحرب",
+                    "للملاحة",
+                    "للصيد",
+                    "لمراقبة الفيضان والاستعداد له"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما مظاهر اهتمام الدولة الوسطى بالتجارة؟",
+                "options": [
+                    "حفر قناة سيزوستريس والبعثات لبونت وفينيقيا والمحطات التجارية جنوبًا",
+                    "الحروب",
+                    "إغلاق الحدود",
+                    "بناء الأهرام"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "لماذا كتب سنوسرت الثالث على حدوده أنه بريء من ابن لا يحافظ عليها؟",
+                "options": [
+                    "للتباهي",
+                    "لحث أبنائه وخلفائه على حماية حدود مصر",
+                    "للعبادة",
+                    "للتجارة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما دلالة تولي سبك نفرو الحكم؟",
+                "options": [
+                    "مكانة المرأة المصرية وقدرتها على الحكم",
+                    "ضعف الدولة",
+                    "احتلال مصر",
+                    "لا دلالة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما أسباب ضعف الدولة الوسطى وسقوطها؟",
+                "options": [
+                    "قوة الملوك",
+                    "كثرة السدود",
+                    "الرخاء",
+                    "ضعف الملوك وصراعات حكام الأقاليم"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ماذا كان سيحدث لو لم يقم كامس بحملة على كوش؟",
+                "options": [
+                    "استمرار وصول الإمدادات للهكسوس وطول الحرب",
+                    "لا شيء",
+                    "احتلال كوش لمصر",
+                    "سرعة التحرير"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما أهمية بناء الحصون على الحدود الجنوبية؟",
+                "options": [
+                    "الزراعة",
+                    "تأمين الحدود الجنوبية وحماية التجارة",
+                    "السياحة",
+                    "العبادة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما أثر حكم الهكسوس على المصريين؟",
+                "options": [
+                    "إثارة روح المقاومة والكفاح للتحرير",
+                    "نسيان اللغة",
+                    "الخضوع الدائم",
+                    "الهجرة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما المقصود بقناة سيزوستريس؟",
+                "options": [
+                    "ترعة المحمودية",
+                    "قناة حفرها سنوسرت الثالث تربط البحر الأحمر بالمتوسط عن طريق النيل",
+                    "قناة السويس الحالية",
+                    "بحر يوسف"
+                ],
+                "ans": 1
+            }
+        ]
+    },
+    {
+        "id": "map_6",
+        "title": "تحدي الخرائط والصور",
+        "type": "map",
+        "desc": "اكتشف المخفي على خرائط وصور الكتاب في عصر الدولة الوسطى (عصر الرخاء الاقتصادي)",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6\"></polygon><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"18\"></line><line x1=\"16\" y1=\"6\" x2=\"16\" y2=\"22\"></line></svg>",
+        "questions": [
+            {
+                "q": "ما اسم القناة المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "خليج أمير المؤمنين",
+                    "بحر يوسف",
+                    "قناة سيزوستريس",
+                    "قناة السويس"
+                ],
+                "ans": 2,
+                "img": "images/u2l2_sesostris.jpg",
+                "masks": [
+                    [
+                        34,
+                        42,
+                        26,
+                        12
+                    ]
+                ]
+            },
+            {
+                "q": "الملك الذي أمر بحفر القناة الظاهرة باللون الوردي على الخريطة:",
+                "options": [
+                    "أمنمحات الثالث",
+                    "أمنمحات الأول",
+                    "منتوحتب الثاني",
+                    "سنوسرت الثالث"
+                ],
+                "ans": 3,
+                "img": "images/u2l2_sesostris.jpg",
+                "masks": [
+                    [
+                        34,
+                        42,
+                        26,
+                        12
+                    ],
+                    [
+                        0,
+                        84,
+                        40,
+                        8
+                    ]
+                ]
+            },
+            {
+                "q": "ربطت القناة الظاهرة على الخريطة بين البحر المتوسط والبحر:",
+                "options": [
+                    "الأسود",
+                    "الأحمر عن طريق نهر النيل",
+                    "العربي",
+                    "الكاريبي"
+                ],
+                "ans": 1,
+                "img": "images/u2l2_sesostris.jpg",
+                "masks": [
+                    [
+                        34,
+                        42,
+                        26,
+                        12
+                    ],
+                    [
+                        0,
+                        84,
+                        40,
+                        8
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم شبه الجزيرة المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "شبه جزيرة القرم",
+                    "شبه الجزيرة العربية",
+                    "شبه جزيرة سيناء",
+                    "شبه جزيرة البلقان"
+                ],
+                "ans": 2,
+                "img": "images/u2l2_sesostris.jpg",
+                "masks": [
+                    [
+                        73,
+                        41,
+                        22,
+                        13
+                    ]
+                ]
+            },
+            {
+                "q": "تمثال لملك أعاد السلطة المركزية وتُعد فترة حكمه بداية لمجد الأسرة الحادية عشرة:",
+                "options": [
+                    "أمنمحات الأول",
+                    "منتوحتب الثاني",
+                    "أحمس الأول",
+                    "سنوسرت الثالث"
+                ],
+                "ans": 1,
+                "img": "images/u2l2_mentuhotep.jpg",
+                "masks": []
+            },
+            {
+                "q": "تمثال لمؤسس الأسرة الثانية عشرة الذي نقل العاصمة إلى إثيت تاوي:",
+                "options": [
+                    "أمنمحات الأول",
+                    "سنوسرت الثالث",
+                    "منتوحتب الثاني",
+                    "أمنمحات الثالث"
+                ],
+                "ans": 0,
+                "img": "images/u2l2_amenemhat1.jpg",
+                "masks": []
+            },
+            {
+                "q": "تُظهر الصورة سدًا أقيم عند مدخل بحيرة موريس (قارون حاليًا)، ما اسمه؟",
+                "options": [
+                    "السد العالي",
+                    "خزان سنار",
+                    "خزان أسوان",
+                    "سد اللاهون"
+                ],
+                "ans": 3,
+                "img": "images/u2l2_lahun.jpg",
+                "masks": []
+            },
+            {
+                "q": "الملك الذي أقام السد الظاهر في الصورة:",
+                "options": [
+                    "أمنمحات الأول",
+                    "أمنمحات الثالث",
+                    "سنوسرت الثالث",
+                    "منتوحتب الثاني"
+                ],
+                "ans": 1,
+                "img": "images/u2l2_lahun.jpg",
+                "masks": []
+            },
+            {
+                "q": "تُظهر الصورة ملكًا يحارب الهكسوس على عربته الحربية، من هو؟",
+                "options": [
+                    "كامس",
+                    "تحتمس الثالث",
+                    "سقنن رع الثاني",
+                    "أحمس الأول"
+                ],
+                "ans": 3,
+                "img": "images/u2l2_ahmose.jpg",
+                "masks": []
+            },
+            {
+                "q": "حاصر الملك الظاهر في الصورة عاصمة الهكسوس وهي:",
+                "options": [
+                    "طيبة",
+                    "من - نفر",
+                    "أواريس",
+                    "إثيت تاوي"
+                ],
+                "ans": 2,
+                "img": "images/u2l2_ahmose.jpg",
+                "masks": []
+            }
+        ]
+    }
+];
+
+    // --- محرك الصوت للمؤثرات التفاعلية ---
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new AudioContext();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.1, 0.1); 
+        setTimeout(() => playTone(659.25, 'sine', 0.1, 0.1), 100); 
+        setTimeout(() => playTone(783.99, 'sine', 0.2, 0.15), 200); 
+        setTimeout(() => playTone(1046.50, 'sine', 0.4, 0.2), 300); 
+        triggerConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(300, 'sawtooth', 0.15, 0.1);
+        setTimeout(() => playTone(200, 'sawtooth', 0.25, 0.15), 150);
+        
+        const qBox = document.querySelector('.question-box');
+        if(qBox) {
+            qBox.classList.remove('shake');
+            void qBox.offsetWidth; 
+            qBox.classList.add('shake');
+        }
+    }
+
+    // --- مؤثرات بصرية ---
+    function triggerConfetti() {
+        const colors = ['#f72585', '#4cc9f0', '#fee440', '#00f5d4', '#8b5cf6'];
+        for(let i=0; i<40; i++) {
+            let conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        if (teamMode) { onTeamAnswer(isCorrect); }
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، بطل!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        if (teamMode) { teamFeedbackText(isCorrect, title); } else { title.style.fontSize = ''; }
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300); // وقت الانتقال للسؤال التالي
+    }
+
+    // --- متغيرات محرك اللعبة ---
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let geniusTimerInterval = null;
+    let wrongAnswers = []; // مصفوفة لتخزين الأخطاء
+
+    // --- التهيئة ---
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <div class="icon-container">${game.icon}</div>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        document.getElementById('team-board').classList.remove('show'); teamMode = false;
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+        updateTeamBoard();
+    }
+
+    function gameComplete() {
+        if (teamMode) { teamGameComplete(); return; }
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <div class="share-box">
+                    <h4>📲 أرسل نتيجتك إلى أ/ السيد صالح</h4>
+                    <input type="text" id="student-name-input" class="share-name-input" placeholder="اكتب اسمك هنا أولًا">
+                    <div id="share-warning" class="share-warning">من فضلك اكتب اسمك أولًا قبل الإرسال ✋</div>
+                    <div>
+                        <button class="btn btn-share" onclick="sendResultToTeacher(${score}, ${currentQuestions.length})">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/></svg>
+                            إرسال النتيجة عبر واتساب
+                        </button>
+                    </div>
+                </div>
+                <button class="btn back-btn" style="font-size:1.1rem; padding:15px 30px; margin-top: 18px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button>
+            </div>
+        `;
+    }
+
+    function sendResultToTeacher(score, total) {
+        const nameInput = document.getElementById('student-name-input');
+        const warning = document.getElementById('share-warning');
+        const name = nameInput.value.trim();
+        if (!name) {
+            warning.style.display = 'block';
+            nameInput.classList.add('shake');
+            nameInput.focus();
+            setTimeout(() => nameInput.classList.remove('shake'), 500);
+            return;
+        }
+        warning.style.display = 'none';
+        const gameTitle = currentGame ? currentGame.title : '';
+        const message =
+            `📚 نتيجة طالب - ${LESSON_NAME}\n` +
+            `👤 اسم الطالب: ${name}\n` +
+            `🎮 اللعبة: ${gameTitle}\n` +
+            `✅ النتيجة: ${score} من ${total}\n` +
+            `⭐ نسبة النجاح: ${Math.round((score/total)*100)}%`;
+        const url = `https://wa.me/201001304451?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    function beginGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = shuffleArray([...gameData.questions]).slice(0, QUESTIONS_PER_ROUND);
+        qIndex = 0;
+        wrongAnswers = []; // تصفير قائمة الأخطاء
+        
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        
+        renderNextState();
+    }
+
+    function renderNextState() {
+        if (qIndex >= currentQuestions.length) {
+            gameComplete();
+            return;
+        }
+
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+
+        if (currentGame.type === 'mcq') {
+            renderMCQ(gc);
+        } else if (currentGame.type === 'bubbles') {
+            renderBubbles(gc);
+        } else if (currentGame.type === 'shooting') {
+            renderShooting(gc);
+        } else if (currentGame.type === 'true_false') {
+            renderTrueFalse(gc);
+        } else if (currentGame.type === 'genius') {
+            renderGenius(gc);
+        } else if (currentGame.type === 'map') {
+            renderMap(gc);
+        }
+    }
+
+    // --- أنماط الألعاب ---
+
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        // ترتيب ثابت (صح يميناً وخطأ يساراً)
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #1e40af)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 5. تحدي العباقرة (سؤال بعدّاد زمني)
+    function renderGenius(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const wrap = document.createElement('div');
+        wrap.className = 'genius-wrap';
+
+        const badge = document.createElement('div');
+        badge.className = 'genius-badge';
+        badge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z"></path></svg> تحدي العباقرة`;
+
+        const timerTrack = document.createElement('div');
+        timerTrack.className = 'genius-timer-track';
+        const timerBar = document.createElement('div');
+        timerBar.className = 'genius-timer-bar';
+        timerTrack.appendChild(timerBar);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.style.background = 'rgba(255,255,255,0.95)';
+        qBox.innerText = qData.q;
+
+        const optContainer = document.createElement('div');
+        optContainer.className = 'genius-options';
+
+        let isAnswered = false;
+        const TOTAL_TIME = 12000; // 12 ثانية لكل سؤال
+        let startTime = Date.now();
+
+        function finishQuestion(isCorrect, selectedText) {
+            if (isAnswered) return;
+            isAnswered = true;
+            clearInterval(geniusTimerInterval);
+            if (!isCorrect) {
+                wrongAnswers.push({ question: qData.q, correct: correctText, selected: selectedText || "انتهى الوقت!" });
+            }
+            showFeedback(isCorrect, () => { qIndex++; renderNextState(); });
+        }
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    finishQuestion(true, opt);
+                } else {
+                    btn.classList.add('btn-wrong');
+                    finishQuestion(false, opt);
+                }
+            };
+            optContainer.appendChild(btn);
+        });
+
+        wrap.appendChild(badge);
+        wrap.appendChild(timerTrack);
+        container.appendChild(wrap);
+        container.appendChild(qBox);
+        container.appendChild(optContainer);
+
+        geniusTimerInterval = setInterval(() => {
+            if (isAnswered) { clearInterval(geniusTimerInterval); return; }
+            const elapsed = Date.now() - startTime;
+            const pct = Math.max(0, 100 - (elapsed / TOTAL_TIME) * 100);
+            timerBar.style.width = pct + '%';
+            if (elapsed >= TOTAL_TIME) {
+                clearInterval(geniusTimerInterval);
+                finishQuestion(false, null);
+            }
+        }, 80);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            let speed = 0.95 + Math.random() * 0.65; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval); clearInterval(geniusTimerInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 30);
+    }
+
+    // 4. التنشين
+    function renderShooting(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 2.5 + 1.5) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+
+            animInterval = setInterval(() => {
+                if (isAnswered) return;
+                pos += speed;
+                if (pos > window.innerWidth + 50) pos = -250;
+                if (pos < -250) pos = window.innerWidth + 50;
+                bird.style.left = pos + 'px';
+            }, 20);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.style.display = 'flex';
+        hint.style.alignItems = 'center';
+        hint.style.justifyContent = 'center';
+        hint.style.gap = '8px';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> اضغط على الإجابة الصحيحة وهي تتحرك لاصطيادها!`;
+        container.appendChild(hint);
+    }
+
+
+    // 6. تحدي الخرائط والصور
+    function renderMap(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+
+        const stage = document.createElement('div');
+        stage.className = 'map-stage';
+        const wrap = document.createElement('div');
+        wrap.className = 'map-wrap';
+        const img = document.createElement('img');
+        img.src = qData.img;
+        img.alt = 'خريطة أو صورة من الكتاب المدرسي';
+        wrap.appendChild(img);
+        const masks = [];
+        (qData.masks || []).forEach(m => {
+            const d = document.createElement('div');
+            d.className = 'map-mask';
+            d.style.left = m[0] + '%'; d.style.top = m[1] + '%';
+            d.style.width = m[2] + '%'; d.style.height = m[3] + '%';
+            d.textContent = '؟';
+            wrap.appendChild(d); masks.push(d);
+        });
+        stage.appendChild(wrap);
+        wrap.onclick = () => stage.classList.toggle('zoomed');
+        const hint = document.createElement('div');
+        hint.className = 'map-hint';
+        hint.textContent = (masks.length ? '💡 الإجابة مخفية تحت المربع البرتقالي (؟) • ' : '💡 ') + 'اضغط على الصورة لتكبيرها';
+        stage.appendChild(hint);
+
+        const optContainer = document.createElement('div');
+        optContainer.className = 'map-options';
+        let isAnswered = false;
+        const btns = [];
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                const ok = opt === correctText;
+                masks.forEach(d => d.classList.add('revealed'));
+                btns.forEach(b => { if (b.innerText === correctText) b.classList.add('ok'); });
+                if (!ok) {
+                    btn.classList.add('bad');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                }
+                setTimeout(() => showFeedback(ok, () => { qIndex++; renderNextState(); }), 1100);
+            };
+            btns.push(btn);
+            optContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(stage);
+        container.appendChild(optContainer);
+    }
+
+
+    // --- طريقة اللعب: فردي أو منافسة بين فريقين ---
+    const QUESTIONS_PER_ROUND = 20;
+    let teamMode = false;
+    let teamNames = ['الفريق الأول', 'الفريق الثاني'];
+    let teamScores = [0, 0];
+    let pendingGame = null;
+
+    function startGame(gameData) {
+        initAudio();
+        pendingGame = gameData;
+        document.getElementById('mode-game-title').textContent = gameData.title;
+        document.getElementById('team-setup').classList.remove('show');
+        document.getElementById('mode-overlay').classList.add('active');
+    }
+    function closeModePicker() { document.getElementById('mode-overlay').classList.remove('active'); }
+    function chooseSolo() {
+        teamMode = false; closeModePicker();
+        document.getElementById('team-board').classList.remove('show');
+        beginGame(pendingGame);
+    }
+    function chooseTeams() {
+        document.getElementById('team-setup').classList.add('show');
+        setTimeout(() => document.getElementById('team-a').select(), 50);
+    }
+    function startTeams() {
+        const a = document.getElementById('team-a').value.trim() || 'الفريق الأول';
+        const b = document.getElementById('team-b').value.trim() || 'الفريق الثاني';
+        teamNames = [a, b === a ? b + ' (٢)' : b];
+        teamScores = [0, 0];
+        teamMode = true; closeModePicker();
+        document.getElementById('team-name-0').textContent = teamNames[0];
+        document.getElementById('team-name-1').textContent = teamNames[1];
+        document.getElementById('team-board').classList.remove('show');
+        beginDuel(pendingGame);
+    }
+    function currentTeam() { return qIndex % 2; }
+    function updateTeamBoard() {
+        if (!teamMode) return;
+        for (let i = 0; i < 2; i++) {
+            document.getElementById('team-score-' + i).textContent = teamScores[i];
+            document.getElementById('team-card-' + i).classList.toggle('active', i === currentTeam() && qIndex < currentQuestions.length);
+        }
+    }
+    function onTeamAnswer(isCorrect) {
+        if (isCorrect) teamScores[currentTeam()]++;
+        updateTeamBoard();
+    }
+    function teamFeedbackText(isCorrect, titleEl) {
+        const t = teamNames[currentTeam()];
+        titleEl.textContent = isCorrect ? ('نقطة لـ ' + t + '! 🎉') : ('إجابة خاطئة يا ' + t);
+        titleEl.style.fontSize = '2rem';
+    }
+    function teamGameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect(); setTimeout(playCorrect, 300);
+        document.getElementById('team-card-0').classList.remove('active');
+        document.getElementById('team-card-1').classList.remove('active');
+        let banner;
+        if (teamScores[0] === teamScores[1]) banner = '🤝 تعادل! أداء رائع من الفريقين';
+        else banner = '🏆 الفائز: ' + (teamScores[0] > teamScores[1] ? teamNames[0] : teamNames[1]);
+        let wrongHTML = '';
+        if (wrongAnswers.length > 0) {
+            wrongHTML = '<div style="margin-top: 18px; text-align: right; background: #f8fafc; padding: 16px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 300px; overflow-y: auto;" class="errors-list"><h3 style="color: var(--danger); margin-bottom: 12px; text-align: center; font-size: 1.25rem;">مراجعة الأسئلة التي تمت الإجابة عنها خطأ 📝</h3><ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">';
+            wrongAnswers.forEach((item, i) => {
+                wrongHTML += '<li style="background: white; padding: 12px; border-radius: 10px; border-right: 5px solid var(--danger);"><div style="font-weight: bold; color: var(--primary); margin-bottom: 6px;">' + (i + 1) + '. ' + item.question + '</div><div style="color: var(--success); font-weight: bold;">الإجابة الصحيحة: ' + item.correct + '</div></li>';
+            });
+            wrongHTML += '</ul></div>';
+        }
+        gc.innerHTML = '<div style="text-align:center; padding: 30px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">'
+            + '<h2 style="color: var(--primary); font-size: 2rem; font-weight: 900;">انتهت المنافسة!</h2>'
+            + '<div class="winner-box"><h3>' + banner + '</h3><div class="final-scores"><div>' + teamNames[0] + ': ' + teamScores[0] + '</div><div>' + teamNames[1] + ': ' + teamScores[1] + '</div></div></div>'
+            + wrongHTML
+            + '<div class="share-box"><h4>📲 أرسل نتيجة المنافسة إلى أ/ السيد صالح</h4><button class="btn btn-share" onclick="sendTeamResult()">إرسال النتيجة عبر واتساب</button></div>'
+            + '<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: 18px;">'
+            + '<button class="btn" style="padding:14px 26px;" onclick="startTeamsAgain()">🔄 منافسة جديدة بأسئلة مختلفة</button>'
+            + '<button class="btn back-btn" style="padding:14px 26px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button></div></div>';
+        triggerConfetti();
+    }
+    function startTeamsAgain() { teamScores = [0, 0]; beginDuel(pendingGame); }
+    function sendTeamResult() {
+        const gameTitle = currentGame ? currentGame.title : '';
+        let res = teamScores[0] === teamScores[1] ? 'تعادل' : ('الفائز: ' + (teamScores[0] > teamScores[1] ? teamNames[0] : teamNames[1]));
+        const message = '🏆 نتيجة منافسة - ' + LESSON_NAME + '\n🎮 اللعبة: ' + gameTitle + '\n'
+            + '🔵 ' + teamNames[0] + ': ' + teamScores[0] + '\n🟠 ' + teamNames[1] + ': ' + teamScores[1] + '\n✅ ' + res;
+        window.open('https://wa.me/201001304451?text=' + encodeURIComponent(message), '_blank');
+    }
+
+
+    // ===== منافسة الفريقين: شاشة مقسومة، نفس الأسئلة بترتيب مختلف لكل فريق، ٣٠ ثانية لكل سؤال =====
+    const DUEL_TIME = 30000;
+    let duel = null;
+    function duelEsc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function duelOrder(pool, other) {
+        // ترتيب مختلف: لا يتطابق أي سؤال في نفس الموضع مع ترتيب الفريق الآخر
+        let best = shuffleArray([...pool]);
+        for (let tries = 0; tries < 200; tries++) {
+            if (!other || best.every((q, i) => q !== other[i])) return best;
+            best = shuffleArray([...pool]);
+        }
+        return best;
+    }
+    function duelTone(ok) {
+        initAudio();
+        if (ok) { playTone(659.25, 'sine', 0.1, 0.1); setTimeout(() => playTone(987.77, 'sine', 0.22, 0.13), 100); }
+        else { playTone(260, 'sawtooth', 0.2, 0.08); }
+    }
+    function beginDuel(gameData) {
+        initAudio();
+        stopDuelTimers();
+        currentGame = gameData;
+        const pool = shuffleArray([...gameData.questions]).slice(0, QUESTIONS_PER_ROUND);
+        const orderA = duelOrder(pool, null);
+        const orderB = duelOrder(pool, orderA);
+        duel = { teams: [orderA, orderB].map(order => ({ order, idx: 0, score: 0, time: 0, wrong: [], timer: null, done: false })), finished: false };
+        document.getElementById('duel-title').textContent = gameData.title;
+        document.getElementById('duel-result').classList.add('hidden');
+        document.getElementById('duel-screen').classList.remove('hidden');
+        document.body.classList.add('duel-on');
+        renderDuelQ(0); renderDuelQ(1);
+    }
+    function stopDuelTimers() { if (duel) duel.teams.forEach(t => clearInterval(t.timer)); }
+    function exitDuel() {
+        stopDuelTimers(); duel = null;
+        document.getElementById('duel-screen').classList.add('hidden');
+        document.body.classList.remove('duel-on');
+        returnToMenu();
+    }
+    function renderDuelQ(ti) {
+        if (!duel) return;
+        const T = duel.teams[ti];
+        const half = document.getElementById('duel-half-' + ti);
+        half.classList.remove('flash-ok', 'flash-bad');
+        half.innerHTML = '';
+        half.scrollTop = 0;
+        const total = T.order.length;
+        const head = document.createElement('div');
+        head.className = 'dh-head';
+        head.innerHTML = '<span class="dh-name">' + duelEsc(teamNames[ti]) + '</span><span class="dh-meta"><span class="dh-prog">'
+            + (Math.min(T.idx + 1, total)) + ' / ' + total + '</span><span class="dh-score">' + T.score + '</span></span>';
+        half.appendChild(head);
+        if (T.idx >= total) { duelTeamDone(ti, half); return; }
+
+        const qData = T.order[T.idx];
+        const correctText = qData.options[qData.ans];
+
+        const timer = document.createElement('div');
+        timer.className = 'dh-timer';
+        timer.innerHTML = '<div class="dh-track"><div class="dh-bar"></div></div><span class="dh-sec">30</span>';
+        half.appendChild(timer);
+        const bar = timer.querySelector('.dh-bar'), sec = timer.querySelector('.dh-sec');
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.textContent = qData.q;
+        half.appendChild(qBox);
+
+        const masks = [];
+        if (currentGame.type === 'map' && qData.img) {
+            const stage = document.createElement('div');
+            stage.className = 'map-stage';
+            const wrap = document.createElement('div');
+            wrap.className = 'map-wrap';
+            const img = document.createElement('img');
+            img.src = qData.img; img.alt = 'خريطة أو صورة من الكتاب المدرسي';
+            wrap.appendChild(img);
+            (qData.masks || []).forEach(m => {
+                const d = document.createElement('div');
+                d.className = 'map-mask';
+                d.style.left = m[0] + '%'; d.style.top = m[1] + '%'; d.style.width = m[2] + '%'; d.style.height = m[3] + '%';
+                d.textContent = '؟'; wrap.appendChild(d); masks.push(d);
+            });
+            wrap.onclick = () => stage.classList.toggle('zoomed');
+            stage.appendChild(wrap);
+            const hint = document.createElement('div');
+            hint.className = 'map-hint';
+            hint.textContent = '💡 اضغط على الصورة لتكبيرها';
+            stage.appendChild(hint);
+            half.appendChild(stage);
+        }
+
+        const opts = document.createElement('div');
+        opts.className = 'dh-opts';
+        const isTF = currentGame.type === 'true_false';
+        const list = isTF ? ['صح', 'خطأ'] : shuffleArray([...qData.options]);
+        if (isTF) opts.classList.add('tf');
+        const btns = [];
+        const verdict = document.createElement('div');
+        verdict.className = 'dh-verdict';
+        let answered = false;
+        const start = Date.now();
+
+        function finish(selected, btn) {
+            if (answered || !duel) return;
+            answered = true;
+            clearInterval(T.timer);
+            T.time += Math.min(Date.now() - start, DUEL_TIME);
+            const ok = selected === correctText;
+            opts.classList.add('locked');
+            masks.forEach(d => d.classList.add('revealed'));
+            btns.forEach(b => { if (b.dataset.v === correctText) b.classList.add('ok'); });
+            if (ok) { T.score++; }
+            else {
+                if (btn) btn.classList.add('bad');
+                T.wrong.push({ question: qData.q, correct: correctText, selected: selected || 'انتهى الوقت!' });
+            }
+            head.querySelector('.dh-score').textContent = T.score;
+            half.classList.add(ok ? 'flash-ok' : 'flash-bad');
+            verdict.className = 'dh-verdict ' + (ok ? 'ok' : 'bad');
+            verdict.textContent = ok ? '✅ إجابة صحيحة! +1' : (selected ? '❌ إجابة خاطئة' : '⏰ انتهى الوقت!');
+            duelTone(ok);
+            if (!ok) { qBox.classList.remove('shake'); void qBox.offsetWidth; qBox.classList.add('shake'); }
+            setTimeout(() => { if (!duel || duel.teams[ti] !== T) return; T.idx++; renderDuelQ(ti); }, masks.length ? 1700 : 1200);
+        }
+
+        list.forEach(opt => {
+            const b = document.createElement('button');
+            b.className = 'btn';
+            if (isTF) b.classList.add(opt === 'صح' ? 'tf-true' : 'tf-false');
+            b.textContent = opt; b.dataset.v = opt;
+            b.onclick = () => finish(opt, b);
+            btns.push(b); opts.appendChild(b);
+        });
+        half.appendChild(opts);
+        half.appendChild(verdict);
+
+        clearInterval(T.timer);
+        T.timer = setInterval(() => {
+            if (answered) { clearInterval(T.timer); return; }
+            const left = Math.max(0, DUEL_TIME - (Date.now() - start));
+            bar.style.width = (left / DUEL_TIME * 100) + '%';
+            const s = Math.ceil(left / 1000);
+            sec.textContent = s;
+            const low = s <= 5;
+            bar.classList.toggle('low', low); sec.classList.toggle('low', low);
+            if (left <= 0) finish(null, null);
+        }, 100);
+    }
+    function duelTeamDone(ti, half) {
+        const T = duel.teams[ti];
+        T.done = true;
+        const box = document.createElement('div');
+        box.className = 'dh-wait';
+        box.innerHTML = '<div class="big">🏁</div><h3>أنهى ' + duelEsc(teamNames[ti]) + ' الأسئلة!</h3><p>النتيجة: ' + T.score + ' من ' + T.order.length + '</p>'
+            + '<p style="margin-top:6px;">⏳ في انتظار الفريق الآخر...</p>';
+        half.appendChild(box);
+        if (duel.teams.every(t => t.done) && !duel.finished) { duel.finished = true; setTimeout(showDuelResult, 700); }
+    }
+    function duelFmt(ms) { return (ms / 1000).toFixed(1) + ' ث'; }
+    function duelWinner() {
+        const [a, b] = duel.teams;
+        if (a.score !== b.score) return a.score > b.score ? 0 : 1;
+        if (Math.abs(a.time - b.time) >= 500) return a.time < b.time ? 0 : 1;
+        return -1;
+    }
+    function showDuelResult() {
+        if (!duel) return;
+        teamScores = [duel.teams[0].score, duel.teams[1].score];
+        const w = duelWinner();
+        const total = duel.teams[0].order.length;
+        let banner;
+        if (w === -1) banner = '🤝 تعادل! أداء رائع من الفريقين';
+        else banner = '🏆 الفائز: ' + duelEsc(teamNames[w]) + (teamScores[0] === teamScores[1] ? ' (الأسرع في الإجابة)' : '');
+        let reviews = '';
+        duel.teams.forEach((T, i) => {
+            reviews += '<div class="res-review t' + i + '"><h4>' + duelEsc(teamNames[i]) + ' — الأخطاء (' + T.wrong.length + ')</h4>';
+            if (!T.wrong.length) reviews += '<p class="perfect">أداء مثالي! لا توجد أخطاء 🌟</p>';
+            else {
+                reviews += '<ul>';
+                T.wrong.forEach((it, k) => {
+                    reviews += '<li><div class="rq">' + (k + 1) + '. ' + duelEsc(it.question) + '</div><div class="rs">إجابتهم: ' + duelEsc(it.selected) + '</div><div class="ra">الإجابة الصحيحة: ' + duelEsc(it.correct) + '</div></li>';
+                });
+                reviews += '</ul>';
+            }
+            reviews += '</div>';
+        });
+        const res = document.getElementById('duel-result');
+        res.innerHTML = '<div class="res-card">'
+            + '<h2 style="color: var(--primary); font-size: 2rem; font-weight: 900;">انتهت المنافسة!</h2>'
+            + '<div class="winner-box"><h3>' + banner + '</h3><div class="final-scores">'
+            + '<div>' + duelEsc(teamNames[0]) + ': ' + teamScores[0] + ' / ' + total + '<small>⏱️ ' + duelFmt(duel.teams[0].time) + '</small></div>'
+            + '<div>' + duelEsc(teamNames[1]) + ': ' + teamScores[1] + ' / ' + total + '<small>⏱️ ' + duelFmt(duel.teams[1].time) + '</small></div>'
+            + '</div></div>'
+            + '<div class="res-reviews">' + reviews + '</div>'
+            + '<div class="share-box"><h4>📲 أرسل نتيجة المنافسة إلى أ/ السيد صالح</h4><button class="btn btn-share" onclick="sendDuelResult()">إرسال النتيجة عبر واتساب</button></div>'
+            + '<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: 18px;">'
+            + '<button class="btn" style="padding:14px 26px;" onclick="beginDuel(pendingGame)">🔄 منافسة جديدة بأسئلة مختلفة</button>'
+            + '<button class="btn back-btn" style="padding:14px 26px;" onclick="exitDuel()">العودة للقائمة الرئيسية</button></div></div>';
+        res.classList.remove('hidden');
+        res.scrollTop = 0;
+        playCorrect(); setTimeout(playCorrect, 300);
+    }
+    function sendDuelResult() {
+        if (!duel) return;
+        const w = duelWinner();
+        const gameTitle = currentGame ? currentGame.title : '';
+        const total = duel.teams[0].order.length;
+        const res = w === -1 ? 'تعادل' : ('الفائز: ' + teamNames[w]);
+        const message = '🏆 نتيجة منافسة - ' + LESSON_NAME + '\n🎮 اللعبة: ' + gameTitle + '\n'
+            + '🔵 ' + teamNames[0] + ': ' + duel.teams[0].score + ' من ' + total + ' (⏱️ ' + duelFmt(duel.teams[0].time) + ')\n'
+            + '🟠 ' + teamNames[1] + ': ' + duel.teams[1].score + ' من ' + total + ' (⏱️ ' + duelFmt(duel.teams[1].time) + ')\n✅ ' + res;
+        window.open('https://wa.me/201001304451?text=' + encodeURIComponent(message), '_blank');
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>

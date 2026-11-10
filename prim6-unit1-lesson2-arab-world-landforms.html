@@ -1,0 +1,4697 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>درس تضاريس وطننا العربي - الصف السادس الابتدائي</title>
+    <!-- استدعاء خط احترافي -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;      
+            --primary-light: #2563eb; 
+            --secondary: #1e40af;    
+            --success: #10b981;      
+            --danger: #ef4444;       
+            --warning: #f59e0b;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #eef2ff;
+            background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        /* --- الهيدر الرئيسي --- */
+        .header-main {
+            background: linear-gradient(135deg, #0b1a3f, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #fde68a;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.4rem, 5.5vw, 2.6rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #fcd34d, #b45309);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #fffbeb; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* --- الأزرار --- */
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        /* --- الشاشة الرئيسية --- */
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(34, 197, 94, 0.25); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #fde68a, #fde68a);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #1e3a8a; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.4rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 1rem; color: #64748b; font-weight: 600;}
+
+        /* --- شاشة اللعب --- */
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #2563eb; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #1e40af;
+            line-height: 1.6;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        /* MCQ Style */
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1.1rem, 3.5vw, 1.4rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        /* True/False Style */
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        /* Bubbles Style */
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #0b1a3f, #1e3a8a);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #2563eb; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(224,231,255,0.9));
+            color: #1e3a8a;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.85rem, 2vw, 1.05rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        /* Shooting Style */
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23e0fbfc" width="100%" height="100%"/><circle fill="%23bae6fd" cx="20%" cy="30%" r="50"/><circle fill="%23bae6fd" cx="80%" cy="60%" r="70"/><circle fill="%23bae6fd" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #2563eb; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.15rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #fffbeb; }
+
+        /* Genius Challenge Style */
+        .genius-wrap {
+            background: linear-gradient(135deg, #0b1a3f, #1e3a8a, #b45309);
+            border-radius: 16px; padding: 20px; margin-top: 10px;
+            border: 4px solid #fcd34d; box-shadow: inset 0 0 25px rgba(0,0,0,0.4), 0 10px 20px rgba(21,128,61,0.35);
+        }
+        .genius-timer-track {
+            width: 100%; height: 14px; background: rgba(0,0,0,0.35);
+            border-radius: 10px; overflow: hidden; margin-bottom: 18px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .genius-timer-bar {
+            height: 100%; width: 100%;
+            background: linear-gradient(to right, #fcd34d, #2563eb, #ef4444);
+            border-radius: 10px;
+            transition: width 0.1s linear;
+        }
+        .genius-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 600px) { .genius-options { grid-template-columns: 1fr; } }
+        .genius-options .btn {
+            padding: 16px 10px; font-size: clamp(1rem, 3vw, 1.25rem);
+            background: linear-gradient(to bottom, #3b82f6, #b45309);
+            border-bottom: 3px solid #1e3a8a; border-radius: 14px; min-height: 70px;
+        }
+        .genius-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(74, 222, 128, 0.15); color: #fcd34d;
+            font-weight: 800; padding: 6px 16px; border-radius: 20px;
+            border: 1px solid rgba(253,224,71,0.4); margin-bottom: 12px; font-size: 0.95rem;
+        }
+
+        /* Result Share (WhatsApp) */
+        .share-box {
+            margin-top: 25px; background: #fffbeb; border: 2px solid #fde68a;
+            border-radius: 16px; padding: 20px; text-align: center;
+        }
+        .share-box h4 { color: #1e3a8a; font-size: 1.2rem; margin-bottom: 12px; font-weight: 800;}
+        .share-name-input {
+            width: 100%; max-width: 320px; padding: 12px 16px; border-radius: 12px;
+            border: 2px solid #fde047; font-size: 1.05rem; text-align: center;
+            font-family: 'Cairo', sans-serif; font-weight: 700; margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .share-name-input:focus { outline: none; border-color: #2563eb; }
+        .btn-share {
+            background: linear-gradient(to bottom, #25d366, #1da851);
+            border-bottom-color: #128c3e; display: inline-flex; gap: 10px;
+        }
+        .share-warning { color: var(--danger); font-weight: 700; font-size: 0.9rem; margin-top: 8px; display: none; }
+
+        /* Modal Overlay */
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        /* Summary Errors Scrolling */
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* الفوتر (Footer) */
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        /* WhatsApp */
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px;
+            background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100; transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        /* Confetti effect */
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+
+        /* Map Challenge Style */
+        .map-stage { text-align: center; margin-bottom: 18px; }
+        .map-wrap { position: relative; display: inline-block; max-width: 100%; border-radius: 14px; overflow: hidden;
+            border: 4px solid #2563eb; box-shadow: 0 10px 20px rgba(0,0,0,0.12); background: #fff; }
+        .map-wrap img { display: block; max-width: 100%; max-height: 58vh; width: auto; height: auto; margin: 0 auto; }
+        .map-mask { position: absolute; background: linear-gradient(135deg, #f59e0b, #ea580c); border: 2px solid #fff;
+            border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff;
+            font-weight: 900; font-size: clamp(0.9rem, 2.4vw, 1.4rem); box-shadow: 0 3px 8px rgba(0,0,0,0.35);
+            transition: opacity 0.5s ease; animation: maskPulse 1.6s ease-in-out infinite; }
+        .map-mask.revealed { opacity: 0; animation: none; }
+        @keyframes maskPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+        .map-stage.zoomed { overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
+        .map-stage.zoomed .map-wrap { max-width: none; }
+        .map-stage.zoomed .map-wrap img { max-width: none; max-height: none; width: min(1400px, 230vw); }
+        .map-wrap { cursor: zoom-in; }
+        .map-stage.zoomed .map-wrap { cursor: zoom-out; }
+        .map-hint { color: #b45309; font-weight: 700; font-size: 0.95rem; margin-top: 8px; }
+        .map-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 600px) { .map-options { grid-template-columns: 1fr; } }
+        .map-options .btn { padding: 14px 10px; font-size: clamp(1rem, 3vw, 1.2rem); min-height: 60px; }
+        .map-options .btn.ok { background: linear-gradient(to bottom, #10b981, #047857) !important; }
+        .map-options .btn.bad { background: linear-gradient(to bottom, #ef4444, #b91c1c) !important; }
+        .header-logo { width: 260px; height: 260px; border-radius: 30px; border: 4px solid var(--warning);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: contain; flex-shrink: 0; }
+        @media (max-width: 600px) { .header-logo { width: 170px; height: 170px; } }
+        .teacher-photo { width: 200px; height: 260px; border-radius: 30px; border: 4px solid var(--warning);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4); object-fit: cover; object-position: center top; flex-shrink: 0; background:#fff; }
+        .teacher-sub { color: #fde68a; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.2rem); margin: -8px 0 10px; }
+        @media (max-width: 600px) { .teacher-photo { width: 130px; height: 170px; } }
+
+        /* اختيار طريقة اللعب + المنافسة بين فريقين */
+        .mode-modal { background: white; border-radius: 24px; padding: 28px 22px; width: 460px; max-width: 92%;
+            text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.35); max-height: 92vh; overflow-y: auto; }
+        .mode-modal h2 { color: var(--primary); font-size: 1.5rem; font-weight: 900; margin-bottom: 4px; }
+        .mode-modal .mode-sub { color: #64748b; font-weight: 700; margin-bottom: 18px; }
+        .mode-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 480px) { .mode-choices { grid-template-columns: 1fr; } }
+        .mode-choice { border: 3px solid #fde68a; border-radius: 18px; padding: 18px 10px; cursor: pointer; background: #fffbeb;
+            transition: all .2s; font-weight: 800; color: var(--dark); }
+        .mode-choice:hover { transform: translateY(-3px); border-color: var(--primary-light); }
+        .mode-choice .mc-ico { font-size: 2.2rem; display: block; margin-bottom: 6px; }
+        .mode-choice small { display: block; color: #64748b; font-weight: 600; margin-top: 4px; font-size: .85rem; }
+        .team-setup { display: none; margin-top: 18px; text-align: right; }
+        .team-setup.show { display: block; }
+        .team-setup label { font-weight: 800; color: var(--primary); display: block; margin: 8px 0 4px; }
+        .team-setup input { width: 100%; padding: 11px 14px; border-radius: 12px; border: 2px solid #fde047; font-family: 'Cairo', sans-serif;
+            font-size: 1.05rem; font-weight: 700; text-align: center; }
+        .team-setup input:focus { outline: none; border-color: var(--primary-light); }
+        .mode-actions { display: flex; gap: 10px; margin-top: 16px; }
+        .mode-actions .btn { flex: 1; }
+        .mode-cancel { background: #e2e8f0 !important; color: var(--dark) !important; border-bottom-color: #cbd5e1 !important; }
+        .team-board { display: none; max-width: 900px; width: calc(100% - 40px); margin: -8px auto 16px; gap: 10px; }
+        .team-board.show { display: flex; }
+        .team-card { flex: 1; background: white; border-radius: 14px; padding: 8px 12px; display: flex; align-items: center;
+            justify-content: space-between; gap: 8px; border: 3px solid transparent; box-shadow: 0 4px 10px rgba(0,0,0,.06);
+            font-weight: 800; transition: all .25s; min-width: 0; }
+        .team-card .tname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .team-card .tscore { font-size: 1.4rem; font-weight: 900; min-width: 36px; text-align: center; border-radius: 10px; padding: 0 8px; color: white; }
+        .team-card.t0 .tscore { background: #2563eb; } .team-card.t1 .tscore { background: #ea580c; }
+        .team-card.active.t0 { border-color: #2563eb; transform: scale(1.03); background: #fffbeb; }
+        .team-card.active.t1 { border-color: #ea580c; transform: scale(1.03); background: #fff7ed; }
+        .team-card .turn-tag { font-size: .75rem; padding: 2px 8px; border-radius: 10px; background: #fef3c7; color: #92400e; display: none; }
+        .team-card.active .turn-tag { display: inline-block; }
+        .winner-box { border-radius: 20px; padding: 22px; margin: 18px 0; color: white; background: linear-gradient(135deg, #f59e0b, #ea580c); }
+        .winner-box h3 { font-size: 1.8rem; font-weight: 900; }
+        .final-scores { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+        .final-scores div { background: rgba(255,255,255,.2); border-radius: 14px; padding: 8px 18px; font-weight: 800; font-size: 1.15rem; }
+
+        /* ===== منافسة الفريقين: شاشة مقسومة ===== */
+        body.duel-on { overflow: hidden; }
+        .duel-screen { position: fixed; inset: 0; z-index: 500; display: flex; flex-direction: column;
+            background-color: #eef2ff; background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px); background-size: 25px 25px; }
+        .duel-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: white;
+            padding: 8px 14px; box-shadow: 0 4px 12px rgba(0,0,0,.06); font-weight: 800; flex-shrink: 0; }
+        .duel-top strong { color: var(--primary); font-size: clamp(.95rem, 2.6vw, 1.2rem); text-align: center; flex: 1;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .duel-top .back-btn { padding: 6px 14px; font-size: 1rem; }
+        .duel-top .duel-tag { background: #fef3c7; color: #92400e; border-radius: 20px; padding: 4px 12px; font-size: .85rem; white-space: nowrap; }
+        .duel-halves { flex: 1; display: flex; min-height: 0; }
+        .duel-half { flex: 1; min-width: 0; min-height: 0; overflow-y: auto; padding: 10px 12px 16px; display: flex;
+            flex-direction: column; gap: 10px; position: relative; transition: background .3s; }
+        .duel-half.t0 { background: rgba(13,148,136,.06); }
+        .duel-half.t1 { background: rgba(234,88,12,.06); }
+        .duel-half.flash-ok { background: rgba(16,185,129,.22); }
+        .duel-half.flash-bad { background: rgba(239,68,68,.20); }
+        .duel-divider { width: 6px; flex-shrink: 0; background: linear-gradient(to bottom, #2563eb, #f59e0b, #ea580c); position: relative; }
+        .duel-divider span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--dark); color: #fde68a;
+            font-weight: 900; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+            border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,.3); font-size: .95rem; z-index: 2; }
+        .dh-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: white; border-radius: 14px;
+            padding: 8px 12px; box-shadow: 0 4px 10px rgba(0,0,0,.06); border: 3px solid transparent; font-weight: 800; }
+        .t0 .dh-head { border-color: #2563eb; } .t1 .dh-head { border-color: #ea580c; }
+        .dh-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: clamp(.95rem, 2.4vw, 1.2rem); }
+        .t0 .dh-name { color: #b45309; } .t1 .dh-name { color: #c2410c; }
+        .dh-meta { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+        .dh-prog { background: #f1f5f9; color: #475569; border-radius: 10px; padding: 2px 8px; font-size: .85rem; }
+        .dh-score { color: white; border-radius: 10px; padding: 0 10px; font-size: 1.3rem; font-weight: 900; min-width: 38px; text-align: center; }
+        .t0 .dh-score { background: #2563eb; } .t1 .dh-score { background: #ea580c; }
+        .dh-timer { display: flex; align-items: center; gap: 8px; }
+        .dh-track { flex: 1; height: 12px; background: rgba(0,0,0,.12); border-radius: 10px; overflow: hidden; }
+        .dh-bar { height: 100%; width: 100%; border-radius: 10px; background: linear-gradient(to right, #10b981, #f59e0b); transition: width .1s linear; }
+        .dh-bar.low { background: linear-gradient(to right, #f97316, #ef4444); }
+        .dh-sec { font-weight: 900; min-width: 44px; text-align: center; background: var(--dark); color: white; border-radius: 10px; padding: 1px 6px; font-size: 1rem; }
+        .dh-sec.low { background: var(--danger); animation: maskPulse .8s ease-in-out infinite; }
+        .duel-half .question-box { margin-bottom: 0; padding: 14px 16px; font-size: clamp(1.05rem, 2.5vw, 1.45rem); line-height: 1.55; }
+        .t1 .question-box { border-right-color: #ea580c; }
+        .dh-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .dh-opts .btn { padding: 12px 10px; font-size: clamp(.95rem, 2.2vw, 1.2rem); min-height: 56px; text-align: center; line-height: 1.4; }
+        .t1 .dh-opts .btn { background: linear-gradient(to bottom, #f97316, #c2410c); border-bottom-color: #9a3412; }
+        .dh-opts .btn.ok { background: linear-gradient(to bottom, #10b981, #047857) !important; filter: none; }
+        .dh-opts .btn.bad { background: linear-gradient(to bottom, #ef4444, #b91c1c) !important; filter: none; }
+        .dh-opts.tf .btn { font-size: clamp(1.3rem, 3.4vw, 1.9rem); min-height: 80px; }
+        .dh-opts.tf .btn.tf-true { background: linear-gradient(to bottom, #10b981, #1e40af); border-bottom-color: #047857; }
+        .dh-opts.tf .btn.tf-false { background: linear-gradient(to bottom, #ef4444, #dc2626); border-bottom-color: #b91c1c; }
+        .dh-opts.locked .btn { pointer-events: none; }
+        .duel-half .map-stage { margin-bottom: 0; }
+        .duel-half .map-wrap img { max-height: 30vh; }
+        .duel-half .map-stage.zoomed .map-wrap img { width: min(1100px, 160vw); }
+        .duel-half .map-hint { font-size: .85rem; }
+        .dh-verdict { text-align: center; font-weight: 900; font-size: clamp(1rem, 2.6vw, 1.3rem); min-height: 1.6em; }
+        .dh-verdict.ok { color: var(--success); } .dh-verdict.bad { color: var(--danger); }
+        .dh-wait { margin: auto 0; background: white; border-radius: 18px; padding: 24px 16px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+        .dh-wait .big { font-size: 2.6rem; }
+        .dh-wait h3 { color: var(--primary); font-size: 1.35rem; font-weight: 900; margin: 6px 0; }
+        .dh-wait p { color: #64748b; font-weight: 700; }
+        .duel-result { position: absolute; inset: 0; z-index: 5; overflow-y: auto; padding: 16px;
+            background-color: #eef2ff; background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px); background-size: 25px 25px; }
+        .duel-result .res-card { max-width: 980px; margin: 0 auto; background: white; border-radius: 20px; padding: 24px 16px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,.1); }
+        .duel-result .final-scores div small { display: block; font-size: .85rem; opacity: .9; }
+        .res-reviews { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; text-align: right; }
+        .res-review { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 15px; padding: 12px; max-height: 320px; overflow-y: auto; }
+        .res-review h4 { text-align: center; margin-bottom: 10px; font-size: 1.1rem; }
+        .res-review.t0 h4 { color: #b45309; } .res-review.t1 h4 { color: #c2410c; }
+        .res-review ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+        .res-review li { background: white; padding: 10px; border-radius: 10px; border-right: 5px solid var(--danger); font-size: .95rem; }
+        .res-review li .rq { font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+        .res-review li .ra { color: var(--success); font-weight: 800; }
+        .res-review li .rs { color: #64748b; }
+        .res-review .perfect { color: var(--success); font-weight: 800; text-align: center; }
+        @media (max-width: 760px), (orientation: portrait) and (max-width: 1024px) {
+            .duel-halves { flex-direction: column; }
+            .duel-divider { width: auto; height: 6px; background: linear-gradient(to right, #2563eb, #f59e0b, #ea580c); }
+            .duel-divider span { width: 38px; height: 38px; font-size: .8rem; }
+            .duel-half { padding: 8px 10px 10px; gap: 8px; }
+            .duel-half .map-wrap img { max-height: 15vh; }
+            .duel-half .map-hint { display: none; }
+            .duel-half .question-box { padding: 10px 12px; font-size: clamp(.95rem, 4.2vw, 1.2rem); line-height: 1.45; }
+            .dh-opts .btn { min-height: 46px; padding: 8px 8px; }
+            .dh-opts.tf .btn { min-height: 60px; }
+        }
+        @media (max-width: 420px) { .dh-opts { gap: 7px; } .dh-opts .btn { min-height: 44px; padding: 7px 6px; font-size: .92rem; } }
+        @media (max-width: 640px) { .res-reviews { grid-template-columns: 1fr; } .duel-top .duel-tag { display: none; } }
+    </style>
+</head>
+<body>
+<style>
+#lock-screen { position: fixed; inset: 0; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 18px;
+  background: linear-gradient(135deg,#0b1a3f,#1e3a8a,#1e40af); }
+#lock-screen .lk { background: #fff; border-radius: 24px; padding: 26px 20px; width: 400px; max-width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,.45); border-top: 6px solid #f59e0b; }
+#lock-screen img { width: 120px; height: 120px; object-fit: contain; margin-bottom: 8px; }
+#lock-screen h2 { color: #1e3a8a; font-size: 1.3rem; font-weight: 900; margin-bottom: 4px; }
+#lock-screen .lt { color: #475569; font-weight: 700; font-size: .95rem; margin-bottom: 14px; line-height: 1.6; }
+#lock-screen input { width: 100%; font-size: 1.5rem; text-align: center; letter-spacing: 6px; padding: 12px; border: 2px solid #cbd5e1; border-radius: 14px; outline: none; direction: ltr; }
+#lock-screen input:focus { border-color: #2563eb; }
+#lock-screen button { margin-top: 12px; width: 100%; padding: 13px; font-size: 1.15rem; font-weight: 800; color: #fff; border: none; border-radius: 14px; cursor: pointer;
+  background: linear-gradient(to bottom,#2563eb,#1e3a8a); }
+#lock-screen .le { color: #dc2626; font-weight: 800; margin-top: 10px; min-height: 1.4em; }
+#lock-screen .lc { color: #64748b; font-size: .85rem; margin-top: 6px; }
+#lock-screen .lc a { color: #16a34a; font-weight: 800; text-decoration: none; }
+</style>
+<div id="lock-screen">
+  <div class="lk">
+    <img src="logo.png" alt="سلسلة الموسوعة">
+    <h2>🔒 هذا الدرس محمي بكلمة مرور</h2>
+    <div class="lt">تضاريس وطننا العربي - الصف السادس الابتدائي<br>اكتب كلمة المرور التي أعطاها لك أ/ السيد صالح</div>
+    <input id="lock-pass" type="password" inputmode="numeric" autocomplete="off" placeholder="••••••">
+    <button type="button" onclick="tryUnlock()">دخول الدرس</button>
+    <div class="le" id="lock-err"></div>
+    <div class="lc">ليس معك كلمة المرور؟ <a href="https://wa.me/201001304451" target="_blank" rel="noopener">تواصل مع الأستاذ</a></div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'sayedsaleh_lock_prim6-unit1-lesson2-arab-world-landforms', H = '1236708589232423', SALT = 'sayedsaleh|prim6-unit1-lesson2-arab-world-landforms|';
+  function cyrb53(str, seed) { seed = seed || 0; var h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+    for (var i = 0, ch; i < str.length; i++) { ch = str.charCodeAt(i); h1 = Math.imul(h1 ^ ch, 2654435761); h2 = Math.imul(h2 ^ ch, 1597334677); }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    return String(4294967296 * (2097151 & h2) + (h1 >>> 0)); }
+  function open() { var el = document.getElementById('lock-screen'); if (el) el.remove(); document.body.style.overflow = ''; }
+  document.getElementById('lock-pass').addEventListener('keydown', function(e) { if (e.key === 'Enter') tryUnlock(); });
+  var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+  if (saved === H) { open(); } else { document.body.style.overflow = 'hidden'; }
+  window.tryUnlock = function() {
+    var inp = document.getElementById('lock-pass'), v = (inp.value || '').trim()
+      .replace(/[٠-٩]/g, function(d) { return '٠١٢٣٤٥٦٧٨٩'.indexOf(d); });
+    if (cyrb53(SALT + v) === H) { try { localStorage.setItem(KEY, H); } catch (e) {} open(); }
+    else { document.getElementById('lock-err').textContent = '❌ كلمة المرور غير صحيحة'; inp.value = ''; inp.focus(); }
+  };
+})();
+</script>
+
+
+    <!-- الهيدر مع اللوجو -->
+    <header class="header-main" id="main-header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <!-- اللوجو (على اليمين) -->
+                <img src="logo.png" alt="أ/ السيد صالح - سلسلة الموسوعة" class="header-logo">
+                
+                <!-- النصوص -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">
+                        درس 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fcd34d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        لعبة
+                    </h1>
+                    <h1 class="title-line2">مع أ/ السَّيِّد صَالِح</h1>
+                    <div class="teacher-sub">كبير معلمين • سلسلة الموسوعة</div>
+                    <h2>الصَّفُّ السَّادِسُ الابْتِدَائِيُّ - الْوَحْدَةُ الأُولَى - الدَّرْسُ الثَّانِي: تَضَارِيسُ وَطَنِنَا الْعَرَبِيِّ</h2>
+                    <p style="margin-top: 10px;">الدِّرَاسَاتُ الاجْتِمَاعِيَّةُ</p>
+                </div>
+                <img src="teacher.jpg" alt="أ/ السيد صالح" class="teacher-photo">
+            </div>
+        </div>
+        <!-- تموجات زخرفية -->
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#eef2ff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </header>
+
+    <!-- الشاشة الرئيسية -->
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid">
+            <!-- سيتم حقن البطاقات هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- شاشة اللعب -->
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 25</span>
+        </div>
+        <div class="team-board" id="team-board">
+            <div class="team-card t0" id="team-card-0"><span class="tname" id="team-name-0">الفريق الأول</span><span class="turn-tag">دوره الآن</span><span class="tscore" id="team-score-0">0</span></div>
+            <div class="team-card t1" id="team-card-1"><span class="tname" id="team-name-1">الفريق الثاني</span><span class="turn-tag">دوره الآن</span><span class="tscore" id="team-score-1">0</span></div>
+        </div>
+        <div class="game-container" id="game-container">
+            <!-- سيتم حقن الأسئلة هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- نافذة الملاحظات السريعة -->
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+
+
+    <!-- نافذة اختيار طريقة اللعب -->
+    <div class="overlay" id="mode-overlay">
+        <div class="mode-modal">
+            <h2 id="mode-game-title">اختر طريقة اللعب</h2>
+            <div class="mode-sub">في كل مرة تظهر ٢٠ سؤالًا مختلفة بشكل عشوائي</div>
+            <div class="mode-choices">
+                <div class="mode-choice" onclick="chooseSolo()"><span class="mc-ico">👤</span>لعب فردي<small>العب وحدك واعرف نتيجتك</small></div>
+                <div class="mode-choice" onclick="chooseTeams()"><span class="mc-ico">🏆</span>منافسة بين فريقين<small>شاشة مقسومة • ٣٠ ثانية للسؤال • ترتيب مختلف لكل فريق</small></div>
+            </div>
+            <div class="team-setup" id="team-setup">
+                <label for="team-a">اسم الفريق الأول</label>
+                <input id="team-a" type="text" maxlength="25" value="الفريق الأول">
+                <label for="team-b">اسم الفريق الثاني</label>
+                <input id="team-b" type="text" maxlength="25" value="الفريق الثاني">
+                <div class="mode-actions">
+                    <button class="btn" onclick="startTeams()">🚀 ابدأ المنافسة</button>
+                </div>
+            </div>
+            <div class="mode-actions"><button class="btn mode-cancel" onclick="closeModePicker()">إلغاء</button></div>
+        </div>
+    </div>
+
+
+    <!-- شاشة منافسة الفريقين (مقسومة) -->
+    <div id="duel-screen" class="duel-screen hidden">
+        <div class="duel-top">
+            <button class="btn back-btn" onclick="exitDuel()">رجوع</button>
+            <strong id="duel-title">منافسة بين فريقين</strong>
+            <span class="duel-tag">⏱️ ٣٠ ثانية لكل سؤال</span>
+        </div>
+        <div class="duel-halves">
+            <section class="duel-half t0" id="duel-half-0"></section>
+            <div class="duel-divider"><span>VS</span></div>
+            <section class="duel-half t1" id="duel-half-1"></section>
+        </div>
+        <div id="duel-result" class="duel-result hidden"></div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | دروس وألعاب تعليمية</p>
+        <p class="designer">أ/ السَّيِّد صَالِح - كبير معلمين - 01001304451</p>
+    </footer>
+
+    <!-- زر الواتساب -->
+    <a href="https://wa.me/201001304451" class="whatsapp-float" target="_blank" title="تواصل معنا">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/>
+        </svg>
+    </a>
+
+<script>
+    const LESSON_NAME = "الدراسات الاجتماعية: تضاريس وطننا العربي - الصف السادس الابتدائي";
+    const allGamesData = [
+    {
+        "id": "mcq_1",
+        "title": "اختيار من متعدد",
+        "type": "mcq",
+        "desc": "أسئلة اختيار من متعدد حول تضاريس وطننا العربي",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"></polygon><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07\"></path></svg>",
+        "questions": [
+            {
+                "q": "يتميز الوطن العربي بتضاريس متنوعة ما بين:",
+                "options": [
+                    "جبال شاهقة وهضاب واسعة وسهول فيضية",
+                    "غابات فقط",
+                    "جليد فقط",
+                    "براكين فقط"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تكونت تضاريس الوطن العربي بفعل عوامل:",
+                "options": [
+                    "بشرية فقط",
+                    "حيوانية",
+                    "فضائية",
+                    "باطنية وسطحية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من العوامل الباطنية التي شكلت سطح الأرض:",
+                "options": [
+                    "الالتواءات والانكسارات والبراكين",
+                    "الرياح",
+                    "المياه",
+                    "الترسيب"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "نتج عن العوامل الباطنية تكون:",
+                "options": [
+                    "السهول والوديان",
+                    "الجبال والهضاب",
+                    "الكثبان الرملية",
+                    "الواحات"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "من العوامل السطحية:",
+                "options": [
+                    "الالتواءات",
+                    "الرياح والمياه",
+                    "الانكسارات",
+                    "البراكين"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ساهمت العوامل السطحية في تشكيل:",
+                "options": [
+                    "البراكين",
+                    "الهضاب فقط",
+                    "الجبال فقط",
+                    "السهول والوديان"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "الجبال في وطننا العربي نوعان:",
+                "options": [
+                    "رملية وطينية",
+                    "انكسارية والتوائية",
+                    "ساحلية وفيضية",
+                    "بركانية وجليدية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "نشأت الجبال الانكسارية نتيجة:",
+                "options": [
+                    "حركات انكسارية في القشرة الأرضية",
+                    "الترسيب",
+                    "التعرية الهوائية",
+                    "حركات التوائية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من الجبال الانكسارية:",
+                "options": [
+                    "جبال البحر الأحمر وجبال الحجاز وعسير",
+                    "جبال زاجروس",
+                    "جبال أطلس",
+                    "جبال عمان"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "توجد جبال البحر الأحمر في:",
+                "options": [
+                    "عمان والإمارات",
+                    "مصر والسودان",
+                    "العراق وسوريا",
+                    "المغرب والجزائر"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "من الجبال الانكسارية مرتفعات:",
+                "options": [
+                    "أطلس",
+                    "زاجروس",
+                    "اليمن",
+                    "طوروس"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "نشأت الجبال الالتوائية نتيجة:",
+                "options": [
+                    "حركات انكسارية",
+                    "الرياح",
+                    "الأمطار",
+                    "حركات التوائية تعرضت لها الأرض"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من الجبال الالتوائية:",
+                "options": [
+                    "جبال البحر الأحمر",
+                    "جبال زاجروس وجبال عمان وجبال أطلس",
+                    "مرتفعات اليمن",
+                    "جبال الحجاز"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تمتد جبال أطلس في ثلاث دول هي:",
+                "options": [
+                    "تونس والجزائر والمغرب",
+                    "عمان واليمن والسعودية",
+                    "مصر والسودان وليبيا",
+                    "العراق وسوريا والأردن"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أعلى جبل بالوطن العربي:",
+                "options": [
+                    "جبل شايب البنات",
+                    "جبل توبقال",
+                    "جبل سانت كاترين",
+                    "جبل العوينات"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "يقع جبل توبقال في جبال:",
+                "options": [
+                    "زاجروس",
+                    "البحر الأحمر",
+                    "عمان",
+                    "أطلس"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "استخدم الإنسان الجبال في:",
+                "options": [
+                    "صيد الأسماك",
+                    "الزراعة الفيضية",
+                    "استخراج المعادن ومواد البناء",
+                    "الملاحة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "تتميز الجبال بالمناظر الخلابة التي:",
+                "options": [
+                    "تجذب السياح",
+                    "تمنع السياحة",
+                    "تلوث البيئة",
+                    "لا قيمة لها"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكثر مظاهر السطح انتشارًا بالوطن العربي:",
+                "options": [
+                    "الهضاب",
+                    "السهول الفيضية",
+                    "الجبال",
+                    "الواحات"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكبر هضاب الوطن العربي من حيث المساحة:",
+                "options": [
+                    "هضبة إفريقيا الشمالية",
+                    "هضبة بادية الشام",
+                    "هضبة نجد",
+                    "هضبة حضرموت"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تمتد هضبة إفريقيا الشمالية من البحر الأحمر شرقًا إلى:",
+                "options": [
+                    "بحر العرب",
+                    "الخليج العربي",
+                    "المحيط الأطلنطي غربًا",
+                    "المحيط الهندي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "تمتد هضبة إفريقيا الشمالية من البحر المتوسط شمالًا إلى:",
+                "options": [
+                    "وسط إفريقيا جنوبًا",
+                    "جبال طوروس",
+                    "المحيط الهندي",
+                    "الخليج العربي"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من هضاب الجناح الآسيوي في شمال شبه الجزيرة العربية:",
+                "options": [
+                    "هضبة حضرموت",
+                    "هضبة بادية الشام",
+                    "هضبة نجد",
+                    "هضبة إفريقيا الشمالية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تقع هضبة نجد في:",
+                "options": [
+                    "جنوبها",
+                    "شمالها",
+                    "وسط شبه الجزيرة العربية",
+                    "غرب إفريقيا"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "تقع هضبة حضرموت في:",
+                "options": [
+                    "جنوب شبه الجزيرة العربية",
+                    "شمال إفريقيا",
+                    "شمالها",
+                    "وسطها"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أرض منخفضة تقع وسط الصحراء وتزرع باستخدام المياه الجوفية:",
+                "options": [
+                    "الأودية الجافة",
+                    "الكثبان الرملية",
+                    "الجبال",
+                    "الواحات"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من الواحات في الوطن العربي:",
+                "options": [
+                    "هضبة نجد",
+                    "بحر الرمال العظيم",
+                    "وادي العلاقي",
+                    "واحة سيوة في مصر وعين صالح في الجزائر"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "توجد واحة عين صالح في دولة:",
+                "options": [
+                    "مصر",
+                    "السعودية",
+                    "ليبيا",
+                    "الجزائر"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "يعيش السكان في الواحات ويمارسون:",
+                "options": [
+                    "الزراعة",
+                    "التعدين فقط",
+                    "الملاحة",
+                    "صيد الأسماك"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تجمعات من الرمال الخفيفة تكونت بفعل التعرية الهوائية:",
+                "options": [
+                    "الكثبان الرملية",
+                    "السهول الفيضية",
+                    "الأودية الجافة",
+                    "الواحات"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من أمثلة الكثبان الرملية بحر الرمال العظيم بين:",
+                "options": [
+                    "السعودية واليمن",
+                    "مصر وليبيا",
+                    "مصر والسودان",
+                    "الجزائر والمغرب"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تكونت الأودية الجافة بفعل:",
+                "options": [
+                    "التعرية الهوائية",
+                    "الانكسارات",
+                    "التعرية المائية",
+                    "البراكين"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "تستخدم الأودية الجافة:",
+                "options": [
+                    "كطرق للنقل والمواصلات واستخراج المياه الجوفية",
+                    "للتعدين البحري",
+                    "لا تستخدم",
+                    "للصيد البحري"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "من الأودية الجافة في مصر:",
+                "options": [
+                    "وادي حضرموت",
+                    "وادي العلاقي",
+                    "وادي رم",
+                    "وادي الدواسر"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "من الأودية الجافة في السعودية:",
+                "options": [
+                    "وادي قنا",
+                    "وادي النيل",
+                    "وادي العلاقي",
+                    "وادي الدواسر"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "نحت الصخور ونقلها وإرسابها بواسطة المياه:",
+                "options": [
+                    "التعرية الهوائية",
+                    "التعرية المائية",
+                    "الالتواء",
+                    "الانكسار"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "نحت الصخور ونقلها وإرسابها بواسطة الرياح:",
+                "options": [
+                    "البراكين",
+                    "الترسيب النهري",
+                    "التعرية المائية",
+                    "التعرية الهوائية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "مجارٍ كانت تملؤها المياه قديمًا ثم جفت:",
+                "options": [
+                    "الهضاب",
+                    "الواحات",
+                    "الأودية الجافة",
+                    "الكثبان"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "السهول أراضٍ:",
+                "options": [
+                    "جبلية",
+                    "مستوية أو شبه مستوية السطح",
+                    "شديدة الارتفاع",
+                    "شديدة الانحدار"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تنقسم السهول في الوطن العربي إلى:",
+                "options": [
+                    "نوعين",
+                    "أربعة أنواع",
+                    "نوع واحد",
+                    "ثلاثة أنواع"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تكونت السهول الفيضية بفعل:",
+                "options": [
+                    "الالتواءات",
+                    "الرياح",
+                    "البراكين",
+                    "إرساب الأنهار للمواد العالقة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تتميز السهول الفيضية بـ:",
+                "options": [
+                    "الجفاف",
+                    "خصوبة تربتها وتركز السكان فيها",
+                    "الملوحة",
+                    "ندرة السكان"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "من السهول الفيضية سهول نهر النيل في:",
+                "options": [
+                    "ليبيا وتونس",
+                    "الجزائر والمغرب",
+                    "السعودية واليمن",
+                    "مصر والسودان"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من السهول الفيضية سهول دجلة والفرات في:",
+                "options": [
+                    "المغرب",
+                    "اليمن",
+                    "مصر",
+                    "العراق"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تتميز سهول البحر المتوسط الساحلية بـ:",
+                "options": [
+                    "ندرة السكان",
+                    "الثروات المعدنية فقط",
+                    "تربة خصبة صالحة للزراعة",
+                    "الجليد"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "تتميز سهول البحر الأحمر والخليج العربي الساحلية بـ:",
+                "options": [
+                    "تربتها الطينية الخصبة فقط",
+                    "الجليد",
+                    "غناها بالثروات المعدنية ومصادر الطاقة",
+                    "الغابات"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "تكونت السهول الصحراوية بفعل:",
+                "options": [
+                    "البراكين",
+                    "المياه الجوفية",
+                    "الأنهار",
+                    "الرياح عن طريق النحت أو الترسيب"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تتميز السهول الصحراوية بـ:",
+                "options": [
+                    "ندرة الغطاء النباتي الطبيعي",
+                    "وفرة المياه",
+                    "كثافة الغابات",
+                    "خصوبة التربة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ساعد تنوع مظاهر السطح في الوطن العربي على:",
+                "options": [
+                    "توحيد الأنشطة",
+                    "قلة الموارد",
+                    "الفقر",
+                    "تنوع الموارد والأنشطة الاقتصادية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تشكلت جبال أطلس بسبب:",
+                "options": [
+                    "الثورات البركانية",
+                    "الحركات الالتوائية",
+                    "التعرية المائية",
+                    "الحركات الانكسارية"
+                ],
+                "ans": 1
+            }
+        ]
+    },
+    {
+        "id": "bubbles_2",
+        "title": "الفقاعات المتساقطة",
+        "type": "bubbles",
+        "desc": "التقط الفقاعة ذات الإجابة الصحيحة عن تضاريس وطننا العربي",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path><path d=\"M22 12A10 10 0 0 0 12 2v10z\"></path></svg>",
+        "questions": [
+            {
+                "q": "عوامل تشكيل السطح؟",
+                "options": [
+                    "حيوانية",
+                    "فضائية",
+                    "باطنية وسطحية",
+                    "بشرية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "عامل باطني؟",
+                "options": [
+                    "الترسيب",
+                    "الرياح",
+                    "الانكسارات",
+                    "المياه"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "عامل سطحي؟",
+                "options": [
+                    "البراكين",
+                    "الرياح",
+                    "الالتواءات",
+                    "الانكسارات"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما نتج عن العوامل الباطنية؟",
+                "options": [
+                    "السهول",
+                    "الجبال والهضاب",
+                    "الكثبان",
+                    "الواحات"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما شكلته العوامل السطحية؟",
+                "options": [
+                    "السهول والوديان",
+                    "البراكين",
+                    "الجبال",
+                    "الهضاب"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "نوعا الجبال العربية؟",
+                "options": [
+                    "ساحلية",
+                    "بركانية وجليدية",
+                    "رملية",
+                    "انكسارية والتوائية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "جبال انكسارية؟",
+                "options": [
+                    "البحر الأحمر",
+                    "زاجروس",
+                    "أطلس",
+                    "عمان"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "جبال التوائية؟",
+                "options": [
+                    "عسير",
+                    "الحجاز",
+                    "أطلس",
+                    "البحر الأحمر"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "دول جبال البحر الأحمر الإفريقية؟",
+                "options": [
+                    "ليبيا وتونس",
+                    "المغرب والجزائر",
+                    "الصومال وجيبوتي",
+                    "مصر والسودان"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "مرتفعات انكسارية آسيوية؟",
+                "options": [
+                    "طوروس",
+                    "اليمن",
+                    "عمان",
+                    "زاجروس"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "دول جبال أطلس؟",
+                "options": [
+                    "العراق",
+                    "تونس والجزائر والمغرب",
+                    "السودان",
+                    "مصر وليبيا"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أعلى جبل عربي؟",
+                "options": [
+                    "توبقال",
+                    "العوينات",
+                    "سانت كاترين",
+                    "شايب البنات"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "سلسلة جبل توبقال؟",
+                "options": [
+                    "زاجروس",
+                    "عمان",
+                    "الحجاز",
+                    "أطلس"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "استخدام الجبال؟",
+                "options": [
+                    "الملاحة",
+                    "المعادن",
+                    "الصيد",
+                    "الزراعة الفيضية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما تجذبه الجبال؟",
+                "options": [
+                    "الجفاف",
+                    "السياح",
+                    "التلوث",
+                    "الأمطار"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكثر مظاهر السطح انتشارًا؟",
+                "options": [
+                    "الجبال",
+                    "الهضاب",
+                    "الواحات",
+                    "السهول"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكبر هضبة عربية؟",
+                "options": [
+                    "بادية الشام",
+                    "حضرموت",
+                    "نجد",
+                    "إفريقيا الشمالية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "هضبة شمال الجزيرة؟",
+                "options": [
+                    "نجد",
+                    "بادية الشام",
+                    "حضرموت",
+                    "إفريقيا الشمالية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "هضبة وسط الجزيرة؟",
+                "options": [
+                    "نجد",
+                    "بادية الشام",
+                    "حضرموت",
+                    "التيه"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "هضبة جنوب الجزيرة؟",
+                "options": [
+                    "أطلس",
+                    "بادية الشام",
+                    "نجد",
+                    "حضرموت"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أرض منخفضة بالصحراء؟",
+                "options": [
+                    "الكثبان",
+                    "الهضبة",
+                    "الواحة",
+                    "الجبل"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "مصدر مياه الواحات؟",
+                "options": [
+                    "المياه الجوفية",
+                    "البحر",
+                    "الأنهار",
+                    "الأمطار الغزيرة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "واحة مصرية؟",
+                "options": [
+                    "عين صالح",
+                    "تدمر",
+                    "سيوة",
+                    "الأحساء"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "واحة جزائرية؟",
+                "options": [
+                    "الداخلة",
+                    "عين صالح",
+                    "سيوة",
+                    "الخارجة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "نشاط الواحات؟",
+                "options": [
+                    "الملاحة",
+                    "التعدين",
+                    "الصيد",
+                    "الزراعة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تجمعات رملية؟",
+                "options": [
+                    "الواحات",
+                    "الكثبان",
+                    "الأودية",
+                    "الهضاب"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "سبب الكثبان؟",
+                "options": [
+                    "الانكسارات",
+                    "التعرية المائية",
+                    "البراكين",
+                    "التعرية الهوائية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "بحر الرمال العظيم بين؟",
+                "options": [
+                    "مصر والسودان",
+                    "مصر وليبيا",
+                    "السعودية واليمن",
+                    "الجزائر والمغرب"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "سبب الأودية الجافة؟",
+                "options": [
+                    "التعرية المائية",
+                    "الرياح",
+                    "الالتواءات",
+                    "البراكين"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "استخدام الأودية الجافة؟",
+                "options": [
+                    "السياحة الشاطئية",
+                    "الملاحة",
+                    "الصيد",
+                    "طرق النقل"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "وادٍ جاف في مصر؟",
+                "options": [
+                    "العلاقي",
+                    "رم",
+                    "الدواسر",
+                    "حضرموت"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وادٍ جاف في السعودية؟",
+                "options": [
+                    "العلاقي",
+                    "قنا",
+                    "النيل",
+                    "الدواسر"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تعرية بالمياه؟",
+                "options": [
+                    "المائية",
+                    "البركانية",
+                    "الهوائية",
+                    "الجليدية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تعرية بالرياح؟",
+                "options": [
+                    "البركانية",
+                    "المائية",
+                    "الهوائية",
+                    "الجليدية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أرض مستوية؟",
+                "options": [
+                    "الجبال",
+                    "الهضاب",
+                    "التلال",
+                    "السهول"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "عدد أنواع السهول؟",
+                "options": [
+                    "أربعة",
+                    "اثنان",
+                    "ثلاثة",
+                    "خمسة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "سبب السهول الفيضية؟",
+                "options": [
+                    "الانكسارات",
+                    "إرساب الأنهار",
+                    "البراكين",
+                    "الرياح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ميزة السهول الفيضية؟",
+                "options": [
+                    "الصخور",
+                    "الملوحة",
+                    "خصوبة التربة",
+                    "الجفاف"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "سهول فيضية بالعراق؟",
+                "options": [
+                    "دجلة والفرات",
+                    "بردى",
+                    "العاصي",
+                    "النيل"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "سهول فيضية بمصر؟",
+                "options": [
+                    "الفرات",
+                    "النيل",
+                    "الأردن",
+                    "دجلة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ميزة سهول المتوسط؟",
+                "options": [
+                    "جليد",
+                    "ثروات معدنية فقط",
+                    "تربة خصبة",
+                    "غابات"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ميزة سهول الأحمر والخليج؟",
+                "options": [
+                    "الثروات المعدنية والطاقة",
+                    "الجليد",
+                    "الغابات",
+                    "التربة الطينية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "سبب السهول الصحراوية؟",
+                "options": [
+                    "البراكين",
+                    "الأنهار",
+                    "الالتواءات",
+                    "الرياح"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ميزة السهول الصحراوية؟",
+                "options": [
+                    "ندرة النبات",
+                    "كثافة الغابات",
+                    "الخصوبة",
+                    "وفرة المياه"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "نتيجة تنوع السطح؟",
+                "options": [
+                    "تنوع الأنشطة",
+                    "الفقر",
+                    "توحيدها",
+                    "قلة الموارد"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "سبب تشكل أطلس؟",
+                "options": [
+                    "الانكسارات",
+                    "التعرية",
+                    "الالتواءات",
+                    "البراكين"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "قيمة تنوع التضاريس؟",
+                "options": [
+                    "التأمل في قدرة الله",
+                    "اللامبالاة",
+                    "الإهمال",
+                    "الخوف"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "نشاط في السهول الساحلية؟",
+                "options": [
+                    "الرعي الجبلي",
+                    "التزلج",
+                    "التعدين الجبلي",
+                    "الصيد والسياحة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "مكان تركز السكان؟",
+                "options": [
+                    "الجبال العالية",
+                    "السهول الفيضية",
+                    "الكثبان",
+                    "الصحاري"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "جبال حجاز وعسير نوعها؟",
+                "options": [
+                    "انكسارية",
+                    "رملية",
+                    "التوائية",
+                    "بركانية"
+                ],
+                "ans": 0
+            }
+        ]
+    },
+    {
+        "id": "shooting_3",
+        "title": "التنشين والاصطياد",
+        "type": "shooting",
+        "desc": "صوّب نحو الكلمة الصحيحة لإكمال عبارات تضاريس وطننا العربي",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle></svg>",
+        "questions": [
+            {
+                "q": "أكمل: «يتميز الوطن العربي بتضاريس ... ما بين جبال وهضاب وسهول».",
+                "options": [
+                    "متنوعة",
+                    "جليدية",
+                    "متشابهة",
+                    "بركانية فقط"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «تكونت تضاريس الوطن العربي بفعل عوامل باطنية وأخرى ...».",
+                "options": [
+                    "فضائية",
+                    "سطحية",
+                    "بشرية",
+                    "حيوانية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «من العوامل الباطنية الالتواءات والانكسارات و...».",
+                "options": [
+                    "البراكين",
+                    "الرياح",
+                    "الترسيب",
+                    "المياه"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «نتج عن العوامل الباطنية تكون الجبال و...».",
+                "options": [
+                    "السهول",
+                    "الكثبان",
+                    "الواحات",
+                    "الهضاب"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «من العوامل السطحية الرياح و...».",
+                "options": [
+                    "الانكسارات",
+                    "الالتواءات",
+                    "المياه",
+                    "البراكين"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «ساهمت العوامل السطحية في تشكيل السهول و...».",
+                "options": [
+                    "الجبال",
+                    "الهضاب",
+                    "البراكين",
+                    "الوديان"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «الجبال في وطننا العربي نوعان انكسارية و...».",
+                "options": [
+                    "بركانية",
+                    "رملية",
+                    "جليدية",
+                    "التوائية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «نشأت الجبال الانكسارية نتيجة حركات انكسارية في القشرة ...».",
+                "options": [
+                    "المائية",
+                    "الجوية",
+                    "الأرضية",
+                    "الشمسية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «من الجبال الانكسارية سلاسل جبال البحر ...».",
+                "options": [
+                    "الأسود",
+                    "المتوسط",
+                    "الأحمر",
+                    "الميت"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «توجد جبال البحر الأحمر في مصر و...».",
+                "options": [
+                    "ليبيا",
+                    "تونس",
+                    "المغرب",
+                    "السودان"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «من الجبال الانكسارية جبال الحجاز و... ومرتفعات اليمن».",
+                "options": [
+                    "زاجروس",
+                    "عسير",
+                    "عمان",
+                    "أطلس"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «نشأت الجبال ... نتيجة حركات التوائية».",
+                "options": [
+                    "الانكسارية",
+                    "الالتوائية",
+                    "البركانية",
+                    "الجليدية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «من الجبال الالتوائية جبال زاجروس وجبال ...».",
+                "options": [
+                    "البحر الأحمر",
+                    "عسير",
+                    "الحجاز",
+                    "عمان"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «تمتد جبال أطلس في تونس والجزائر و...».",
+                "options": [
+                    "السودان",
+                    "المغرب",
+                    "ليبيا",
+                    "مصر"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «أعلى جبل بالوطن العربي هو جبل ...».",
+                "options": [
+                    "توبقال",
+                    "سانت كاترين",
+                    "شمس",
+                    "الشيخ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «استخدم الإنسان الجبال في استخراج المعادن ومواد ...».",
+                "options": [
+                    "البناء",
+                    "الطعام",
+                    "الملابس",
+                    "الوقود السائل"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «تتميز الجبال بالمناظر الخلابة التي تجذب ...».",
+                "options": [
+                    "الطيور فقط",
+                    "السياح",
+                    "التلوث",
+                    "الجفاف"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «تعد ... أكثر مظاهر السطح انتشارًا بالوطن العربي».",
+                "options": [
+                    "الهضاب",
+                    "الواحات",
+                    "الجبال",
+                    "السهول"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «أكبر هضاب الوطن العربي هضبة إفريقيا ...».",
+                "options": [
+                    "الجنوبية",
+                    "الوسطى",
+                    "الشمالية",
+                    "الشرقية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «تمتد هضبة إفريقيا الشمالية من البحر الأحمر شرقًا إلى المحيط ... غربًا».",
+                "options": [
+                    "الهادي",
+                    "المتجمد",
+                    "الأطلنطي",
+                    "الهندي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «من هضاب الجناح الآسيوي هضبة بادية ... في الشمال».",
+                "options": [
+                    "حضرموت",
+                    "العراق",
+                    "الشام",
+                    "نجد"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «تقع هضبة ... في وسط شبه الجزيرة العربية».",
+                "options": [
+                    "بادية الشام",
+                    "التيه",
+                    "نجد",
+                    "حضرموت"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «تقع هضبة ... في جنوب شبه الجزيرة العربية».",
+                "options": [
+                    "بادية الشام",
+                    "حضرموت",
+                    "أطلس",
+                    "نجد"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «الواحات أرض ... تقع وسط الصحراء».",
+                "options": [
+                    "جبلية",
+                    "مائية",
+                    "مرتفعة",
+                    "منخفضة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «تزرع الواحات باستخدام المياه ...».",
+                "options": [
+                    "المتجمدة",
+                    "البحرية",
+                    "الجوفية",
+                    "المالحة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «من الواحات واحة سيوة في مصر وواحة عين ... في الجزائر».",
+                "options": [
+                    "صالح",
+                    "سالم",
+                    "شمس",
+                    "موسى"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «الكثبان الرملية تكونت بفعل التعرية ...».",
+                "options": [
+                    "الجليدية",
+                    "المائية",
+                    "البركانية",
+                    "الهوائية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «من الكثبان الرملية بحر الرمال ... بين مصر وليبيا».",
+                "options": [
+                    "الصغير",
+                    "الأحمر",
+                    "الأبيض",
+                    "العظيم"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «تكونت الأودية الجافة بفعل التعرية ...».",
+                "options": [
+                    "الالتوائية",
+                    "البركانية",
+                    "المائية",
+                    "الهوائية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «تستخدم الأودية الجافة كطريق للنقل و... واستخراج المياه الجوفية».",
+                "options": [
+                    "الصيد",
+                    "الملاحة",
+                    "التزلج",
+                    "المواصلات"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «من الأودية الجافة وادي ... في مصر».",
+                "options": [
+                    "العلاقي",
+                    "حضرموت",
+                    "رم",
+                    "الدواسر"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «من الأودية الجافة وادي ... في السعودية».",
+                "options": [
+                    "النيل",
+                    "قنا",
+                    "العلاقي",
+                    "الدواسر"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «التعرية المائية نحت الصخور ونقلها وإرسابها بواسطة ...».",
+                "options": [
+                    "المياه",
+                    "البراكين",
+                    "الرياح",
+                    "الزلازل"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «التعرية الهوائية نحت الصخور ونقلها وإرسابها بواسطة ...».",
+                "options": [
+                    "الأنهار",
+                    "الرياح",
+                    "البحار",
+                    "المياه"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «السهول أراضٍ مستوية أو شبه ... السطح».",
+                "options": [
+                    "مستوية",
+                    "مرتفعة",
+                    "منحدرة",
+                    "جبلية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «تنقسم السهول في الوطن العربي إلى ... أنواع».",
+                "options": [
+                    "ثلاثة",
+                    "أربعة",
+                    "نوعين",
+                    "خمسة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «تكونت السهول الفيضية بفعل إرساب ... للمواد العالقة».",
+                "options": [
+                    "البحار",
+                    "الأنهار",
+                    "الجبال",
+                    "الرياح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «تتميز السهول الفيضية بخصوبة تربتها وتركز ... فيها».",
+                "options": [
+                    "السكان",
+                    "الكثبان",
+                    "الصخور",
+                    "الجبال"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «من السهول الفيضية سهول نهر ... في مصر والسودان».",
+                "options": [
+                    "النيل",
+                    "الفرات",
+                    "دجلة",
+                    "الأردن"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «من السهول الفيضية سهول دجلة و... في العراق».",
+                "options": [
+                    "العاصي",
+                    "النيل",
+                    "الفرات",
+                    "بردى"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «تتميز سهول البحر المتوسط الساحلية بتربة ... صالحة للزراعة».",
+                "options": [
+                    "رملية",
+                    "مالحة",
+                    "خصبة",
+                    "صخرية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «سهول البحر الأحمر والخليج العربي غنية بالثروات ... ومصادر الطاقة».",
+                "options": [
+                    "المعدنية",
+                    "الحيوانية",
+                    "الغابية",
+                    "الزراعية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «تكونت السهول الصحراوية بفعل ... عن طريق النحت أو الترسيب».",
+                "options": [
+                    "البراكين",
+                    "الجليد",
+                    "الأنهار",
+                    "الرياح"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «تتميز السهول الصحراوية بندرة الغطاء ... الطبيعي».",
+                "options": [
+                    "الثلجي",
+                    "الصخري",
+                    "المائي",
+                    "النباتي"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «ساعد تنوع مظاهر السطح على تنوع الموارد والأنشطة ...».",
+                "options": [
+                    "الفنية",
+                    "الاقتصادية",
+                    "الثقافية فقط",
+                    "الرياضية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «من الأنشطة الاقتصادية الزراعة والصيد والتعدين والسياحة و...».",
+                "options": [
+                    "الصناعة",
+                    "الهجرة",
+                    "البطالة",
+                    "الحروب"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «تنوع التضاريس يدعو إلى تأمل قدرة الله في ... وتقبل الاختلاف».",
+                "options": [
+                    "الإهمال",
+                    "الفوضى",
+                    "الخلق",
+                    "الحروب"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «تشكلت جبال أطلس بسبب الحركات ...».",
+                "options": [
+                    "البركانية",
+                    "المائية",
+                    "الانكسارية",
+                    "الالتوائية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «تعد مرتفعات اليمن من الجبال ...».",
+                "options": [
+                    "الرملية",
+                    "الالتوائية",
+                    "البركانية فقط",
+                    "الانكسارية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «توجد واحة عين صالح في دولة ...».",
+                "options": [
+                    "الجزائر",
+                    "ليبيا",
+                    "تونس",
+                    "مصر"
+                ],
+                "ans": 0
+            }
+        ]
+    },
+    {
+        "id": "true_false_4",
+        "title": "صح أم خطأ",
+        "type": "true_false",
+        "desc": "حدد صحة العبارات المتعلقة بـ تضاريس وطننا العربي",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path><polyline points=\"22 4 12 14.01 9 11.01\"></polyline></svg>",
+        "questions": [
+            {
+                "q": "تشكلت الجبال والهضاب بفعل العوامل الباطنية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "شكلت العوامل السطحية مثل الرياح والمياه السهول والوديان.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "الجبال في الوطن العربي نوع واحد فقط.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "جبال البحر الأحمر جبال انكسارية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "جبال البحر الأحمر جبال التوائية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "جبال أطلس جبال التوائية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "جبال زاجروس وعمان من الجبال الالتوائية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "جبال الحجاز وعسير من الجبال الانكسارية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تمتد جبال أطلس في تونس والجزائر والمغرب.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تمتد جبال أطلس في مصر وليبيا.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "جبل توبقال أعلى جبل بالوطن العربي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "جبل سانت كاترين أعلى جبل بالوطن العربي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تجذب المناظر الجبلية السياح.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "الهضاب أكثر مظاهر السطح انتشارًا بالوطن العربي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "هضبة نجد أكبر هضاب الوطن العربي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "هضبة إفريقيا الشمالية أكبر هضاب الوطن العربي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تقع هضبة بادية الشام في شمال شبه الجزيرة العربية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تقع هضبة حضرموت في جنوب شبه الجزيرة العربية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تقع هضبة نجد في وسط شبه الجزيرة العربية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "الواحات أراضٍ مرتفعة وسط الصحراء.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "الواحات أراضٍ منخفضة تزرع بالمياه الجوفية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "توجد واحة عين صالح في الجزائر.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "توجد واحة عين صالح في مصر.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تكونت الكثبان الرملية بفعل التعرية الهوائية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تكونت الكثبان الرملية بفعل التعرية المائية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "يقع بحر الرمال العظيم بين مصر وليبيا.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تكونت الأودية الجافة بفعل التعرية المائية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تستخدم الأودية الجافة كطرق للنقل.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وادي العلاقي من الأودية الجافة في مصر.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "وادي الدواسر من الأودية الجافة في السعودية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "السهول أراضٍ مستوية أو شبه مستوية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تنقسم السهول في الوطن العربي إلى ثلاثة أنواع.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تكونت السهول الفيضية بفعل إرساب الأنهار.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "السهول الفيضية نادرة السكان.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "سهول دجلة والفرات من السهول الفيضية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "سهول البحر المتوسط تتميز بتربة خصبة.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "سهول البحر الأحمر والخليج غنية بالثروات المعدنية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "السهول الصحراوية تكونت بفعل الأنهار.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "السهول الصحراوية تتميز بندرة الغطاء النباتي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ساعد تنوع مظاهر السطح على تنوع الأنشطة الاقتصادية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تشكلت جبال أطلس بسبب الحركات الانكسارية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تنوع التضاريس يدعو إلى تأمل قدرة الله.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "التعرية الهوائية نحت الصخور بواسطة الرياح.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "التعرية المائية نحت الصخور بواسطة المياه.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "استخدم الإنسان الجبال في استخراج المعادن.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "مرتفعات اليمن من الجبال الالتوائية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تعد واحة سيوة من الواحات المصرية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "يعيش السكان في الواحات ويمارسون الزراعة.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "البراكين من العوامل السطحية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "الرياح من العوامل السطحية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            }
+        ]
+    },
+    {
+        "id": "genius_5",
+        "title": "تحدي العباقرة",
+        "type": "genius",
+        "desc": "تحدٍّ سريع للعباقرة: فكّر وفسّر وقارن في تضاريس وطننا العربي",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z\"></path></svg>",
+        "questions": [
+            {
+                "q": "ما المقصود بالتعرية المائية؟",
+                "options": [
+                    "نحتها بالرياح",
+                    "البراكين",
+                    "نحت الصخور ونقلها وإرسابها بواسطة المياه",
+                    "الزلازل"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما المقصود بالتعرية الهوائية؟",
+                "options": [
+                    "نحتها بالمياه",
+                    "الانكسارات",
+                    "نحت الصخور ونقلها وإرسابها بواسطة الرياح",
+                    "الالتواءات"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما المقصود بالأودية الجافة؟",
+                "options": [
+                    "واحات",
+                    "مجارٍ كانت تملؤها المياه قديمًا ثم جفت",
+                    "أنهار دائمة",
+                    "كثبان"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما المقصود بالواحات؟",
+                "options": [
+                    "سهول ساحلية",
+                    "جبال عالية",
+                    "أراضٍ منخفضة وسط الصحراء تزرع بالمياه الجوفية",
+                    "كثبان رملية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما المقصود بالكثبان الرملية؟",
+                "options": [
+                    "تجمعات من الرمال الخفيفة تكونت بفعل التعرية الهوائية",
+                    "واحات",
+                    "هضاب",
+                    "أنهار جافة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "قارن بين جبال البحر الأحمر وجبال زاجروس:",
+                "options": [
+                    "البحر الأحمر التوائية",
+                    "كلاهما انكساري",
+                    "كلاهما التوائي",
+                    "البحر الأحمر انكسارية وزاجروس التوائية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "بم تفسر قيام الزراعة في الواحات؟",
+                "options": [
+                    "لكثرة الأمطار",
+                    "لوجود المياه الجوفية",
+                    "لوجود الأنهار",
+                    "لقربها من البحر"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "عدد استخدامات الأودية الجافة:",
+                "options": [
+                    "الملاحة",
+                    "طرق للنقل والمواصلات واستخراج المياه الجوفية",
+                    "التزلج",
+                    "الصيد"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "اذكر أنواع السهول في الوطن العربي:",
+                "options": [
+                    "بركانية",
+                    "جبلية فقط",
+                    "فيضية وساحلية وصحراوية",
+                    "جليدية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "استنتج أوجه التشابه بين السهول الفيضية والساحلية:",
+                "options": [
+                    "لا تشابه",
+                    "كلاهما صحراوي",
+                    "كلاهما جبلي",
+                    "كلاهما أراضٍ مستوية خصبة تصلح للزراعة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "وضح كيف تسهم مظاهر السطح في دعم الأنشطة الاقتصادية:",
+                "options": [
+                    "الجبال للتعدين والسياحة والسهول للزراعة والسواحل للصيد",
+                    "تمنع الأنشطة",
+                    "لا تسهم",
+                    "للتلوث فقط"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "حدد أكبر السهول مساحة في الوطن العربي:",
+                "options": [
+                    "السهول الساحلية",
+                    "السهول الفيضية",
+                    "السهول الجبلية",
+                    "السهول الصحراوية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "بم تفسر الأهمية الاقتصادية لمظاهر السطح في الوطن العربي؟",
+                "options": [
+                    "لا أهمية",
+                    "توفر مواردًا متنوعة تقوم عليها الزراعة والتعدين والسياحة والصناعة",
+                    "تسبب الفقر",
+                    "تمنع التنمية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "بم تفسر تنوع مظاهر السطح في الوطن العربي؟",
+                "options": [
+                    "بلا سبب",
+                    "بفعل الحيوانات",
+                    "لتأثير العوامل الباطنية والسطحية عبر ملايين السنين",
+                    "بفعل الإنسان"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما النتائج المترتبة على وجود المياه الجوفية في الواحات؟",
+                "options": [
+                    "التصحر",
+                    "الهجرة",
+                    "الجفاف",
+                    "قيام الزراعة واستقرار السكان"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما النتائج المترتبة على الحركات الانكسارية بالوطن العربي؟",
+                "options": [
+                    "تكون السهول الفيضية",
+                    "تكون جبال البحر الأحمر والحجاز وعسير ومرتفعات اليمن",
+                    "تكون الكثبان",
+                    "تكون جبال أطلس"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "دلل على تنوع استخدامات السهول الساحلية:",
+                "options": [
+                    "للرعي الجبلي فقط",
+                    "للتزلج",
+                    "سهول المتوسط للزراعة وسهول الأحمر والخليج للثروات المعدنية والطاقة",
+                    "لا تستخدم"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما العلاقة بين التضاريس والأنشطة الاقتصادية؟",
+                "options": [
+                    "التضاريس تمنع الأنشطة",
+                    "لا علاقة",
+                    "كل مظهر سطح يناسب نشاطًا اقتصاديًا معينًا",
+                    "علاقة عكسية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "من أكون؟ «أعلى جبل بالوطن العربي في جبال أطلس»",
+                "options": [
+                    "جبل شمس",
+                    "جبل توبقال",
+                    "جبل الشيخ",
+                    "جبل سانت كاترين"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "من أكون؟ «أكبر هضاب الوطن العربي مساحة»",
+                "options": [
+                    "هضبة نجد",
+                    "هضبة حضرموت",
+                    "هضبة إفريقيا الشمالية",
+                    "هضبة بادية الشام"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "من أكون؟ «واحة في الجزائر»",
+                "options": [
+                    "الأحساء",
+                    "سيوة",
+                    "الخارجة",
+                    "عين صالح"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من أكون؟ «كثبان رملية بين مصر وليبيا»",
+                "options": [
+                    "الصحراء الشرقية",
+                    "بحر الرمال العظيم",
+                    "صحراء النفود",
+                    "الربع الخالي"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "من أكون؟ «وادٍ جاف في مصر»",
+                "options": [
+                    "وادي الدواسر",
+                    "وادي رم",
+                    "وادي العلاقي",
+                    "وادي حضرموت"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "من أكون؟ «جبال التوائية تمتد في تونس والجزائر والمغرب»",
+                "options": [
+                    "جبال الحجاز",
+                    "جبال زاجروس",
+                    "جبال أطلس",
+                    "جبال البحر الأحمر"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "صوّب الخطأ: «جبال أطلس جبال انكسارية».",
+                "options": [
+                    "بركانية",
+                    "جليدية",
+                    "رملية",
+                    "التوائية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "صوّب الخطأ: «هضبة نجد أكبر هضاب الوطن العربي».",
+                "options": [
+                    "هضبة إفريقيا الشمالية",
+                    "هضبة بادية الشام",
+                    "هضبة حضرموت",
+                    "هضبة التيه"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "صوّب الخطأ: «تكونت الكثبان الرملية بفعل التعرية المائية».",
+                "options": [
+                    "الهوائية",
+                    "الجليدية",
+                    "البركانية",
+                    "الانكسارية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "صوّب الخطأ: «الواحات أرض مرتفعة وسط الصحراء».",
+                "options": [
+                    "متجمدة",
+                    "جبلية",
+                    "منخفضة",
+                    "ساحلية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "صوّب الخطأ: «السهول الفيضية نادرة السكان».",
+                "options": [
+                    "صخرية",
+                    "بلا تربة",
+                    "يتركز فيها السكان",
+                    "جليدية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "اختر: تشكلت جبال أطلس بسبب (الحركات الانكسارية - الحركات الالتوائية - الثورات البركانية - التعرية المائية):",
+                "options": [
+                    "الثورات البركانية",
+                    "الحركات الالتوائية",
+                    "التعرية المائية",
+                    "الحركات الانكسارية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "اختر: أعلى قمة في جبال أطلس جبل (أطلس التل - توبقال - سانت كاترين - شايب البنات):",
+                "options": [
+                    "سانت كاترين",
+                    "شايب البنات",
+                    "أطلس التل",
+                    "توبقال"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "اختر: توجد واحة عين صالح في دولة (مصر - ليبيا - الجزائر - السعودية):",
+                "options": [
+                    "ليبيا",
+                    "الجزائر",
+                    "السعودية",
+                    "مصر"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "اختر: أكبر هضاب الوطن العربي مساحة هضبة (شمال إفريقيا - بادية الشام - نجد - حضرموت):",
+                "options": [
+                    "حضرموت",
+                    "نجد",
+                    "بادية الشام",
+                    "شمال إفريقيا"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "اختر: أحد الجبال الانكسارية (أطلس - توبقال - مرتفعات اليمن - عمان):",
+                "options": [
+                    "مرتفعات اليمن",
+                    "توبقال",
+                    "عمان",
+                    "أطلس"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "استبعد الغريب من الجبال الالتوائية: (أطلس - زاجروس - عمان - البحر الأحمر)",
+                "options": [
+                    "أطلس",
+                    "البحر الأحمر",
+                    "عمان",
+                    "زاجروس"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "استبعد الغريب من هضاب الجناح الآسيوي: (بادية الشام - نجد - حضرموت - إفريقيا الشمالية)",
+                "options": [
+                    "حضرموت",
+                    "إفريقيا الشمالية",
+                    "بادية الشام",
+                    "نجد"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "استبعد الغريب من العوامل الباطنية: (الالتواءات - الانكسارات - البراكين - الرياح)",
+                "options": [
+                    "الرياح",
+                    "الانكسارات",
+                    "البراكين",
+                    "الالتواءات"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "استبعد الغريب من أنواع السهول: (فيضية - ساحلية - صحراوية - جليدية)",
+                "options": [
+                    "صحراوية",
+                    "فيضية",
+                    "ساحلية",
+                    "جليدية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "حدد نوع المظهر: أرض منخفضة بها نخيل وماء وسط الصحراء:",
+                "options": [
+                    "كثيب رملي",
+                    "واحة",
+                    "وادٍ جاف",
+                    "هضبة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "حدد نوع المظهر: أرض مستوية خضراء على جانبي نهر:",
+                "options": [
+                    "سهل صحراوي",
+                    "هضبة",
+                    "سهل فيضي",
+                    "جبل"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "حدد نوع المظهر: أرض مستوية على شاطئ البحر:",
+                "options": [
+                    "جبل",
+                    "سهل ساحلي",
+                    "سهل فيضي",
+                    "واحة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "حدد نوع المظهر: مجرى جاف بين الجبال:",
+                "options": [
+                    "واحة",
+                    "وادٍ جاف",
+                    "نهر دائم",
+                    "بحيرة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما الأهمية الاقتصادية للهضاب؟",
+                "options": [
+                    "الملاحة",
+                    "لا أهمية",
+                    "الصيد البحري",
+                    "الرعي واستخراج المعادن والواحات للزراعة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما الذي يجعل جبال الوطن العربي مقصدًا سياحيًا؟",
+                "options": [
+                    "بلا سبب",
+                    "تلوثها",
+                    "برودتها فقط",
+                    "مناظرها الخلابة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "لماذا تتركز الزراعة في السهول الفيضية؟",
+                "options": [
+                    "لارتفاعها",
+                    "لكثرة الصخور",
+                    "لملوحتها",
+                    "لخصوبة تربتها ووفرة المياه"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "كيف تكونت الجبال في الوطن العربي؟",
+                "options": [
+                    "بفعل الإنسان",
+                    "بفعل الرياح فقط",
+                    "بفعل الأنهار",
+                    "بفعل الالتواءات والانكسارات والبراكين"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "لماذا تتميز واحة سيوة بأهمية علاجية؟",
+                "options": [
+                    "لطقسها الجاف ورمالها الساخنة وعيونها الكبريتية",
+                    "لأمطارها",
+                    "لثلوجها",
+                    "لغاباتها"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "حدد نوع المظهر: تجمعات رملية تشكلها الرياح:",
+                "options": [
+                    "واحة",
+                    "وادٍ جاف",
+                    "كثبان رملية",
+                    "سهل فيضي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "من أكون؟ «هضبة في جنوب شبه الجزيرة العربية»",
+                "options": [
+                    "هضبة بادية الشام",
+                    "هضبة نجد",
+                    "هضبة إفريقيا الشمالية",
+                    "هضبة حضرموت"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من أكون؟ «هضبة في شمال شبه الجزيرة العربية»",
+                "options": [
+                    "هضبة حضرموت",
+                    "هضبة نجد",
+                    "هضبة التيه",
+                    "هضبة بادية الشام"
+                ],
+                "ans": 3
+            }
+        ]
+    },
+    {
+        "id": "map_6",
+        "title": "تحدي الخرائط والصور",
+        "type": "map",
+        "desc": "اكتشف المخفي على خرائط وصور الكتاب في تضاريس وطننا العربي",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6\"></polygon><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"18\"></line><line x1=\"16\" y1=\"6\" x2=\"16\" y2=\"22\"></line></svg>",
+        "questions": [
+            {
+                "q": "ما اسم المظهر التضاريسي المخفي اسمه بعلامة (؟) في الشكل؟",
+                "options": [
+                    "شبه جزيرة",
+                    "تل",
+                    "سهل فيضي",
+                    "جبل"
+                ],
+                "ans": 3,
+                "img": "images/p6u1l2_diagram.jpg",
+                "masks": [
+                    [
+                        77,
+                        1,
+                        9,
+                        7
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم المظهر التضاريسي المخفي اسمه بعلامة (؟) في الشكل؟",
+                "options": [
+                    "بحر",
+                    "هضبة",
+                    "سهل فيضي",
+                    "نهر"
+                ],
+                "ans": 1,
+                "img": "images/p6u1l2_diagram.jpg",
+                "masks": [
+                    [
+                        22,
+                        8,
+                        11,
+                        7
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم المظهر التضاريسي المخفي اسمه بعلامة (؟) في الشكل؟",
+                "options": [
+                    "بحيرة",
+                    "سهل فيضي",
+                    "سهل ساحلي",
+                    "تل"
+                ],
+                "ans": 3,
+                "img": "images/p6u1l2_diagram.jpg",
+                "masks": [
+                    [
+                        42,
+                        15,
+                        9,
+                        7
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم المظهر التضاريسي المخفي اسمه بعلامة (؟) في الشكل؟",
+                "options": [
+                    "سهل فيضي",
+                    "جبل",
+                    "جزيرة",
+                    "تل"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_diagram.jpg",
+                "masks": [
+                    [
+                        62,
+                        37,
+                        16,
+                        7
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم المظهر التضاريسي المخفي اسمه بعلامة (؟) في الشكل؟",
+                "options": [
+                    "بحيرة",
+                    "شبه جزيرة",
+                    "تل",
+                    "نهر"
+                ],
+                "ans": 3,
+                "img": "images/p6u1l2_diagram.jpg",
+                "masks": [
+                    [
+                        79,
+                        51,
+                        8,
+                        7
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم المظهر التضاريسي المخفي اسمه بعلامة (؟) في الشكل؟",
+                "options": [
+                    "هضبة",
+                    "سهل فيضي",
+                    "بحيرة",
+                    "جبل"
+                ],
+                "ans": 2,
+                "img": "images/p6u1l2_diagram.jpg",
+                "masks": [
+                    [
+                        19,
+                        50,
+                        11,
+                        7
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم المظهر التضاريسي المخفي اسمه بعلامة (؟) في الشكل؟",
+                "options": [
+                    "سهل ساحلي",
+                    "شبه جزيرة",
+                    "جبل",
+                    "بحر"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_diagram.jpg",
+                "masks": [
+                    [
+                        57,
+                        57,
+                        17,
+                        7
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم المظهر التضاريسي المخفي اسمه بعلامة (؟) في الشكل؟",
+                "options": [
+                    "بحيرة",
+                    "شبه جزيرة",
+                    "تل",
+                    "جزيرة"
+                ],
+                "ans": 1,
+                "img": "images/p6u1l2_diagram.jpg",
+                "masks": [
+                    [
+                        4,
+                        65,
+                        14,
+                        7
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم المظهر التضاريسي المخفي اسمه بعلامة (؟) في الشكل؟",
+                "options": [
+                    "بحر",
+                    "تل",
+                    "هضبة",
+                    "سهل فيضي"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_diagram.jpg",
+                "masks": [
+                    [
+                        28,
+                        73,
+                        8,
+                        7
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم المظهر التضاريسي المخفي اسمه بعلامة (؟) في الشكل؟",
+                "options": [
+                    "جزيرة",
+                    "شبه جزيرة",
+                    "بحر",
+                    "نهر"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_diagram.jpg",
+                "masks": [
+                    [
+                        67,
+                        75,
+                        9,
+                        7
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم السلسلة الجبلية المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "جبال أطلس",
+                    "جبال البحر الأحمر",
+                    "جبال زاجروس",
+                    "جبال طوروس"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_relief.jpg",
+                "masks": [
+                    [
+                        18,
+                        6,
+                        11,
+                        12
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم الجبل (أعلى قمة) المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "جبل سانت كاترين",
+                    "جبل شايب البنات",
+                    "جبل توبقال",
+                    "جبل العوينات"
+                ],
+                "ans": 2,
+                "img": "images/p6u1l2_relief.jpg",
+                "masks": [
+                    [
+                        10,
+                        18,
+                        6,
+                        9
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم الهضبة المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "هضبة حضرموت",
+                    "هضبة نجد",
+                    "هضبة إفريقيا الشمالية",
+                    "هضبة بادية الشام"
+                ],
+                "ans": 2,
+                "img": "images/p6u1l2_relief.jpg",
+                "masks": [
+                    [
+                        28,
+                        25,
+                        19,
+                        4
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم المظهر المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "الصحراء الكبرى",
+                    "صحراء النفود",
+                    "بحر الرمال العظيم",
+                    "الربع الخالي"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_relief.jpg",
+                "masks": [
+                    [
+                        30,
+                        55,
+                        17,
+                        5
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم الهضبة المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "هضبة إفريقيا الشمالية",
+                    "هضبة حضرموت",
+                    "هضبة نجد",
+                    "هضبة بادية الشام"
+                ],
+                "ans": 2,
+                "img": "images/p6u1l2_relief.jpg",
+                "masks": [
+                    [
+                        74,
+                        33,
+                        7,
+                        4
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم الهضبة المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "هضبة بادية الشام",
+                    "هضبة إفريقيا الشمالية",
+                    "هضبة حضرموت",
+                    "هضبة نجد"
+                ],
+                "ans": 2,
+                "img": "images/p6u1l2_relief.jpg",
+                "masks": [
+                    [
+                        83,
+                        44,
+                        11,
+                        12
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم السلسلة الجبلية المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "جبال زاجروس",
+                    "جبال عمان",
+                    "جبال البحر الأحمر",
+                    "جبال أطلس"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_relief.jpg",
+                "masks": [
+                    [
+                        80,
+                        4,
+                        9,
+                        16
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم الهضبة المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "هضبة بادية الشام",
+                    "هضبة حضرموت",
+                    "هضبة إفريقيا الشمالية",
+                    "هضبة نجد"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_plateaus.jpg",
+                "masks": [
+                    [
+                        69,
+                        18,
+                        10,
+                        10
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم الهضبة المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "هضبة إفريقيا الشمالية",
+                    "هضبة بادية الشام",
+                    "هضبة حضرموت",
+                    "هضبة نجد"
+                ],
+                "ans": 3,
+                "img": "images/p6u1l2_plateaus.jpg",
+                "masks": [
+                    [
+                        73,
+                        35,
+                        10,
+                        4
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم الهضبة المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "هضبة نجد",
+                    "هضبة بادية الشام",
+                    "هضبة إفريقيا الشمالية",
+                    "هضبة حضرموت"
+                ],
+                "ans": 3,
+                "img": "images/p6u1l2_plateaus.jpg",
+                "masks": [
+                    [
+                        80,
+                        48,
+                        13,
+                        12
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم الهضبة المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "هضبة حضرموت",
+                    "هضبة إفريقيا الشمالية",
+                    "هضبة نجد",
+                    "هضبة بادية الشام"
+                ],
+                "ans": 1,
+                "img": "images/p6u1l2_plateaus.jpg",
+                "masks": [
+                    [
+                        29,
+                        36,
+                        20,
+                        4
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم الواحة المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "وادي العلاقي",
+                    "وادي الدواسر",
+                    "واحة سيوة",
+                    "واحة عين صالح"
+                ],
+                "ans": 2,
+                "img": "images/p6u1l2_plateaus.jpg",
+                "masks": [
+                    [
+                        56,
+                        25,
+                        7,
+                        4
+                    ]
+                ]
+            },
+            {
+                "q": "ما اسم الواحة المخفي اسمه بعلامة (؟) على الخريطة؟",
+                "options": [
+                    "وادي الدواسر",
+                    "واحة عين صالح",
+                    "واحة سيوة",
+                    "واحة الخارجة"
+                ],
+                "ans": 1,
+                "img": "images/p6u1l2_plateaus.jpg",
+                "masks": [
+                    [
+                        24,
+                        33,
+                        9,
+                        4
+                    ]
+                ]
+            },
+            {
+                "q": "تُظهر الصورة جبالًا نشأت نتيجة حركات انكسارية، ما اسمها؟",
+                "options": [
+                    "جبال عمان",
+                    "جبال أطلس",
+                    "جبال البحر الأحمر",
+                    "جبال زاجروس"
+                ],
+                "ans": 2,
+                "img": "images/p6u1l2_redmts.jpg",
+                "masks": []
+            },
+            {
+                "q": "تُظهر الصورة أرضًا منخفضة وسط الصحراء تزرع بالمياه الجوفية، ما اسمها؟",
+                "options": [
+                    "الواحة",
+                    "الكثبان الرملية",
+                    "الهضبة",
+                    "الوادي الجاف"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_oasis.jpg",
+                "masks": []
+            },
+            {
+                "q": "تُظهر الصورة تجمعات من الرمال تكونت بفعل التعرية الهوائية، ما اسمها؟",
+                "options": [
+                    "الأودية الجافة",
+                    "الواحات",
+                    "الكثبان الرملية",
+                    "السهول الفيضية"
+                ],
+                "ans": 2,
+                "img": "images/p6u1l2_dunes.jpg",
+                "masks": []
+            },
+            {
+                "q": "تُظهر الصورة مجرى كانت تملؤه المياه قديمًا ثم جف، مثل وادي العلاقي، ما اسمه؟",
+                "options": [
+                    "السهل الفيضي",
+                    "الكثبان الرملية",
+                    "الوادي الجاف",
+                    "الواحة"
+                ],
+                "ans": 2,
+                "img": "images/p6u1l2_wadi.jpg",
+                "masks": []
+            },
+            {
+                "q": "تمثل المساحات الخضراء على امتداد النيل ودجلة والفرات في الخريطة السهول:",
+                "options": [
+                    "الجبلية",
+                    "الصحراوية",
+                    "الساحلية",
+                    "الفيضية"
+                ],
+                "ans": 3,
+                "img": "images/p6u1l2_plains.jpg",
+                "masks": []
+            },
+            {
+                "q": "تمثل المساحات البنفسجية على امتداد السواحل في الخريطة السهول:",
+                "options": [
+                    "الصحراوية",
+                    "الساحلية",
+                    "الهضبية",
+                    "الفيضية"
+                ],
+                "ans": 1,
+                "img": "images/p6u1l2_plains.jpg",
+                "masks": []
+            },
+            {
+                "q": "تمثل المساحات الصفراء الواسعة في الخريطة السهول:",
+                "options": [
+                    "الصحراوية",
+                    "الفيضية",
+                    "الساحلية",
+                    "الجليدية"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_plains.jpg",
+                "masks": []
+            },
+            {
+                "q": "تُظهر الصورة سهولًا تكونت بفعل إرساب الأنهار وتتميز بخصوبة تربتها، ما نوعها؟",
+                "options": [
+                    "سهول فيضية",
+                    "سهول صحراوية",
+                    "هضاب",
+                    "سهول ساحلية"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_nile.jpg",
+                "masks": []
+            },
+            {
+                "q": "تُظهر الصورة سهولًا تمتد على ساحل البحر، ما نوعها؟",
+                "options": [
+                    "سهول ساحلية",
+                    "جبال",
+                    "سهول صحراوية",
+                    "سهول فيضية"
+                ],
+                "ans": 0,
+                "img": "images/p6u1l2_coastal.jpg",
+                "masks": []
+            },
+            {
+                "q": "تُظهر الصورة سهولًا تكونت بفعل الرياح وتتميز بندرة الغطاء النباتي، ما نوعها؟",
+                "options": [
+                    "سهول فيضية",
+                    "واحات",
+                    "سهول ساحلية",
+                    "سهول صحراوية"
+                ],
+                "ans": 3,
+                "img": "images/p6u1l2_desert.jpg",
+                "masks": []
+            },
+            {
+                "q": "ما اسم المظهر التضاريسي الظاهر في الصورة؟",
+                "options": [
+                    "سهول ساحلية",
+                    "واحة",
+                    "كثبان رملية",
+                    "جبال"
+                ],
+                "ans": 3,
+                "img": "images/p6u1l2_mountain.jpg",
+                "masks": []
+            }
+        ]
+    }
+];
+
+    // --- محرك الصوت للمؤثرات التفاعلية ---
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new AudioContext();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.1, 0.1); 
+        setTimeout(() => playTone(659.25, 'sine', 0.1, 0.1), 100); 
+        setTimeout(() => playTone(783.99, 'sine', 0.2, 0.15), 200); 
+        setTimeout(() => playTone(1046.50, 'sine', 0.4, 0.2), 300); 
+        triggerConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(300, 'sawtooth', 0.15, 0.1);
+        setTimeout(() => playTone(200, 'sawtooth', 0.25, 0.15), 150);
+        
+        const qBox = document.querySelector('.question-box');
+        if(qBox) {
+            qBox.classList.remove('shake');
+            void qBox.offsetWidth; 
+            qBox.classList.add('shake');
+        }
+    }
+
+    // --- مؤثرات بصرية ---
+    function triggerConfetti() {
+        const colors = ['#f72585', '#4cc9f0', '#fee440', '#00f5d4', '#8b5cf6'];
+        for(let i=0; i<40; i++) {
+            let conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        if (teamMode) { onTeamAnswer(isCorrect); }
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، بطل!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        if (teamMode) { teamFeedbackText(isCorrect, title); } else { title.style.fontSize = ''; }
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300); // وقت الانتقال للسؤال التالي
+    }
+
+    // --- متغيرات محرك اللعبة ---
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let geniusTimerInterval = null;
+    let wrongAnswers = []; // مصفوفة لتخزين الأخطاء
+
+    // --- التهيئة ---
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <div class="icon-container">${game.icon}</div>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        document.getElementById('team-board').classList.remove('show'); teamMode = false;
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+        updateTeamBoard();
+    }
+
+    function gameComplete() {
+        if (teamMode) { teamGameComplete(); return; }
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <div class="share-box">
+                    <h4>📲 أرسل نتيجتك إلى أ/ السيد صالح</h4>
+                    <input type="text" id="student-name-input" class="share-name-input" placeholder="اكتب اسمك هنا أولًا">
+                    <div id="share-warning" class="share-warning">من فضلك اكتب اسمك أولًا قبل الإرسال ✋</div>
+                    <div>
+                        <button class="btn btn-share" onclick="sendResultToTeacher(${score}, ${currentQuestions.length})">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/></svg>
+                            إرسال النتيجة عبر واتساب
+                        </button>
+                    </div>
+                </div>
+                <button class="btn back-btn" style="font-size:1.1rem; padding:15px 30px; margin-top: 18px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button>
+            </div>
+        `;
+    }
+
+    function sendResultToTeacher(score, total) {
+        const nameInput = document.getElementById('student-name-input');
+        const warning = document.getElementById('share-warning');
+        const name = nameInput.value.trim();
+        if (!name) {
+            warning.style.display = 'block';
+            nameInput.classList.add('shake');
+            nameInput.focus();
+            setTimeout(() => nameInput.classList.remove('shake'), 500);
+            return;
+        }
+        warning.style.display = 'none';
+        const gameTitle = currentGame ? currentGame.title : '';
+        const message =
+            `📚 نتيجة طالب - ${LESSON_NAME}\n` +
+            `👤 اسم الطالب: ${name}\n` +
+            `🎮 اللعبة: ${gameTitle}\n` +
+            `✅ النتيجة: ${score} من ${total}\n` +
+            `⭐ نسبة النجاح: ${Math.round((score/total)*100)}%`;
+        const url = `https://wa.me/201001304451?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    function beginGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = shuffleArray([...gameData.questions]).slice(0, QUESTIONS_PER_ROUND);
+        qIndex = 0;
+        wrongAnswers = []; // تصفير قائمة الأخطاء
+        
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        
+        renderNextState();
+    }
+
+    function renderNextState() {
+        if (qIndex >= currentQuestions.length) {
+            gameComplete();
+            return;
+        }
+
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+
+        if (currentGame.type === 'mcq') {
+            renderMCQ(gc);
+        } else if (currentGame.type === 'bubbles') {
+            renderBubbles(gc);
+        } else if (currentGame.type === 'shooting') {
+            renderShooting(gc);
+        } else if (currentGame.type === 'true_false') {
+            renderTrueFalse(gc);
+        } else if (currentGame.type === 'genius') {
+            renderGenius(gc);
+        } else if (currentGame.type === 'map') {
+            renderMap(gc);
+        }
+    }
+
+    // --- أنماط الألعاب ---
+
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        // ترتيب ثابت (صح يميناً وخطأ يساراً)
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #1e40af)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 5. تحدي العباقرة (سؤال بعدّاد زمني)
+    function renderGenius(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const wrap = document.createElement('div');
+        wrap.className = 'genius-wrap';
+
+        const badge = document.createElement('div');
+        badge.className = 'genius-badge';
+        badge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z"></path></svg> تحدي العباقرة`;
+
+        const timerTrack = document.createElement('div');
+        timerTrack.className = 'genius-timer-track';
+        const timerBar = document.createElement('div');
+        timerBar.className = 'genius-timer-bar';
+        timerTrack.appendChild(timerBar);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.style.background = 'rgba(255,255,255,0.95)';
+        qBox.innerText = qData.q;
+
+        const optContainer = document.createElement('div');
+        optContainer.className = 'genius-options';
+
+        let isAnswered = false;
+        const TOTAL_TIME = 12000; // 12 ثانية لكل سؤال
+        let startTime = Date.now();
+
+        function finishQuestion(isCorrect, selectedText) {
+            if (isAnswered) return;
+            isAnswered = true;
+            clearInterval(geniusTimerInterval);
+            if (!isCorrect) {
+                wrongAnswers.push({ question: qData.q, correct: correctText, selected: selectedText || "انتهى الوقت!" });
+            }
+            showFeedback(isCorrect, () => { qIndex++; renderNextState(); });
+        }
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    finishQuestion(true, opt);
+                } else {
+                    btn.classList.add('btn-wrong');
+                    finishQuestion(false, opt);
+                }
+            };
+            optContainer.appendChild(btn);
+        });
+
+        wrap.appendChild(badge);
+        wrap.appendChild(timerTrack);
+        container.appendChild(wrap);
+        container.appendChild(qBox);
+        container.appendChild(optContainer);
+
+        geniusTimerInterval = setInterval(() => {
+            if (isAnswered) { clearInterval(geniusTimerInterval); return; }
+            const elapsed = Date.now() - startTime;
+            const pct = Math.max(0, 100 - (elapsed / TOTAL_TIME) * 100);
+            timerBar.style.width = pct + '%';
+            if (elapsed >= TOTAL_TIME) {
+                clearInterval(geniusTimerInterval);
+                finishQuestion(false, null);
+            }
+        }, 80);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            let speed = 0.95 + Math.random() * 0.65; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval); clearInterval(geniusTimerInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 30);
+    }
+
+    // 4. التنشين
+    function renderShooting(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 2.5 + 1.5) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+
+            animInterval = setInterval(() => {
+                if (isAnswered) return;
+                pos += speed;
+                if (pos > window.innerWidth + 50) pos = -250;
+                if (pos < -250) pos = window.innerWidth + 50;
+                bird.style.left = pos + 'px';
+            }, 20);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.style.display = 'flex';
+        hint.style.alignItems = 'center';
+        hint.style.justifyContent = 'center';
+        hint.style.gap = '8px';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> اضغط على الإجابة الصحيحة وهي تتحرك لاصطيادها!`;
+        container.appendChild(hint);
+    }
+
+
+    // 6. تحدي الخرائط والصور
+    function renderMap(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+
+        const stage = document.createElement('div');
+        stage.className = 'map-stage';
+        const wrap = document.createElement('div');
+        wrap.className = 'map-wrap';
+        const img = document.createElement('img');
+        img.src = qData.img;
+        img.alt = 'خريطة أو صورة من الكتاب المدرسي';
+        wrap.appendChild(img);
+        const masks = [];
+        (qData.masks || []).forEach(m => {
+            const d = document.createElement('div');
+            d.className = 'map-mask';
+            d.style.left = m[0] + '%'; d.style.top = m[1] + '%';
+            d.style.width = m[2] + '%'; d.style.height = m[3] + '%';
+            d.textContent = '؟';
+            wrap.appendChild(d); masks.push(d);
+        });
+        stage.appendChild(wrap);
+        wrap.onclick = () => stage.classList.toggle('zoomed');
+        const hint = document.createElement('div');
+        hint.className = 'map-hint';
+        hint.textContent = (masks.length ? '💡 الإجابة مخفية تحت المربع البرتقالي (؟) • ' : '💡 ') + 'اضغط على الصورة لتكبيرها';
+        stage.appendChild(hint);
+
+        const optContainer = document.createElement('div');
+        optContainer.className = 'map-options';
+        let isAnswered = false;
+        const btns = [];
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                const ok = opt === correctText;
+                masks.forEach(d => d.classList.add('revealed'));
+                btns.forEach(b => { if (b.innerText === correctText) b.classList.add('ok'); });
+                if (!ok) {
+                    btn.classList.add('bad');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                }
+                setTimeout(() => showFeedback(ok, () => { qIndex++; renderNextState(); }), 1100);
+            };
+            btns.push(btn);
+            optContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(stage);
+        container.appendChild(optContainer);
+    }
+
+
+    // --- طريقة اللعب: فردي أو منافسة بين فريقين ---
+    const QUESTIONS_PER_ROUND = 20;
+    let teamMode = false;
+    let teamNames = ['الفريق الأول', 'الفريق الثاني'];
+    let teamScores = [0, 0];
+    let pendingGame = null;
+
+    function startGame(gameData) {
+        initAudio();
+        pendingGame = gameData;
+        document.getElementById('mode-game-title').textContent = gameData.title;
+        document.getElementById('team-setup').classList.remove('show');
+        document.getElementById('mode-overlay').classList.add('active');
+    }
+    function closeModePicker() { document.getElementById('mode-overlay').classList.remove('active'); }
+    function chooseSolo() {
+        teamMode = false; closeModePicker();
+        document.getElementById('team-board').classList.remove('show');
+        beginGame(pendingGame);
+    }
+    function chooseTeams() {
+        document.getElementById('team-setup').classList.add('show');
+        setTimeout(() => document.getElementById('team-a').select(), 50);
+    }
+    function startTeams() {
+        const a = document.getElementById('team-a').value.trim() || 'الفريق الأول';
+        const b = document.getElementById('team-b').value.trim() || 'الفريق الثاني';
+        teamNames = [a, b === a ? b + ' (٢)' : b];
+        teamScores = [0, 0];
+        teamMode = true; closeModePicker();
+        document.getElementById('team-name-0').textContent = teamNames[0];
+        document.getElementById('team-name-1').textContent = teamNames[1];
+        document.getElementById('team-board').classList.remove('show');
+        beginDuel(pendingGame);
+    }
+    function currentTeam() { return qIndex % 2; }
+    function updateTeamBoard() {
+        if (!teamMode) return;
+        for (let i = 0; i < 2; i++) {
+            document.getElementById('team-score-' + i).textContent = teamScores[i];
+            document.getElementById('team-card-' + i).classList.toggle('active', i === currentTeam() && qIndex < currentQuestions.length);
+        }
+    }
+    function onTeamAnswer(isCorrect) {
+        if (isCorrect) teamScores[currentTeam()]++;
+        updateTeamBoard();
+    }
+    function teamFeedbackText(isCorrect, titleEl) {
+        const t = teamNames[currentTeam()];
+        titleEl.textContent = isCorrect ? ('نقطة لـ ' + t + '! 🎉') : ('إجابة خاطئة يا ' + t);
+        titleEl.style.fontSize = '2rem';
+    }
+    function teamGameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect(); setTimeout(playCorrect, 300);
+        document.getElementById('team-card-0').classList.remove('active');
+        document.getElementById('team-card-1').classList.remove('active');
+        let banner;
+        if (teamScores[0] === teamScores[1]) banner = '🤝 تعادل! أداء رائع من الفريقين';
+        else banner = '🏆 الفائز: ' + (teamScores[0] > teamScores[1] ? teamNames[0] : teamNames[1]);
+        let wrongHTML = '';
+        if (wrongAnswers.length > 0) {
+            wrongHTML = '<div style="margin-top: 18px; text-align: right; background: #f8fafc; padding: 16px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 300px; overflow-y: auto;" class="errors-list"><h3 style="color: var(--danger); margin-bottom: 12px; text-align: center; font-size: 1.25rem;">مراجعة الأسئلة التي تمت الإجابة عنها خطأ 📝</h3><ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">';
+            wrongAnswers.forEach((item, i) => {
+                wrongHTML += '<li style="background: white; padding: 12px; border-radius: 10px; border-right: 5px solid var(--danger);"><div style="font-weight: bold; color: var(--primary); margin-bottom: 6px;">' + (i + 1) + '. ' + item.question + '</div><div style="color: var(--success); font-weight: bold;">الإجابة الصحيحة: ' + item.correct + '</div></li>';
+            });
+            wrongHTML += '</ul></div>';
+        }
+        gc.innerHTML = '<div style="text-align:center; padding: 30px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">'
+            + '<h2 style="color: var(--primary); font-size: 2rem; font-weight: 900;">انتهت المنافسة!</h2>'
+            + '<div class="winner-box"><h3>' + banner + '</h3><div class="final-scores"><div>' + teamNames[0] + ': ' + teamScores[0] + '</div><div>' + teamNames[1] + ': ' + teamScores[1] + '</div></div></div>'
+            + wrongHTML
+            + '<div class="share-box"><h4>📲 أرسل نتيجة المنافسة إلى أ/ السيد صالح</h4><button class="btn btn-share" onclick="sendTeamResult()">إرسال النتيجة عبر واتساب</button></div>'
+            + '<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: 18px;">'
+            + '<button class="btn" style="padding:14px 26px;" onclick="startTeamsAgain()">🔄 منافسة جديدة بأسئلة مختلفة</button>'
+            + '<button class="btn back-btn" style="padding:14px 26px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button></div></div>';
+        triggerConfetti();
+    }
+    function startTeamsAgain() { teamScores = [0, 0]; beginDuel(pendingGame); }
+    function sendTeamResult() {
+        const gameTitle = currentGame ? currentGame.title : '';
+        let res = teamScores[0] === teamScores[1] ? 'تعادل' : ('الفائز: ' + (teamScores[0] > teamScores[1] ? teamNames[0] : teamNames[1]));
+        const message = '🏆 نتيجة منافسة - ' + LESSON_NAME + '\n🎮 اللعبة: ' + gameTitle + '\n'
+            + '🔵 ' + teamNames[0] + ': ' + teamScores[0] + '\n🟠 ' + teamNames[1] + ': ' + teamScores[1] + '\n✅ ' + res;
+        window.open('https://wa.me/201001304451?text=' + encodeURIComponent(message), '_blank');
+    }
+
+
+    // ===== منافسة الفريقين: شاشة مقسومة، نفس الأسئلة بترتيب مختلف لكل فريق، ٣٠ ثانية لكل سؤال =====
+    const DUEL_TIME = 30000;
+    let duel = null;
+    function duelEsc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function duelOrder(pool, other) {
+        // ترتيب مختلف: لا يتطابق أي سؤال في نفس الموضع مع ترتيب الفريق الآخر
+        let best = shuffleArray([...pool]);
+        for (let tries = 0; tries < 200; tries++) {
+            if (!other || best.every((q, i) => q !== other[i])) return best;
+            best = shuffleArray([...pool]);
+        }
+        return best;
+    }
+    function duelTone(ok) {
+        initAudio();
+        if (ok) { playTone(659.25, 'sine', 0.1, 0.1); setTimeout(() => playTone(987.77, 'sine', 0.22, 0.13), 100); }
+        else { playTone(260, 'sawtooth', 0.2, 0.08); }
+    }
+    function beginDuel(gameData) {
+        initAudio();
+        stopDuelTimers();
+        currentGame = gameData;
+        const pool = shuffleArray([...gameData.questions]).slice(0, QUESTIONS_PER_ROUND);
+        const orderA = duelOrder(pool, null);
+        const orderB = duelOrder(pool, orderA);
+        duel = { teams: [orderA, orderB].map(order => ({ order, idx: 0, score: 0, time: 0, wrong: [], timer: null, done: false })), finished: false };
+        document.getElementById('duel-title').textContent = gameData.title;
+        document.getElementById('duel-result').classList.add('hidden');
+        document.getElementById('duel-screen').classList.remove('hidden');
+        document.body.classList.add('duel-on');
+        renderDuelQ(0); renderDuelQ(1);
+    }
+    function stopDuelTimers() { if (duel) duel.teams.forEach(t => clearInterval(t.timer)); }
+    function exitDuel() {
+        stopDuelTimers(); duel = null;
+        document.getElementById('duel-screen').classList.add('hidden');
+        document.body.classList.remove('duel-on');
+        returnToMenu();
+    }
+    function renderDuelQ(ti) {
+        if (!duel) return;
+        const T = duel.teams[ti];
+        const half = document.getElementById('duel-half-' + ti);
+        half.classList.remove('flash-ok', 'flash-bad');
+        half.innerHTML = '';
+        half.scrollTop = 0;
+        const total = T.order.length;
+        const head = document.createElement('div');
+        head.className = 'dh-head';
+        head.innerHTML = '<span class="dh-name">' + duelEsc(teamNames[ti]) + '</span><span class="dh-meta"><span class="dh-prog">'
+            + (Math.min(T.idx + 1, total)) + ' / ' + total + '</span><span class="dh-score">' + T.score + '</span></span>';
+        half.appendChild(head);
+        if (T.idx >= total) { duelTeamDone(ti, half); return; }
+
+        const qData = T.order[T.idx];
+        const correctText = qData.options[qData.ans];
+
+        const timer = document.createElement('div');
+        timer.className = 'dh-timer';
+        timer.innerHTML = '<div class="dh-track"><div class="dh-bar"></div></div><span class="dh-sec">30</span>';
+        half.appendChild(timer);
+        const bar = timer.querySelector('.dh-bar'), sec = timer.querySelector('.dh-sec');
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.textContent = qData.q;
+        half.appendChild(qBox);
+
+        const masks = [];
+        if (currentGame.type === 'map' && qData.img) {
+            const stage = document.createElement('div');
+            stage.className = 'map-stage';
+            const wrap = document.createElement('div');
+            wrap.className = 'map-wrap';
+            const img = document.createElement('img');
+            img.src = qData.img; img.alt = 'خريطة أو صورة من الكتاب المدرسي';
+            wrap.appendChild(img);
+            (qData.masks || []).forEach(m => {
+                const d = document.createElement('div');
+                d.className = 'map-mask';
+                d.style.left = m[0] + '%'; d.style.top = m[1] + '%'; d.style.width = m[2] + '%'; d.style.height = m[3] + '%';
+                d.textContent = '؟'; wrap.appendChild(d); masks.push(d);
+            });
+            wrap.onclick = () => stage.classList.toggle('zoomed');
+            stage.appendChild(wrap);
+            const hint = document.createElement('div');
+            hint.className = 'map-hint';
+            hint.textContent = '💡 اضغط على الصورة لتكبيرها';
+            stage.appendChild(hint);
+            half.appendChild(stage);
+        }
+
+        const opts = document.createElement('div');
+        opts.className = 'dh-opts';
+        const isTF = currentGame.type === 'true_false';
+        const list = isTF ? ['صح', 'خطأ'] : shuffleArray([...qData.options]);
+        if (isTF) opts.classList.add('tf');
+        const btns = [];
+        const verdict = document.createElement('div');
+        verdict.className = 'dh-verdict';
+        let answered = false;
+        const start = Date.now();
+
+        function finish(selected, btn) {
+            if (answered || !duel) return;
+            answered = true;
+            clearInterval(T.timer);
+            T.time += Math.min(Date.now() - start, DUEL_TIME);
+            const ok = selected === correctText;
+            opts.classList.add('locked');
+            masks.forEach(d => d.classList.add('revealed'));
+            btns.forEach(b => { if (b.dataset.v === correctText) b.classList.add('ok'); });
+            if (ok) { T.score++; }
+            else {
+                if (btn) btn.classList.add('bad');
+                T.wrong.push({ question: qData.q, correct: correctText, selected: selected || 'انتهى الوقت!' });
+            }
+            head.querySelector('.dh-score').textContent = T.score;
+            half.classList.add(ok ? 'flash-ok' : 'flash-bad');
+            verdict.className = 'dh-verdict ' + (ok ? 'ok' : 'bad');
+            verdict.textContent = ok ? '✅ إجابة صحيحة! +1' : (selected ? '❌ إجابة خاطئة' : '⏰ انتهى الوقت!');
+            duelTone(ok);
+            if (!ok) { qBox.classList.remove('shake'); void qBox.offsetWidth; qBox.classList.add('shake'); }
+            setTimeout(() => { if (!duel || duel.teams[ti] !== T) return; T.idx++; renderDuelQ(ti); }, masks.length ? 1700 : 1200);
+        }
+
+        list.forEach(opt => {
+            const b = document.createElement('button');
+            b.className = 'btn';
+            if (isTF) b.classList.add(opt === 'صح' ? 'tf-true' : 'tf-false');
+            b.textContent = opt; b.dataset.v = opt;
+            b.onclick = () => finish(opt, b);
+            btns.push(b); opts.appendChild(b);
+        });
+        half.appendChild(opts);
+        half.appendChild(verdict);
+
+        clearInterval(T.timer);
+        T.timer = setInterval(() => {
+            if (answered) { clearInterval(T.timer); return; }
+            const left = Math.max(0, DUEL_TIME - (Date.now() - start));
+            bar.style.width = (left / DUEL_TIME * 100) + '%';
+            const s = Math.ceil(left / 1000);
+            sec.textContent = s;
+            const low = s <= 5;
+            bar.classList.toggle('low', low); sec.classList.toggle('low', low);
+            if (left <= 0) finish(null, null);
+        }, 100);
+    }
+    function duelTeamDone(ti, half) {
+        const T = duel.teams[ti];
+        T.done = true;
+        const box = document.createElement('div');
+        box.className = 'dh-wait';
+        box.innerHTML = '<div class="big">🏁</div><h3>أنهى ' + duelEsc(teamNames[ti]) + ' الأسئلة!</h3><p>النتيجة: ' + T.score + ' من ' + T.order.length + '</p>'
+            + '<p style="margin-top:6px;">⏳ في انتظار الفريق الآخر...</p>';
+        half.appendChild(box);
+        if (duel.teams.every(t => t.done) && !duel.finished) { duel.finished = true; setTimeout(showDuelResult, 700); }
+    }
+    function duelFmt(ms) { return (ms / 1000).toFixed(1) + ' ث'; }
+    function duelWinner() {
+        const [a, b] = duel.teams;
+        if (a.score !== b.score) return a.score > b.score ? 0 : 1;
+        if (Math.abs(a.time - b.time) >= 500) return a.time < b.time ? 0 : 1;
+        return -1;
+    }
+    function showDuelResult() {
+        if (!duel) return;
+        teamScores = [duel.teams[0].score, duel.teams[1].score];
+        const w = duelWinner();
+        const total = duel.teams[0].order.length;
+        let banner;
+        if (w === -1) banner = '🤝 تعادل! أداء رائع من الفريقين';
+        else banner = '🏆 الفائز: ' + duelEsc(teamNames[w]) + (teamScores[0] === teamScores[1] ? ' (الأسرع في الإجابة)' : '');
+        let reviews = '';
+        duel.teams.forEach((T, i) => {
+            reviews += '<div class="res-review t' + i + '"><h4>' + duelEsc(teamNames[i]) + ' — الأخطاء (' + T.wrong.length + ')</h4>';
+            if (!T.wrong.length) reviews += '<p class="perfect">أداء مثالي! لا توجد أخطاء 🌟</p>';
+            else {
+                reviews += '<ul>';
+                T.wrong.forEach((it, k) => {
+                    reviews += '<li><div class="rq">' + (k + 1) + '. ' + duelEsc(it.question) + '</div><div class="rs">إجابتهم: ' + duelEsc(it.selected) + '</div><div class="ra">الإجابة الصحيحة: ' + duelEsc(it.correct) + '</div></li>';
+                });
+                reviews += '</ul>';
+            }
+            reviews += '</div>';
+        });
+        const res = document.getElementById('duel-result');
+        res.innerHTML = '<div class="res-card">'
+            + '<h2 style="color: var(--primary); font-size: 2rem; font-weight: 900;">انتهت المنافسة!</h2>'
+            + '<div class="winner-box"><h3>' + banner + '</h3><div class="final-scores">'
+            + '<div>' + duelEsc(teamNames[0]) + ': ' + teamScores[0] + ' / ' + total + '<small>⏱️ ' + duelFmt(duel.teams[0].time) + '</small></div>'
+            + '<div>' + duelEsc(teamNames[1]) + ': ' + teamScores[1] + ' / ' + total + '<small>⏱️ ' + duelFmt(duel.teams[1].time) + '</small></div>'
+            + '</div></div>'
+            + '<div class="res-reviews">' + reviews + '</div>'
+            + '<div class="share-box"><h4>📲 أرسل نتيجة المنافسة إلى أ/ السيد صالح</h4><button class="btn btn-share" onclick="sendDuelResult()">إرسال النتيجة عبر واتساب</button></div>'
+            + '<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: 18px;">'
+            + '<button class="btn" style="padding:14px 26px;" onclick="beginDuel(pendingGame)">🔄 منافسة جديدة بأسئلة مختلفة</button>'
+            + '<button class="btn back-btn" style="padding:14px 26px;" onclick="exitDuel()">العودة للقائمة الرئيسية</button></div></div>';
+        res.classList.remove('hidden');
+        res.scrollTop = 0;
+        playCorrect(); setTimeout(playCorrect, 300);
+    }
+    function sendDuelResult() {
+        if (!duel) return;
+        const w = duelWinner();
+        const gameTitle = currentGame ? currentGame.title : '';
+        const total = duel.teams[0].order.length;
+        const res = w === -1 ? 'تعادل' : ('الفائز: ' + teamNames[w]);
+        const message = '🏆 نتيجة منافسة - ' + LESSON_NAME + '\n🎮 اللعبة: ' + gameTitle + '\n'
+            + '🔵 ' + teamNames[0] + ': ' + duel.teams[0].score + ' من ' + total + ' (⏱️ ' + duelFmt(duel.teams[0].time) + ')\n'
+            + '🟠 ' + teamNames[1] + ': ' + duel.teams[1].score + ' من ' + total + ' (⏱️ ' + duelFmt(duel.teams[1].time) + ')\n✅ ' + res;
+        window.open('https://wa.me/201001304451?text=' + encodeURIComponent(message), '_blank');
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>

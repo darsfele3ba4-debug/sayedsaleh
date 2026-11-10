@@ -1,0 +1,4503 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>درس بناء الدولة المصرية واستمرارها عبر التاريخ - البكالوريا المصرية - أ/ السيد صالح</title>
+    <!-- استدعاء خط احترافي -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;      
+            --primary-light: #2563eb; 
+            --secondary: #1e40af;    
+            --success: #10b981;      
+            --danger: #ef4444;       
+            --warning: #f59e0b;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #eef2ff;
+            background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        /* --- الهيدر الرئيسي --- */
+        .header-main {
+            background: linear-gradient(135deg, #0b1a3f, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #fde68a;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.4rem, 5.5vw, 2.6rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #fcd34d, #b45309);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #fffbeb; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* --- الأزرار --- */
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        /* --- الشاشة الرئيسية --- */
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(34, 197, 94, 0.25); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #fde68a, #fde68a);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #1e3a8a; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.4rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 1rem; color: #64748b; font-weight: 600;}
+
+        /* --- شاشة اللعب --- */
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #2563eb; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #1e40af;
+            line-height: 1.6;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        /* MCQ Style */
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1.1rem, 3.5vw, 1.4rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        /* True/False Style */
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        /* Bubbles Style */
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #0b1a3f, #1e3a8a);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #2563eb; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(224,231,255,0.9));
+            color: #1e3a8a;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.85rem, 2vw, 1.05rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        /* Shooting Style */
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23e0fbfc" width="100%" height="100%"/><circle fill="%23bae6fd" cx="20%" cy="30%" r="50"/><circle fill="%23bae6fd" cx="80%" cy="60%" r="70"/><circle fill="%23bae6fd" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #2563eb; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.15rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #fffbeb; }
+
+        /* Genius Challenge Style */
+        .genius-wrap {
+            background: linear-gradient(135deg, #0b1a3f, #1e3a8a, #b45309);
+            border-radius: 16px; padding: 20px; margin-top: 10px;
+            border: 4px solid #fcd34d; box-shadow: inset 0 0 25px rgba(0,0,0,0.4), 0 10px 20px rgba(21,128,61,0.35);
+        }
+        .genius-timer-track {
+            width: 100%; height: 14px; background: rgba(0,0,0,0.35);
+            border-radius: 10px; overflow: hidden; margin-bottom: 18px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .genius-timer-bar {
+            height: 100%; width: 100%;
+            background: linear-gradient(to right, #fcd34d, #2563eb, #ef4444);
+            border-radius: 10px;
+            transition: width 0.1s linear;
+        }
+        .genius-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 600px) { .genius-options { grid-template-columns: 1fr; } }
+        .genius-options .btn {
+            padding: 16px 10px; font-size: clamp(1rem, 3vw, 1.25rem);
+            background: linear-gradient(to bottom, #3b82f6, #b45309);
+            border-bottom: 3px solid #1e3a8a; border-radius: 14px; min-height: 70px;
+        }
+        .genius-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(74, 222, 128, 0.15); color: #fcd34d;
+            font-weight: 800; padding: 6px 16px; border-radius: 20px;
+            border: 1px solid rgba(253,224,71,0.4); margin-bottom: 12px; font-size: 0.95rem;
+        }
+
+        /* Result Share (WhatsApp) */
+        .share-box {
+            margin-top: 25px; background: #fffbeb; border: 2px solid #fde68a;
+            border-radius: 16px; padding: 20px; text-align: center;
+        }
+        .share-box h4 { color: #1e3a8a; font-size: 1.2rem; margin-bottom: 12px; font-weight: 800;}
+        .share-name-input {
+            width: 100%; max-width: 320px; padding: 12px 16px; border-radius: 12px;
+            border: 2px solid #fde047; font-size: 1.05rem; text-align: center;
+            font-family: 'Cairo', sans-serif; font-weight: 700; margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .share-name-input:focus { outline: none; border-color: #2563eb; }
+        .btn-share {
+            background: linear-gradient(to bottom, #25d366, #1da851);
+            border-bottom-color: #128c3e; display: inline-flex; gap: 10px;
+        }
+        .share-warning { color: var(--danger); font-weight: 700; font-size: 0.9rem; margin-top: 8px; display: none; }
+
+        /* Modal Overlay */
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        /* Summary Errors Scrolling */
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* الفوتر (Footer) */
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        /* WhatsApp */
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px;
+            background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100; transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        /* Confetti effect */
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+
+        /* Map Challenge Style */
+        .map-stage { text-align: center; margin-bottom: 18px; }
+        .map-wrap { position: relative; display: inline-block; max-width: 100%; border-radius: 14px; overflow: hidden;
+            border: 4px solid #2563eb; box-shadow: 0 10px 20px rgba(0,0,0,0.12); background: #fff; }
+        .map-wrap img { display: block; max-width: 100%; max-height: 58vh; width: auto; height: auto; margin: 0 auto; }
+        .map-mask { position: absolute; background: linear-gradient(135deg, #f59e0b, #ea580c); border: 2px solid #fff;
+            border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff;
+            font-weight: 900; font-size: clamp(0.9rem, 2.4vw, 1.4rem); box-shadow: 0 3px 8px rgba(0,0,0,0.35);
+            transition: opacity 0.5s ease; animation: maskPulse 1.6s ease-in-out infinite; }
+        .map-mask.revealed { opacity: 0; animation: none; }
+        @keyframes maskPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+        .map-stage.zoomed { overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
+        .map-stage.zoomed .map-wrap { max-width: none; }
+        .map-stage.zoomed .map-wrap img { max-width: none; max-height: none; width: min(1400px, 230vw); }
+        .map-wrap { cursor: zoom-in; }
+        .map-stage.zoomed .map-wrap { cursor: zoom-out; }
+        .map-hint { color: #b45309; font-weight: 700; font-size: 0.95rem; margin-top: 8px; }
+        .map-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 600px) { .map-options { grid-template-columns: 1fr; } }
+        .map-options .btn { padding: 14px 10px; font-size: clamp(1rem, 3vw, 1.2rem); min-height: 60px; }
+        .map-options .btn.ok { background: linear-gradient(to bottom, #10b981, #047857) !important; }
+        .map-options .btn.bad { background: linear-gradient(to bottom, #ef4444, #b91c1c) !important; }
+        .header-logo { width: 260px; height: 260px; border-radius: 30px; border: 4px solid var(--warning);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: contain; flex-shrink: 0; }
+        @media (max-width: 600px) { .header-logo { width: 170px; height: 170px; } }
+        .teacher-photo { width: 200px; height: 260px; border-radius: 30px; border: 4px solid var(--warning);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4); object-fit: cover; object-position: center top; flex-shrink: 0; background:#fff; }
+        .teacher-sub { color: #fde68a; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.2rem); margin: -8px 0 10px; }
+        @media (max-width: 600px) { .teacher-photo { width: 130px; height: 170px; } }
+
+        /* اختيار طريقة اللعب + المنافسة بين فريقين */
+        .mode-modal { background: white; border-radius: 24px; padding: 28px 22px; width: 460px; max-width: 92%;
+            text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.35); max-height: 92vh; overflow-y: auto; }
+        .mode-modal h2 { color: var(--primary); font-size: 1.5rem; font-weight: 900; margin-bottom: 4px; }
+        .mode-modal .mode-sub { color: #64748b; font-weight: 700; margin-bottom: 18px; }
+        .mode-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 480px) { .mode-choices { grid-template-columns: 1fr; } }
+        .mode-choice { border: 3px solid #fde68a; border-radius: 18px; padding: 18px 10px; cursor: pointer; background: #fffbeb;
+            transition: all .2s; font-weight: 800; color: var(--dark); }
+        .mode-choice:hover { transform: translateY(-3px); border-color: var(--primary-light); }
+        .mode-choice .mc-ico { font-size: 2.2rem; display: block; margin-bottom: 6px; }
+        .mode-choice small { display: block; color: #64748b; font-weight: 600; margin-top: 4px; font-size: .85rem; }
+        .team-setup { display: none; margin-top: 18px; text-align: right; }
+        .team-setup.show { display: block; }
+        .team-setup label { font-weight: 800; color: var(--primary); display: block; margin: 8px 0 4px; }
+        .team-setup input { width: 100%; padding: 11px 14px; border-radius: 12px; border: 2px solid #fde047; font-family: 'Cairo', sans-serif;
+            font-size: 1.05rem; font-weight: 700; text-align: center; }
+        .team-setup input:focus { outline: none; border-color: var(--primary-light); }
+        .mode-actions { display: flex; gap: 10px; margin-top: 16px; }
+        .mode-actions .btn { flex: 1; }
+        .mode-cancel { background: #e2e8f0 !important; color: var(--dark) !important; border-bottom-color: #cbd5e1 !important; }
+        .team-board { display: none; max-width: 900px; width: calc(100% - 40px); margin: -8px auto 16px; gap: 10px; }
+        .team-board.show { display: flex; }
+        .team-card { flex: 1; background: white; border-radius: 14px; padding: 8px 12px; display: flex; align-items: center;
+            justify-content: space-between; gap: 8px; border: 3px solid transparent; box-shadow: 0 4px 10px rgba(0,0,0,.06);
+            font-weight: 800; transition: all .25s; min-width: 0; }
+        .team-card .tname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .team-card .tscore { font-size: 1.4rem; font-weight: 900; min-width: 36px; text-align: center; border-radius: 10px; padding: 0 8px; color: white; }
+        .team-card.t0 .tscore { background: #2563eb; } .team-card.t1 .tscore { background: #ea580c; }
+        .team-card.active.t0 { border-color: #2563eb; transform: scale(1.03); background: #fffbeb; }
+        .team-card.active.t1 { border-color: #ea580c; transform: scale(1.03); background: #fff7ed; }
+        .team-card .turn-tag { font-size: .75rem; padding: 2px 8px; border-radius: 10px; background: #fef3c7; color: #92400e; display: none; }
+        .team-card.active .turn-tag { display: inline-block; }
+        .winner-box { border-radius: 20px; padding: 22px; margin: 18px 0; color: white; background: linear-gradient(135deg, #f59e0b, #ea580c); }
+        .winner-box h3 { font-size: 1.8rem; font-weight: 900; }
+        .final-scores { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+        .final-scores div { background: rgba(255,255,255,.2); border-radius: 14px; padding: 8px 18px; font-weight: 800; font-size: 1.15rem; }
+
+        /* ===== منافسة الفريقين: شاشة مقسومة ===== */
+        body.duel-on { overflow: hidden; }
+        .duel-screen { position: fixed; inset: 0; z-index: 500; display: flex; flex-direction: column;
+            background-color: #eef2ff; background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px); background-size: 25px 25px; }
+        .duel-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: white;
+            padding: 8px 14px; box-shadow: 0 4px 12px rgba(0,0,0,.06); font-weight: 800; flex-shrink: 0; }
+        .duel-top strong { color: var(--primary); font-size: clamp(.95rem, 2.6vw, 1.2rem); text-align: center; flex: 1;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .duel-top .back-btn { padding: 6px 14px; font-size: 1rem; }
+        .duel-top .duel-tag { background: #fef3c7; color: #92400e; border-radius: 20px; padding: 4px 12px; font-size: .85rem; white-space: nowrap; }
+        .duel-halves { flex: 1; display: flex; min-height: 0; }
+        .duel-half { flex: 1; min-width: 0; min-height: 0; overflow-y: auto; padding: 10px 12px 16px; display: flex;
+            flex-direction: column; gap: 10px; position: relative; transition: background .3s; }
+        .duel-half.t0 { background: rgba(13,148,136,.06); }
+        .duel-half.t1 { background: rgba(234,88,12,.06); }
+        .duel-half.flash-ok { background: rgba(16,185,129,.22); }
+        .duel-half.flash-bad { background: rgba(239,68,68,.20); }
+        .duel-divider { width: 6px; flex-shrink: 0; background: linear-gradient(to bottom, #2563eb, #f59e0b, #ea580c); position: relative; }
+        .duel-divider span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--dark); color: #fde68a;
+            font-weight: 900; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+            border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,.3); font-size: .95rem; z-index: 2; }
+        .dh-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: white; border-radius: 14px;
+            padding: 8px 12px; box-shadow: 0 4px 10px rgba(0,0,0,.06); border: 3px solid transparent; font-weight: 800; }
+        .t0 .dh-head { border-color: #2563eb; } .t1 .dh-head { border-color: #ea580c; }
+        .dh-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: clamp(.95rem, 2.4vw, 1.2rem); }
+        .t0 .dh-name { color: #b45309; } .t1 .dh-name { color: #c2410c; }
+        .dh-meta { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+        .dh-prog { background: #f1f5f9; color: #475569; border-radius: 10px; padding: 2px 8px; font-size: .85rem; }
+        .dh-score { color: white; border-radius: 10px; padding: 0 10px; font-size: 1.3rem; font-weight: 900; min-width: 38px; text-align: center; }
+        .t0 .dh-score { background: #2563eb; } .t1 .dh-score { background: #ea580c; }
+        .dh-timer { display: flex; align-items: center; gap: 8px; }
+        .dh-track { flex: 1; height: 12px; background: rgba(0,0,0,.12); border-radius: 10px; overflow: hidden; }
+        .dh-bar { height: 100%; width: 100%; border-radius: 10px; background: linear-gradient(to right, #10b981, #f59e0b); transition: width .1s linear; }
+        .dh-bar.low { background: linear-gradient(to right, #f97316, #ef4444); }
+        .dh-sec { font-weight: 900; min-width: 44px; text-align: center; background: var(--dark); color: white; border-radius: 10px; padding: 1px 6px; font-size: 1rem; }
+        .dh-sec.low { background: var(--danger); animation: maskPulse .8s ease-in-out infinite; }
+        .duel-half .question-box { margin-bottom: 0; padding: 14px 16px; font-size: clamp(1.05rem, 2.5vw, 1.45rem); line-height: 1.55; }
+        .t1 .question-box { border-right-color: #ea580c; }
+        .dh-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .dh-opts .btn { padding: 12px 10px; font-size: clamp(.95rem, 2.2vw, 1.2rem); min-height: 56px; text-align: center; line-height: 1.4; }
+        .t1 .dh-opts .btn { background: linear-gradient(to bottom, #f97316, #c2410c); border-bottom-color: #9a3412; }
+        .dh-opts .btn.ok { background: linear-gradient(to bottom, #10b981, #047857) !important; filter: none; }
+        .dh-opts .btn.bad { background: linear-gradient(to bottom, #ef4444, #b91c1c) !important; filter: none; }
+        .dh-opts.tf .btn { font-size: clamp(1.3rem, 3.4vw, 1.9rem); min-height: 80px; }
+        .dh-opts.tf .btn.tf-true { background: linear-gradient(to bottom, #10b981, #1e40af); border-bottom-color: #047857; }
+        .dh-opts.tf .btn.tf-false { background: linear-gradient(to bottom, #ef4444, #dc2626); border-bottom-color: #b91c1c; }
+        .dh-opts.locked .btn { pointer-events: none; }
+        .duel-half .map-stage { margin-bottom: 0; }
+        .duel-half .map-wrap img { max-height: 30vh; }
+        .duel-half .map-stage.zoomed .map-wrap img { width: min(1100px, 160vw); }
+        .duel-half .map-hint { font-size: .85rem; }
+        .dh-verdict { text-align: center; font-weight: 900; font-size: clamp(1rem, 2.6vw, 1.3rem); min-height: 1.6em; }
+        .dh-verdict.ok { color: var(--success); } .dh-verdict.bad { color: var(--danger); }
+        .dh-wait { margin: auto 0; background: white; border-radius: 18px; padding: 24px 16px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+        .dh-wait .big { font-size: 2.6rem; }
+        .dh-wait h3 { color: var(--primary); font-size: 1.35rem; font-weight: 900; margin: 6px 0; }
+        .dh-wait p { color: #64748b; font-weight: 700; }
+        .duel-result { position: absolute; inset: 0; z-index: 5; overflow-y: auto; padding: 16px;
+            background-color: #eef2ff; background-image: radial-gradient(#c7d2fe 1.5px, transparent 1.5px); background-size: 25px 25px; }
+        .duel-result .res-card { max-width: 980px; margin: 0 auto; background: white; border-radius: 20px; padding: 24px 16px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,.1); }
+        .duel-result .final-scores div small { display: block; font-size: .85rem; opacity: .9; }
+        .res-reviews { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; text-align: right; }
+        .res-review { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 15px; padding: 12px; max-height: 320px; overflow-y: auto; }
+        .res-review h4 { text-align: center; margin-bottom: 10px; font-size: 1.1rem; }
+        .res-review.t0 h4 { color: #b45309; } .res-review.t1 h4 { color: #c2410c; }
+        .res-review ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+        .res-review li { background: white; padding: 10px; border-radius: 10px; border-right: 5px solid var(--danger); font-size: .95rem; }
+        .res-review li .rq { font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+        .res-review li .ra { color: var(--success); font-weight: 800; }
+        .res-review li .rs { color: #64748b; }
+        .res-review .perfect { color: var(--success); font-weight: 800; text-align: center; }
+        @media (max-width: 760px), (orientation: portrait) and (max-width: 1024px) {
+            .duel-halves { flex-direction: column; }
+            .duel-divider { width: auto; height: 6px; background: linear-gradient(to right, #2563eb, #f59e0b, #ea580c); }
+            .duel-divider span { width: 38px; height: 38px; font-size: .8rem; }
+            .duel-half { padding: 8px 10px 10px; gap: 8px; }
+            .duel-half .map-wrap img { max-height: 15vh; }
+            .duel-half .map-hint { display: none; }
+            .duel-half .question-box { padding: 10px 12px; font-size: clamp(.95rem, 4.2vw, 1.2rem); line-height: 1.45; }
+            .dh-opts .btn { min-height: 46px; padding: 8px 8px; }
+            .dh-opts.tf .btn { min-height: 60px; }
+        }
+        @media (max-width: 420px) { .dh-opts { gap: 7px; } .dh-opts .btn { min-height: 44px; padding: 7px 6px; font-size: .92rem; } }
+        @media (max-width: 640px) { .res-reviews { grid-template-columns: 1fr; } .duel-top .duel-tag { display: none; } }
+    </style>
+</head>
+<body>
+<style>
+#lock-screen { position: fixed; inset: 0; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 18px;
+  background: linear-gradient(135deg,#0b1a3f,#1e3a8a,#1e40af); }
+#lock-screen .lk { background: #fff; border-radius: 24px; padding: 26px 20px; width: 400px; max-width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,.45); border-top: 6px solid #f59e0b; }
+#lock-screen img { width: 120px; height: 120px; object-fit: contain; margin-bottom: 8px; }
+#lock-screen h2 { color: #1e3a8a; font-size: 1.3rem; font-weight: 900; margin-bottom: 4px; }
+#lock-screen .lt { color: #475569; font-weight: 700; font-size: .95rem; margin-bottom: 14px; line-height: 1.6; }
+#lock-screen input { width: 100%; font-size: 1.5rem; text-align: center; letter-spacing: 6px; padding: 12px; border: 2px solid #cbd5e1; border-radius: 14px; outline: none; direction: ltr; }
+#lock-screen input:focus { border-color: #2563eb; }
+#lock-screen button { margin-top: 12px; width: 100%; padding: 13px; font-size: 1.15rem; font-weight: 800; color: #fff; border: none; border-radius: 14px; cursor: pointer;
+  background: linear-gradient(to bottom,#2563eb,#1e3a8a); }
+#lock-screen .le { color: #dc2626; font-weight: 800; margin-top: 10px; min-height: 1.4em; }
+#lock-screen .lc { color: #64748b; font-size: .85rem; margin-top: 6px; }
+#lock-screen .lc a { color: #16a34a; font-weight: 800; text-decoration: none; }
+</style>
+<div id="lock-screen">
+  <div class="lk">
+    <img src="logo.png" alt="سلسلة الموسوعة">
+    <h2>🔒 هذا الدرس محمي بكلمة مرور</h2>
+    <div class="lt">بناء الدولة المصرية واستمرارها عبر التاريخ<br>اكتب كلمة المرور التي أعطاها لك أ/ السيد صالح</div>
+    <input id="lock-pass" type="password" inputmode="numeric" autocomplete="off" placeholder="••••••">
+    <button type="button" onclick="tryUnlock()">دخول الدرس</button>
+    <div class="le" id="lock-err"></div>
+    <div class="lc">ليس معك كلمة المرور؟ <a href="https://wa.me/201001304451" target="_blank" rel="noopener">تواصل مع الأستاذ</a></div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'sayedsaleh_lock_bac-unit1-lesson1-state-building', H = '5005577398543860', SALT = 'sayedsaleh|bac-unit1-lesson1-state-building|';
+  function cyrb53(str, seed) { seed = seed || 0; var h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+    for (var i = 0, ch; i < str.length; i++) { ch = str.charCodeAt(i); h1 = Math.imul(h1 ^ ch, 2654435761); h2 = Math.imul(h2 ^ ch, 1597334677); }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    return String(4294967296 * (2097151 & h2) + (h1 >>> 0)); }
+  function open() { var el = document.getElementById('lock-screen'); if (el) el.remove(); document.body.style.overflow = ''; }
+  document.getElementById('lock-pass').addEventListener('keydown', function(e) { if (e.key === 'Enter') tryUnlock(); });
+  var saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+  if (saved === H) { open(); } else { document.body.style.overflow = 'hidden'; }
+  window.tryUnlock = function() {
+    var inp = document.getElementById('lock-pass'), v = (inp.value || '').trim()
+      .replace(/[٠-٩]/g, function(d) { return '٠١٢٣٤٥٦٧٨٩'.indexOf(d); });
+    if (cyrb53(SALT + v) === H) { try { localStorage.setItem(KEY, H); } catch (e) {} open(); }
+    else { document.getElementById('lock-err').textContent = '❌ كلمة المرور غير صحيحة'; inp.value = ''; inp.focus(); }
+  };
+})();
+</script>
+
+
+    <!-- الهيدر مع اللوجو -->
+    <header class="header-main" id="main-header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <!-- اللوجو (على اليمين) -->
+                <img src="logo.png" alt="أ/ السيد صالح - سلسلة الموسوعة" class="header-logo">
+                
+                <!-- النصوص -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">
+                        درس 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fcd34d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        لعبة
+                    </h1>
+                    <h1 class="title-line2">مع أ/ السَّيِّد صَالِح</h1>
+                    <div class="teacher-sub">كبير معلمين • سلسلة الموسوعة</div>
+                    <h2>البَكَالُورْيَا المِصْرِيَّةُ - الصَّفُّ الثَّانِي - الوَحْدَةُ الأُولَى - الدَّرْسُ الأَوَّلُ: بِنَاءُ الدَّوْلَةِ المِصْرِيَّةِ وَاسْتِمْرَارُهَا عَبْرَ التَّارِيخِ</h2>
+                    <p style="margin-top: 10px;">التَّارِيخُ الوَطَنِيُّ • أَسْئِلَةُ مُسْتَوَيَاتٍ عُلْيَا</p>
+                </div>
+                <img src="teacher.jpg" alt="أ/ السيد صالح" class="teacher-photo">
+            </div>
+        </div>
+        <!-- تموجات زخرفية -->
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#eef2ff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </header>
+
+    <!-- الشاشة الرئيسية -->
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid">
+            <!-- سيتم حقن البطاقات هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- شاشة اللعب -->
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 25</span>
+        </div>
+        <div class="team-board" id="team-board">
+            <div class="team-card t0" id="team-card-0"><span class="tname" id="team-name-0">الفريق الأول</span><span class="turn-tag">دوره الآن</span><span class="tscore" id="team-score-0">0</span></div>
+            <div class="team-card t1" id="team-card-1"><span class="tname" id="team-name-1">الفريق الثاني</span><span class="turn-tag">دوره الآن</span><span class="tscore" id="team-score-1">0</span></div>
+        </div>
+        <div class="game-container" id="game-container">
+            <!-- سيتم حقن الأسئلة هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- نافذة الملاحظات السريعة -->
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+
+
+    <!-- نافذة اختيار طريقة اللعب -->
+    <div class="overlay" id="mode-overlay">
+        <div class="mode-modal">
+            <h2 id="mode-game-title">اختر طريقة اللعب</h2>
+            <div class="mode-sub">في كل مرة تظهر ٢٠ سؤالًا مختلفة بشكل عشوائي</div>
+            <div class="mode-choices">
+                <div class="mode-choice" onclick="chooseSolo()"><span class="mc-ico">👤</span>لعب فردي<small>العب وحدك واعرف نتيجتك</small></div>
+                <div class="mode-choice" onclick="chooseTeams()"><span class="mc-ico">🏆</span>منافسة بين فريقين<small>شاشة مقسومة • ٣٠ ثانية للسؤال • ترتيب مختلف لكل فريق</small></div>
+            </div>
+            <div class="team-setup" id="team-setup">
+                <label for="team-a">اسم الفريق الأول</label>
+                <input id="team-a" type="text" maxlength="25" value="الفريق الأول">
+                <label for="team-b">اسم الفريق الثاني</label>
+                <input id="team-b" type="text" maxlength="25" value="الفريق الثاني">
+                <div class="mode-actions">
+                    <button class="btn" onclick="startTeams()">🚀 ابدأ المنافسة</button>
+                </div>
+            </div>
+            <div class="mode-actions"><button class="btn mode-cancel" onclick="closeModePicker()">إلغاء</button></div>
+        </div>
+    </div>
+
+
+    <!-- شاشة منافسة الفريقين (مقسومة) -->
+    <div id="duel-screen" class="duel-screen hidden">
+        <div class="duel-top">
+            <button class="btn back-btn" onclick="exitDuel()">رجوع</button>
+            <strong id="duel-title">منافسة بين فريقين</strong>
+            <span class="duel-tag">⏱️ ٣٠ ثانية لكل سؤال</span>
+        </div>
+        <div class="duel-halves">
+            <section class="duel-half t0" id="duel-half-0"></section>
+            <div class="duel-divider"><span>VS</span></div>
+            <section class="duel-half t1" id="duel-half-1"></section>
+        </div>
+        <div id="duel-result" class="duel-result hidden"></div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | دروس وألعاب تعليمية</p>
+        <p class="designer">أ/ السَّيِّد صَالِح - كبير معلمين - 01001304451</p>
+    </footer>
+
+    <!-- زر الواتساب -->
+    <a href="https://wa.me/201001304451" class="whatsapp-float" target="_blank" title="تواصل معنا">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/>
+        </svg>
+    </a>
+
+<script>
+    const LESSON_NAME = "التاريخ الوطني: بناء الدولة المصرية واستمرارها عبر التاريخ - البكالوريا المصرية (الصف الثاني)";
+    const allGamesData = [
+    {
+        "id": "mcq_1",
+        "title": "اختيار من متعدد",
+        "type": "mcq",
+        "desc": "أسئلة اختيار من متعدد بمستويات عليا حول بناء الدولة المصرية واستمرارها عبر التاريخ",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"></polygon><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07\"></path></svg>",
+        "questions": [
+            {
+                "q": "قيام طائرة أجنبية باختراق المجال الجوي المصري دون تصريح يُعد اعتداءً مباشرًا على ركني:",
+                "options": [
+                    "الشعب والسلطة",
+                    "السلطة والشعب فقط",
+                    "الشعب والحيز الجغرافي",
+                    "الحيز الجغرافي والسيادة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "إذا امتلكت جماعة بشرية أرضًا محددة وسلطة منظمة لكنها تخضع في قراراتها لإرادة دولة أخرى، فإنها تفتقد ركن:",
+                "options": [
+                    "الحيز الجغرافي",
+                    "الشعب",
+                    "السيادة",
+                    "السلطة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "نصت المادة الرابعة من الدستور المصري على أن السيادة للشعب وحده، ويُستنتج من ذلك أن الشعب:",
+                "options": [
+                    "مصدر السلطات يمارس السيادة ويحميها",
+                    "يتولى بنفسه إصدار الأحكام القضائية",
+                    "يخضع للسلطة دون رقابة عليها",
+                    "يمارس السلطة التنفيذية مباشرة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "يتضح من دراسة نشأة الدولة المصرية أن العامل الحاسم في التحول من تجمعات سكانية إلى دولة هو:",
+                "options": [
+                    "زيادة عدد السكان",
+                    "وجود سلطة مركزية",
+                    "الموقع الجغرافي",
+                    "وجود جيش قوي"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "يمكن تفسير العلاقة بين التجانس السكاني والاستقرار السياسي في مصر عبر تاريخها بأن التجانس:",
+                "options": [
+                    "يحقق النهضة العمرانية وحده",
+                    "يؤدي إلى زيادة السكان",
+                    "يمنع الغزو الخارجي تمامًا",
+                    "يقلل من الصراعات الداخلية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "يمكن استنتاج أن الدولة التي غابت عنها سيادتها:",
+                "options": [
+                    "ينقص عدد سكانها بشكل ملحوظ",
+                    "تفقد قدرتها على اتخاذ القرار",
+                    "لا تمتلك موقعًا جغرافيًا متميزًا",
+                    "تنقص لديها الموارد الطبيعية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "وصف جمال حمدان مصر بأنها «دولة برزخ» إشارة إلى:",
+                "options": [
+                    "اعتمادها الكامل على نهر النيل",
+                    "صغر مساحتها المأهولة بالسكان",
+                    "انعزالها خلف حدود صحراوية",
+                    "موقعها الوسيط الذي يربط بين القارات والبحار"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "وفقًا لجمال حمدان، فإن تاريخ مصر وكيانها لا يمكن فهمهما بشكل صحيح إلا في إطار:",
+                "options": [
+                    "الحروب الخارجية",
+                    "الموقع الجغرافي",
+                    "التجارة البحرية وحدها",
+                    "النظم الدينية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تحوَّل المصري القديم من «جامع للثمار» إلى «مزارع مستقر» بفضل:",
+                "options": [
+                    "البحر المتوسط",
+                    "الثروة المعدنية",
+                    "الحدود الصحراوية",
+                    "نهر النيل"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "الربط الصحيح بين النيل ونشأة السلطة المركزية في مصر القديمة أن النيل:",
+                "options": [
+                    "قلل الحاجة إلى العمل الجماعي",
+                    "عزل مصر عن العالم الخارجي",
+                    "جعل كل إقليم مستقلًا بموارده",
+                    "تطلب تنظيمًا للري وتوزيعًا للمياه يحتاج سلطة قوية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من الأدوار السياسية والإدارية التي أدتها السلطة المركزية في مصر القديمة ارتباطًا بالنيل:",
+                "options": [
+                    "منع إقامة السدود على النهر",
+                    "إلغاء العمل الجماعي في الزراعة",
+                    "فرض ثقافة الأجانب على المصريين",
+                    "حل النزاعات بين الأقاليم حول توزيع المياه"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تعهد المصري القديم في كتاب الموتى بأنه «لم يُقم سدًّا أمام الماء المتدفق»، ويدل ذلك على:",
+                "options": [
+                    "عدم معرفته بأعمال الري",
+                    "قدسية النيل والحفاظ على مياهه",
+                    "اعتماده على مياه الأمطار",
+                    "رفضه الزراعة المستقرة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "كان الأساس الحقيقي لظهور الدولة المصرية:",
+                "options": [
+                    "انتشار اللغة العربية",
+                    "رسم الحدود الغربية عام ١٩٢٥م",
+                    "قيام حكومة مركزية بعد توحيد القطرين",
+                    "ظهور الكتابة القبطية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "تم توحيد القطرين على يد الملك:",
+                "options": [
+                    "أحمس",
+                    "خوفو",
+                    "زوسر",
+                    "مينا (نعرمر)"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "رُسمت الحدود المصرية الجنوبية عند دائرة عرض ٢٢° شمالًا لتفصل مصر عن السودان عام:",
+                "options": [
+                    "١٩٢٥م",
+                    "١٨٨٢م",
+                    "١٨٩٩م",
+                    "١٩٠٦م"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "رُسم خط الحدود البرية بين مصر وفلسطين عام:",
+                "options": [
+                    "١٩١٩م",
+                    "١٩٠٦م",
+                    "١٩٢٥م",
+                    "١٨٩٩م"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تمثل الحدود السياسية بين مصر وليبيا خط طول ٢٥° شرقًا، وقد رُسمت عام:",
+                "options": [
+                    "١٩٥٢م",
+                    "١٨٩٩م",
+                    "١٩٠٦م",
+                    "١٩٢٥م"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تمتد المياه الإقليمية للدولة عادةً لمسافة:",
+                "options": [
+                    "٢٥ ميلًا بحريًا من خط الأساس",
+                    "٦ أميال بحرية فقط",
+                    "١٢ ميلًا بحريًا من خط الأساس",
+                    "٢٢ ميلًا بحريًا من الساحل"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "حرصت الدولة المصرية على تعيين حدودها البحرية بشكل دقيق في البحر المتوسط بهدف:",
+                "options": [
+                    "تقليل مساحة اليابس",
+                    "التخلي عن المجال الجوي",
+                    "الحفاظ على ثرواتها المختلفة في مياهها الإقليمية",
+                    "إغلاق الملاحة أمام السفن"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "المساحة الرأسية التي تعلو اليابس والمياه الإقليمية للدولة وتمارس عليها سيادتها هي:",
+                "options": [
+                    "المجال الجوي",
+                    "المنطقة الاقتصادية",
+                    "الحدود السياسية",
+                    "المياه الإقليمية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "مسئولية الدولة عن حماية قناة السويس ومراقبة السفن العابرة للتأكد من سلامة الملاحة تعبر عن:",
+                "options": [
+                    "استقلال السلطة القضائية",
+                    "دور الشعب في التنمية الاقتصادية",
+                    "ممارسة السيادة على الحيز الجغرافي",
+                    "التجانس البشري"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "وفقًا للمادة (١٠١) من الدستور، فإن الرقابة على أعمال السلطة التنفيذية من اختصاص:",
+                "options": [
+                    "رئيس مجلس الوزراء",
+                    "رئيس الجمهورية",
+                    "المحاكم",
+                    "مجلس النواب"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "إقرار الموازنة العامة للدولة والخطة العامة للتنمية الاقتصادية والاجتماعية من اختصاص:",
+                "options": [
+                    "السلطة القضائية",
+                    "المنظمات الدولية",
+                    "السلطة التشريعية",
+                    "السلطة التنفيذية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "نصت المادة (١٣٩) على أن رئيس الجمهورية هو رئيس الدولة ورئيس:",
+                "options": [
+                    "مجلس النواب",
+                    "السلطة التنفيذية",
+                    "السلطة التشريعية",
+                    "السلطة القضائية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "الهيئة التنفيذية والإدارية العليا للدولة وفق المادة (١٦٣) من الدستور هي:",
+                "options": [
+                    "مجلس النواب",
+                    "المحاكم",
+                    "رئاسة الجمهورية وحدها",
+                    "الحكومة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "تتولى السلطة القضائية المحاكم على اختلاف أنواعها ودرجاتها، وتتميز وفق المادة (١٨٤) بأنها:",
+                "options": [
+                    "تصدر القوانين وتقر الموازنة",
+                    "تابعة للسلطة التنفيذية",
+                    "مستقلة وتصدر أحكامها وفقًا للقانون",
+                    "يرأسها رئيس مجلس الوزراء"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "لو تعطلت مؤسسة القضاء لمدة أسبوع، فإن أكثر ما سيتأثر مباشرة هو:",
+                "options": [
+                    "التجانس الثقافي للشعب",
+                    "مساحة الحيز الجغرافي",
+                    "الموقع الجغرافي للدولة",
+                    "حماية حقوق المواطنين وتحقيق النظام"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "كل مما يلي من أهمية السلطة للدولة عدا:",
+                "options": [
+                    "تمكين الدولة من ممارسة سيادتها",
+                    "رسم الحدود الطبيعية للدولة",
+                    "الحفاظ على النظام والقانون",
+                    "حماية حقوق المواطنين"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "حرية الدولة في سن القوانين وحفظ الأمن دون ضغوط خارجية تُعرف بـ:",
+                "options": [
+                    "السيادة على الشئون الداخلية",
+                    "الحيز الجغرافي",
+                    "السيادة على الشئون الخارجية",
+                    "المشاركة السياسية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "إبرام مصر للمعاهدات وتمثيلها في المنظمات الدولية يعبر عن:",
+                "options": [
+                    "السيادة على الشئون الخارجية",
+                    "اختصاص السلطة القضائية",
+                    "السيادة على الشئون الداخلية",
+                    "التجانس البشري"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "دفع المواطنين للضرائب التي تمول المشروعات العامة يُعد صورة من صور دور الشعب في:",
+                "options": [
+                    "المشاركة السياسية",
+                    "تحقيق التنمية الاقتصادية",
+                    "الدفاع عن الوطن",
+                    "الحفاظ على الهوية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "مراقبة الشعب لأداء الحكومة من خلال ممثليه في مجلس النواب صورة من صور:",
+                "options": [
+                    "الحفاظ على التراث",
+                    "دعم الأمن والاستقرار",
+                    "دعم التنمية الاقتصادية",
+                    "المشاركة السياسية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "مساندة القوات المسلحة معنويًا والمشاركة في الأعمال التطوعية وقت الكوارث من صور دور الشعب في:",
+                "options": [
+                    "الحفاظ على الهوية",
+                    "التنمية الاقتصادية",
+                    "الدفاع عن الوطن",
+                    "المشاركة السياسية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "الدرس المستفاد من ثورة ١٩١٩م فيما يخص ركن الشعب هو أن الشعوب:",
+                "options": [
+                    "قادرة على التغيير عندما تتحد حول قضية وطنية",
+                    "لا تؤثر في قرارات المحتل",
+                    "تتفرق وقت الأزمات",
+                    "تحتاج دائمًا إلى قيادة أجنبية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "قاد ثورة ١٩١٩م ضد الاحتلال البريطاني الزعيم:",
+                "options": [
+                    "أحمد عرابي",
+                    "مصطفى كامل",
+                    "محمد فريد",
+                    "سعد زغلول"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "من نتائج المشاركة الشعبية الواسعة في ثورة ١٩١٩م:",
+                "options": [
+                    "انتهاء الاحتلال البريطاني فورًا",
+                    "تقسيم مصر إلى أقاليم",
+                    "انفصال السودان عن مصر",
+                    "إجبار سلطات الاحتلال على إعادة النظر في سياساتها"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ساعد التجانس البشري في مصر على:",
+                "options": [
+                    "تعدد الكيانات السياسية",
+                    "ذوبان الهوية المصرية",
+                    "صعوبة قيام دولة موحدة",
+                    "عدم تأثر المصريين بثقافة المحتل"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "جعل التجانس البشري «الوحدة السياسية» في مصر:",
+                "options": [
+                    "أمرًا مستحيلًا",
+                    "أمرًا طبيعيًا",
+                    "مرتبطًا بالاحتلال",
+                    "مؤقتًا"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تحدث المصريون اللغة القبطية فترة:",
+                "options": [
+                    "الدولة القديمة",
+                    "الحكم الفارسي",
+                    "الحكم الروماني بعد انتشار المسيحية",
+                    "العصر الحديث"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "تتمثل مرتكزات الهوية الوطنية في:",
+                "options": [
+                    "الجيش والحدود والموارد",
+                    "الدين واللغة والتاريخ",
+                    "الاقتصاد والسكان والتجارة",
+                    "الموقع والمناخ والنيل"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تتمثل عقيدة الجيش المصري في أنه:",
+                "options": [
+                    "يتدخل في الشئون الداخلية للدول",
+                    "يتوسع على حساب جيرانه",
+                    "يعتمد على المرتزقة",
+                    "يبني ويحمي ويحافظ على الأرض ولا يعتدي"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "احتاجت مصر إلى وجود جيش بعد توحيدها على يد الملك مينا من أجل:",
+                "options": [
+                    "فرض الضرائب على الأقاليم",
+                    "تنظيم الري فقط",
+                    "حماية حدود الدولة الموحدة وصون استقرارها",
+                    "غزو الدول المجاورة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "دار الأوبرا المصرية وقصور الثقافة من إجراءات الدولة للحفاظ على الهوية في مجال:",
+                "options": [
+                    "التمثيل الدولي",
+                    "التنمية الزراعية",
+                    "دعم الثقافة والفنون",
+                    "حماية الحدود"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "حماية الحدود الطبيعية لقلب الدولة (الوادي والدلتا) ساهم في:",
+                "options": [
+                    "استقرار المجتمع والتركيز على الزراعة والعمران",
+                    "تراجع النشاط التجاري",
+                    "انعزال مصر حضاريًا",
+                    "كثرة الصراعات الداخلية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "الدولة التي تفقد أحد أركانها تصبح مهددة بالانهيار؛ لأن أركان الدولة:",
+                "options": [
+                    "مستقلة لا يؤثر بعضها في بعض",
+                    "مترابطة إذا اختل أحدها تأثر الكيان بأكمله",
+                    "يمكن تعويض أي ركن بركن آخر",
+                    "تتغير كل فترة زمنية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "التعريف الأدق للدولة أنها:",
+                "options": [
+                    "سلطة حاكمة دون حدود معروفة",
+                    "تجمع سكاني يعيش على ضفاف نهر",
+                    "وحدة سياسية تشغل حيزًا محددًا ويقيم بها شعب تديره سلطة ذات سيادة",
+                    "إقليم جغرافي غني بالموارد"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "وصف المادة الأولى من الدستور مصر بأنها «موحدة لا تقبل التجزئة ولا ينزل عن شيء منها» يؤكد ركن:",
+                "options": [
+                    "الحيز الجغرافي",
+                    "التجانس الثقافي",
+                    "السلطة القضائية",
+                    "المشاركة السياسية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وفق المادة الأولى من الدستور، فإن نظام مصر جمهوري ديمقراطي يقوم على أساس:",
+                "options": [
+                    "الانتماء القبلي",
+                    "الوراثة والقوة العسكرية",
+                    "التبعية الخارجية",
+                    "المواطنة وسيادة القانون"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "يشمل الشعب جميع المواطنين:",
+                "options": [
+                    "المقيمين داخل الدولة أو خارجها ممن يحملون الجنسية المصرية",
+                    "الموجودين على أرض مصر من أي جنسية",
+                    "العاملين في مؤسسات الدولة فقط",
+                    "المقيمين داخل الحدود فقط"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وقوع مصر في قلب قارات العالم القديم جعلها:",
+                "options": [
+                    "ساحة صراع دائم دون حضارة",
+                    "دولة صحراوية فقيرة",
+                    "مركزًا للتواصل الحضاري والتبادل التجاري",
+                    "معزولة عن الحضارات"
+                ],
+                "ans": 2
+            }
+        ]
+    },
+    {
+        "id": "bubbles_2",
+        "title": "الفقاعات المتساقطة",
+        "type": "bubbles",
+        "desc": "التقط الفقاعة ذات الإجابة الصحيحة في بناء الدولة المصرية واستمرارها عبر التاريخ",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path><path d=\"M22 12A10 10 0 0 0 12 2v10z\"></path></svg>",
+        "questions": [
+            {
+                "q": "ركن ينتهكه اختراق طائرة أجنبية للأجواء؟",
+                "options": [
+                    "السلطة",
+                    "السيادة",
+                    "الشعب",
+                    "الهوية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "العامل الحاسم في تحول التجمعات إلى دولة؟",
+                "options": [
+                    "التجارة",
+                    "زيادة السكان",
+                    "سلطة مركزية",
+                    "جيش قوي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "مصدر السلطات وفق المادة الرابعة؟",
+                "options": [
+                    "القضاء",
+                    "الحكومة",
+                    "الشعب",
+                    "البرلمان"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "من يقر الموازنة العامة للدولة؟",
+                "options": [
+                    "الحكومة",
+                    "مجلس النواب",
+                    "المحاكم",
+                    "المحافظون"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "رئيس السلطة التنفيذية؟",
+                "options": [
+                    "رئيس المحكمة",
+                    "رئيس البرلمان",
+                    "وزير العدل",
+                    "رئيس الجمهورية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "الهيئة التنفيذية والإدارية العليا؟",
+                "options": [
+                    "الحكومة",
+                    "مجلس النواب",
+                    "الأحزاب",
+                    "المحاكم"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "سلطة مستقلة تصدر أحكامها وفق القانون؟",
+                "options": [
+                    "التشريعية",
+                    "المحلية",
+                    "القضائية",
+                    "التنفيذية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "حد مصر الجنوبي؟",
+                "options": [
+                    "دائرة عرض ٢٢°",
+                    "خط طول ٢٥°",
+                    "خط طول ٣٥°",
+                    "دائرة عرض ٣١°"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "حد مصر الغربي مع ليبيا؟",
+                "options": [
+                    "خط طول ٢٥° ش",
+                    "خط طول ٣٢° ش",
+                    "دائرة عرض ٣٠°",
+                    "دائرة عرض ٢٢°"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "عام رسم الحدود مع السودان؟",
+                "options": [
+                    "١٨٨٢م",
+                    "١٩٢٥م",
+                    "١٨٩٩م",
+                    "١٩٠٦م"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "عام رسم الحدود مع فلسطين؟",
+                "options": [
+                    "١٩٠٦م",
+                    "١٨٩٩م",
+                    "١٩٥٦م",
+                    "١٩٢٥م"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "عام رسم الحدود مع ليبيا؟",
+                "options": [
+                    "١٩٢٢م",
+                    "١٩٢٥م",
+                    "١٩٠٦م",
+                    "١٨٩٩م"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "امتداد المياه الإقليمية؟",
+                "options": [
+                    "٢٥ ميلًا",
+                    "٢٢ ميلًا بحريًا",
+                    "٥ أميال",
+                    "١٢ ميلًا بحريًا"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "المساحة الرأسية فوق اليابس والمياه؟",
+                "options": [
+                    "اليابس",
+                    "المجال الجوي",
+                    "الحدود",
+                    "المياه الإقليمية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "صاحب كتاب «شخصية مصر»؟",
+                "options": [
+                    "جمال حمدان",
+                    "طه حسين",
+                    "سعد زغلول",
+                    "رفاعة الطهطاوي"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وصف حمدان موقع مصر بأنها دولة؟",
+                "options": [
+                    "جزيرة",
+                    "حبيسة",
+                    "صحراوية",
+                    "برزخ"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "حوّل المصري إلى مزارع مستقر؟",
+                "options": [
+                    "نهر النيل",
+                    "البحر الأحمر",
+                    "المعادن",
+                    "الصحراء"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "اسم النيل في الأنشودة المصرية القديمة؟",
+                "options": [
+                    "رع",
+                    "آمون",
+                    "حورس",
+                    "حابي"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "موحد القطرين؟",
+                "options": [
+                    "رمسيس",
+                    "خوفو",
+                    "أحمس",
+                    "مينا (نعرمر)"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "قائد ثورة ١٩١٩م؟",
+                "options": [
+                    "محمد فريد",
+                    "مصطفى كامل",
+                    "سعد زغلول",
+                    "عرابي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "هدف وحّد المصريين في ثورة ١٩١٩م؟",
+                "options": [
+                    "التوسع",
+                    "الهجرة",
+                    "الاستقلال",
+                    "الثراء"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "لغة المصريين بعد انتشار المسيحية؟",
+                "options": [
+                    "العربية",
+                    "الفارسية",
+                    "القبطية",
+                    "اليونانية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "انتشرت بعد الفتح الإسلامي؟",
+                "options": [
+                    "القبطية",
+                    "اللغة العربية",
+                    "الهيروغليفية",
+                    "اللاتينية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "مرتكزات الهوية: الدين واللغة و...؟",
+                "options": [
+                    "الجيش",
+                    "الاقتصاد",
+                    "النيل",
+                    "التاريخ"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أثر التجانس على الصراعات الداخلية؟",
+                "options": [
+                    "لا يؤثر",
+                    "يشعلها",
+                    "يقللها",
+                    "يزيدها"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما تفقده الدولة بغياب سيادتها؟",
+                "options": [
+                    "موقعها",
+                    "مواردها",
+                    "اتخاذ القرار",
+                    "سكانها"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "دفع الضرائب صورة لدور الشعب في؟",
+                "options": [
+                    "الدفاع",
+                    "التنمية",
+                    "القضاء",
+                    "التشريع"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "الانتخابات صورة من صور؟",
+                "options": [
+                    "المشاركة السياسية",
+                    "التنمية",
+                    "الدفاع",
+                    "الهوية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "إبرام المعاهدات من مظاهر السيادة؟",
+                "options": [
+                    "الخارجية",
+                    "القضائية",
+                    "الداخلية",
+                    "المحلية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "سن القوانين دون ضغوط من مظاهر السيادة؟",
+                "options": [
+                    "الإقليمية",
+                    "الداخلية",
+                    "الدولية",
+                    "الخارجية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "قلب الدولة المحمي بالحدود الطبيعية؟",
+                "options": [
+                    "الصحراء الغربية",
+                    "الوادي والدلتا",
+                    "الواحات",
+                    "سيناء"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "الجيش المصري: يبني ويحمي و...؟",
+                "options": [
+                    "يحتل",
+                    "يتوسع",
+                    "يهاجم",
+                    "لا يعتدي"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "مؤسسة ثقافية لدعم الهوية؟",
+                "options": [
+                    "مجلس النواب",
+                    "دار الأوبرا",
+                    "المحكمة",
+                    "الجمارك"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "مادة الدستور عن رئيس الجمهورية؟",
+                "options": [
+                    "١٨٤",
+                    "١٦٣",
+                    "١٣٩",
+                    "١٠١"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "مادة الدستور عن مجلس النواب؟",
+                "options": [
+                    "١٣٩",
+                    "١٨٤",
+                    "١٠١",
+                    "١٦٣"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "مادة الدستور عن الحكومة؟",
+                "options": [
+                    "١٠١",
+                    "١٦٣",
+                    "١٣٩",
+                    "١٨٤"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "مادة الدستور عن السلطة القضائية؟",
+                "options": [
+                    "١٨٤",
+                    "١٠١",
+                    "١٣٩",
+                    "١٦٣"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "عدد أركان الدولة؟",
+                "options": [
+                    "ثلاثة",
+                    "خمسة",
+                    "أربعة",
+                    "ستة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ركن يشمل اليابس والمياه والجو؟",
+                "options": [
+                    "السلطة",
+                    "الشعب",
+                    "الحيز الجغرافي",
+                    "السيادة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما ينظم توزيع المياه بين الأقاليم قديمًا؟",
+                "options": [
+                    "التجار",
+                    "المعابد فقط",
+                    "الأسر",
+                    "سلطة مركزية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "دور الحدود الطبيعية لمصر؟",
+                "options": [
+                    "عزل حضاري",
+                    "حواجز حامية",
+                    "مصدر صراع",
+                    "طرق غزو"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "سمة الشعب المصري منذ فجر التاريخ؟",
+                "options": [
+                    "التفكك",
+                    "الهجرة",
+                    "التجانس",
+                    "التعدد القبلي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما يتحول إليه المجتمع بالمقومات؟",
+                "options": [
+                    "كيان منظم",
+                    "قبائل",
+                    "تجمعات",
+                    "مدن متفرقة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أساس قيام النظام وفق الدستور: المواطنة و...؟",
+                "options": [
+                    "سيادة القانون",
+                    "الوراثة",
+                    "الثروة",
+                    "القوة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "مصر جزء من عالم إسلامي وتنتمي للقارة؟",
+                "options": [
+                    "الأوروبية",
+                    "الإفريقية",
+                    "الأمريكية",
+                    "الأسترالية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "امتداد مصر الذي تعتز به وفق الدستور؟",
+                "options": [
+                    "الآسيوي",
+                    "الأمريكي",
+                    "الأسترالي",
+                    "الأوروبي"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ثورة جسدت وحدة المصريين ضد الاحتلال البريطاني؟",
+                "options": [
+                    "١٩٥٢م",
+                    "١٨٨١م",
+                    "١٨٠٥م",
+                    "١٩١٩م"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "الذكرى التي ألقى فيها الرئيس خطابه عن المنعة؟",
+                "options": [
+                    "حرب أكتوبر",
+                    "ثورة ١٩١٩",
+                    "عيد العلم",
+                    "ثورة ٢٣ يوليو"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "الشعب الواعي بحقوقه وواجباته يجعل الدولة؟",
+                "options": [
+                    "أضعف",
+                    "معزولة",
+                    "أقوى",
+                    "تابعة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ركن يمنح الدولة استقلال قرارها؟",
+                "options": [
+                    "الموارد",
+                    "السيادة",
+                    "الحيز",
+                    "الشعب"
+                ],
+                "ans": 1
+            }
+        ]
+    },
+    {
+        "id": "shooting_3",
+        "title": "التنشين والاصطياد",
+        "type": "shooting",
+        "desc": "صوّب نحو الكلمة الصحيحة لإكمال عبارات بناء الدولة المصرية واستمرارها عبر التاريخ",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle></svg>",
+        "questions": [
+            {
+                "q": "أكمل: «الدولة كيان سياسي منظم يقوم على أركان أساسية ...».",
+                "options": [
+                    "مترابطة",
+                    "متغيرة",
+                    "منفصلة",
+                    "متعارضة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «إذا اختل أحد أركان الدولة تأثر كيان الدولة ...».",
+                "options": [
+                    "بأكمله",
+                    "خارجيًا",
+                    "مؤقتًا",
+                    "جزئيًا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «السيادة تعني استقلال الدولة في اتخاذ ...».",
+                "options": [
+                    "حدودها",
+                    "قراراتها",
+                    "مواردها",
+                    "عاداتها"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «وفقًا للمادة الرابعة من الدستور فإن السيادة للشعب ...».",
+                "options": [
+                    "وحده",
+                    "والبرلمان",
+                    "والحكومة",
+                    "والجيش"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «الشعب هو مصدر ...».",
+                "options": [
+                    "السلطات",
+                    "الموارد",
+                    "الحدود",
+                    "الثروات"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «كلما كان الشعب واعيًا بحقوقه وواجباته كانت الدولة أقوى وأكثر ...».",
+                "options": [
+                    "ضعفًا",
+                    "عزلة",
+                    "تقدمًا",
+                    "تبعية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «لا يقتصر دور الشعب على الوجود العددي بل يمتد ليشمل المشاركة ...».",
+                "options": [
+                    "المحدودة",
+                    "الشكلية",
+                    "المؤقتة",
+                    "الفعالة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «الشعب المصري هو القوة المحركة ... في المجتمع».",
+                "options": [
+                    "للتغيير",
+                    "للانقسام",
+                    "للعزلة",
+                    "للصراع"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «جاءت ثورة ١٩١٩م تعبيرًا عن رفض الشعب للاحتلال ...».",
+                "options": [
+                    "الفرنسي",
+                    "البريطاني",
+                    "الإيطالي",
+                    "العثماني"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «جسّد مشهد ثورة ١٩١٩م وحدة المصريين حول هدف ...».",
+                "options": [
+                    "الانفصال",
+                    "الهجرة",
+                    "الاستقلال",
+                    "التوسع"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «لا تقوم دولة من دون وجود حدود محددة ...».",
+                "options": [
+                    "مؤقتة",
+                    "مفتوحة",
+                    "معترف بها",
+                    "متنازع عليها"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «تمتد المياه الإقليمية عادة لمسافة ١٢ ميلًا بحريًا من خط ...».",
+                "options": [
+                    "الطول",
+                    "العرض",
+                    "الاستواء",
+                    "الأساس"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «يشمل الحيز الجغرافي اليابس والمياه الإقليمية والمجال ...».",
+                "options": [
+                    "الجوي",
+                    "الاقتصادي",
+                    "الثقافي",
+                    "الحيوي"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «لم تكن حدود مصر مجرد خطوط على الخريطة بل كانت رمزًا لوحدة الوطن و...».",
+                "options": [
+                    "عزلته",
+                    "انقسامه",
+                    "ضعفه",
+                    "استقراره"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «الحدود الجنوبية لمصر عند دائرة عرض ... شمالًا».",
+                "options": [
+                    "٢٥°",
+                    "٢٢°",
+                    "٣١°",
+                    "٣٠°"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «تمتد الحدود الغربية لمصر عند خط طول ... شرقًا».",
+                "options": [
+                    "٢٢°",
+                    "٣٥°",
+                    "٣٠°",
+                    "٢٥°"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «يتولى مجلس النواب سلطة ...».",
+                "options": [
+                    "القضاء",
+                    "الدفاع",
+                    "التنفيذ",
+                    "التشريع"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «الحكومة هي الهيئة التنفيذية و... العليا للدولة».",
+                "options": [
+                    "التشريعية",
+                    "الرقابية",
+                    "الإدارية",
+                    "القضائية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «السلطة القضائية ...، تتولاها المحاكم على اختلاف أنواعها».",
+                "options": [
+                    "استشارية",
+                    "مستقلة",
+                    "تابعة",
+                    "مؤقتة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «رئيس الجمهورية يحافظ على استقلال الوطن ووحدة ... وسلامتها».",
+                "options": [
+                    "وزاراته",
+                    "محاكمه",
+                    "أحزابه",
+                    "أراضيه"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «استقرار الدولة مرتبط بقوة ... وتنظيمها».",
+                "options": [
+                    "جيرانها",
+                    "حدودها",
+                    "مواردها",
+                    "مؤسساتها"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «احترام مؤسسات الدولة والقانون واجب ... على الجميع».",
+                "options": [
+                    "اختياري",
+                    "شكلي",
+                    "مؤقت",
+                    "وطني"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «السيادة على الشئون الداخلية تشمل حرية الدولة في ... القوانين».",
+                "options": [
+                    "سن",
+                    "إلغاء",
+                    "تجاهل",
+                    "استيراد"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «تمارس الدولة سيادتها من دون خضوع لسلطة ...».",
+                "options": [
+                    "خارجية",
+                    "قضائية",
+                    "تشريعية",
+                    "داخلية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «إن مصر ستظل منيعة بجبهتها الداخلية ...».",
+                "options": [
+                    "المنقسمة",
+                    "المتماسكة",
+                    "الضعيفة",
+                    "المعزولة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «في مصر بالذات لن تفهم كيانها أو تاريخها خارج إطار ...».",
+                "options": [
+                    "الدين",
+                    "الجيش",
+                    "الموقع",
+                    "النهر"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «مصر موضعًا دولة نهر، وموقعًا دولة ...».",
+                "options": [
+                    "برزخ",
+                    "صحراء",
+                    "جزيرة",
+                    "قارة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «ولو لم يكن النيل لفرض ... نفسه يقينًا».",
+                "options": [
+                    "الجيش",
+                    "البحر",
+                    "الحاكم",
+                    "الموقع"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «تحوّل المصري من جامع للثمار إلى مزارع ...».",
+                "options": [
+                    "مستقر",
+                    "رعوي",
+                    "تاجر",
+                    "متنقل"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «كان النيل شريان اتصال لربط الشمال ب...».",
+                "options": [
+                    "الشرق",
+                    "الجنوب",
+                    "البحر",
+                    "الغرب"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «التنمية تُعد خط دفاع ... عن الدولة».",
+                "options": [
+                    "ضعيفًا",
+                    "ثانويًا",
+                    "مؤقتًا",
+                    "أساسيًا"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «أقسم المصري القديم: لم ألوث ماء ...».",
+                "options": [
+                    "المطر",
+                    "النهر",
+                    "البحر",
+                    "البئر"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «تعد مصر من أكثر دول العالم ...».",
+                "options": [
+                    "تجانسًا",
+                    "تفككًا",
+                    "انعزالًا",
+                    "تنوعًا عرقيًا"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «شكّل التجانس اتحادًا ... يصعب تفتيته».",
+                "options": [
+                    "قبليًا",
+                    "هشًا",
+                    "مؤقتًا",
+                    "متماسكًا"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «حافظ المصريون على الهوية المصرية ... على مر العصور».",
+                "options": [
+                    "المتغيرة",
+                    "المميزة",
+                    "الضعيفة",
+                    "الوافدة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «كان قيام حكومة مركزية قوية بعد توحيد ... هو الأساس الحقيقي لظهور الدولة».",
+                "options": [
+                    "القطرين",
+                    "المدن الساحلية",
+                    "الواحات",
+                    "الأقاليم الصحراوية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «تحولت مصر من تجمعات صغيرة إلى دولة منظمة ذات سلطة واحدة ونظام إداري ...».",
+                "options": [
+                    "موحد",
+                    "متعدد",
+                    "مستقل",
+                    "منفصل"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «الجيش المصري هو الأداة التي تحمي حدود الدولة وتصون إنجازاتها ...».",
+                "options": [
+                    "الحضارية",
+                    "الأجنبية",
+                    "الفردية",
+                    "المؤقتة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «اعتمدت مصر على جيش من ... يدافع عن أرضها».",
+                "options": [
+                    "المرتزقة",
+                    "الأجانب",
+                    "الحلفاء",
+                    "أبنائها"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «الهوية الوطنية مجموعة من الخصائص التي ... الشعب المصري».",
+                "options": [
+                    "تضعف",
+                    "تميز",
+                    "تفرق",
+                    "تقيد"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «حماية التراث الحضاري والاحتفال بالمناسبات ...».",
+                "options": [
+                    "الأجنبية",
+                    "التجارية",
+                    "الخاصة",
+                    "الوطنية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «المشاركة الإيجابية في تحقيق التنمية وبناء الدولة واجب ...».",
+                "options": [
+                    "وطني",
+                    "فردي",
+                    "مؤقت",
+                    "اختياري"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «أثبت التاريخ المصري أن وحدة ... كانت أساس قيام الدولة».",
+                "options": [
+                    "الأرض",
+                    "الحكام",
+                    "الأسر",
+                    "الطبقات"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أكمل: «الدولة ليست مجرد أرض بل كيان ... تمارس فيه سلطتها».",
+                "options": [
+                    "منعزل",
+                    "متكامل",
+                    "تابع",
+                    "مؤقت"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «العدل أساس ...».",
+                "options": [
+                    "الثروة",
+                    "القوة",
+                    "التجارة",
+                    "الملك"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أكمل: «السيادة على الشئون الخارجية تشمل حرية الدولة في إبرام ...».",
+                "options": [
+                    "الضرائب",
+                    "القوانين",
+                    "المعاهدات",
+                    "الأحكام"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «تحيةً لك يا حابي الذي يخرج من الأرض ويصل لكي يعطي ... لمصر».",
+                "options": [
+                    "الحكم",
+                    "الحياة",
+                    "القوة",
+                    "الذهب"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «ساعد الموقع الجغرافي على استقرار المجتمع المصري مما سمح بالتركيز على الزراعة و...».",
+                "options": [
+                    "الغزو",
+                    "العمران",
+                    "الرعي",
+                    "الترحال"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أكمل: «تقسيم النص التاريخي إلى عناصر وتحليله يسهل فهمه واستيعاب ...».",
+                "options": [
+                    "مؤلفه",
+                    "تاريخه",
+                    "محتواه",
+                    "حدوده"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أكمل: «لا تتحقق قوة الأوطان واستقرارها إلا بقيام دولة راسخة ...».",
+                "options": [
+                    "الثروات",
+                    "الأركان",
+                    "الحدود",
+                    "الأسوار"
+                ],
+                "ans": 1
+            }
+        ]
+    },
+    {
+        "id": "true_false_4",
+        "title": "صح أم خطأ",
+        "type": "true_false",
+        "desc": "حدد صحة العبارات المتعلقة بـ بناء الدولة المصرية واستمرارها عبر التاريخ",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path><polyline points=\"22 4 12 14.01 9 11.01\"></polyline></svg>",
+        "questions": [
+            {
+                "q": "الدولة التي تمتلك شعبًا وأرضًا وسلطة لكنها تخضع لقرار خارجي تُعد دولة مكتملة الأركان.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "العامل الحاسم في تحول المجتمع المصري من تجمعات سكانية إلى دولة هو وجود سلطة مركزية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "وفقًا للمادة الرابعة من الدستور فإن السيادة للشعب وحده وهو مصدر السلطات.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "يقتصر دور الشعب في بناء الدولة على وجوده العددي داخل حدودها.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "يشمل الشعب المصري المواطنين حاملي الجنسية المصرية داخل مصر وخارجها.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "اختراق طائرة لأجواء دولة دون تصريح لا علاقة له بركن السيادة.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تمتد المياه الإقليمية عادة لمسافة ١٢ ميلًا بحريًا من خط الأساس.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "رُسمت الحدود بين مصر والسودان عام ١٩٢٥م.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "رُسم خط الحدود البرية بين مصر وفلسطين عام ١٩٠٦م.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "تمثل دائرة عرض ٢٢° شمالًا الحدود الغربية لمصر مع ليبيا.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "حرصت مصر على تعيين حدودها البحرية بدقة في البحر المتوسط للحفاظ على ثرواتها.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "المجال الجوي هو المساحة الأفقية المحيطة بحدود الدولة البرية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وفقًا للمادة (١٠١) يمارس مجلس النواب الرقابة على أعمال السلطة التنفيذية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "الحكومة هي الهيئة التشريعية العليا للدولة.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "رئيس الجمهورية هو رئيس الدولة ورئيس السلطة التنفيذية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "السلطة القضائية تابعة للحكومة وتصدر أحكامها وفق تعليماتها.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "إقرار الموازنة العامة للدولة من اختصاص مجلس النواب.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "من أهمية السلطة تمكين الدولة من ممارسة سيادتها.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "إبرام المعاهدات وإقامة العلاقات الدبلوماسية من مظاهر السيادة على الشئون الداخلية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "سن القوانين وحفظ الأمن دون ضغوط خارجية من مظاهر السيادة الداخلية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "وصف جمال حمدان مصر بأنها «دولة برزخ» إشارة إلى موقعها الرابط بين القارات.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "يرى جمال حمدان أن فهم تاريخ مصر ممكن بمعزل عن موقعها الجغرافي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تطلب نهر النيل تنظيمًا للري ووجود سلطة مركزية قوية لتوزيع المياه.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أدى النيل إلى تحويل المصري من مزارع مستقر إلى جامع للثمار.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أقسم المصري القديم في كتاب الموتى على الحفاظ على مياه النيل.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أطلق المصري القديم على النيل في أنشودته اسم «حابي».",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ساعدت الحدود الطبيعية لمصر على حماية قلب الدولة في الوادي والدلتا.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أدى التجانس البشري في مصر إلى تأثر المصريين بثقافة المحتل وذوبان هويتهم.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "التجانس السكاني يقلل من الصراعات الداخلية ويدعم الاستقرار السياسي.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تحدث المصريون اللغة القبطية قبل الحكم الروماني وانتشار المسيحية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "انتشرت اللغة العربية في مصر بعد الفتح الإسلامي.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "كان توحيد القطرين على يد الملك مينا الأساس الحقيقي لظهور الدولة المصرية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "لم تكن مصر بحاجة إلى جيش بعد توحيد القطرين لتمتعها بحدود طبيعية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "عقيدة الجيش المصري أنه يبني ويحمي ويحافظ على الأرض ولا يعتدي.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تتمثل مرتكزات الهوية الوطنية في الدين واللغة والتاريخ.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "دار الأوبرا وقصور الثقافة من وسائل الدولة لحماية حدودها البرية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "أجبرت المشاركة الشعبية في ثورة ١٩١٩م سلطات الاحتلال على إعادة النظر في سياساتها.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "قاد ثورة ١٩١٩م الزعيم أحمد عرابي.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "دفع الضرائب صورة من صور إسهام الشعب في التنمية الاقتصادية.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "مساندة القوات المسلحة معنويًا من صور دور الشعب في المشاركة السياسية.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "الدولة التي تفقد أحد أركانها تصبح مهددة بالانهيار.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أركان الدولة مستقلة؛ فاختلال أحدها لا يؤثر في كيان الدولة.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "تنص المادة الأولى من الدستور على أن مصر دولة موحدة لا تقبل التجزئة.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "يقوم النظام الجمهوري الديمقراطي في مصر على أساس المواطنة وسيادة القانون.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "حماية قناة السويس ومراقبة السفن العابرة تعبير عن ممارسة الدولة لسيادتها.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "وقوع مصر في قلب العالم القديم جعلها معزولة عن التواصل الحضاري.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "وهب الله مصر موارد طبيعية متنوعة منها الأراضي الخصبة والمعادن وأحجار البناء.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ألقى الرئيس عبد الفتاح السيسي كلمته عن منعة مصر في ذكرى ثورة ٢٣ يوليو ١٩٥٢.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "الهوية الوطنية مسئولية الدولة وحدها ولا دور للمواطن فيها.",
+                "options": [
+                    "صح",
+                    "خطأ"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "استقرار الدولة مرتبط بقوة مؤسساتها وتنظيمها.",
+                "options": [
+                    "خطأ",
+                    "صح"
+                ],
+                "ans": 1
+            }
+        ]
+    },
+    {
+        "id": "genius_5",
+        "title": "تحدي العباقرة",
+        "type": "genius",
+        "desc": "تحدٍّ سريع للعباقرة: حلّل وفسّر وقارن في بناء الدولة المصرية واستمرارها عبر التاريخ",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z\"></path></svg>",
+        "questions": [
+            {
+                "q": "دولة تملك شعبًا وأرضًا محددة وحكومة، لكن قراراتها الاقتصادية تُفرض عليها من قوة أجنبية. ما التقييم الأدق لوضعها؟",
+                "options": [
+                    "دولة منقوصة الأركان لغياب السيادة",
+                    "دولة كاملة الأركان",
+                    "دولة فاقدة للحيز الجغرافي",
+                    "دولة فاقدة لركن الشعب"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "لماذا يُعد قيام السلطة المركزية العامل الحاسم في نشأة الدولة المصرية رغم أهمية النيل والموقع؟",
+                "options": [
+                    "لأنها صنعت الحدود الطبيعية لمصر",
+                    "لأنها أوجدت نهر النيل",
+                    "لأنها ألغت دور الشعب",
+                    "لأنها حولت التجمعات المتفرقة إلى كيان منظم بإدارة موحدة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما العلاقة بين نهر النيل ونشأة السلطة المركزية في مصر القديمة؟",
+                "options": [
+                    "إدارة مياه النيل والري تطلبت سلطة قوية تنظم وتحل النزاعات",
+                    "النيل قسّم مصر إلى دول متعددة",
+                    "السلطة نشأت قبل الاستقرار حول النيل",
+                    "النيل أغنى المصريين عن السلطة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما المقصود بقول جمال حمدان إن مصر «دولة برزخ»؟",
+                "options": [
+                    "أنها دولة بلا حدود واضحة",
+                    "أنها محاطة بالصحراء من كل الجهات",
+                    "أنها جزيرة نهرية",
+                    "موقعها يصل بين القارات والبحار ويجعلها معبرًا حضاريًا"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "لو لم يوجد نهر النيل في مصر، فوفق رأي جمال حمدان:",
+                "options": [
+                    "لفرض الموقع الجغرافي نفسه وظلت لمصر أهميتها",
+                    "لاختفت حدود مصر السياسية",
+                    "لما كان لمصر أي أهمية",
+                    "لتحولت مصر إلى دولة جزرية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما الدليل على أن الشعب المصري قوة محركة للتغيير؟",
+                "options": [
+                    "تقسيم السلطات في الدستور",
+                    "وجود المجال الجوي",
+                    "رسم الحدود الجنوبية عام ١٨٩٩م",
+                    "ثورة ١٩١٩م التي أجبرت الاحتلال على مراجعة سياساته"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما الذي جعل ثورة ١٩١٩م مشهدًا معبرًا عن وحدة المصريين؟",
+                "options": [
+                    "اقتصارها على طبقة الأعيان",
+                    "مشاركة مختلف فئات المجتمع حول هدف الاستقلال",
+                    "دعم الاحتلال لها",
+                    "قيادتها من جانب الجيش وحده"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما أثر التجانس البشري على علاقة المصريين بثقافات المحتلين عبر العصور؟",
+                "options": [
+                    "انقسموا إلى جماعات متصارعة",
+                    "تبنوا ثقافة كل محتل بالكامل",
+                    "حافظوا على هويتهم المميزة دون أن يذوبوا في ثقافة المحتل",
+                    "تخلوا عن لغتهم الأصلية تمامًا"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما الذي يجعل الوحدة السياسية في مصر «أمرًا طبيعيًا»؟",
+                "options": [
+                    "اتساع الصحراء",
+                    "التجانس البشري والثقافي منذ فجر التاريخ",
+                    "كثرة الحروب الخارجية",
+                    "تعدد اللغات"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "لو تعطلت المحاكم لمدة أسبوع، كيف يتأثر ركنا الشعب والسلطة؟",
+                "options": [
+                    "تضعف حماية حقوق المواطنين ويختل تحقيق النظام",
+                    "يزداد الحيز الجغرافي",
+                    "تقوى السيادة الخارجية",
+                    "لا يتأثر أي ركن"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما العلاقة الصحيحة بين السلطات الثلاث وفق مواد الدستور؟",
+                "options": [
+                    "السلطات الثلاث تتبع رئيس الوزراء",
+                    "القضائية تقر الموازنة العامة",
+                    "التشريعية تراقب التنفيذية والقضائية مستقلة تحكم بالقانون",
+                    "التنفيذية تصدر القوانين والقضائية تراقبها"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "لماذا نص الدستور على أن السيادة للشعب وحده؟",
+                "options": [
+                    "لتقليل دور المواطنين",
+                    "لإلغاء دور المؤسسات",
+                    "لأن الشعب مصدر السلطات يمارسها ويحميها",
+                    "لأن الشعب يتولى القضاء مباشرة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما المغزى من حرص مصر على ترسيم حدودها البحرية بدقة في البحر المتوسط؟",
+                "options": [
+                    "التنازل عن جزء من المياه",
+                    "حماية سيادتها على ثروات مياهها الإقليمية",
+                    "إغلاق البحر أمام التجارة",
+                    "الاستغناء عن الحدود البرية"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "«لا يُسمح لأي طائرة بدخول المجال الجوي المصري دون تصريح رسمي» تدل هذه العبارة على:",
+                "options": [
+                    "ضعف السلطة التنفيذية",
+                    "أن المجال الجوي ليس من أركان الدولة",
+                    "ممارسة الدولة سيادتها على حيزها الجغرافي",
+                    "دور الشعب في التنمية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما الرابط بين الموقع الجغرافي ورسوخ الدولة المصرية؟",
+                "options": [
+                    "الاستقرار سمح بالتركيز على الزراعة والعمران وتنظيم الحياة",
+                    "الموقع عزل مصر عن التجارة",
+                    "الموقع جعل مصر في حروب دائمة",
+                    "الموقع منع قيام سلطة مركزية"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما الهدف الأبعد من حرص الدولة على تعريف الأجيال بتاريخ مصر وحضارتها؟",
+                "options": [
+                    "زيادة الدخل السياحي فقط",
+                    "الحفاظ على الهوية الوطنية وتماسك المجتمع",
+                    "تقليل أهمية التعليم",
+                    "إلغاء التنوع الثقافي"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "لماذا تحتاج مصر في الوقت الحالي إلى قوات مسلحة في أعلى جاهزية؟",
+                "options": [
+                    "لحماية الحدود وصون الاستقرار والسيادة أمام التحديات",
+                    "للتوسع على حساب الجيران",
+                    "لأن عقيدتها هجومية",
+                    "لتولي مهام القضاء"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "أي العوامل التالية يجمع بين مقوم طبيعي ومقوم بشري في نشأة الدولة المصرية؟",
+                "options": [
+                    "تمثيل مصر دوليًا",
+                    "اعتراف الدول بالحدود",
+                    "تنظيم الري حول النيل بسلطة مركزية",
+                    "رسم الحدود الغربية"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما سبب كون الشعب ركنًا رئيسًا من أركان الدولة؟",
+                "options": [
+                    "لأنه يحدد خطوط الطول والعرض",
+                    "لأنه يعمل بمعزل عن السلطة",
+                    "لأنه يخضع للسيادة الأجنبية",
+                    "لأنه مصدر السلطات ويبني الدولة ويحميها"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "كيف يدعم الشعب أمن الدولة واستقرارها؟",
+                "options": [
+                    "بالاستقلال عن مؤسسات الدولة",
+                    "بالامتناع عن دفع الضرائب",
+                    "بالالتزام بالدستور والقوانين واحترامها",
+                    "بإلغاء دور مجلس النواب"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أي مما يلي يُعد مثالًا على السيادة على الشئون الخارجية؟",
+                "options": [
+                    "تنظيم انتخابات مجلس النواب",
+                    "إصدار حكم قضائي في نزاع محلي",
+                    "سن قانون للمرور",
+                    "تمثيل الدولة في المنظمات الدولية وحماية مصالحها"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما الذي يميز تعريف الدولة عن مجرد «تجمع سكاني»؟",
+                "options": [
+                    "وجود نهر قريب",
+                    "وجود سلطة منظمة تمارس السيادة على حيز محدد",
+                    "وجود عدد كبير من السكان",
+                    "وجود تجارة نشطة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "«الحدود ليست خطوطًا على الخريطة بل رمز لوحدة الوطن واستقراره». ما الفكرة المحورية؟",
+                "options": [
+                    "الحدود لا ترتبط بالسيادة",
+                    "الحدود تجسد السيادة وعراقة الدولة ويجب حمايتها",
+                    "الحدود عائق أمام التجارة",
+                    "الحدود يمكن تعديلها بسهولة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما العلاقة بين السلطة وتحقيق النظام في الدولة؟",
+                "options": [
+                    "السلطة تلغي القوانين لتحقيق الحرية",
+                    "السلطة تضع القوانين وتنفذها وتحافظ على الأمن العام",
+                    "السلطة تختص برسم الحدود فقط",
+                    "النظام يتحقق دون سلطة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما العلاقة بين السيادة واستقلال القرار الوطني؟",
+                "options": [
+                    "لا علاقة بينهما",
+                    "السيادة تعني العزلة الدولية",
+                    "السيادة تمنع إبرام المعاهدات",
+                    "السيادة تضمن اتخاذ القرار دون ضغوط خارجية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما العلاقة بين القوة العسكرية واستمرارية الدولة؟",
+                "options": [
+                    "الجيش يحل محل السلطة المدنية",
+                    "الجيش يحمي الحدود والإنجازات ويضمن الاستقرار السياسي",
+                    "القوة العسكرية تكفي وحدها لبقاء الدولة",
+                    "الجيش يقلل التجانس البشري"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "لماذا تعد التنمية «خط دفاع أساسيًا عن الدولة»؟",
+                "options": [
+                    "لأنها تحدد الحدود السياسية",
+                    "لأنها تلغي دور الشعب",
+                    "لأنها تغني عن الجيش",
+                    "لأنها تقوي الاقتصاد والمجتمع فتعزز استقرار الدولة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أي عبارة تعبر بدقة عن نشأة الدولة المصرية؟",
+                "options": [
+                    "نتيجة عامل النيل وحده",
+                    "نتيجة القوة العسكرية وحدها",
+                    "نتيجة الصدفة التاريخية",
+                    "نتاج تفاعل مجموعة من العوامل لا عامل واحد"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "«الشعب المصري تميز بتجانس ثقافي فريد منذ البداية». أهمية ذلك لقوة الدولة:",
+                "options": [
+                    "يقلل من دور السلطة",
+                    "يحقق تماسك الجبهة الداخلية ويصعب تفتيتها",
+                    "يزيد من النزاعات الداخلية",
+                    "يجعل الدولة تابعة لغيرها"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "ما الذي يربط بين نص المادة الأولى من الدستور وركن الحيز الجغرافي؟",
+                "options": [
+                    "النص على أن مصر جزء من العالم الإسلامي",
+                    "النص على أن مصر موحدة لا تقبل التجزئة ولا ينزل عن شيء منها",
+                    "النص على النظام الجمهوري",
+                    "النص على سيادة القانون"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "في صورة لضباط الجوازات بالمطار يراجعون وثائق المسافرين، ما الركنان الأوضح؟",
+                "options": [
+                    "الهوية والتراث",
+                    "السلطة والسيادة",
+                    "الشعب والموارد",
+                    "الموقع والنهر"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "لماذا ارتبط اسم الملك مينا ببداية الدولة المصرية؟",
+                "options": [
+                    "لأنه بنى دار الأوبرا",
+                    "لأنه أدخل اللغة القبطية",
+                    "لأنه أول من رسم حدود مصر مع السودان",
+                    "لأنه وحّد القطرين وأقام حكومة مركزية ونظامًا إداريًا موحدًا"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما الذي يفسر استمرار الدولة المصرية آلاف السنين بينما اختفت دول أخرى؟",
+                "options": [
+                    "كثرة سكانها فقط",
+                    "تكامل الأركان مع مقومات الموقع والنيل والتجانس والسلطة المركزية",
+                    "اتساع مساحتها فقط",
+                    "عدم تعرضها لأي احتلال"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "كيف تُسهم المشاركة السياسية في قوة الدولة؟",
+                "options": [
+                    "بتركيز السلطات في يد واحدة",
+                    "بإلغاء الانتخابات",
+                    "بتعطيل عمل المؤسسات",
+                    "باختيار ممثلين يراقبون أداء الحكومة فتتحقق المساءلة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما العلاقة بين الحفاظ على الهوية الوطنية وبقاء الدولة؟",
+                "options": [
+                    "الهوية من مقومات وحدة المجتمع واستقراره عبر الزمن",
+                    "الهوية تعرقل التنمية",
+                    "لا علاقة بين الهوية والدولة",
+                    "الهوية تقتصر على الماضي"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما وجه الشبه بين توزيع مياه النيل قديمًا وترشيد استهلاك المياه حديثًا؟",
+                "options": [
+                    "لا يوجد وجه شبه",
+                    "كلاهما يعبر عن إدارة مورد حيوي من مقومات بقاء الدولة",
+                    "كلاهما يهدف إلى إلغاء الزراعة",
+                    "كلاهما مسئولية الأجانب"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "إذا قيل: «السلطة أهم أركان الدولة» وقيل: «الشعب أهم أركانها»، فالرأي الأدق:",
+                "options": [
+                    "الشعب وحده يكفي لقيام الدولة",
+                    "السيادة غير ضرورية",
+                    "الأركان مترابطة ولا تقوم الدولة إلا بتكاملها",
+                    "السلطة وحدها تكفي لقيام الدولة"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "أي إجراء مما يلي يُعد حفاظًا على التراث المادي للمجتمع؟",
+                "options": [
+                    "حماية الآثار والمباني التاريخية",
+                    "إبرام المعاهدات",
+                    "دفع الضرائب",
+                    "المشاركة في الانتخابات"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما الذي يدل عليه قسم المصري القديم بعدم تلويث النهر وعدم منع الماء في موسمه؟",
+                "options": [
+                    "وعي مبكر بأهمية حماية المورد الذي قامت عليه الدولة",
+                    "عدم اهتمامه بالنيل",
+                    "رغبته في هجر الزراعة",
+                    "خوفه من الفيضان فقط"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما الهدف من تضمين الدستور مواد تحدد اختصاصات كل سلطة؟",
+                "options": [
+                    "تنظيم العلاقة بينها ومنع تداخلها وتحقيق الرقابة",
+                    "إلغاء السلطة القضائية",
+                    "تقليل دور الشعب",
+                    "دمج السلطات في سلطة واحدة"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "ما الذي يجعل الموقع الجغرافي مقومًا لنشأة الدولة المصرية واستمرارها في آن واحد؟",
+                "options": [
+                    "بعدها عن طرق التجارة",
+                    "حماية الحدود الطبيعية للقلب مع التواصل الحضاري والتجاري",
+                    "كثرة الغزوات عبر الحدود",
+                    "عزلة مصر الكاملة عن العالم"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "«الدولة ليست مجرد أرض بل كيان متكامل تمارس فيه الدولة سلطتها وتحمي مصالحها». أي الأدلة يؤيد ذلك؟",
+                "options": [
+                    "وجود صحراء واسعة",
+                    "وجود مناخ معتدل",
+                    "كثرة الأنهار",
+                    "حماية قناة السويس ومراقبة الملاحة وفق قوانين الدولة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما أثر غياب ركن الحيز الجغرافي عن جماعة بشرية منظمة؟",
+                "options": [
+                    "تصبح دولة أقوى",
+                    "تتحول إلى سلطة قضائية",
+                    "لا يتأثر وضعها",
+                    "لا تكتمل لها صفة الدولة لعدم وجود إقليم تمارس عليه السيادة"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "أي العوامل كان الأكثر تأثيرًا في استمرار الدولة المصرية من وجهة نظر الدرس؟",
+                "options": [
+                    "لا يوجد عامل مؤثر",
+                    "الموقع وحده دون غيره",
+                    "الجيش وحده دون غيره",
+                    "تكامل العوامل مع دور حاسم للحكومة المركزية"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما الذي يميز السيادة الداخلية عن السيادة الخارجية؟",
+                "options": [
+                    "الخارجية تخص الضرائب",
+                    "لا فرق بينهما",
+                    "الداخلية تتعلق بإدارة الشئون داخل الدولة والخارجية بعلاقاتها الدولية",
+                    "الداخلية تخص المعاهدات والخارجية تخص القوانين"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "لماذا يُعد احترام مؤسسات الدولة والقانون واجبًا وطنيًا على الجميع؟",
+                "options": [
+                    "لأن القانون يتغير يوميًا",
+                    "لأن المؤسسات مسئولة عن الحدود فقط",
+                    "لأن المؤسسات تحل محل الشعب",
+                    "لأن استقرار الدولة مرتبط بقوة مؤسساتها وتنظيمها"
+                ],
+                "ans": 3
+            },
+            {
+                "q": "ما الذي يجمع بين ثورة ١٩١٩م وفكرة السيادة؟",
+                "options": [
+                    "سعى الشعب لاستقلال القرار الوطني والتخلص من السيطرة الأجنبية",
+                    "الثورة استهدفت رسم الحدود",
+                    "الثورة ألغت دور الشعب",
+                    "الثورة دعمت بقاء الاحتلال"
+                ],
+                "ans": 0
+            },
+            {
+                "q": "كيف ساهمت اللغة المصرية عبر مراحلها في الحفاظ على الهوية؟",
+                "options": [
+                    "فرضها المحتلون على المصريين",
+                    "استمرت وعاءً للثقافة رغم تطورها من المصرية القديمة إلى القبطية ثم العربية",
+                    "لم يكن لها دور في الهوية",
+                    "اختفت تمامًا في كل مرحلة"
+                ],
+                "ans": 1
+            },
+            {
+                "q": "«مصر ستظل منيعة بجبهتها الداخلية المتماسكة». أي أركان الدولة يُبرز هذا القول؟",
+                "options": [
+                    "المياه الإقليمية",
+                    "خطوط الطول",
+                    "الشعب وتماسكه",
+                    "المجال الجوي"
+                ],
+                "ans": 2
+            },
+            {
+                "q": "ما النتيجة المترتبة على وعي الشعب بحقوقه وواجباته؟",
+                "options": [
+                    "زيادة الصراعات",
+                    "دولة أقوى وأكثر تقدمًا",
+                    "دولة أضعف",
+                    "تراجع التنمية"
+                ],
+                "ans": 1
+            }
+        ]
+    },
+    {
+        "id": "map_6",
+        "title": "تحدي الخرائط والصور",
+        "type": "map",
+        "desc": "اكتشف المخفي على خرائط وصور الكتاب في بناء الدولة المصرية واستمرارها عبر التاريخ",
+        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6\"></polygon><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"18\"></line><line x1=\"16\" y1=\"6\" x2=\"16\" y2=\"22\"></line></svg>",
+        "questions": [
+            {
+                "q": "تمثل الصورة أركان الدولة الأربعة، أي ركن يعبر عنه الرمز رقم (٤) الذي تظهر فيه طائرة حربية؟",
+                "options": [
+                    "الشعب",
+                    "الحيز الجغرافي",
+                    "السيادة",
+                    "السلطة"
+                ],
+                "ans": 2,
+                "img": "images/l1_pillars.jpg",
+                "masks": [
+                    [
+                        3,
+                        76,
+                        21.5,
+                        20
+                    ],
+                    [
+                        26,
+                        76,
+                        21,
+                        20
+                    ],
+                    [
+                        48.5,
+                        76,
+                        21.5,
+                        20
+                    ],
+                    [
+                        72.5,
+                        76,
+                        22,
+                        20
+                    ]
+                ]
+            },
+            {
+                "q": "الرمز رقم (٣) في الصورة (مبنى ومطرقة القاضي وكتاب القانون) يعبر عن ركن:",
+                "options": [
+                    "السيادة",
+                    "الشعب",
+                    "السلطة",
+                    "الحيز الجغرافي"
+                ],
+                "ans": 2,
+                "img": "images/l1_pillars.jpg",
+                "masks": [
+                    [
+                        3,
+                        76,
+                        21.5,
+                        20
+                    ],
+                    [
+                        26,
+                        76,
+                        21,
+                        20
+                    ],
+                    [
+                        48.5,
+                        76,
+                        21.5,
+                        20
+                    ],
+                    [
+                        72.5,
+                        76,
+                        22,
+                        20
+                    ]
+                ]
+            },
+            {
+                "q": "الرمز رقم (٢) في الصورة (خريطة مصر بعلمها) يعبر عن ركن:",
+                "options": [
+                    "السيادة",
+                    "الشعب",
+                    "الحيز الجغرافي",
+                    "السلطة"
+                ],
+                "ans": 2,
+                "img": "images/l1_pillars.jpg",
+                "masks": [
+                    [
+                        3,
+                        76,
+                        21.5,
+                        20
+                    ],
+                    [
+                        26,
+                        76,
+                        21,
+                        20
+                    ],
+                    [
+                        48.5,
+                        76,
+                        21.5,
+                        20
+                    ],
+                    [
+                        72.5,
+                        76,
+                        22,
+                        20
+                    ]
+                ]
+            },
+            {
+                "q": "وفق المادة الرابعة من الدستور فإن الركن رقم (١) في الصورة هو:",
+                "options": [
+                    "المسئول عن رسم الحدود",
+                    "الهيئة التنفيذية العليا",
+                    "السلطة القضائية",
+                    "مصدر السلطات وصاحب السيادة"
+                ],
+                "ans": 3,
+                "img": "images/l1_pillars.jpg",
+                "masks": [
+                    [
+                        3,
+                        76,
+                        21.5,
+                        20
+                    ],
+                    [
+                        26,
+                        76,
+                        21,
+                        20
+                    ],
+                    [
+                        48.5,
+                        76,
+                        21.5,
+                        20
+                    ],
+                    [
+                        72.5,
+                        76,
+                        22,
+                        20
+                    ]
+                ]
+            },
+            {
+                "q": "تمثل الخريطة مصر السياسية، ما الحد الذي يفصل مصر عن السودان جنوبًا؟",
+                "options": [
+                    "خليج العقبة",
+                    "خط طول ٢٥° شرقًا",
+                    "البحر المتوسط",
+                    "دائرة عرض ٢٢° شمالًا"
+                ],
+                "ans": 3,
+                "img": "images/l1_map.jpg",
+                "masks": []
+            },
+            {
+                "q": "الحدود الغربية لمصر في الخريطة مع ليبيا رُسمت عام:",
+                "options": [
+                    "١٩٠٦م",
+                    "١٨٩٩م",
+                    "١٩٥٢م",
+                    "١٩٢٥م"
+                ],
+                "ans": 3,
+                "img": "images/l1_map.jpg",
+                "masks": []
+            },
+            {
+                "q": "الحدود الشمالية الشرقية في الخريطة بين مصر وفلسطين رُسمت عام:",
+                "options": [
+                    "١٨٩٩م",
+                    "١٩٠٦م",
+                    "١٨٨٢م",
+                    "١٩٢٥م"
+                ],
+                "ans": 1,
+                "img": "images/l1_map.jpg",
+                "masks": []
+            },
+            {
+                "q": "المسطح المائي الذي يحد مصر من الشرق في الخريطة مع خليج العقبة هو:",
+                "options": [
+                    "البحر المتوسط",
+                    "بحيرة ناصر",
+                    "البحر الأحمر",
+                    "الخليج العربي"
+                ],
+                "ans": 2,
+                "img": "images/l1_map.jpg",
+                "masks": []
+            },
+            {
+                "q": "تمثل الصورة سياجًا على حدود سياسية، ويرتبط مضمونها مباشرة بركن:",
+                "options": [
+                    "الحيز الجغرافي",
+                    "التجانس الثقافي",
+                    "السلطة القضائية",
+                    "الشعب"
+                ],
+                "ans": 0,
+                "img": "images/l1_border.jpg",
+                "masks": []
+            },
+            {
+                "q": "يدل وجود حدود محددة معترف بها كما في الصورة على أنه:",
+                "options": [
+                    "الحدود غير ضرورية",
+                    "لا تقوم دولة من دون حدود معترف بها",
+                    "الحدود عائق للتنمية",
+                    "الحدود تخص المجال الجوي فقط"
+                ],
+                "ans": 1,
+                "img": "images/l1_border.jpg",
+                "masks": []
+            },
+            {
+                "q": "الصورة تمثل سلطات الدولة الثلاث، أي سلطة يرمز لها بالقبة والعلم (يمين الصورة)؟",
+                "options": [
+                    "السلطة القضائية",
+                    "السلطة التنفيذية",
+                    "السيادة الخارجية",
+                    "السلطة التشريعية"
+                ],
+                "ans": 3,
+                "img": "images/l1_powers.jpg",
+                "masks": [
+                    [
+                        2,
+                        0,
+                        96,
+                        10.5
+                    ]
+                ]
+            },
+            {
+                "q": "عبارة «العدل أساس الملك» في الصورة ترتبط بالسلطة:",
+                "options": [
+                    "العسكرية",
+                    "التشريعية",
+                    "القضائية",
+                    "التنفيذية"
+                ],
+                "ans": 2,
+                "img": "images/l1_powers.jpg",
+                "masks": [
+                    [
+                        2,
+                        0,
+                        96,
+                        10.5
+                    ]
+                ]
+            },
+            {
+                "q": "السلطة التي يرمز لها النسر (وسط الصورة) يرأسها:",
+                "options": [
+                    "رئيس الجمهورية",
+                    "وزير الدفاع",
+                    "رئيس مجلس النواب",
+                    "رئيس محكمة النقض"
+                ],
+                "ans": 0,
+                "img": "images/l1_powers.jpg",
+                "masks": [
+                    [
+                        2,
+                        0,
+                        96,
+                        10.5
+                    ]
+                ]
+            },
+            {
+                "q": "توضح الخريطة موقع مصر في العالم القديم، وما تبرزه أن مصر:",
+                "options": [
+                    "تتوسط قارات العالم القديم",
+                    "تقع في أقصى جنوب إفريقيا",
+                    "معزولة عن أوروبا وآسيا",
+                    "تقع داخل قارة آسيا"
+                ],
+                "ans": 0,
+                "img": "images/l1_world.jpg",
+                "masks": []
+            },
+            {
+                "q": "انطلاقًا من موقع مصر في الخريطة، وصفها جمال حمدان بأنها دولة:",
+                "options": [
+                    "برزخ",
+                    "حبيسة",
+                    "جزرية",
+                    "قطبية"
+                ],
+                "ans": 0,
+                "img": "images/l1_world.jpg",
+                "masks": []
+            },
+            {
+                "q": "الكتاب الظاهر في الصورة للمفكر جمال حمدان عنوانه:",
+                "options": [
+                    "الأيام",
+                    "تخليص الإبريز",
+                    "مستقبل الثقافة",
+                    "شخصية مصر"
+                ],
+                "ans": 3,
+                "img": "images/l1_hamdan.jpg",
+                "masks": [
+                    [
+                        6,
+                        67,
+                        88,
+                        26
+                    ]
+                ]
+            },
+            {
+                "q": "أبرز ما يركز عليه كتاب «شخصية مصر» كما ورد في الدرس:",
+                "options": [
+                    "عبقرية المكان وأثر الموقع",
+                    "النظم القضائية",
+                    "الحملة الفرنسية",
+                    "تاريخ الأدب العربي"
+                ],
+                "ans": 0,
+                "img": "images/l1_hamdan.jpg",
+                "masks": [
+                    [
+                        6,
+                        67,
+                        88,
+                        26
+                    ]
+                ]
+            },
+            {
+                "q": "النهر الظاهر في الصورة حوّل المصري القديم إلى:",
+                "options": [
+                    "مزارع مستقر",
+                    "صياد متنقل",
+                    "راعٍ رحال",
+                    "جامع للثمار"
+                ],
+                "ans": 0,
+                "img": "images/l1_nile.jpg",
+                "masks": []
+            },
+            {
+                "q": "تمثل الصورة الجيش المصري، وعقيدته وفق الدرس:",
+                "options": [
+                    "يتوسع خارج الحدود",
+                    "يبني ويحمي ولا يعتدي",
+                    "يتدخل في شئون الآخرين",
+                    "يعتمد على المرتزقة"
+                ],
+                "ans": 1,
+                "img": "images/l1_army.jpg",
+                "masks": []
+            },
+            {
+                "q": "يرتبط مضمون صورة الجوازات بالمطار بركنين أساسيين هما:",
+                "options": [
+                    "السلطة والسيادة",
+                    "الشعب والموارد",
+                    "الهوية والتراث",
+                    "الموقع والنيل"
+                ],
+                "ans": 0,
+                "img": "images/l1_passport.jpg",
+                "masks": []
+            }
+        ]
+    }
+];
+
+    // --- محرك الصوت للمؤثرات التفاعلية ---
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new AudioContext();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.1, 0.1); 
+        setTimeout(() => playTone(659.25, 'sine', 0.1, 0.1), 100); 
+        setTimeout(() => playTone(783.99, 'sine', 0.2, 0.15), 200); 
+        setTimeout(() => playTone(1046.50, 'sine', 0.4, 0.2), 300); 
+        triggerConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(300, 'sawtooth', 0.15, 0.1);
+        setTimeout(() => playTone(200, 'sawtooth', 0.25, 0.15), 150);
+        
+        const qBox = document.querySelector('.question-box');
+        if(qBox) {
+            qBox.classList.remove('shake');
+            void qBox.offsetWidth; 
+            qBox.classList.add('shake');
+        }
+    }
+
+    // --- مؤثرات بصرية ---
+    function triggerConfetti() {
+        const colors = ['#f72585', '#4cc9f0', '#fee440', '#00f5d4', '#8b5cf6'];
+        for(let i=0; i<40; i++) {
+            let conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        if (teamMode) { onTeamAnswer(isCorrect); }
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، بطل!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        if (teamMode) { teamFeedbackText(isCorrect, title); } else { title.style.fontSize = ''; }
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300); // وقت الانتقال للسؤال التالي
+    }
+
+    // --- متغيرات محرك اللعبة ---
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let geniusTimerInterval = null;
+    let wrongAnswers = []; // مصفوفة لتخزين الأخطاء
+
+    // --- التهيئة ---
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <div class="icon-container">${game.icon}</div>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        document.getElementById('team-board').classList.remove('show'); teamMode = false;
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+        updateTeamBoard();
+    }
+
+    function gameComplete() {
+        if (teamMode) { teamGameComplete(); return; }
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <div class="share-box">
+                    <h4>📲 أرسل نتيجتك إلى أ/ السيد صالح</h4>
+                    <input type="text" id="student-name-input" class="share-name-input" placeholder="اكتب اسمك هنا أولًا">
+                    <div id="share-warning" class="share-warning">من فضلك اكتب اسمك أولًا قبل الإرسال ✋</div>
+                    <div>
+                        <button class="btn btn-share" onclick="sendResultToTeacher(${score}, ${currentQuestions.length})">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/></svg>
+                            إرسال النتيجة عبر واتساب
+                        </button>
+                    </div>
+                </div>
+                <button class="btn back-btn" style="font-size:1.1rem; padding:15px 30px; margin-top: 18px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button>
+            </div>
+        `;
+    }
+
+    function sendResultToTeacher(score, total) {
+        const nameInput = document.getElementById('student-name-input');
+        const warning = document.getElementById('share-warning');
+        const name = nameInput.value.trim();
+        if (!name) {
+            warning.style.display = 'block';
+            nameInput.classList.add('shake');
+            nameInput.focus();
+            setTimeout(() => nameInput.classList.remove('shake'), 500);
+            return;
+        }
+        warning.style.display = 'none';
+        const gameTitle = currentGame ? currentGame.title : '';
+        const message =
+            `📚 نتيجة طالب - ${LESSON_NAME}\n` +
+            `👤 اسم الطالب: ${name}\n` +
+            `🎮 اللعبة: ${gameTitle}\n` +
+            `✅ النتيجة: ${score} من ${total}\n` +
+            `⭐ نسبة النجاح: ${Math.round((score/total)*100)}%`;
+        const url = `https://wa.me/201001304451?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    function beginGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = shuffleArray([...gameData.questions]).slice(0, QUESTIONS_PER_ROUND);
+        qIndex = 0;
+        wrongAnswers = []; // تصفير قائمة الأخطاء
+        
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        
+        renderNextState();
+    }
+
+    function renderNextState() {
+        if (qIndex >= currentQuestions.length) {
+            gameComplete();
+            return;
+        }
+
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+
+        if (currentGame.type === 'mcq') {
+            renderMCQ(gc);
+        } else if (currentGame.type === 'bubbles') {
+            renderBubbles(gc);
+        } else if (currentGame.type === 'shooting') {
+            renderShooting(gc);
+        } else if (currentGame.type === 'true_false') {
+            renderTrueFalse(gc);
+        } else if (currentGame.type === 'genius') {
+            renderGenius(gc);
+        } else if (currentGame.type === 'map') {
+            renderMap(gc);
+        }
+    }
+
+    // --- أنماط الألعاب ---
+
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        // ترتيب ثابت (صح يميناً وخطأ يساراً)
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #1e40af)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 5. تحدي العباقرة (سؤال بعدّاد زمني)
+    function renderGenius(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const wrap = document.createElement('div');
+        wrap.className = 'genius-wrap';
+
+        const badge = document.createElement('div');
+        badge.className = 'genius-badge';
+        badge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z"></path></svg> تحدي العباقرة`;
+
+        const timerTrack = document.createElement('div');
+        timerTrack.className = 'genius-timer-track';
+        const timerBar = document.createElement('div');
+        timerBar.className = 'genius-timer-bar';
+        timerTrack.appendChild(timerBar);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.style.background = 'rgba(255,255,255,0.95)';
+        qBox.innerText = qData.q;
+
+        const optContainer = document.createElement('div');
+        optContainer.className = 'genius-options';
+
+        let isAnswered = false;
+        const TOTAL_TIME = 12000; // 12 ثانية لكل سؤال
+        let startTime = Date.now();
+
+        function finishQuestion(isCorrect, selectedText) {
+            if (isAnswered) return;
+            isAnswered = true;
+            clearInterval(geniusTimerInterval);
+            if (!isCorrect) {
+                wrongAnswers.push({ question: qData.q, correct: correctText, selected: selectedText || "انتهى الوقت!" });
+            }
+            showFeedback(isCorrect, () => { qIndex++; renderNextState(); });
+        }
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    finishQuestion(true, opt);
+                } else {
+                    btn.classList.add('btn-wrong');
+                    finishQuestion(false, opt);
+                }
+            };
+            optContainer.appendChild(btn);
+        });
+
+        wrap.appendChild(badge);
+        wrap.appendChild(timerTrack);
+        container.appendChild(wrap);
+        container.appendChild(qBox);
+        container.appendChild(optContainer);
+
+        geniusTimerInterval = setInterval(() => {
+            if (isAnswered) { clearInterval(geniusTimerInterval); return; }
+            const elapsed = Date.now() - startTime;
+            const pct = Math.max(0, 100 - (elapsed / TOTAL_TIME) * 100);
+            timerBar.style.width = pct + '%';
+            if (elapsed >= TOTAL_TIME) {
+                clearInterval(geniusTimerInterval);
+                finishQuestion(false, null);
+            }
+        }, 80);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            let speed = 0.95 + Math.random() * 0.65; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval); clearInterval(geniusTimerInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 30);
+    }
+
+    // 4. التنشين
+    function renderShooting(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 2.5 + 1.5) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+
+            animInterval = setInterval(() => {
+                if (isAnswered) return;
+                pos += speed;
+                if (pos > window.innerWidth + 50) pos = -250;
+                if (pos < -250) pos = window.innerWidth + 50;
+                bird.style.left = pos + 'px';
+            }, 20);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.style.display = 'flex';
+        hint.style.alignItems = 'center';
+        hint.style.justifyContent = 'center';
+        hint.style.gap = '8px';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> اضغط على الإجابة الصحيحة وهي تتحرك لاصطيادها!`;
+        container.appendChild(hint);
+    }
+
+
+    // 6. تحدي الخرائط والصور
+    function renderMap(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+
+        const stage = document.createElement('div');
+        stage.className = 'map-stage';
+        const wrap = document.createElement('div');
+        wrap.className = 'map-wrap';
+        const img = document.createElement('img');
+        img.src = qData.img;
+        img.alt = 'خريطة أو صورة من الكتاب المدرسي';
+        wrap.appendChild(img);
+        const masks = [];
+        (qData.masks || []).forEach(m => {
+            const d = document.createElement('div');
+            d.className = 'map-mask';
+            d.style.left = m[0] + '%'; d.style.top = m[1] + '%';
+            d.style.width = m[2] + '%'; d.style.height = m[3] + '%';
+            d.textContent = '؟';
+            wrap.appendChild(d); masks.push(d);
+        });
+        stage.appendChild(wrap);
+        wrap.onclick = () => stage.classList.toggle('zoomed');
+        const hint = document.createElement('div');
+        hint.className = 'map-hint';
+        hint.textContent = (masks.length ? '💡 الإجابة مخفية تحت المربع البرتقالي (؟) • ' : '💡 ') + 'اضغط على الصورة لتكبيرها';
+        stage.appendChild(hint);
+
+        const optContainer = document.createElement('div');
+        optContainer.className = 'map-options';
+        let isAnswered = false;
+        const btns = [];
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                const ok = opt === correctText;
+                masks.forEach(d => d.classList.add('revealed'));
+                btns.forEach(b => { if (b.innerText === correctText) b.classList.add('ok'); });
+                if (!ok) {
+                    btn.classList.add('bad');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                }
+                setTimeout(() => showFeedback(ok, () => { qIndex++; renderNextState(); }), 1100);
+            };
+            btns.push(btn);
+            optContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(stage);
+        container.appendChild(optContainer);
+    }
+
+
+    // --- طريقة اللعب: فردي أو منافسة بين فريقين ---
+    const QUESTIONS_PER_ROUND = 20;
+    let teamMode = false;
+    let teamNames = ['الفريق الأول', 'الفريق الثاني'];
+    let teamScores = [0, 0];
+    let pendingGame = null;
+
+    function startGame(gameData) {
+        initAudio();
+        pendingGame = gameData;
+        document.getElementById('mode-game-title').textContent = gameData.title;
+        document.getElementById('team-setup').classList.remove('show');
+        document.getElementById('mode-overlay').classList.add('active');
+    }
+    function closeModePicker() { document.getElementById('mode-overlay').classList.remove('active'); }
+    function chooseSolo() {
+        teamMode = false; closeModePicker();
+        document.getElementById('team-board').classList.remove('show');
+        beginGame(pendingGame);
+    }
+    function chooseTeams() {
+        document.getElementById('team-setup').classList.add('show');
+        setTimeout(() => document.getElementById('team-a').select(), 50);
+    }
+    function startTeams() {
+        const a = document.getElementById('team-a').value.trim() || 'الفريق الأول';
+        const b = document.getElementById('team-b').value.trim() || 'الفريق الثاني';
+        teamNames = [a, b === a ? b + ' (٢)' : b];
+        teamScores = [0, 0];
+        teamMode = true; closeModePicker();
+        document.getElementById('team-name-0').textContent = teamNames[0];
+        document.getElementById('team-name-1').textContent = teamNames[1];
+        document.getElementById('team-board').classList.remove('show');
+        beginDuel(pendingGame);
+    }
+    function currentTeam() { return qIndex % 2; }
+    function updateTeamBoard() {
+        if (!teamMode) return;
+        for (let i = 0; i < 2; i++) {
+            document.getElementById('team-score-' + i).textContent = teamScores[i];
+            document.getElementById('team-card-' + i).classList.toggle('active', i === currentTeam() && qIndex < currentQuestions.length);
+        }
+    }
+    function onTeamAnswer(isCorrect) {
+        if (isCorrect) teamScores[currentTeam()]++;
+        updateTeamBoard();
+    }
+    function teamFeedbackText(isCorrect, titleEl) {
+        const t = teamNames[currentTeam()];
+        titleEl.textContent = isCorrect ? ('نقطة لـ ' + t + '! 🎉') : ('إجابة خاطئة يا ' + t);
+        titleEl.style.fontSize = '2rem';
+    }
+    function teamGameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect(); setTimeout(playCorrect, 300);
+        document.getElementById('team-card-0').classList.remove('active');
+        document.getElementById('team-card-1').classList.remove('active');
+        let banner;
+        if (teamScores[0] === teamScores[1]) banner = '🤝 تعادل! أداء رائع من الفريقين';
+        else banner = '🏆 الفائز: ' + (teamScores[0] > teamScores[1] ? teamNames[0] : teamNames[1]);
+        let wrongHTML = '';
+        if (wrongAnswers.length > 0) {
+            wrongHTML = '<div style="margin-top: 18px; text-align: right; background: #f8fafc; padding: 16px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 300px; overflow-y: auto;" class="errors-list"><h3 style="color: var(--danger); margin-bottom: 12px; text-align: center; font-size: 1.25rem;">مراجعة الأسئلة التي تمت الإجابة عنها خطأ 📝</h3><ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;">';
+            wrongAnswers.forEach((item, i) => {
+                wrongHTML += '<li style="background: white; padding: 12px; border-radius: 10px; border-right: 5px solid var(--danger);"><div style="font-weight: bold; color: var(--primary); margin-bottom: 6px;">' + (i + 1) + '. ' + item.question + '</div><div style="color: var(--success); font-weight: bold;">الإجابة الصحيحة: ' + item.correct + '</div></li>';
+            });
+            wrongHTML += '</ul></div>';
+        }
+        gc.innerHTML = '<div style="text-align:center; padding: 30px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">'
+            + '<h2 style="color: var(--primary); font-size: 2rem; font-weight: 900;">انتهت المنافسة!</h2>'
+            + '<div class="winner-box"><h3>' + banner + '</h3><div class="final-scores"><div>' + teamNames[0] + ': ' + teamScores[0] + '</div><div>' + teamNames[1] + ': ' + teamScores[1] + '</div></div></div>'
+            + wrongHTML
+            + '<div class="share-box"><h4>📲 أرسل نتيجة المنافسة إلى أ/ السيد صالح</h4><button class="btn btn-share" onclick="sendTeamResult()">إرسال النتيجة عبر واتساب</button></div>'
+            + '<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: 18px;">'
+            + '<button class="btn" style="padding:14px 26px;" onclick="startTeamsAgain()">🔄 منافسة جديدة بأسئلة مختلفة</button>'
+            + '<button class="btn back-btn" style="padding:14px 26px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button></div></div>';
+        triggerConfetti();
+    }
+    function startTeamsAgain() { teamScores = [0, 0]; beginDuel(pendingGame); }
+    function sendTeamResult() {
+        const gameTitle = currentGame ? currentGame.title : '';
+        let res = teamScores[0] === teamScores[1] ? 'تعادل' : ('الفائز: ' + (teamScores[0] > teamScores[1] ? teamNames[0] : teamNames[1]));
+        const message = '🏆 نتيجة منافسة - ' + LESSON_NAME + '\n🎮 اللعبة: ' + gameTitle + '\n'
+            + '🔵 ' + teamNames[0] + ': ' + teamScores[0] + '\n🟠 ' + teamNames[1] + ': ' + teamScores[1] + '\n✅ ' + res;
+        window.open('https://wa.me/201001304451?text=' + encodeURIComponent(message), '_blank');
+    }
+
+
+    // ===== منافسة الفريقين: شاشة مقسومة، نفس الأسئلة بترتيب مختلف لكل فريق، ٣٠ ثانية لكل سؤال =====
+    const DUEL_TIME = 30000;
+    let duel = null;
+    function duelEsc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function duelOrder(pool, other) {
+        // ترتيب مختلف: لا يتطابق أي سؤال في نفس الموضع مع ترتيب الفريق الآخر
+        let best = shuffleArray([...pool]);
+        for (let tries = 0; tries < 200; tries++) {
+            if (!other || best.every((q, i) => q !== other[i])) return best;
+            best = shuffleArray([...pool]);
+        }
+        return best;
+    }
+    function duelTone(ok) {
+        initAudio();
+        if (ok) { playTone(659.25, 'sine', 0.1, 0.1); setTimeout(() => playTone(987.77, 'sine', 0.22, 0.13), 100); }
+        else { playTone(260, 'sawtooth', 0.2, 0.08); }
+    }
+    function beginDuel(gameData) {
+        initAudio();
+        stopDuelTimers();
+        currentGame = gameData;
+        const pool = shuffleArray([...gameData.questions]).slice(0, QUESTIONS_PER_ROUND);
+        const orderA = duelOrder(pool, null);
+        const orderB = duelOrder(pool, orderA);
+        duel = { teams: [orderA, orderB].map(order => ({ order, idx: 0, score: 0, time: 0, wrong: [], timer: null, done: false })), finished: false };
+        document.getElementById('duel-title').textContent = gameData.title;
+        document.getElementById('duel-result').classList.add('hidden');
+        document.getElementById('duel-screen').classList.remove('hidden');
+        document.body.classList.add('duel-on');
+        renderDuelQ(0); renderDuelQ(1);
+    }
+    function stopDuelTimers() { if (duel) duel.teams.forEach(t => clearInterval(t.timer)); }
+    function exitDuel() {
+        stopDuelTimers(); duel = null;
+        document.getElementById('duel-screen').classList.add('hidden');
+        document.body.classList.remove('duel-on');
+        returnToMenu();
+    }
+    function renderDuelQ(ti) {
+        if (!duel) return;
+        const T = duel.teams[ti];
+        const half = document.getElementById('duel-half-' + ti);
+        half.classList.remove('flash-ok', 'flash-bad');
+        half.innerHTML = '';
+        half.scrollTop = 0;
+        const total = T.order.length;
+        const head = document.createElement('div');
+        head.className = 'dh-head';
+        head.innerHTML = '<span class="dh-name">' + duelEsc(teamNames[ti]) + '</span><span class="dh-meta"><span class="dh-prog">'
+            + (Math.min(T.idx + 1, total)) + ' / ' + total + '</span><span class="dh-score">' + T.score + '</span></span>';
+        half.appendChild(head);
+        if (T.idx >= total) { duelTeamDone(ti, half); return; }
+
+        const qData = T.order[T.idx];
+        const correctText = qData.options[qData.ans];
+
+        const timer = document.createElement('div');
+        timer.className = 'dh-timer';
+        timer.innerHTML = '<div class="dh-track"><div class="dh-bar"></div></div><span class="dh-sec">30</span>';
+        half.appendChild(timer);
+        const bar = timer.querySelector('.dh-bar'), sec = timer.querySelector('.dh-sec');
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.textContent = qData.q;
+        half.appendChild(qBox);
+
+        const masks = [];
+        if (currentGame.type === 'map' && qData.img) {
+            const stage = document.createElement('div');
+            stage.className = 'map-stage';
+            const wrap = document.createElement('div');
+            wrap.className = 'map-wrap';
+            const img = document.createElement('img');
+            img.src = qData.img; img.alt = 'خريطة أو صورة من الكتاب المدرسي';
+            wrap.appendChild(img);
+            (qData.masks || []).forEach(m => {
+                const d = document.createElement('div');
+                d.className = 'map-mask';
+                d.style.left = m[0] + '%'; d.style.top = m[1] + '%'; d.style.width = m[2] + '%'; d.style.height = m[3] + '%';
+                d.textContent = '؟'; wrap.appendChild(d); masks.push(d);
+            });
+            wrap.onclick = () => stage.classList.toggle('zoomed');
+            stage.appendChild(wrap);
+            const hint = document.createElement('div');
+            hint.className = 'map-hint';
+            hint.textContent = '💡 اضغط على الصورة لتكبيرها';
+            stage.appendChild(hint);
+            half.appendChild(stage);
+        }
+
+        const opts = document.createElement('div');
+        opts.className = 'dh-opts';
+        const isTF = currentGame.type === 'true_false';
+        const list = isTF ? ['صح', 'خطأ'] : shuffleArray([...qData.options]);
+        if (isTF) opts.classList.add('tf');
+        const btns = [];
+        const verdict = document.createElement('div');
+        verdict.className = 'dh-verdict';
+        let answered = false;
+        const start = Date.now();
+
+        function finish(selected, btn) {
+            if (answered || !duel) return;
+            answered = true;
+            clearInterval(T.timer);
+            T.time += Math.min(Date.now() - start, DUEL_TIME);
+            const ok = selected === correctText;
+            opts.classList.add('locked');
+            masks.forEach(d => d.classList.add('revealed'));
+            btns.forEach(b => { if (b.dataset.v === correctText) b.classList.add('ok'); });
+            if (ok) { T.score++; }
+            else {
+                if (btn) btn.classList.add('bad');
+                T.wrong.push({ question: qData.q, correct: correctText, selected: selected || 'انتهى الوقت!' });
+            }
+            head.querySelector('.dh-score').textContent = T.score;
+            half.classList.add(ok ? 'flash-ok' : 'flash-bad');
+            verdict.className = 'dh-verdict ' + (ok ? 'ok' : 'bad');
+            verdict.textContent = ok ? '✅ إجابة صحيحة! +1' : (selected ? '❌ إجابة خاطئة' : '⏰ انتهى الوقت!');
+            duelTone(ok);
+            if (!ok) { qBox.classList.remove('shake'); void qBox.offsetWidth; qBox.classList.add('shake'); }
+            setTimeout(() => { if (!duel || duel.teams[ti] !== T) return; T.idx++; renderDuelQ(ti); }, masks.length ? 1700 : 1200);
+        }
+
+        list.forEach(opt => {
+            const b = document.createElement('button');
+            b.className = 'btn';
+            if (isTF) b.classList.add(opt === 'صح' ? 'tf-true' : 'tf-false');
+            b.textContent = opt; b.dataset.v = opt;
+            b.onclick = () => finish(opt, b);
+            btns.push(b); opts.appendChild(b);
+        });
+        half.appendChild(opts);
+        half.appendChild(verdict);
+
+        clearInterval(T.timer);
+        T.timer = setInterval(() => {
+            if (answered) { clearInterval(T.timer); return; }
+            const left = Math.max(0, DUEL_TIME - (Date.now() - start));
+            bar.style.width = (left / DUEL_TIME * 100) + '%';
+            const s = Math.ceil(left / 1000);
+            sec.textContent = s;
+            const low = s <= 5;
+            bar.classList.toggle('low', low); sec.classList.toggle('low', low);
+            if (left <= 0) finish(null, null);
+        }, 100);
+    }
+    function duelTeamDone(ti, half) {
+        const T = duel.teams[ti];
+        T.done = true;
+        const box = document.createElement('div');
+        box.className = 'dh-wait';
+        box.innerHTML = '<div class="big">🏁</div><h3>أنهى ' + duelEsc(teamNames[ti]) + ' الأسئلة!</h3><p>النتيجة: ' + T.score + ' من ' + T.order.length + '</p>'
+            + '<p style="margin-top:6px;">⏳ في انتظار الفريق الآخر...</p>';
+        half.appendChild(box);
+        if (duel.teams.every(t => t.done) && !duel.finished) { duel.finished = true; setTimeout(showDuelResult, 700); }
+    }
+    function duelFmt(ms) { return (ms / 1000).toFixed(1) + ' ث'; }
+    function duelWinner() {
+        const [a, b] = duel.teams;
+        if (a.score !== b.score) return a.score > b.score ? 0 : 1;
+        if (Math.abs(a.time - b.time) >= 500) return a.time < b.time ? 0 : 1;
+        return -1;
+    }
+    function showDuelResult() {
+        if (!duel) return;
+        teamScores = [duel.teams[0].score, duel.teams[1].score];
+        const w = duelWinner();
+        const total = duel.teams[0].order.length;
+        let banner;
+        if (w === -1) banner = '🤝 تعادل! أداء رائع من الفريقين';
+        else banner = '🏆 الفائز: ' + duelEsc(teamNames[w]) + (teamScores[0] === teamScores[1] ? ' (الأسرع في الإجابة)' : '');
+        let reviews = '';
+        duel.teams.forEach((T, i) => {
+            reviews += '<div class="res-review t' + i + '"><h4>' + duelEsc(teamNames[i]) + ' — الأخطاء (' + T.wrong.length + ')</h4>';
+            if (!T.wrong.length) reviews += '<p class="perfect">أداء مثالي! لا توجد أخطاء 🌟</p>';
+            else {
+                reviews += '<ul>';
+                T.wrong.forEach((it, k) => {
+                    reviews += '<li><div class="rq">' + (k + 1) + '. ' + duelEsc(it.question) + '</div><div class="rs">إجابتهم: ' + duelEsc(it.selected) + '</div><div class="ra">الإجابة الصحيحة: ' + duelEsc(it.correct) + '</div></li>';
+                });
+                reviews += '</ul>';
+            }
+            reviews += '</div>';
+        });
+        const res = document.getElementById('duel-result');
+        res.innerHTML = '<div class="res-card">'
+            + '<h2 style="color: var(--primary); font-size: 2rem; font-weight: 900;">انتهت المنافسة!</h2>'
+            + '<div class="winner-box"><h3>' + banner + '</h3><div class="final-scores">'
+            + '<div>' + duelEsc(teamNames[0]) + ': ' + teamScores[0] + ' / ' + total + '<small>⏱️ ' + duelFmt(duel.teams[0].time) + '</small></div>'
+            + '<div>' + duelEsc(teamNames[1]) + ': ' + teamScores[1] + ' / ' + total + '<small>⏱️ ' + duelFmt(duel.teams[1].time) + '</small></div>'
+            + '</div></div>'
+            + '<div class="res-reviews">' + reviews + '</div>'
+            + '<div class="share-box"><h4>📲 أرسل نتيجة المنافسة إلى أ/ السيد صالح</h4><button class="btn btn-share" onclick="sendDuelResult()">إرسال النتيجة عبر واتساب</button></div>'
+            + '<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top: 18px;">'
+            + '<button class="btn" style="padding:14px 26px;" onclick="beginDuel(pendingGame)">🔄 منافسة جديدة بأسئلة مختلفة</button>'
+            + '<button class="btn back-btn" style="padding:14px 26px;" onclick="exitDuel()">العودة للقائمة الرئيسية</button></div></div>';
+        res.classList.remove('hidden');
+        res.scrollTop = 0;
+        playCorrect(); setTimeout(playCorrect, 300);
+    }
+    function sendDuelResult() {
+        if (!duel) return;
+        const w = duelWinner();
+        const gameTitle = currentGame ? currentGame.title : '';
+        const total = duel.teams[0].order.length;
+        const res = w === -1 ? 'تعادل' : ('الفائز: ' + teamNames[w]);
+        const message = '🏆 نتيجة منافسة - ' + LESSON_NAME + '\n🎮 اللعبة: ' + gameTitle + '\n'
+            + '🔵 ' + teamNames[0] + ': ' + duel.teams[0].score + ' من ' + total + ' (⏱️ ' + duelFmt(duel.teams[0].time) + ')\n'
+            + '🟠 ' + teamNames[1] + ': ' + duel.teams[1].score + ' من ' + total + ' (⏱️ ' + duelFmt(duel.teams[1].time) + ')\n✅ ' + res;
+        window.open('https://wa.me/201001304451?text=' + encodeURIComponent(message), '_blank');
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>
