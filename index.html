@@ -64,6 +64,14 @@ header { padding-bottom:170px !important; }
 .sub { color:#fde68a; font-weight:800; margin-top:-4px; }
 .lock-note { display:inline-block; margin-top:6px; font-size:.82rem; font-weight:700; color:#b45309; }
 @media (max-width:600px) { .photo { width:120px; height:150px; } header { padding-bottom:110px !important; } }
+.hidden { display:none !important; }
+.pick-title { text-align:center; font-size:1.5rem; font-weight:900; color:var(--primary); margin:10px 0 6px; }
+.tabs.picker { position:static; background:none; backdrop-filter:none; display:grid; grid-template-columns:repeat(2,1fr); gap:14px; max-width:720px; margin:10px auto 30px; }
+.tabs.picker .tab { padding:26px 14px; font-size:1.25rem; border-width:3px; box-shadow:0 8px 20px rgba(30,58,138,.12); }
+.tabs.picker .tab small { font-size:.95rem; margin-top:4px; }
+.current-grade { position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; background:linear-gradient(135deg,var(--primary),var(--secondary)); color:#fff; padding:12px 16px; border-radius:16px; margin:8px 0 12px; font-weight:900; font-size:1.15rem; box-shadow:0 8px 20px rgba(30,58,138,.25); }
+.current-grade .btn { background:#fde68a; color:var(--primary); padding:8px 16px; }
+@media (max-width:600px) { .tabs.picker { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -74,7 +82,7 @@ header { padding-bottom:170px !important; }
             <div class="t1">دروس وألعاب تفاعلية</div>
             <div class="t2">مع أ/ السَّيِّد صَالِح</div>
             <div class="sub">كبير معلمين • سلسلة الموسوعة</div>
-            <div class="pill">الدِّرَاسَاتُ الاجْتِمَاعِيَّةُ • الابتدائي والإعدادي • والتَّارِيخُ الوَطَنِيُّ للبكالوريا</div>
+            <div class="pill">الدِّرَاسَاتُ الاجْتِمَاعِيَّةُ • الإعدادي • والتَّارِيخُ الوَطَنِيُّ للبكالوريا</div>
             <div class="feat"><span>🎮 لعب فردي</span><span>🏆 منافسة بين فريقين</span><span>🔀 أسئلة متجددة كل مرة</span></div>
         </div>
         <img class="photo" src="teacher.jpg" alt="أ/ السيد صالح">
@@ -82,577 +90,10 @@ header { padding-bottom:170px !important; }
     <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#eef2ff" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L0,320Z"></path></svg>
 </header>
 <main>
-    <div class="tabs"><button class="tab active" data-g="p4">الصَّفُّ الرَّابِعُ الابْتِدَائِيُّ<small>١٤ درسًا</small></button><button class="tab" data-g="p5">الصَّفُّ الْخَامِسُ الابْتِدَائِيُّ<small>١١ درسًا</small></button><button class="tab" data-g="p6">الصَّفُّ السَّادِسُ الابْتِدَائِيُّ<small>١٢ درسًا</small></button><button class="tab" data-g="1">الصَّفُّ الأَوَّلُ الإِعْدَادِيُّ<small>١١ درسًا</small></button><button class="tab" data-g="2">الصَّفُّ الثَّانِي الإِعْدَادِيُّ<small>١١ درسًا</small></button><button class="tab" data-g="3">الصَّفُّ الثَّالِثُ الإِعْدَادِيُّ<small>١١ درسًا</small></button><button class="tab" data-g="bac">البَكَالُورْيَا المِصْرِيَّةُ (التاريخ)<small>٤ دروس</small></button></div>
-    <div class="toolbar"><button class="btn btn-all" id="copy-all">نسخ روابط دروس هذا الصف</button></div>
-    <div class="gpanel active" id="gp4">
-        <section class="grade" data-grade="الصَّفُّ الرَّابِعُ الابْتِدَائِيُّ">
-            <h2 class="grade-title"><span>الْوَحْدَةُ الأُولَى<em class="unit-sub">اتجاهاتنا ترسم خطواتنا</em></span><small>٤ دروس</small></h2>
-            <div class="cards">
-            <div class="lesson-card">
-                <div class="lesson-num">1</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الأَوَّلُ</span>
-                    <h3>الأماكن والاتجاهات من حولنا</h3>
-                    <p>٦ ألعاب • ٢٧٢ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit1-lesson1-places-directions.html" value="prim4-unit1-lesson1-places-directions.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit1-lesson1-places-directions.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit1-lesson1-places-directions.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">2</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّانِي</span>
-                    <h3>الخريطة في حياتنا</h3>
-                    <p>٦ ألعاب • ٢٦٤ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit1-lesson2-map-in-our-life.html" value="prim4-unit1-lesson2-map-in-our-life.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit1-lesson2-map-in-our-life.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit1-lesson2-map-in-our-life.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">3</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّالِثُ</span>
-                    <h3>تطور الخريطة</h3>
-                    <p>٦ ألعاب • ٢٦٢ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit1-lesson3-map-evolution.html" value="prim4-unit1-lesson3-map-evolution.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit1-lesson3-map-evolution.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit1-lesson3-map-evolution.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">4</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الرَّابِعُ</span>
-                    <h3>مصادر جمع المعلومات</h3>
-                    <p>٦ ألعاب • ٢٦٠ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit1-lesson4-information-sources.html" value="prim4-unit1-lesson4-information-sources.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit1-lesson4-information-sources.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit1-lesson4-information-sources.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="grade" data-grade="الصَّفُّ الرَّابِعُ الابْتِدَائِيُّ">
-            <h2 class="grade-title"><span>الْوَحْدَةُ الثَّانِيَةُ<em class="unit-sub">مدينتنا وحياتنا اليومية</em></span><small>٥ دروس</small></h2>
-            <div class="cards">
-            <div class="lesson-card">
-                <div class="lesson-num">5</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الأَوَّلُ</span>
-                    <h3>كيف تبدو مدينتنا؟</h3>
-                    <p>٦ ألعاب • ٢٦٤ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit2-lesson1-our-city.html" value="prim4-unit2-lesson1-our-city.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit2-lesson1-our-city.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit2-lesson1-our-city.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">6</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّانِي</span>
-                    <h3>تطور مدينتنا</h3>
-                    <p>٦ ألعاب • ٢٦٣ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit2-lesson2-city-development.html" value="prim4-unit2-lesson2-city-development.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit2-lesson2-city-development.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit2-lesson2-city-development.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">7</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّالِثُ</span>
-                    <h3>الأماكن الخدمية في مدينتنا</h3>
-                    <p>٦ ألعاب • ٢٧١ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit2-lesson3-service-places.html" value="prim4-unit2-lesson3-service-places.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit2-lesson3-service-places.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit2-lesson3-service-places.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">8</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الرَّابِعُ</span>
-                    <h3>مدينتنا في المستقبل</h3>
-                    <p>٦ ألعاب • ٢٦١ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit2-lesson4-future-city.html" value="prim4-unit2-lesson4-future-city.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit2-lesson4-future-city.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit2-lesson4-future-city.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">9</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الْخَامِسُ</span>
-                    <h3>أين تقع محافظتي؟</h3>
-                    <p>٦ ألعاب • ٢٧٠ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit2-lesson5-my-governorate.html" value="prim4-unit2-lesson5-my-governorate.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit2-lesson5-my-governorate.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit2-lesson5-my-governorate.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="grade" data-grade="الصَّفُّ الرَّابِعُ الابْتِدَائِيُّ">
-            <h2 class="grade-title"><span>الْوَحْدَةُ الثَّالِثَةُ<em class="unit-sub">مصر وطننا</em></span><small>٥ دروس</small></h2>
-            <div class="cards">
-            <div class="lesson-card">
-                <div class="lesson-num">10</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الأَوَّلُ</span>
-                    <h3>علم وطننا مصر</h3>
-                    <p>٦ ألعاب • ٢٦٤ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit3-lesson1-egypt-flag.html" value="prim4-unit3-lesson1-egypt-flag.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit3-lesson1-egypt-flag.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit3-lesson1-egypt-flag.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">11</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّانِي</span>
-                    <h3>مصر على خريطة العالم</h3>
-                    <p>٦ ألعاب • ٢٦٩ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit3-lesson2-egypt-world-map.html" value="prim4-unit3-lesson2-egypt-world-map.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit3-lesson2-egypt-world-map.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit3-lesson2-egypt-world-map.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">12</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّالِثُ</span>
-                    <h3>تضاريس أرضنا الجميلة</h3>
-                    <p>٦ ألعاب • ٢٨٦ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit3-lesson3-landforms.html" value="prim4-unit3-lesson3-landforms.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit3-lesson3-landforms.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit3-lesson3-landforms.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">13</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الرَّابِعُ</span>
-                    <h3>ثروات مصر الطبيعية والبشرية</h3>
-                    <p>٦ ألعاب • ٢٧٠ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit3-lesson4-natural-human-resources.html" value="prim4-unit3-lesson4-natural-human-resources.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit3-lesson4-natural-human-resources.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit3-lesson4-natural-human-resources.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">14</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الْخَامِسُ</span>
-                    <h3>المعالم التاريخية في مصر</h3>
-                    <p>٦ ألعاب • ٢٧٣ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim4-unit3-lesson5-historical-landmarks.html" value="prim4-unit3-lesson5-historical-landmarks.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim4-unit3-lesson5-historical-landmarks.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim4-unit3-lesson5-historical-landmarks.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-    </div>
-    <div class="gpanel" id="gp5">
-        <section class="grade" data-grade="الصَّفُّ الْخَامِسُ الابْتِدَائِيُّ">
-            <h2 class="grade-title"><span>الْوَحْدَةُ الأُولَى<em class="unit-sub">مصر موقع متميز وطبيعة متنوعة</em></span><small>٤ دروس</small></h2>
-            <div class="cards">
-            <div class="lesson-card">
-                <div class="lesson-num">1</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الأَوَّلُ</span>
-                    <h3>موقع مصر الفلكي</h3>
-                    <p>٦ ألعاب • ٢٧٤ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim5-unit1-lesson1-astronomical-location.html" value="prim5-unit1-lesson1-astronomical-location.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim5-unit1-lesson1-astronomical-location.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim5-unit1-lesson1-astronomical-location.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">2</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّانِي</span>
-                    <h3>مظاهر سطح مصر</h3>
-                    <p>٦ ألعاب • ٢٨٢ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim5-unit1-lesson2-surface-features.html" value="prim5-unit1-lesson2-surface-features.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim5-unit1-lesson2-surface-features.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim5-unit1-lesson2-surface-features.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">3</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّالِثُ</span>
-                    <h3>مناخ مصر</h3>
-                    <p>٦ ألعاب • ٢٧٠ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim5-unit1-lesson3-climate.html" value="prim5-unit1-lesson3-climate.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim5-unit1-lesson3-climate.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim5-unit1-lesson3-climate.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">4</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الرَّابِعُ</span>
-                    <h3>النباتات الطبيعية والحيوانات البرية</h3>
-                    <p>٦ ألعاب • ٢٦٢ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim5-unit1-lesson4-plants-animals.html" value="prim5-unit1-lesson4-plants-animals.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim5-unit1-lesson4-plants-animals.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim5-unit1-lesson4-plants-animals.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="grade" data-grade="الصَّفُّ الْخَامِسُ الابْتِدَائِيُّ">
-            <h2 class="grade-title"><span>الْوَحْدَةُ الثَّانِيَةُ<em class="unit-sub">الحضارة المصرية القديمة</em></span><small>٤ دروس</small></h2>
-            <div class="cards">
-            <div class="lesson-card">
-                <div class="lesson-num">5</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الأَوَّلُ</span>
-                    <h3>عوامل قيام الحضارة المصرية القديمة</h3>
-                    <p>٦ ألعاب • ٢٦١ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim5-unit2-lesson1-civilization-factors.html" value="prim5-unit2-lesson1-civilization-factors.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim5-unit2-lesson1-civilization-factors.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim5-unit2-lesson1-civilization-factors.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">6</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّانِي</span>
-                    <h3>حياة المصري القديم «عصور ما قبل التاريخ»</h3>
-                    <p>٦ ألعاب • ٢٦٣ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim5-unit2-lesson2-prehistoric-life.html" value="prim5-unit2-lesson2-prehistoric-life.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim5-unit2-lesson2-prehistoric-life.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim5-unit2-lesson2-prehistoric-life.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">7</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّالِثُ</span>
-                    <h3>حياة المصري القديم «العصور التاريخية»</h3>
-                    <p>٦ ألعاب • ٢٦١ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim5-unit2-lesson3-historic-eras-life.html" value="prim5-unit2-lesson3-historic-eras-life.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim5-unit2-lesson3-historic-eras-life.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim5-unit2-lesson3-historic-eras-life.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">8</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الرَّابِعُ</span>
-                    <h3>مصر في عصري البطالمة والرومان</h3>
-                    <p>٦ ألعاب • ٢٦٠ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim5-unit2-lesson4-ptolemies-romans.html" value="prim5-unit2-lesson4-ptolemies-romans.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim5-unit2-lesson4-ptolemies-romans.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim5-unit2-lesson4-ptolemies-romans.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="grade" data-grade="الصَّفُّ الْخَامِسُ الابْتِدَائِيُّ">
-            <h2 class="grade-title"><span>الْوَحْدَةُ الثَّالِثَةُ<em class="unit-sub">كنوز مصر</em></span><small>٣ دروس</small></h2>
-            <div class="cards">
-            <div class="lesson-card">
-                <div class="lesson-num">9</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الأَوَّلُ</span>
-                    <h3>الثروة المعدنية ومصادر الطاقة</h3>
-                    <p>٦ ألعاب • ٢٧١ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim5-unit3-lesson1-minerals-energy.html" value="prim5-unit3-lesson1-minerals-energy.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim5-unit3-lesson1-minerals-energy.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim5-unit3-lesson1-minerals-energy.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">10</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّانِي</span>
-                    <h3>موارد المياه</h3>
-                    <p>٦ ألعاب • ٢٧٢ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim5-unit3-lesson2-water-resources.html" value="prim5-unit3-lesson2-water-resources.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim5-unit3-lesson2-water-resources.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim5-unit3-lesson2-water-resources.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">11</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّالِثُ</span>
-                    <h3>المشروعات القومية (رؤية مصر للمستقبل)</h3>
-                    <p>٦ ألعاب • ٢٧٤ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim5-unit3-lesson3-national-projects.html" value="prim5-unit3-lesson3-national-projects.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim5-unit3-lesson3-national-projects.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim5-unit3-lesson3-national-projects.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-    </div>
-    <div class="gpanel" id="gp6">
-        <section class="grade" data-grade="الصَّفُّ السَّادِسُ الابْتِدَائِيُّ">
-            <h2 class="grade-title"><span>الْوَحْدَةُ الأُولَى<em class="unit-sub">وطننا العربي (خصائص وتحديات)</em></span><small>٤ دروس</small></h2>
-            <div class="cards">
-            <div class="lesson-card">
-                <div class="lesson-num">1</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الأَوَّلُ</span>
-                    <h3>وطننا العربي (الموقع - الأهمية)</h3>
-                    <p>٦ ألعاب • ٢٨٦ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit1-lesson1-location-importance.html" value="prim6-unit1-lesson1-location-importance.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit1-lesson1-location-importance.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit1-lesson1-location-importance.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">2</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّانِي</span>
-                    <h3>تضاريس وطننا العربي</h3>
-                    <p>٦ ألعاب • ٢٨٤ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit1-lesson2-arab-world-landforms.html" value="prim6-unit1-lesson2-arab-world-landforms.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit1-lesson2-arab-world-landforms.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit1-lesson2-arab-world-landforms.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">3</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّالِثُ</span>
-                    <h3>وطننا العربي (المناخ - النبات الطبيعي)</h3>
-                    <p>٦ ألعاب • ٢٦٥ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit1-lesson3-climate-vegetation.html" value="prim6-unit1-lesson3-climate-vegetation.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit1-lesson3-climate-vegetation.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit1-lesson3-climate-vegetation.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">4</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الرَّابِعُ</span>
-                    <h3>التحديات البيئية في وطننا العربي</h3>
-                    <p>٦ ألعاب • ٢٦٧ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit1-lesson4-environmental-challenges.html" value="prim6-unit1-lesson4-environmental-challenges.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit1-lesson4-environmental-challenges.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit1-lesson4-environmental-challenges.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="grade" data-grade="الصَّفُّ السَّادِسُ الابْتِدَائِيُّ">
-            <h2 class="grade-title"><span>الْوَحْدَةُ الثَّانِيَةُ<em class="unit-sub">الدولة الإسلامية من النشأة إلى العالمية</em></span><small>٤ دروس</small></h2>
-            <div class="cards">
-            <div class="lesson-card">
-                <div class="lesson-num">5</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الأَوَّلُ</span>
-                    <h3>شبه الجزيرة العربية (قبل وبعد ظهور الإسلام)</h3>
-                    <p>٦ ألعاب • ٢٦٩ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit2-lesson1-arabia-before-after-islam.html" value="prim6-unit2-lesson1-arabia-before-after-islam.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit2-lesson1-arabia-before-after-islam.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit2-lesson1-arabia-before-after-islam.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">6</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّانِي</span>
-                    <h3>الهجرة وعالمية الدعوة</h3>
-                    <p>٦ ألعاب • ٢٦٨ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit2-lesson2-hijra-dawah.html" value="prim6-unit2-lesson2-hijra-dawah.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit2-lesson2-hijra-dawah.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit2-lesson2-hijra-dawah.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">7</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّالِثُ</span>
-                    <h3>إنجازات الخلفاء الراشدين</h3>
-                    <p>٦ ألعاب • ٢٦٢ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit2-lesson3-rightly-guided-caliphs.html" value="prim6-unit2-lesson3-rightly-guided-caliphs.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit2-lesson3-rightly-guided-caliphs.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit2-lesson3-rightly-guided-caliphs.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">8</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الرَّابِعُ</span>
-                    <h3>الدولة الإسلامية (الأمويون - العباسيون)</h3>
-                    <p>٦ ألعاب • ٢٦٩ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit2-lesson4-umayyads-abbasids.html" value="prim6-unit2-lesson4-umayyads-abbasids.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit2-lesson4-umayyads-abbasids.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit2-lesson4-umayyads-abbasids.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <section class="grade" data-grade="الصَّفُّ السَّادِسُ الابْتِدَائِيُّ">
-            <h2 class="grade-title"><span>الْوَحْدَةُ الثَّالِثَةُ<em class="unit-sub">وطننا العربي والتنمية الاقتصادية</em></span><small>٤ دروس</small></h2>
-            <div class="cards">
-            <div class="lesson-card">
-                <div class="lesson-num">9</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الأَوَّلُ</span>
-                    <h3>النشاط الزراعي في وطننا العربي</h3>
-                    <p>٦ ألعاب • ٢٧١ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit3-lesson1-agriculture.html" value="prim6-unit3-lesson1-agriculture.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit3-lesson1-agriculture.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit3-lesson1-agriculture.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">10</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّانِي</span>
-                    <h3>الثروة الحيوانية والسمكية في وطننا العربي</h3>
-                    <p>٦ ألعاب • ٢٦٨ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit3-lesson2-livestock-fisheries.html" value="prim6-unit3-lesson2-livestock-fisheries.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit3-lesson2-livestock-fisheries.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit3-lesson2-livestock-fisheries.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">11</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الثَّالِثُ</span>
-                    <h3>المعادن ومصادر الطاقة في وطننا العربي</h3>
-                    <p>٦ ألعاب • ٢٧٠ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit3-lesson3-minerals-energy.html" value="prim6-unit3-lesson3-minerals-energy.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit3-lesson3-minerals-energy.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit3-lesson3-minerals-energy.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            <div class="lesson-card">
-                <div class="lesson-num">12</div>
-                <div class="lesson-body">
-                    <span class="lesson-tag">الدَّرْسُ الرَّابِعُ</span>
-                    <h3>النشاط السياحي في وطننا العربي</h3>
-                    <p>٦ ألعاب • ٢٦٨ سؤالًا • فردي أو منافسة بين فريقين</p>
-                    <span class="lock-note">🔒 الدخول بكلمة مرور من الأستاذ</span>
-                    <div class="link-row"><input class="link-box" readonly data-file="prim6-unit3-lesson4-tourism.html" value="prim6-unit3-lesson4-tourism.html"></div>
-                    <div class="actions">
-                        <a class="btn btn-open" href="prim6-unit3-lesson4-tourism.html" target="_blank" rel="noopener">فتح الدرس</a>
-                        <button class="btn btn-copy" data-file="prim6-unit3-lesson4-tourism.html">نسخ الرابط</button>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-    </div>
+    <div class="pick-title" id="pick-title">👇 اختر صفك الدراسي</div>
+    <div class="current-grade hidden" id="current-grade"><span id="cg-name"></span><button class="btn" id="change-grade" type="button">🔁 تغيير الصف</button></div>
+    <div class="tabs" id="tabs"><button class="tab" data-g="1">الصَّفُّ الأَوَّلُ الإِعْدَادِيُّ<small>١١ درسًا</small></button><button class="tab" data-g="2">الصَّفُّ الثَّانِي الإِعْدَادِيُّ<small>١١ درسًا</small></button><button class="tab" data-g="3">الصَّفُّ الثَّالِثُ الإِعْدَادِيُّ<small>١١ درسًا</small></button><button class="tab" data-g="bac">البَكَالُورْيَا المِصْرِيَّةُ (التاريخ)<small>٤ دروس</small></button></div>
+    <div class="toolbar hidden" id="toolbar"><button class="btn btn-all" id="copy-all">نسخ روابط دروس هذا الصف</button></div>
     <div class="gpanel" id="g1">
         <section class="grade" data-grade="الصَّفُّ الأَوَّلُ الإِعْدَادِيُّ">
             <h2 class="grade-title"><span>الْوَحْدَةُ الأُولَى<em class="unit-sub">قارة إفريقيا</em></span><small>٣ دروس</small></h2>
@@ -1278,12 +719,31 @@ header { padding-bottom:170px !important; }
         });
         copyText(lines.join('\n')).then(() => showToast('تم نسخ روابط دروس الصف ✅')).catch(() => showToast('تعذر النسخ'));
     });
-    document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+    function showGrade(g) {
+        const t = document.querySelector('.tab[data-g="' + g + '"]');
+        if (!t) return showPicker();
         document.querySelectorAll('.tab').forEach(x => x.classList.toggle('active', x === t));
-        document.querySelectorAll('.gpanel').forEach(p => p.classList.toggle('active', p.id === 'g' + t.dataset.g));
-        try { localStorage.setItem('sayedsaleh_grade', t.dataset.g); } catch (e) {}
-    }));
-    try { const s = localStorage.getItem('sayedsaleh_grade'); if (s) { const t = document.querySelector('.tab[data-g="' + s + '"]'); if (t) t.click(); } } catch (e) {}
+        document.querySelectorAll('.gpanel').forEach(p => p.classList.toggle('active', p.id === 'g' + g));
+        document.getElementById('cg-name').textContent = '📚 ' + t.childNodes[0].textContent.trim();
+        document.getElementById('tabs').classList.add('hidden');
+        document.getElementById('pick-title').classList.add('hidden');
+        document.getElementById('current-grade').classList.remove('hidden');
+        document.getElementById('toolbar').classList.remove('hidden');
+        try { localStorage.setItem('sayedsaleh_grade', g); } catch (e) {}
+        window.scrollTo({ top: document.getElementById('current-grade').offsetTop - 10, behavior: 'smooth' });
+    }
+    function showPicker() {
+        document.querySelectorAll('.gpanel').forEach(p => p.classList.remove('active'));
+        document.getElementById('tabs').classList.remove('hidden');
+        document.getElementById('tabs').classList.add('picker');
+        document.getElementById('pick-title').classList.remove('hidden');
+        document.getElementById('current-grade').classList.add('hidden');
+        document.getElementById('toolbar').classList.add('hidden');
+        try { localStorage.removeItem('sayedsaleh_grade'); } catch (e) {}
+    }
+    document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => showGrade(t.dataset.g)));
+    document.getElementById('change-grade').addEventListener('click', showPicker);
+    (function(){ let s = null; try { s = localStorage.getItem('sayedsaleh_grade'); } catch (e) {} if (s) showGrade(s); else showPicker(); })();
 </script>
 </body>
 </html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>نتائج الطلاب - أ/ السيد صالح</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root { --primary:#1e3a8a; --secondary:#2563eb; --gold:#f59e0b; --bg:#eef2ff; --ok:#16a34a; --bad:#dc2626; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Cairo',sans-serif; background:var(--bg); color:#0f172a; min-height:100vh; }
+header { background:linear-gradient(135deg,#0b1a3f,var(--primary),#1e40af); color:#fff; padding:18px 16px; display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; text-align:center; }
+header img.logo { width:82px; height:82px; border-radius:18px; border:3px solid var(--gold); background:#fff; object-fit:contain; }
+header img.ph { width:66px; height:82px; border-radius:16px; border:3px solid var(--gold); object-fit:cover; object-position:top; }
+header h1 { font-size:1.45rem; font-weight:900; color:#fde68a; }
+header p { font-weight:700; opacity:.9; }
+main { max-width:1200px; margin:0 auto; padding:16px; }
+.card { background:#fff; border-radius:18px; box-shadow:0 6px 18px rgba(30,58,138,.08); padding:16px; margin-bottom:14px; }
+#login { max-width:420px; margin:40px auto; text-align:center; }
+#login h2 { color:var(--primary); font-weight:900; margin-bottom:6px; }
+input, select { font-family:inherit; font-size:1rem; padding:10px 12px; border:2px solid #cbd5e1; border-radius:12px; outline:none; background:#fff; width:100%; }
+input:focus, select:focus { border-color:var(--secondary); }
+.btn { font-family:inherit; font-weight:800; font-size:1rem; border:none; border-radius:12px; padding:10px 18px; cursor:pointer; color:#fff; background:linear-gradient(to bottom,var(--secondary),var(--primary)); }
+.btn.light { background:#e2e8f0; color:#1e293b; }
+.btn.green { background:linear-gradient(to bottom,#22c55e,#15803d); }
+.err { color:var(--bad); font-weight:800; min-height:1.4em; margin-top:8px; }
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.stat { background:#fff; border-radius:16px; padding:14px; text-align:center; box-shadow:0 6px 18px rgba(30,58,138,.08); border-top:4px solid var(--gold); }
+.stat b { display:block; font-size:1.7rem; color:var(--primary); font-weight:900; }
+.stat span { color:#64748b; font-weight:700; font-size:.9rem; }
+.filters { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.filters label { font-size:.85rem; font-weight:800; color:#475569; display:block; margin-bottom:3px; }
+.bar { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:12px; }
+.views { display:flex; gap:8px; margin-bottom:10px; }
+.views button { flex:1; }
+.views button.on { outline:3px solid var(--gold); }
+.tbl-wrap { overflow:auto; max-height:70vh; border-radius:14px; border:1px solid #e2e8f0; }
+table { width:100%; border-collapse:collapse; background:#fff; font-size:.95rem; }
+th { position:sticky; top:0; background:var(--primary); color:#fff; padding:10px 8px; white-space:nowrap; cursor:pointer; }
+td { padding:9px 8px; border-bottom:1px solid #eef2f7; text-align:center; }
+td.l { text-align:right; }
+tr:nth-child(even) td { background:#f8fafc; }
+.pct { display:inline-block; min-width:52px; padding:3px 8px; border-radius:20px; font-weight:900; color:#fff; }
+.muted { color:#64748b; font-weight:700; text-align:center; padding:24px; }
+.hidden { display:none !important; }
+@media (max-width:800px) { .stats, .filters { grid-template-columns:repeat(2,1fr); } }
+</style>
+</head>
+<body>
+<header>
+  <img class="logo" src="logo.png" alt="سلسلة الموسوعة">
+  <div><h1>📊 نتائج الطلاب</h1><p>أ/ السَّيِّد صَالِح • كبير معلمين • سلسلة الموسوعة</p></div>
+  <img class="ph" src="teacher.jpg" alt="أ/ السيد صالح">
+</header>
+<main>
+  <div id="login" class="card">
+    <h2>🔒 صفحة المدرس</h2>
+    <p style="color:#64748b;font-weight:700;margin-bottom:12px;">اكتب كلمة مرور صفحة النتائج</p>
+    <input id="pw" type="password" placeholder="كلمة المرور" style="text-align:center;font-size:1.2rem;">
+    <button class="btn" style="width:100%;margin-top:10px;padding:12px;" onclick="login()">عرض النتائج</button>
+    <div class="err" id="lerr"></div>
+  </div>
+
+  <div id="app" class="hidden">
+    <div class="stats">
+      <div class="stat"><b id="s-n">0</b><span>نتيجة مسجلة</span></div>
+      <div class="stat"><b id="s-st">0</b><span>طالب</span></div>
+      <div class="stat"><b id="s-avg">0%</b><span>متوسط النسبة</span></div>
+      <div class="stat"><b id="s-full">0</b><span>درجة نهائية</span></div>
+    </div>
+    <div class="card" style="margin-top:14px;">
+      <div class="filters">
+        <div><label>🔎 اسم الطالب</label><input id="f-name" placeholder="ابحث بالاسم" oninput="render()"></div>
+        <div><label>🎓 الصف</label><select id="f-grade" onchange="fillLessons();render()"></select></div>
+        <div><label>📘 الدرس</label><select id="f-lesson" onchange="render()"></select></div>
+        <div><label>🎮 اللعبة</label><select id="f-game" onchange="render()"></select></div>
+        <div><label>👥 نوع اللعب</label><select id="f-mode" onchange="render()"></select></div>
+        <div><label>📅 من تاريخ</label><input id="f-from" type="date" onchange="render()"></div>
+        <div><label>📅 إلى تاريخ</label><input id="f-to" type="date" onchange="render()"></div>
+        <div><label>⭐ النسبة أقل من</label><select id="f-max" onchange="render()"><option value="">الكل</option><option value="50">50%</option><option value="65">65%</option><option value="80">80%</option></select></div>
+      </div>
+      <div class="bar">
+        <button class="btn" onclick="load()">🔄 تحديث</button>
+        <button class="btn green" onclick="exportCsv()">⬇️ تحميل Excel</button>
+        <button class="btn light" onclick="resetFilters()">مسح الفلاتر</button>
+        <button class="btn light" onclick="logout()">خروج</button>
+        <span id="upd" style="color:#64748b;font-weight:700;font-size:.9rem;"></span>
+      </div>
+    </div>
+    <div class="views"><button class="btn on" id="v1" onclick="setView(1)">📋 كل النتائج</button><button class="btn light" id="v2" onclick="setView(2)">👤 ملخص كل طالب</button></div>
+    <div class="tbl-wrap"><table id="tbl"></table></div>
+    <div id="empty" class="muted hidden">لا توجد نتائج مطابقة</div>
+  </div>
+</main>
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzW_-f50WYfHNPDBXXClD0XxVgN-_YBstgX0nnnqN8_1xtQGpN2XX4R6Muaf-D3D0Bq/exec";
+let ROWS = [], VIEW = 1, SORT = { k: 'time', d: -1 }, KEY = '';
+const $ = id => document.getElementById(id);
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function pctColor(p) { return p >= 85 ? '#16a34a' : p >= 65 ? '#2563eb' : p >= 50 ? '#d97706' : '#dc2626'; }
+async function login() {
+  KEY = $('pw').value.trim(); if (!KEY) return;
+  $('lerr').textContent = '⏳ جاري التحميل...';
+  const ok = await load(true);
+  if (ok) { try { sessionStorage.setItem('ss_t_key', KEY); } catch (e) {} }
+}
+function logout() { try { sessionStorage.removeItem('ss_t_key'); } catch (e) {} location.reload(); }
+async function load(fromLogin) {
+  if (!/^https:\/\//.test(SCRIPT_URL)) { $('lerr').textContent = 'لم يتم ربط صفحة النتائج بجوجل شيت بعد'; return false; }
+  try {
+    const r = await fetch(SCRIPT_URL + '?action=results&key=' + encodeURIComponent(KEY) + '&t=' + Date.now());
+    const j = await r.json();
+    if (!j.ok) { $('lerr').textContent = j.error === 'wrong password' ? '❌ كلمة المرور غير صحيحة' : ('حدث خطأ: ' + j.error); if (!fromLogin) logout(); return false; }
+    ROWS = j.rows.map(x => ({ ...x, percent: Number(x.percent) || 0, score: Number(x.score) || 0, total: Number(x.total) || 0, wrong: Number(x.wrong) || 0 }));
+    $('login').classList.add('hidden'); $('app').classList.remove('hidden');
+    fillFilters(); render();
+    $('upd').textContent = 'آخر تحديث: ' + new Date().toLocaleTimeString('ar-EG');
+    return true;
+  } catch (e) { $('lerr').textContent = '⚠️ تعذر الاتصال، تأكد من الإنترنت'; return false; }
+}
+function uniq(a) { return [...new Set(a.filter(Boolean))].sort((x, y) => String(x).localeCompare(String(y), 'ar')); }
+function opts(sel, vals, all) { const cur = sel.value; sel.innerHTML = '<option value="">' + all + '</option>' + vals.map(v => '<option>' + esc(v) + '</option>').join(''); if (vals.includes(cur)) sel.value = cur; }
+function fillFilters() {
+  opts($('f-grade'), uniq(ROWS.map(r => r.grade)), 'كل الصفوف');
+  fillLessons();
+  opts($('f-game'), uniq(ROWS.map(r => r.game)), 'كل الألعاب');
+  opts($('f-mode'), uniq(ROWS.map(r => r.mode)), 'الكل');
+}
+function fillLessons() { const g = $('f-grade').value; opts($('f-lesson'), uniq(ROWS.filter(r => !g || r.grade === g).map(r => r.lesson)), 'كل الدروس'); }
+function filtered() {
+  const n = $('f-name').value.trim(), g = $('f-grade').value, l = $('f-lesson').value, gm = $('f-game').value, m = $('f-mode').value,
+        fr = $('f-from').value, to = $('f-to').value, mx = $('f-max').value;
+  return ROWS.filter(r => (!n || String(r.name).includes(n)) && (!g || r.grade === g) && (!l || r.lesson === l) && (!gm || r.game === gm) && (!m || r.mode === m)
+    && (!fr || String(r.time).slice(0, 10) >= fr) && (!to || String(r.time).slice(0, 10) <= to) && (!mx || r.percent < Number(mx)));
+}
+function summary(rows) {
+  const by = {};
+  rows.forEach(r => { const k = r.name + '|' + r.grade; (by[k] = by[k] || { name: r.name, grade: r.grade, n: 0, sum: 0, best: 0, last: '' });
+    const s = by[k]; s.n++; s.sum += r.percent; s.best = Math.max(s.best, r.percent); if (String(r.time) > s.last) s.last = String(r.time); });
+  return Object.values(by).map(s => ({ ...s, avg: Math.round(s.sum / s.n) }));
+}
+function setView(v) { VIEW = v; $('v1').className = 'btn' + (v === 1 ? ' on' : ' light'); $('v2').className = 'btn' + (v === 2 ? ' on' : ' light'); SORT = v === 1 ? { k: 'time', d: -1 } : { k: 'avg', d: -1 }; render(); }
+function sortBy(k) { SORT = { k, d: SORT.k === k ? -SORT.d : -1 }; render(); }
+function cmp(a, b) { const x = a[SORT.k], y = b[SORT.k]; return (typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y), 'ar')) * SORT.d; }
+function render() {
+  const rows = filtered();
+  $('s-n').textContent = rows.length;
+  $('s-st').textContent = new Set(rows.map(r => r.name)).size;
+  $('s-avg').textContent = (rows.length ? Math.round(rows.reduce((a, r) => a + r.percent, 0) / rows.length) : 0) + '%';
+  $('s-full').textContent = rows.filter(r => r.percent === 100).length;
+  let html;
+  if (VIEW === 1) {
+    const data = rows.slice().sort(cmp);
+    const H = [['time','التاريخ'],['name','الطالب'],['grade','الصف'],['lesson','الدرس'],['game','اللعبة'],['mode','النوع'],['score','الدرجة'],['percent','النسبة'],['note','ملاحظات']];
+    html = '<tr>' + H.map(h => '<th onclick="sortBy(\'' + h[0] + '\')">' + h[1] + (SORT.k === h[0] ? (SORT.d > 0 ? ' ▲' : ' ▼') : '') + '</th>').join('') + '</tr>'
+      + data.map(r => '<tr><td>' + esc(r.time) + '</td><td class="l"><b>' + esc(r.name) + '</b></td><td>' + esc(r.grade) + '</td><td class="l">' + esc(r.lesson) + '</td><td>' + esc(r.game) + '</td><td>' + esc(r.mode)
+        + '</td><td>' + r.score + ' / ' + r.total + '</td><td><span class="pct" style="background:' + pctColor(r.percent) + '">' + r.percent + '%</span></td><td class="l" style="font-size:.85rem;color:#64748b">' + esc(r.note) + '</td></tr>').join('');
+  } else {
+    const data = summary(rows).sort(cmp);
+    const H = [['name','الطالب'],['grade','الصف'],['n','عدد المحاولات'],['avg','متوسط النسبة'],['best','أعلى نسبة'],['last','آخر نشاط']];
+    html = '<tr>' + H.map(h => '<th onclick="sortBy(\'' + h[0] + '\')">' + h[1] + (SORT.k === h[0] ? (SORT.d > 0 ? ' ▲' : ' ▼') : '') + '</th>').join('') + '</tr>'
+      + data.map(s => '<tr><td class="l"><b>' + esc(s.name) + '</b></td><td>' + esc(s.grade) + '</td><td>' + s.n + '</td><td><span class="pct" style="background:' + pctColor(s.avg) + '">' + s.avg + '%</span></td><td>' + s.best + '%</td><td>' + esc(s.last) + '</td></tr>').join('');
+  }
+  $('tbl').innerHTML = html;
+  $('empty').classList.toggle('hidden', rows.length > 0);
+}
+function resetFilters() { ['f-name','f-from','f-to'].forEach(i => $(i).value = ''); ['f-grade','f-game','f-mode','f-max'].forEach(i => $(i).value = ''); fillLessons(); render(); }
+function exportCsv() {
+  const rows = filtered(); let lines;
+  if (VIEW === 1) lines = [['التاريخ','الطالب','الصف','الدرس','اللعبة','النوع','الدرجة','من','النسبة %','الأخطاء','ملاحظات']].concat(rows.map(r => [r.time, r.name, r.grade, r.lesson, r.game, r.mode, r.score, r.total, r.percent, r.wrong, r.note]));
+  else lines = [['الطالب','الصف','عدد المحاولات','متوسط النسبة %','أعلى نسبة %','آخر نشاط']].concat(summary(rows).map(s => [s.name, s.grade, s.n, s.avg, s.best, s.last]));
+  const csv = '﻿' + lines.map(l => l.map(v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"').join(',')).join('\r\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+  a.download = 'نتائج-الطلاب-' + new Date().toISOString().slice(0, 10) + '.csv'; a.click();
+}
+$('pw').addEventListener('keydown', e => { if (e.key === 'Enter') login(); });
+try { const k = sessionStorage.getItem('ss_t_key'); if (k) { KEY = k; load(false); } } catch (e) {}
+setInterval(() => { if (!$('app').classList.contains('hidden')) load(false); }, 120000);
+</script>
+</body>
+</html>
