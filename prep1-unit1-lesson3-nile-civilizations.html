@@ -3532,6 +3532,18 @@
         }
     }
 
+    // اختيار أسئلة الجولة: في صح/خطأ نوازن بين العبارات الصحيحة والخاطئة
+    function pickRoundQuestions(gameData) {
+        const all = shuffleArray([...gameData.questions]);
+        if (gameData.type !== 'true_false') return all.slice(0, QUESTIONS_PER_ROUND);
+        const isT = q => q.options[q.ans] === 'صح';
+        const T = all.filter(isT), F = all.filter(q => !isT(q));
+        const half = Math.floor(QUESTIONS_PER_ROUND / 2);
+        let nF = Math.min(F.length, QUESTIONS_PER_ROUND - half), nT = Math.min(T.length, QUESTIONS_PER_ROUND - nF);
+        nF = Math.min(F.length, QUESTIONS_PER_ROUND - nT);
+        return shuffleArray([...T.slice(0, nT), ...F.slice(0, nF)]);
+    }
+
     function shuffleArray(arr) {
         return arr.map(a => ({sort: Math.random(), value: a}))
             .sort((a, b) => a.sort - b.sort)
@@ -3685,7 +3697,7 @@
     function beginGame(gameData) {
         initAudio();
         currentGame = gameData;
-        currentQuestions = shuffleArray([...gameData.questions]).slice(0, QUESTIONS_PER_ROUND);
+        currentQuestions = pickRoundQuestions(gameData);
         qIndex = 0;
         wrongAnswers = []; // تصفير قائمة الأخطاء
         
@@ -4239,7 +4251,7 @@
         initAudio();
         stopDuelTimers();
         currentGame = gameData;
-        const pool = shuffleArray([...gameData.questions]).slice(0, QUESTIONS_PER_ROUND);
+        const pool = pickRoundQuestions(gameData);
         const orderA = duelOrder(pool, null);
         const orderB = duelOrder(pool, orderA);
         duel = { teams: [orderA, orderB].map(order => ({ order, idx: 0, score: 0, time: 0, wrong: [], timer: null, done: false })), finished: false };
@@ -4561,5 +4573,6 @@
   window.addEventListener('load', function(){ setTimeout(flushPending, 1500); });
 })();
 </script>
+<div id="ss-watermark" aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:2147483000;opacity:.16;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTkwIj48dGV4dCB4PSIxNTAiIHk9IjEwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgdHJhbnNmb3JtPSJyb3RhdGUoLTI1IDE1MCA5NSkiIGZvbnQtZmFtaWx5PSJDYWlybyxUYWphd2FsLEFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiNjNDlhMmMiPtin2YTZhdmI2LPZiNi52KkgLSDYp9mE2LPZitivINi12KfZhNitPC90ZXh0Pjwvc3ZnPg==);background-repeat:repeat;background-size:300px 190px;"></div>
 </body>
 </html>

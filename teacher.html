@@ -178,5 +178,6 @@ $('pw').addEventListener('keydown', e => { if (e.key === 'Enter') login(); });
 try { const k = sessionStorage.getItem('ss_t_key'); if (k) { KEY = k; load(false); } } catch (e) {}
 setInterval(() => { if (!$('app').classList.contains('hidden')) load(false); }, 120000);
 </script>
+<div id="ss-watermark" aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:2147483000;opacity:.16;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTkwIj48dGV4dCB4PSIxNTAiIHk9IjEwNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgdHJhbnNmb3JtPSJyb3RhdGUoLTI1IDE1MCA5NSkiIGZvbnQtZmFtaWx5PSJDYWlybyxUYWphd2FsLEFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjUiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiNjNDlhMmMiPtin2YTZhdmI2LPZiNi52KkgLSDYp9mE2LPZitivINi12KfZhNitPC90ZXh0Pjwvc3ZnPg==);background-repeat:repeat;background-size:300px 190px;"></div>
 </body>
 </html>
